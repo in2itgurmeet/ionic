@@ -1,0 +1,151 @@
+<ion-text class="container-fluid_main scrollable-container">
+    <!-- Your existing content here -->
+
+    <ion-text class="row p-2" style="background: rgb(245, 245, 245) !important">
+
+        <!-- Top Lorry Section -->
+        <ion-text class="p-2 mt-2">
+            <ion-text class="container-fluid_main bg-white">
+                <ion-text class="top_Lorry_section bg-banner">
+                    <ion-text class="Side_Section text-start" style=" display: flex;align-items: baseline;">
+                        <img src="../../../../assets/icon/logo.jpg" class="mb-1 mt-3 ms-3" width="100px" alt="" />
+
+                    </ion-text>
+                    <ion-text class="Side_Section  py-3">
+                        <p class="fw-bold">+91 999999999</p>
+                        <p class="fw-bold">abcd&#64;gmail.com</p>
+                        <p class="fw-bold w-mx">Mumbai Mharashtra</p>
+
+                    </ion-text>
+                </ion-text>
+                <ion-text class="p-2">
+
+                    <p class="fw-bold mt-4 ms-2" style="font-size: small;">Invoice Deatils</p>
+                    <ion-text class="top_Lorry_section mt-2">
+                        <ion-text class="Side_Section Information py-2">
+                            <p class="fw-bold">Invoice No</p>
+                            <p class="fw-bold">Date </p>
+                            <p class="fw-bold">Due date </p>
+                        </ion-text>
+                        <!-- Repeated Information Section -->
+                        <ion-text class="Side_Section  py-2">
+                            <p class="fw-bold">INV/23-24/12212</p>
+                            <p class="fw-bold">MH 04 AA 2025</p>
+                            <p class="fw-bold w-mx">+91 9999999999</p>
+                        </ion-text>
+                    </ion-text>
+                </ion-text>
+
+                <!-- Horizontal Line -->
+                <span class="hr_lines" style="width: 95%">
+                    <hr />
+                </span>
+
+                <!---------invoice Information----------->
+                <ion-text class="p-2">
+
+                    <p class="fw-bold mt-2 ms-2" style="font-size: small;">Invoice For</p>
+                    <ion-text class="top_Lorry_section mt-2">
+                        <ion-text class="Side_Section Information py-2">
+                            <p class="fw-bold">Coustmer Name</p>
+                            <p class="fw-bold">Mobile No </p>
+                            <p class="fw-bold">Email </p>
+                            <p class="fw-bold">Address </p>
+                        </ion-text>
+                        <!-- Repeated Information Section -->
+                        <ion-text class="Side_Section  py-2">
+                            <p class="fw-bold">Steel Serviec Pvt Ltd</p>
+                            <p class="fw-bold w-mx">+91 9999999999</p>
+                            <p class="fw-bold">Steelservice&#64;gmail.com</p>
+                            <p class="fw-bold w-mx">Thane Mumbai-Mharathra</p>
+
+
+                        </ion-text>
+                    </ion-text>
+                </ion-text>
+
+
+                <!-- Horizontal Line -->
+                <span class="hr_lines" style="width: 95%">
+                    <hr />
+                </span>
+                <ion-text class="p-2">
+
+                    <p class="fw-bold mt-2 ms-2" style="font-size: small;">Service Fees</p>
+                    <ion-card>
+                        <ion-text class="top_Lorry_section mt-2">
+                            <ion-text class="Side_Section Information py-2">
+                                <p class="fw-bold">Tranpotation Charge </p>
+                                <p class="fw-bold">Loding & Unloading </p>
+                            </ion-text>
+                            <!-- Repeated Information Section -->
+                            <ion-text class="Side_Section  py-2">
+                                <p class="fw-bold">3000.00</p>
+                                <p class="fw-bold w-mx">1000.00</p>
+                            </ion-text>
+                        </ion-text>
+                        <ion-text class="hr_lines" style="width: 95%">
+                            <hr />
+                        </ion-text>
+                        <ion-text class="top_Lorry_section">
+                            <ion-text class="Side_Section Information ">
+                                <p class="fw-bold">Gross Total </p>
+                                <p class="fw-bold">SGST(9%) </p>
+                                <p class="fw-bold">CGST(9%) </p>
+                            </ion-text>
+                            <!-- Repeated Information Section -->
+                            <ion-text class="Side_Section  ">
+                                <p class="fw-bold">4000.00</p>
+                                <p class="fw-bold w-mx">360.00</p>
+                                <p class="fw-bold">360.00</p>
+                            </ion-text>
+                        </ion-text>
+                        <span class="hr_lines" style="width: 95%">
+                            <hr />
+                        </span>
+                        <ion-text class="top_Lorry_section">
+                            <ion-text class="Side_Section Information ">
+                                <p class="fw-bold text-dark">New total </p>
+                                <p class="fw-bold text-success">Paid </p>
+                                <p class="fw-bold text-danger">Outstanding </p>
+                            </ion-text>
+                            <!-- Repeated Information Section -->
+                            <ion-text class="Side_Section  ">
+                                <p class="fw-bold text-dark">4720.00</p>
+                                <p class="fw-bold w-mx text-success">1000.00</p>
+                                <p class="fw-bold text-danger">3720.00 </p>
+                            </ion-text>
+                        </ion-text>
+                    </ion-card>
+                </ion-text>
+                <br><br>
+            </ion-text>
+
+        </ion-text>
+
+        <!--------fotter tollbar-->
+
+
+    </ion-text>
+</ion-text>
+<ion-text class="Footer border">
+    <ion-text class="px-3">
+        <p class="share_btn btn" style="margin: 0px">
+            <i class="fa fa-share-alt me-2" aria-hidden="true"></i><span class="fw-bold">Share</span>
+        </p>
+    </ion-text>
+    <ion-text class="px-2 py-2">
+        <button class="me-2 btn btn-primary" (click)="printPage()">Print</button>
+        <button class="Dwonload_button btn" (click)="openPopup() ">Dwonload</button>
+    </ion-text>
+</ion-text>
+<ion-card *ngIf="isPopupOpen" class="Popup p-5">
+    <ion-text class="my_poup">
+        <i class="fa fa-times" aria-hidden="true" (click)="openPopup()"></i>
+
+        <p><i class="fa fa-check" aria-hidden="true"></i></p>
+        <h6 class="fw-bold">Download SuccessFull!</h6>
+        <span> Loory Receipt has been Downloaded SuccessFully. </span>
+    </ion-text>
+</ion-card>
+<div *ngIf="isPopupOpen" class="overlay" (click)="openPopup()"></div>

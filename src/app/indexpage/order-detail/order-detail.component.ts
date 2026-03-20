@@ -1,0 +1,32 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-order-detail',
+  templateUrl: './order-detail.component.html',
+  styleUrls: ['./order-detail.component.scss'],
+})
+export class OrderDetailComponent   {
+  isSecondAccordionOpen: boolean = false;
+  isPopupOpen: boolean = false;
+ constructor(){}
+  toggleAccordion() {
+    this.isSecondAccordionOpen = !this.isSecondAccordionOpen;
+  }
+  
+
+
+
+
+  openPopup() {
+    this.isPopupOpen = !this.isPopupOpen;
+    if (this.isPopupOpen) {
+      document.body.classList.add('overlay');
+    } else {
+      document.body.classList.remove('overlay');
+    }
+  }
+  
+  
+   }
+
+

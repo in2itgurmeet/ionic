@@ -1,0 +1,104 @@
+.star_svg_section {
+    width: calc(100%);
+    max-width: calc(100%);
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-star {
+    width: calc(100%);
+    max-width: calc(100%);
+    display: flex;
+    font-size: 25px;
+    color: gray;
+}
+
+.Svg_container {
+    width: calc(75%);
+    max-width: calc(75%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.top_hedding {
+    color: #ff6347;
+}
+
+.Main_banner_container {
+    border: 1px solid rgb(241, 241, 241);
+    border-radius: 7px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.Main_banner_container ion-text p {
+    color: rgb(199, 199, 199);
+    font-size: 14px;
+}
+
+.feedback_input {
+    width: -webkit-fill-available;
+    border: 1px solid rgb(190, 190, 190);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+    gap: 0;
+    background: rgb(241, 241, 241);
+
+}
+
+.feedback_input p {
+    font-size: 12px;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: rgb(241, 241, 241);
+    resize: none;
+    border: none !important;
+}
+
+::placeholder {
+    font-size: 13px;
+}
+
+.dashboard_top {
+    width: calc(100%);
+    max-width: calc(100%);
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 0px 15px;
+}
+
+.ptl_section {
+    width: calc(94% / 2);
+    max-width: calc(94% / 2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-size: contain;
+    border: 1px solid rgb(241, 241, 241);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.text_section p {
+    font-size: 13px;
+    color: rgb(99, 99, 99);
+}
+
+.Card_text {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: start;
+}

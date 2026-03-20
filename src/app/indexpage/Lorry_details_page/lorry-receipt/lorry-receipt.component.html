@@ -1,0 +1,205 @@
+<ion-text class="container-fluid_main scrollable-container">
+  <!-- Your existing content here -->
+
+  <ion-text class="row p-2" style="background: rgb(245, 245, 245) !important">
+    <ion-text class="bg-white tab-bar" style="height: 45px;">
+      
+      <div class="tab-bar g-0" >
+        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)"  routerLink="/indexpage/Loory-receipt">Loory Receipt</a>
+        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)"  routerLink="/indexpage/Shiping-lable">Shipping Lable</a>
+        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)" routerLink="/indexpage/Proof-delivery">Proof of Delivery</a>
+      </div>
+      
+      
+      
+    </ion-text>
+    <!-- Top Lorry Section -->
+    <ion-text class="p-2 mt-5">
+      <ion-text class="container-fluid_main bg-white">
+        <ion-text class="top_Lorry_section bg-banner">
+          <ion-text class="Side_Section text-start" style="line-height: normal">
+            <img
+              src="../../../../assets/icon/logo.jpg"
+              class="mb-1"
+              width="100px"
+              alt=""
+            />
+            <p>loory receipt</p>
+            <p>CN No:<span></span></p>
+            <p>GST No:<span></span></p>
+          </ion-text>
+          <ion-text class="Side_Section text-end">
+            <p style="word-break: break-all">
+              Lorem ipsum dolor sit amet consectetur quo quidem?
+            </p>
+            <p>Mob No: <span>+91 999999999</span></p>
+            <p>Email: <span>abcd&#64;gmail.com</span></p>
+            <p>Web: <span>www.weblogin.com</span></p>
+          </ion-text>
+        </ion-text>
+        <ion-text class="top_Lorry_section mt-2">
+          <ion-text class="Side_Section Information py-2">
+            <p class="fw-bold">LR No: <span>Trip/23-24/12212</span></p>
+            <p class="fw-bold">Vehicle: <span>20FT Eciher</span></p>
+            <p class="fw-bold">Driver: <span>Austin Thurstain</span></p>
+            <p class="fw-bold w-mx">License No: <span>2224234256223</span></p>
+          </ion-text>
+          <!-- Repeated Information Section -->
+          <ion-text class="Side_Section Information py-2">
+            <p class="fw-bold">Trip Date: <span>Trip/23-24/12212</span></p>
+            <p class="fw-bold">Vehicle No: <span>MH 04 AA 2025</span></p>
+            <p class="fw-bold w-mx">Mobile No: <span>+91 9999999999</span></p>
+            <p class="fw-bold">RTO No: <span></span></p>
+          </ion-text>
+        </ion-text>
+
+        <!-- Horizontal Line -->
+        <ion-text class="hr_lines" style="width: 95%">
+          <hr />
+        </ion-text>
+        <p class="fw-bold text-center">Consignment Transaction Details</p>
+
+        <!-- Horizontal Line -->
+        <ion-text class="hr_lines" style="width: 95%">
+          <hr />
+        </ion-text>
+        <!-- Consignee Details -->
+        <ion-text class="Consignment_container px-2">
+          <p class="Consiger_headding fw-bold">Consignor</p>
+          <p class="Consiger_headding_sub">The Steel Service Group Pvt Ltd.</p>
+          <p class="Consiger_headding_Details">
+            Lorem ipsum dolor sit amet Quia, nesciunt saepe Pincode-201008
+          </p>
+          <p class="Consiger_headding_Details">
+            Mobile No: <span>+91 9999999999</span>
+          </p>
+          <p class="Consiger_headding_Details">
+            GSTIN No: <span>24AAB24327973</span>
+          </p>
+        </ion-text>
+        <!-- Horizontal Line -->
+        <ion-text class="hr_lines" style="width: 95%">
+          <hr />
+        </ion-text>
+        <ion-text class="Consignment_container px-2">
+          <p class="Consiger_headding fw-bold">Consignee</p>
+          <p class="Consiger_headding_sub">
+            The Steel Service Group Pvt Ltd. Pincode-201008
+          </p>
+          <p class="Consiger_headding_Details">
+            Lorem ipsum dolor sit amet Quia, nesciunt saepe
+          </p>
+          <p class="Consiger_headding_Details">
+            Mobile No: <span>+91 9999999999</span>
+          </p>
+          <p class="Consiger_headding_Details">
+            GSTIN No: <span>24AAB24327973</span>
+          </p>
+        </ion-text>
+        <ion-text class="hr_lines" style="width: 95%">
+          <hr />
+        </ion-text>
+        <!-- Repeated Information Section -->
+        <ion-text class="top_Lorry_section mt-2">
+          <ion-text class="Side_Section Information py-2">
+            <p class="fw-bold">Invoice No: <span>INV/23-24/0021</span></p>
+            <p class="fw-bold">Reference No: <span>REF00221</span></p>
+            <p class="fw-bold">DO No: <span></span></p>
+            <p class="fw-bold w-mx">Eway Bill: <span>562242XXXX6223</span></p>
+            <p class="fw-bold w-mx">Eway Bill Exp-Date: <span>08-02-2024</span></p>
+            <p class="fw-bold">GST Paid By: <span></span></p>
+            <p class="fw-bold">Container No: <span></span></p>
+          </ion-text>
+          <ion-text class="Side_Section Information py-2">
+            <p class="fw-bold">Date: <span>11-05-2024</span></p>
+            <p class="fw-bold">L/C No: <span>MH 04 AA 2025</span></p>
+            <p class="fw-bold">Expiry Date: <span>18-02-2035</span></p>
+            <p class="fw-bold">Service: <span>Full Truck Load</span></p>
+            <p class="fw-bold text-center">Container Size: <span>17LPT</span></p>
+          </ion-text>
+        </ion-text>
+        <!------table_contaent_here------->
+        <ion-text class="px-2">
+          <!-- my-table.component.html -->
+
+          <table>
+            <thead>
+              <tr>
+                <th>sr.</th>
+                <th>Decription</th>
+                <th>UCM</th>
+                <th style="line-height: normal">Weight (Kg)</th>
+                <th>Amount</th>
+                <th>Qty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Slitting <br>(17 LPT)</td>
+                <td>Box</td>
+                <td>100</td>
+                <td style="line-height: normal">As per party bill</td>
+                <td>10</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!---------horizontaly lines----->
+        </ion-text>
+        <ion-text class="hr_lines" style="width: 95%">
+          <hr />
+        </ion-text>
+
+        <ion-text class="px-2">
+          <p class="fw-bold">Term's & Conditions</p>
+          <ol style="line-height: 18px; margin: -7px 0px 6px -8px">
+            <li>Goods Once Sold One will not be accepted.</li>
+            <li>We are not responsible for any Transpotation Damage.</li>
+            <li>Goods Once Sold One will not be accepted</li>
+            <li>We are not responsibble for any Transpotation Damage</li>
+          </ol>
+        </ion-text>
+
+        <!---------extra gap------------>
+        <ion-text class="Extra_gap"> </ion-text>
+        <ion-text class="top_Lorry_section py-3 px-2">
+          <ion-text class="fw-bold" style="font-size: 12px"
+            >Receiver Sign,Stamp,Mob..</ion-text
+          >
+          <ion-text class="fw-bold" style="font-size: 12px"
+            >PLC Logistic Pvt Ltd</ion-text
+          >
+        </ion-text>
+      </ion-text>
+      <br />
+    </ion-text>
+
+    <!--------fotter tollbar-->
+
+  </ion-text>
+</ion-text>
+<ion-text class="Footer border">
+  <ion-text class="px-3"
+    ><p class="share_btn btn" style="margin: 0px">
+      <i class="fa fa-share-alt me-2" aria-hidden="true"></i
+      ><span class="fw-bold">Share</span>
+    </p></ion-text
+  >
+  <ion-text class="px-2 py-2">
+    <button class="me-2 btn btn-primary" (click)="printPage()">Print</button>
+    <button class="Dwonload_button btn" (click)="openPopup() ">Dwonload</button>
+  </ion-text>
+</ion-text>
+<ion-card *ngIf="isPopupOpen" class="Popup p-5">
+  <ion-text class="my_poup">
+    <i class="fa fa-times" aria-hidden="true" (click)="openPopup()"></i>
+
+    <p><i class="fa fa-check" aria-hidden="true"></i></p>
+    <h6 class="fw-bold">Download SuccessFull!</h6>
+    <span> Loory Receipt has been Downloaded SuccessFully. </span>
+  </ion-text>
+
+</ion-card>
+<div *ngIf="isPopupOpen" class="overlay"
+(click)="openPopup()"></div>

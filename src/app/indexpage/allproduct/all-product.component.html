@@ -1,0 +1,266 @@
+<ion-text class="container-fluid_main scrollable-container">
+  <!-- Your existing content here -->
+
+  <ion-text class="row p-2" style="background: rgb(245, 245, 245) !important">
+    <ion-text class="bg-white tab-bar">
+      <div class=" g-0" style="overflow: scroll;">
+        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)">All</a>
+        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)">Pendinig</a>
+        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)">Booked</a>
+        <a [ngClass]="{'active': activeTab === 4}" (click)="setActiveTab(4)">In-transit</a>
+        <a [ngClass]="{'active': activeTab === 5}" (click)="setActiveTab(5)">Delivered</a>
+        <a [ngClass]="{'active': activeTab === 6}" (click)="setActiveTab(6)">Cancelled</a>
+      </div>
+    </ion-text>
+
+    <ion-text class="main-container mt-5">
+      <ion-text class="content_section">
+        <ion-text class="top_search_bar">
+          <ion-text class="Container_Top">
+            <ion-text class="Serch_continer">
+              <ion-text class="icon_svg_section">
+                <i class="fa fa-search " aria-hidden="true"></i>
+              </ion-text>
+              <ion-text class="Svg_Text_section" style="height: 40px;">
+                <ion-input type="text" class="form_input" id="exampleInputPassword1" placeholder="Search Order..."
+                  style="border: none !important; margin: 0px !important;" />
+              </ion-text>
+            </ion-text>
+            <ion-text class="Button_section px-3" style="padding-right: 0rem !important;">
+              <button class=" d-flex" id="bottom-start">Order <span> <i class="fa fa-chevron-down ms-3"
+                    aria-hidden="true"></i>
+                </span></button>
+            </ion-text>
+          </ion-text>
+
+        </ion-text>
+
+
+
+      </ion-text>
+      <ion-text class="content_section ">
+        <ion-card class="mt-2 pt-1 px-2">
+          <ion-text class="Card_section_top pt-2">
+            <ion-text class="Headding_top">
+              <h6 class="fw-bold text-dark">ORD1242342350</h6>
+              <p style="width: max-content;">Trip/No: LR/1220324324553</p>
+            </ion-text>
+            <ion-text class="Button_section">
+              <span class="badge text-dark">Pendinig </span>
+            </ion-text>
+
+          </ion-text>
+          <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
+            <hr class="w-100" />
+          </ion-text>
+          <ion-text class="Pickupx_address ">
+            <ion-text class="Pickup_section">
+              <ion-text>
+                <p class="title ">Pickup</p>
+                <p class="sub_tittle">New delhi Sarita vihar...</p>
+                <p class="Ph_num">Austin Thurstan: 9999999999</p>
+              </ion-text>
+              <ion-text>
+                <p class="title text-danger">Delivery</p>
+                <p class="sub_tittle ">New delhi Sarita vihar..</p>
+                <p class="Ph_num">Austin Thurstan: 9999999999</p>
+              </ion-text>
+            </ion-text>
+            <ion-text class="Weight_messure_section mt-1">
+              <P class="Weight_Mes"><span><i class="fa fa-cube" aria-hidden="true"></i> </span> 500kg | QTY:25</P>
+              <P class="Weight_Mes"><span><i class="fa fa-subway" aria-hidden="true"></i> </span> 20FT Eicher | 850 Kg
+              </P>
+              <P class="Weight_Mes"><span><i class="fa fa-credit-card" aria-hidden="true"></i> </span> 4,720.00 |
+                Pre-Paid</P>
+            </ion-text>
+
+          </ion-text>
+
+          <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
+            <hr class="dashed">
+          </ion-text>
+
+          <ion-text class="Pickup_section">
+            <ion-text>
+              <p class="fw-bold"> Booking Type: FTL</p>
+            </ion-text>
+            <ion-text class="buton_more">
+              <ion-button class="submit_button Serch_continer" style="margin: -7px 0px 0px 15px !important;">
+                Book Now
+              </ion-button>
+              <span><a id="bottom-start2"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a> </span>
+            </ion-text>
+          </ion-text>
+          <br>
+        </ion-card>
+        <ion-card class="mt-2 pt-1 px-2">
+          <ion-text class="Card_section_top pt-2">
+            <ion-text class="Headding_top">
+              <h6 class="fw-bold text-dark">ORD1242342350</h6>
+              <p style="width: max-content;">Trip/No: LR/1220324324553</p>
+            </ion-text>
+            <ion-text class="Button_section">
+              <span class="badge text-dark">Pendinig </span>
+            </ion-text>
+
+          </ion-text>
+          <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
+            <hr class="w-100" />
+          </ion-text>
+          <ion-text class="Pickupx_address ">
+            <ion-text class="Pickup_section">
+              <ion-text>
+                <p class="title ">Pickup</p>
+                <p class="sub_tittle">New delhi Sarita vihar...</p>
+                <p class="Ph_num">Austin Thurstan: 9999999999</p>
+              </ion-text>
+              <ion-text>
+                <p class="title text-danger">Delivery</p>
+                <p class="sub_tittle ">New delhi Sarita vihar..</p>
+                <p class="Ph_num">Austin Thurstan: 9999999999</p>
+              </ion-text>
+            </ion-text>
+            <ion-text class="Weight_messure_section mt-1">
+              <P class="Weight_Mes"><span><i class="fa fa-cube" aria-hidden="true"></i> </span> 500kg | QTY:25</P>
+              <P class="Weight_Mes"><span><i class="fa fa-subway" aria-hidden="true"></i> </span> 20FT Eicher | 850 Kg
+              </P>
+              <P class="Weight_Mes"><span><i class="fa fa-credit-card" aria-hidden="true"></i> </span> 4,720.00 |
+                Pre-Paid</P>
+            </ion-text>
+
+          </ion-text>
+
+          <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
+            <hr class="dashed">
+          </ion-text>
+
+          <ion-text class="Pickup_section">
+            <ion-text>
+              <p class="fw-bold"> Booking Type: FTL</p>
+            </ion-text>
+            <ion-text class="buton_more">
+              <ion-button class="submit_button Serch_continer" style="margin: -7px 0px 0px 15px !important;">
+                Book Now
+              </ion-button>
+              <span><a id="bottom-start2"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a> </span>
+            </ion-text>
+          </ion-text>
+          <br>
+        </ion-card>
+        <ion-card class="mt-2 pt-1 px-2">
+          <ion-text class="Card_section_top pt-2">
+            <ion-text class="Headding_top">
+              <h6 class="fw-bold text-dark">ORD1242342350</h6>
+              <p style="width: max-content;">Trip/No: LR/1220324324553</p>
+            </ion-text>
+            <ion-text class="Button_section">
+              <span class="badge text-dark">Pendinig </span>
+            </ion-text>
+
+          </ion-text>
+          <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
+            <hr class="w-100" />
+          </ion-text>
+          <ion-text class="Pickupx_address ">
+            <ion-text class="Pickup_section">
+              <ion-text>
+                <p class="title ">Pickup</p>
+                <p class="sub_tittle">New delhi Sarita vihar...</p>
+                <p class="Ph_num">Austin Thurstan: 9999999999</p>
+              </ion-text>
+              <ion-text>
+                <p class="title text-danger">Delivery</p>
+                <p class="sub_tittle ">New delhi Sarita vihar..</p>
+                <p class="Ph_num">Austin Thurstan: 9999999999</p>
+              </ion-text>
+            </ion-text>
+            <ion-text class="Weight_messure_section mt-1">
+              <P class="Weight_Mes"><span><i class="fa fa-cube" aria-hidden="true"></i> </span> 500kg | QTY:25</P>
+              <P class="Weight_Mes"><span><i class="fa fa-subway" aria-hidden="true"></i> </span> 20FT Eicher | 850 Kg
+              </P>
+              <P class="Weight_Mes"><span><i class="fa fa-credit-card" aria-hidden="true"></i> </span> 4,720.00 |
+                Pre-Paid</P>
+            </ion-text>
+
+          </ion-text>
+
+          <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
+            <hr class="dashed">
+          </ion-text>
+
+          <ion-text class="Pickup_section">
+            <ion-text>
+              <p class="fw-bold"> Booking Type: FTL</p>
+            </ion-text>
+            <ion-text class="buton_more">
+              <ion-button class="submit_button Serch_continer" style="margin: -7px 0px 0px 15px !important;">
+                Book Now
+              </ion-button>
+              <span><a id="bottom-start2"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a> </span>
+            </ion-text>
+          </ion-text>
+          <br>
+        </ion-card>
+      </ion-text>
+    </ion-text>
+  </ion-text>
+</ion-text>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ion-popover trigger="bottom-start" side="bottom" alignment="start">
+  <ng-template>
+    <ion-content class="ion-padding ">
+      <ion-list class="list">
+        <ion-text routerLink="/indexpage/FtlBooking">
+          Create FTL Order
+        </ion-text>
+
+        <ion-text routerLink="/indexpage/PtlBooking">
+          Create PTL Order
+        </ion-text>
+
+      </ion-list>
+
+    </ion-content>
+  </ng-template>
+</ion-popover>
+
+
+<ion-popover trigger="bottom-start2" side="bottom" alignment="start">
+  <ng-template>
+    <ion-content >
+      <ion-list class="list px-3">
+
+        <ion-text>
+          Print LR
+        </ion-text>
+        <ion-text>
+          See Order Details
+        </ion-text>
+        <ion-text>
+          Cancel Order
+        </ion-text>
+
+
+      </ion-list>
+
+    </ion-content>
+  </ng-template>
+</ion-popover>

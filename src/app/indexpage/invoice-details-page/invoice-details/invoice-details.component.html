@@ -1,0 +1,227 @@
+<ion-text class="container-fluid custom-scrollbar">
+  <ion-text class="row" style="background: rgb(233, 232, 232) !important">
+
+    <ion-text class="bg-white tab-bar" style="height: 45px; border-bottom: 2px solid rgb(218, 215, 215);">
+      <div class="tab-bar g-0 py-1">
+        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)">All</a>
+        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)">Overdue</a>
+        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)">Due</a>
+        <a [ngClass]="{'active': activeTab === 4}" (click)="setActiveTab(4)">Paid</a>
+      </div>
+    </ion-text>
+
+    <ion-text>
+      <ion-text class="py-3 px-2 ">
+        <ion-text class="input_feild_section px-2 ">
+          <ion-text class="svg_content">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </ion-text>
+          <ion-text class="Input_content">
+            <ion-input type="text" class="form_input" id="exampleInputPassword1" placeholder="Search Invoice..."
+              style="border: none !important;" />
+          </ion-text>
+        </ion-text>
+        <ion-text class="card_section mt-2 py-3 px-2">
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold" routerLink="/indexpage/Invoice-Bill">INV/23-24/00021</p>
+              <p class="Date_timeDelevery method_section">03-Mar-2024 05:40:30</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="badge text-success ">Paid</button>
+            </ion-text>
+          </ion-text>
+          <div class="px-2 m-0">
+            <hr>
+          </div>
+
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold Company_name">Steel Service Group pvt ltd..</p>
+              <p class="ph-num">+91 9999999999</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="submit_button" [disabled]="isDisabled" [ngClass]="{'disabled-button': isDisabled}">Pay Now</button>
+            </ion-text>
+          </ion-text>
+
+          <ion-text class="card_main_container2 py-1">
+            <ion-text class="my_section">
+              <p class="method_section">Due Date</p>
+              <p class="fw-bold Date_timeDelevery">31-march-2024 </p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Due Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Total Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+          </ion-text>
+        </ion-text>
+        <ion-text class="card_section mt-2 py-3 px-2">
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold" routerLink="/indexpage/Invoice-Bill">INV/23-24/00021</p>
+              <p class="Date_timeDelevery method_section">03-Mar-2024 05:40:30</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="badge text-success ">Paid</button>
+            </ion-text>
+          </ion-text>
+          <div class="px-2 m-0">
+            <hr>
+          </div>
+
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold Company_name">Steel Service Group pvt ltd..</p>
+              <p class="ph-num">+91 9999999999</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="submit_button" [disabled]="isDisabled" [ngClass]="{'disabled-button': isDisabled}">Pay Now</button>
+            </ion-text>
+          </ion-text>
+
+          <ion-text class="card_main_container2 py-1">
+            <ion-text class="my_section">
+              <p class="method_section">Due Date</p>
+              <p class="fw-bold Date_timeDelevery">31-march-2024 </p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Due Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Total Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+          </ion-text>
+          
+        </ion-text>
+        <ion-text class="card_section mt-2 py-3 px-2">
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold" routerLink="/indexpage/Invoice-Bill">INV/23-24/00021</p>
+              <p class="Date_timeDelevery method_section">03-Mar-2024 05:40:30</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="badge text-primary ">Due 19 Days</button>
+            </ion-text>
+          </ion-text>
+          <div class="px-2 m-0">
+            <hr>
+          </div>
+
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold Company_name">Steel Service Group pvt ltd..</p>
+              <p class="ph-num">+91 9999999999</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="submit_button">Pay Now</button>
+            </ion-text>
+          </ion-text>
+
+          <ion-text class="card_main_container2 py-1">
+            <ion-text class="my_section">
+              <p class="method_section">Due Date</p>
+              <p class="fw-bold Date_timeDelevery">31-march-2024 </p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Due Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Total Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+          </ion-text>
+        </ion-text>
+        <ion-text class="card_section mt-2 py-3 px-2">
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold" routerLink="/indexpage/Invoice-Bill">INV/23-24/00021</p>
+              <p class="Date_timeDelevery method_section">03-Mar-2024 05:40:30</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="badge text-primary ">Due 19 Days</button>
+            </ion-text>
+          </ion-text>
+          <div class="px-2 m-0">
+            <hr>
+          </div>
+
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold Company_name">Steel Service Group pvt ltd..</p>
+              <p class="ph-num">+91 9999999999</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="submit_button">Pay Now</button>
+            </ion-text>
+          </ion-text>
+
+          <ion-text class="card_main_container2 py-1">
+            <ion-text class="my_section">
+              <p class="method_section">Due Date</p>
+              <p class="fw-bold Date_timeDelevery">31-march-2024 </p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Due Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Total Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+          </ion-text>
+        </ion-text>
+
+        <ion-text class="card_section mt-2 py-3 px-2">
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold" routerLink="/indexpage/Invoice-Bill">INV/23-24/00021</p>
+              <p class="Date_timeDelevery method_section">03-Mar-2024 05:40:30</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="badge text-danger ">Overdue 15 Days</button>
+            </ion-text>
+          </ion-text>
+          <div class="px-2 m-0">
+            <hr>
+          </div>
+
+          <ion-text class="card_main_container">
+            <ion-text class="text_section px-2">
+              <p class="fw-bold Company_name">Steel Service Group pvt ltd..</p>
+              <p class="ph-num">+91 9999999999</p>
+            </ion-text>
+            <ion-text class="button_section">
+              <button class="submit_button">Pay Now</button>
+            </ion-text>
+          </ion-text>
+
+          <ion-text class="card_main_container2 py-1">
+            <ion-text class="my_section">
+              <p class="method_section">Due Date</p>
+              <p class="fw-bold Date_timeDelevery">31-march-2024 </p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Due Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+            <ion-text class="my_section">
+              <p class="method_section">Total Amount</p>
+              <p class="fw-bold">4270.00</p>
+            </ion-text>
+          </ion-text>
+          
+        </ion-text>
+       
+
+      </ion-text>
+    </ion-text>
+  </ion-text>
+</ion-text>

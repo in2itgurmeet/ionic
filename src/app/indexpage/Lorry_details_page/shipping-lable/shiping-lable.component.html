@@ -1,0 +1,165 @@
+<ion-text class="container-fluid scrollable-container">
+  <ion-text class="row  p-2">
+    <ion-text class="bg-white tab-bar" style="height: 45px;">
+      
+      <div class="tab-bar g-0" >
+        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)"  routerLink="/indexpage/Loory-receipt">Loory Receipt</a>
+        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)"  routerLink="/indexpage/Shiping-lable">Shipping Lable</a>
+        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)" routerLink="/indexpage/Proof-delivery">Proof of Delivery</a>
+      </div>
+      
+      
+      
+    </ion-text>
+
+
+    <ion-text class="border mt-5">
+
+      <ion-text class="px-3">
+        <ion-text class="top_content">
+
+
+          <ion-text>
+            <img src="../../../../assets/icon/logo.jpg" class="img-fluid w-75" alt="">
+          </ion-text>
+          <ion-text class="Doket_num">
+            <h6 class="fw-bold">DOCKET NO</h6>
+          </ion-text>
+        </ion-text>
+
+        <ion-text class="top_content mt-3 ">
+
+
+          <ion-text class="Origin px-2">
+            <h6 class="" style="margin: 0px;">ORIGIN</h6>
+            <p style="font-weight: 400 !important; line-height: normal;">Lorem ipsum dolor sit, amet consectetur
+              adipisicing elit.</p>
+          </ion-text>
+          <ion-text class="Ship_ment px-2">
+            <h6 style="margin: 0px;">SHIP TO</h6>
+            <p style="font-weight: 400 !important; line-height: normal;">Lorem ipsum dolor sit, amet consectetur
+              adipisicing elit.</p>
+          </ion-text>
+        </ion-text>
+
+        <ion-text class="top_content2 ">
+
+
+          <ion-text class="Origin2 ">
+            <h6 class="" style="margin: 0px;">DATE</h6>
+            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px; width: max-content;">11-march-2024</p>
+          </ion-text>
+          <ion-text class="Origin2 px-2">
+            <h6 class="" style="margin: 0px;">WEIGHT</h6>
+            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">10kg</p>
+          </ion-text>
+          <ion-text class="Ship_ment2 px-2">
+            <h6 style="margin: 0px;">PACKAGES</h6>
+            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">1/10</p>
+          </ion-text>
+        </ion-text>
+       
+
+        <ion-item class="Invoice_no">
+          <ion-text>
+            <h6>INVOICE NO</h6>
+            <p style="font-weight: 400 !important; line-height: normal; margin: 0px;">INV/23-24/0021</p>
+          </ion-text>
+        </ion-item>
+        <ion-item class="Invoice_no">
+          <ion-text >
+            <h6>RETURN TO ORIGIN</h6>
+          </ion-text>
+        </ion-item>
+        <ion-item class="Invoice_no">
+          <ion-text >
+            <h6>SHIPPED BY:<span>V-EXPRESS</span> </h6>
+          </ion-text>
+        </ion-item>
+        <ion-item  lines="none">
+          <ion-text >
+            <img src="https://www.shutterstock.com/image-vector/horizontal-black-barcode-on-white-600nw-1221838477.jpg" alt="">
+            <p class="text-center" style="font-weight: 400 !important; line-height: normal; margin: 0px;">ADWQ321850</p>
+          </ion-text>
+        </ion-item>
+
+      </ion-text>
+
+
+    </ion-text>
+    <ion-text class="border mt-2">
+
+      <ion-text class="px-3">
+        <ion-text class="top_content">
+
+
+          <ion-text>
+            <img src="../../../../assets/icon/logo.jpg" class="img-fluid w-75" alt="">
+          </ion-text>
+          <ion-text class="Doket_num">
+            <h6 class="fw-bold">DOCKET NO</h6>
+          </ion-text>
+        </ion-text>
+
+        <ion-text class="top_content mt-3 ">
+
+
+          <ion-text class="Origin px-2">
+            <h6 class="" style="margin: 0px;">ORIGIN</h6>
+            <p style="font-weight: 400 !important; line-height: normal;">Lorem ipsum dolor sit, amet consectetur
+              adipisicing elit.</p>
+          </ion-text>
+          <ion-text class="Ship_ment px-2">
+            <h6 style="margin: 0px;">SHIP TO</h6>
+            <p style="font-weight: 400 !important; line-height: normal;">Lorem ipsum dolor sit, amet consectetur
+              adipisicing elit.</p>
+          </ion-text>
+        </ion-text>
+
+        <ion-text class="top_content2 ">
+
+
+          <ion-text class="Origin2 ">
+            <h6 class="" style="margin: 0px;">DATE</h6>
+            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px; width: max-content;">11-march-2024</p>
+          </ion-text>
+          <ion-text class="Origin2 px-2">
+            <h6 class="" style="margin: 0px;">WEIGHT</h6>
+            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">10kg</p>
+          </ion-text>
+          <ion-text class="Ship_ment2 px-2">
+            <h6 style="margin: 0px;">PACKAGES</h6>
+            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">1/10</p>
+          </ion-text>
+        </ion-text>
+       
+
+        <ion-item class="Invoice_no">
+          <ion-text>
+            <h6>INVOICE NO</h6>
+            <p style="font-weight: 400 !important; line-height: normal; margin: 0px;">INV/23-24/0021</p>
+          </ion-text>
+        </ion-item>
+        <ion-item class="Invoice_no">
+          <ion-text >
+            <h6>RETURN TO ORIGIN</h6>
+          </ion-text>
+        </ion-item>
+        <ion-item class="Invoice_no">
+          <ion-text >
+            <h6>SHIPPED BY:<span>V-EXPRESS</span> </h6>
+          </ion-text>
+        </ion-item>
+        <ion-item  lines="none">
+          <ion-text >
+            <img src="https://www.shutterstock.com/image-vector/horizontal-black-barcode-on-white-600nw-1221838477.jpg" alt="">
+            <p class="text-center" style="font-weight: 400 !important; line-height: normal; margin: 0px;">ADWQ321850</p>
+          </ion-text>
+        </ion-item>
+
+      </ion-text>
+
+
+    </ion-text>
+  </ion-text>
+</ion-text>

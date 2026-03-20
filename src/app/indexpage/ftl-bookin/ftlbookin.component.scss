@@ -1,0 +1,35 @@
+.input_feild_section {
+    width: calc(100%);
+    max-width: calc(100%);
+    display: flex;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.svg_content {
+    width: calc(100% - 90%);
+    max-width: calc(100% - 90%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Input_content {
+
+    width: calc(100% - 10%);
+    max-width: calc(100% - 10%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+
+}
+
+ion-input {
+    margin-top: 0px !important;
+}
+
+.fa-map-marker {
+    font-size: larger;
+}

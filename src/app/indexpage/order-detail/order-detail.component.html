@@ -1,0 +1,299 @@
+<ion-text class="container-fluid custom-scrollbar">
+  <ion-text class="row" style="background: none !important">
+    <ion-text class="w-100 g-0">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28016.502845213363!2d77.36665289878115!3d28.627878201452216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55758ca9645%3A0xf89fa8c1f37c1d09!2sDream%20N%20Design%20Interiors!5e0!3m2!1sen!2sin!4v1716189490243!5m2!1sen!2sin"
+        class="full-width-map"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        width="100%"
+        height="320px"
+      >
+      </iframe>
+    </ion-text>
+
+    <ion-text
+      class="ion-padding Form_content container-fluid"
+      style="margin-top: -20px"
+    >
+      <form>
+        <ion-text class="d-flex justify-content-center">
+          <hr class="w-25" />
+        </ion-text>
+        <ion-text class="heading_cargo">
+          <ion-text class="fw-bold">
+            <h6>Order-Details</h6>
+          </ion-text>
+          <ion-text (click)="toggleAccordion()">
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          </ion-text>
+        </ion-text>
+
+        <!---HIDE CONENT-->
+<ion-text class="_content_hide mt-5"  *ngIf="isSecondAccordionOpen">
+  <ion-text class="Hide_content" >
+    <ion-text>
+      <p class="Top_content">
+        Distance<span class="fw-bold">1300 km</span>
+      </p>
+      <p class="Top_content">
+        Expected Travel Time <span class="fw-bold">1 Day</span>
+      </p>
+    </ion-text>
+    <ion-text>
+      <p>Order No: <span class="fw-bold">ORD122467269</span></p>
+    </ion-text>
+    <ion-text>
+      <p>Order Date: <span class="fw-bold">09-march-2024</span></p>
+    </ion-text>
+    <ion-text>
+      <p>Reference No: <span class="fw-bold">REF0012</span></p>
+    </ion-text>
+    <ion-text>
+      <p>Booking type: <span class="fw-bold">FTL</span></p>
+    </ion-text>
+    <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
+      <hr class="w-100" />
+    </ion-text>
+  </ion-text>
+
+  <!----coustomer Adding---->
+  <ion-text>
+    <ion-text class="input_feild_section px-1 mt-2">
+      <ion-text class="svg_content">
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      </ion-text>
+      <ion-text class="Input_content text-start">
+        <p class="">Customer</p>
+      </ion-text>
+    </ion-text>
+
+    <ion-text class="input_feild_section2 mt_1">
+      <p class="fw-bold">
+        STL Group
+        <span class="text_mob" style="font-weight: 100 !important"
+          ><i class="fa fa-phone" aria-hidden="true"></i>+91 9999999999
+        </span>
+      </p>
+      <p>Lorem ipsum dolor sit andae odio nostrum. 201009</p>
+    </ion-text>
+  </ion-text>
+
+  <ion-text class="d-flex justify-content-center px-1 g-0">
+    <hr class="w-100" />
+  </ion-text>
+
+  <!----------pikupCard----->
+  <ion-text>
+    <ion-text class="input_feild_section px-1 mt-2">
+      <ion-text class="svg_content">
+        <i class="fa fa-map-marker text-success" aria-hidden="true"></i>
+      </ion-text>
+      <ion-text class="Input_content text-start">
+        <p class="text-success">Pickup: 11-March-2024 at 10:00AM</p>
+      </ion-text>
+    </ion-text>
+
+    <ion-text class="input_feild_section2 mt_1">
+      <p class="fw-bold">
+        Austin Throustone
+        <span class="text_mob" style="font-weight: 100 !important"
+          ><i class="fa fa-phone" aria-hidden="true"></i>+91 9999999999
+        </span>
+      </p>
+      <p>Lorem ipsum dolor sit andae odio nostrum. 201009</p>
+    </ion-text>
+
+    <ion-text class="input_feild_section px-1 mt-2">
+      <ion-text class="svg_content">
+        <i class="fa fa-map-marker text-danger" aria-hidden="true"></i>
+      </ion-text>
+      <ion-text class="Input_content text-start">
+        <p class="text-danger">Delivery: 12-March-2024 at 11:00AM</p>
+      </ion-text>
+    </ion-text>
+
+    <ion-text class="input_feild_section2 mt_1">
+      <p class="fw-bold">
+        Austin Throustone
+        <span class="text_mob" style="font-weight: 100 !important"
+          ><i class="fa fa-phone" aria-hidden="true"></i>+91 9999999999
+        </span>
+      </p>
+      <p>Lorem ipsum dolor sit andae odio nostrum. 201009</p>
+    </ion-text>
+  </ion-text>
+
+  <ion-text class="d-flex justify-content-center px-1 g-0">
+    <hr class="w-100" />
+  </ion-text>
+
+  <ion-text>
+    <ion-text class="heading_cargo">
+      <ion-text class="fw-bold">
+        <h6>Vehicle Details</h6>
+      </ion-text>
+     
+    </ion-text>
+    <ion-text class="vichle_section p-2">
+      <ion-text class="seltct_vichle py-2 mt-2 mb-2">
+        <ion-text class="_Svg_continer py-1 px-1">
+          <img
+            src="../../../assets/icon/Select_vichle.png"
+            class="img-fluid"
+            alt=""
+          />
+        </ion-text>
+
+        <ion-text class="_continer_text ms-2">
+          <ion-text class="_svg_text">
+            <ion-text class="d-flex mt-1">
+              <h6 class="fw-bold m-0">Tata Ace</h6>
+              <span class="p-0">780kg</span>
+            </ion-text>
+            <ion-text
+              ><p style="font-size: small">7FT X 4.5FT X 6FT</p></ion-text
+            >
+          </ion-text>
+        </ion-text>
+      </ion-text>
+      <ion-text class="vichle_card" style="height: 60px">
+        <ion-text class="px-2">
+          <p>
+            <i class="fa fa-pie-chart" aria-hidden="true"></i>
+            <span class="fw-bold"> 500Kg</span>
+          </p>
+          <p class="font-size ms-2">70% vehichle utilized by Weight</p>
+        </ion-text>
+        <ion-text class="px-2">
+          <p>
+            <i class="fa fa-pie-chart" aria-hidden="true"></i>
+            <span class="fw-bold"> 15CBM</span>
+          </p>
+          <p class="font-size ms-2">50% vehichle utilized by Volume</p>
+        </ion-text>
+      </ion-text>
+    </ion-text>
+  </ion-text>
+
+  <ion-text class="payment_method py-2" lines="none">
+    <ion-text class="w-100">
+      <h6 class="fw-bold">Cargo Details</h6>
+    </ion-text>
+
+    <ion-text class="Card_section2">
+      <ion-text class="svg_content2 ">
+        <img src="../../../assets/icon/BoxImage_OrderDeatils.png" class="img-fluid" alt="">
+      </ion-text>
+      <ion-text class="Input_content2 ms-3">
+            <h6 class="text-dark fw-bold">Printing Machine - Electronics</h6>
+            <p class="font-size2">Qty: 25 | Weight:500Kg</p>
+            <p class="font-size2">20CM X 18CM X 16CM</p>
+      </ion-text>
+    </ion-text>
+  </ion-text>
+</ion-text>
+        <ion-text class="d-flex justify-content-center px-1 g-0">
+          <hr class="w-100" />
+        </ion-text>
+        <ion-text class="card_section_container">
+          <ion-text>
+            <h6 class="fw-bold">Service Fee</h6>
+          </ion-text>
+          <ion-card class="Card_section p-2">
+            <ion-text class="heading_cargo">
+              <ion-text>
+                <p class="fw-bold">Transpotation Change</p>
+              </ion-text>
+              <ion-text>3000.00</ion-text>
+            </ion-text>
+            <ion-text class="heading_cargo">
+              <ion-text>
+                <p class="fw-bold">Loading & Unloading</p>
+              </ion-text>
+              <ion-text>1000.00</ion-text>
+            </ion-text>
+            <ion-text
+              class="d-flex justify-content-center px-1 g-0 m-0"
+              style="margin: -16px 0px 0px 0px"
+            >
+              <hr class="w-100" />
+            </ion-text>
+            <ion-text class="heading_cargo">
+              <ion-text>
+                <p class="fw-bold">Gross Total</p>
+              </ion-text>
+              <ion-text>4000.00</ion-text>
+            </ion-text>
+            <ion-text class="heading_cargo">
+              <ion-text>
+                <p class="fw-bold">SGST (9%)</p>
+              </ion-text>
+              <ion-text>360.00</ion-text>
+            </ion-text>
+            <ion-text class="heading_cargo">
+              <ion-text>
+                <p class="fw-bold">CGST (9%)</p>
+              </ion-text>
+              <ion-text>360.00</ion-text>
+            </ion-text>
+            <ion-text
+              class="d-flex justify-content-center px-1 g-0"
+              style="margin: -16px 0px 0px 0px"
+            >
+              <hr class="w-100" />
+            </ion-text>
+            <ion-text class="heading_cargo">
+              <ion-text>
+                <p class="fw-bold">New Total</p>
+              </ion-text>
+              <ion-text>4720.00</ion-text>
+            </ion-text>
+          </ion-card>
+        </ion-text>
+
+        <br />
+        <ion-text class="payment_method py-1" lines="none">
+          <ion-text class="w-100">
+            <h6 class="fw-bold">Payment Method</h6>
+          </ion-text>
+
+          <ion-text class="Payment_action">
+            <ion-text></ion-text>
+            <ion-text></ion-text>
+            <ion-text></ion-text>
+            <ion-text></ion-text>
+            <ion-text></ion-text>
+          </ion-text>
+        </ion-text>
+        <ion-text class="Form_input_box">
+          <ion-label class="form-label">UPI ID</ion-label>
+          <ion-input style="z-index: 1;"
+            type="email"
+            class="form_input"
+            aria-describedby="emailHelp"
+            placeholder="Enter Your UPI ID"
+          />
+          
+        </ion-text>
+        <ion-button type="button" class="submit_button mt-3 col-12"  (click)="openPopup()">
+          Book Now
+        </ion-button>
+      </form>
+    </ion-text>
+  </ion-text>
+</ion-text>
+
+<ion-card *ngIf="isPopupOpen" class="Popup p-5">
+  <ion-text class="my_poup">
+    <i class="fa fa-times" aria-hidden="true" (click)="openPopup()"></i>
+
+    <p><i class="fa fa-check" aria-hidden="true"></i></p>
+    <h5 class="fw-bold">Booking SuccessFull</h5>
+    <span> Thank you! Your Booking has been Confirmed </span>
+  </ion-text>
+
+</ion-card>
+<div *ngIf="isPopupOpen" class="overlay"
+(click)="openPopup()"></div>
