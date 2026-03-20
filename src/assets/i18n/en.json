@@ -1,0 +1,24 @@
+{
+  "Navbar": {
+    "VISITOR": "Visitor",
+    "MANAGEMENT":"Management",
+    "MYORDER": "My Order",
+    "CREATORDER": "Create Order",
+    "ABOUTUS":"About Us",
+    "CAREER":"Career",
+    "POST": "Post",
+    "LOGIN":"Login",
+    "All":"All"
+  },
+  "Sidenav": {
+    "LOGIN": "Login & SingUp",
+    "HOME":"Home",
+    "ABOUTUS":"About Us",
+    "OFFERZONE":"Offer-Zone",
+    "CREATORDER": "Create Order",
+    "MYORDER": "My Order",
+    "CAREER":"Career",
+    "NOTIFICATION": "Notification",
+    "POST": "Post"
+  }
+}
