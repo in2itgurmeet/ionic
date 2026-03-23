@@ -1,0 +1,61 @@
+<ion-text class="container-fluid custom-scrollbar">
+  <ion-text class="row bg_liner">
+    <a href="" class="Back_button" routerLink="/Auth"><img src="../../../assets/icon/back_button.png" height="30px"
+        alt="back_button">
+    </a>
+    <img src="../../../assets/icon/sign_upimage.webp" alt="Description of image" class="m_auto mt-3 mb-3"
+      style="width: 350px; height: 250px;" />
+
+    <ion-text class="ion-padding Form_content ">
+      <ion-text class="d-flex justify-content-center">
+        <hr class="w-25" />
+      </ion-text>
+      <ion-text class="Header_informer">
+        <h2>REGISTER PAGE</h2>
+        <p>Create your New Account :-) </p>
+      </ion-text>
+      <form>
+        <div class="mb-2" style="display: flex; flex-direction: column;">
+          <ion-label for="exampleInputEmail1" class="form-label">Full Name</ion-label>
+          <ion-input type="email" class="form_input" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter your Full Name" />
+        </div>
+        <div class="mb-2" style="display: flex;flex-direction: column;">
+          <ion-label class="form-label">Phone No</ion-label>
+          <ion-input type="password" class="form_input" id="exampleInputPassword1"
+            placeholder="Enter your Phone Number" />
+        </div>
+        <div class="mb-2" style="display: flex;flex-direction: column;">
+          <ion-label class="form-label">Your Company Name </ion-label>
+          <ion-input type="text" class="form_input" id="exampleInputPassword1" placeholder="Enter your Company Name " />
+        </div>
+        <div class="mb-2" style="display: flex; flex-direction: column; position: relative;">
+          <ion-label class="form-label">Confirm Password</ion-label>
+          <div class="input-container">
+            <ion-input [type]="passwordType" class="form_input" id="exampleInputPassword1"
+              placeholder="Enter your password"></ion-input>
+            <ion-icon [name]="passwordIcon" (click)="togglePasswordVisibility()" class="icon_eye"></ion-icon>
+          </div>
+        </div>
+
+        <ion-button type="submit" class="submit_button mt-3 col-12">
+          Submit
+        </ion-button>
+        <div class="mb-3 mt-3 ">
+          <p class="jus_center">
+            Are u alredy a member..?/<span><a routerLink="/Auth">&nbsp;Login</a></span>
+          </p>
+        </div>
+        <ion-text class="Social_icon_container" style="margin: 0px 25px 0px 25px;;">
+          <ion-button type="button" class="Social_icon col-4"><i class="fa fa-google-plus me-1" aria-hidden="true"></i>
+            google
+          </ion-button>
+          <ion-button type="button" class="Social_icon col-4 ms-1"><i class="fa fa-twitter me-1" aria-hidden="true"></i>
+            Twitter
+          </ion-button>
+        </ion-text>
+      </form>
+      <br> <br>
+    </ion-text>
+  </ion-text>
+</ion-text>

@@ -1,67 +1,91 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashbaord/dashboard.component';
+import { PtlBookinComponent } from './ptl-bookin/ptl-bookin.component';
+import { FtlbookinComponent } from './ftl-bookin/ftlbookin.component';
+import { CreateorderComponentPtl } from './crate-order_ptl/createorder.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { BookedComponent } from './booked/booked.component';
+import { LorryReceiptComponent } from './Lorry_details_page/lorry-receipt/lorry-receipt.component';
+import { ProofOfDeliveryComponent } from './Lorry_details_page/proof-of-delivery/proof-of-delivery.component';
+import { ShipingLableComponent } from './Lorry_details_page/shipping-lable/shiping-lable.component';
+import { AllProductComponent } from './allproduct/all-product.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { InvoiceDetailsComponent } from './invoice-details-page/invoice-details/invoice-details.component';
+import { InvoiceBillComponent } from './invoice-details-page/invoice-bill/invoice-bill.component';
+import { TrackOrderComponent } from './track-order/track-order.component';
+import { CreateorderComponentFtl } from './crate-order_ftl/createorder.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./dashbaord/dashbaord.module').then(m => m.DashbaordModule)
+    redirectTo: '',
+    pathMatch: 'full',
   },
   {
-    path: 'CreateOrderFTl',
-    loadChildren: () => import('./crate-order_ftl/crate-order.module').then(m => m.CrateOrderModuleFTL)
-  }, {
-    path: 'PtlBooking',
-    loadChildren: () => import('./ptl-bookin/ptl-bookin.module').then(m => m.PtlBookinModule)
-  }, {
-    path: 'FtlBooking',
-    loadChildren: () => import('./ftl-bookin/ftl-bookin.module').then(m => m.FtlBookinModule)
-  }, {
-    path: 'CreateOrderPTl',
-    loadChildren: () => import('./crate-order_ptl/crate-order.module').then(m => m.CrateOrderModulePTL)
-  }, {
-    path: 'Orderdetails',
-    loadChildren: () => import('./order-detail/order-detail.module').then(m => m.OrderDetailModule)
+    path: '',
+    component: DashboardComponent,
   },
   {
-    path: 'Booked',
-    loadChildren: () => import('./booked/booked.module').then(m => m.BookedModule)
-  }, {
-    path: 'Loory-receipt',
-    loadChildren: () => import('./Lorry_details_page/lorry-receipt/lorry-receipt.module').then(m => m.LorryReceiptModule)
+    path: 'createOrderFTl',
+    component: CreateorderComponentFtl,
   },
   {
-    path: 'Proof-delivery',
-    loadChildren: () => import('./Lorry_details_page/proof-of-delivery/proof-of-delivery.module').then(m => m.ProofOfDeliveryModule)
+    path: 'ptlBooking',
+    component: PtlBookinComponent,
   },
   {
-    path: 'Shiping-lable',
-    loadChildren: () => import('./Lorry_details_page/shipping-lable/shipping-lable.module').then(m => m.ShippingLableModule)
+    path: 'ftlBooking',
+    component: FtlbookinComponent,
   },
   {
-    path: 'All-Product',
-    loadChildren: () => import('./allproduct/allproduct.module').then(m => m.AllproductModule)
+    path: 'createOrderPTl',
+    component: CreateorderComponentPtl,
   },
   {
-    path: 'Tracking-Order',
-    loadChildren: () => import('./track-order/track-order.module').then(m => m.TrackOrderModule)
+    path: 'orderdetails',
+    component: OrderDetailComponent,
   },
   {
-    path: 'Feedback',
-    loadChildren: () => import('./feedback/feedback.module').then(m => m.FeedbackModule)
+    path: 'booked',
+    component: BookedComponent,
   },
   {
-    path: 'Invoice-details',
-    loadChildren: () => import('./invoice-details-page/invoice-details/invoice-details.module').then(m => m.InvoiceDetailsModule)
-  }, {
-    path: 'Invoice-Bill',
-    loadChildren: () => import('./invoice-details-page/invoice-bill/invoice-bill.module').then(m => m.InvoiceBillModule)
-  }
-
-
+    path: 'loory-receipt',
+    component: LorryReceiptComponent,
+  },
+  {
+    path: 'proof-delivery',
+    component: ProofOfDeliveryComponent,
+  },
+  {
+    path: 'shiping-lable',
+    component: ShipingLableComponent,
+  },
+  {
+    path: 'all-product',
+    component: AllProductComponent,
+  },
+  {
+    path: 'tracking-Order',
+    component: TrackOrderComponent,
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
+  },
+  {
+    path: 'invoice-details',
+    component: InvoiceDetailsComponent,
+  },
+  {
+    path: 'invoice-Bill',
+    component: InvoiceBillComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class IndexpageRoutingModule { }

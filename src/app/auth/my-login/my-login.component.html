@@ -1,0 +1,59 @@
+<ion-text class="container-fluid custom-scrollbar">
+  <ion-text class="row bg_liner">
+
+    <img src="../../../assets/icon/Login_svgImage.webp" alt="Description of image" class="m_auto mt-3 mb-3"
+      style="width: 350px; height: 250px;" />
+
+    <ion-text class="ion-padding Form_content container-fluid">
+      <ion-text class="d-flex justify-content-center">
+        <hr class="w-25" />
+      </ion-text>
+      <ion-text class="Header_informer">
+        <h2>CUSTOMER</h2>
+        <p>Welcoe Back Proxima Logistic :-)</p>
+      </ion-text>
+      <form>
+        <div class="mb-2" style="display: flex;
+        flex-direction: column;">
+          <ion-label class="form-label">Email address</ion-label>
+          <ion-input type="email" class="form_input" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter email address" />
+        </div>
+        <div class="mb-2" style="display: flex; flex-direction: column; position: relative;">
+          <ion-label class="form-label">Password</ion-label>
+          <div class="input-container">
+            <ion-input [type]="passwordType" class="form_input" id="exampleInputPassword1"
+              placeholder="Enter your password"></ion-input>
+            <ion-icon [name]="passwordIcon" (click)="togglePasswordVisibility()" class="icon_eye"></ion-icon>
+          </div>
+          <ion-text class="resend_text" [routerLink]="['/auth/ForgetPassword']">
+            <p>Forget Password?</p>
+          </ion-text>
+        </div>
+
+        <ion-button type="submit" class="submit_button mt-3 col-12">
+          Submit
+        </ion-button>
+        <div class="mb-3 mt-3">
+          <p class="jus_center">
+            don't have an account.?<span><a [routerLink]="['/auth/Register']">Sign up</a></span>
+          </p>
+        </div>
+        <div class="container_ormore">
+          <hr />
+          <span class="ms-2 me-2">Or</span>
+          <hr />
+        </div>
+        <ion-text class="Social_icon_container">
+          <ion-button type="button" class="Social_icon col-5"><i class="fa fa-google-plus me-1" aria-hidden="true"></i>
+            google
+          </ion-button>
+          <ion-button type="button" class="Social_icon col-5 "><i class="fa fa-twitter me-1" aria-hidden="true"></i>
+            Twitter
+          </ion-button>
+        </ion-text>
+
+      </form>
+    </ion-text>
+  </ion-text>
+</ion-text>

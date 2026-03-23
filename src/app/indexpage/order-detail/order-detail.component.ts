@@ -1,18 +1,21 @@
+import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-order-detail',
+  imports: [IonicModule, CommonModule],
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.scss'],
 })
-export class OrderDetailComponent   {
+export class OrderDetailComponent {
   isSecondAccordionOpen: boolean = false;
   isPopupOpen: boolean = false;
- constructor(){}
+  constructor() { }
   toggleAccordion() {
     this.isSecondAccordionOpen = !this.isSecondAccordionOpen;
   }
-  
+
 
 
 
@@ -25,8 +28,8 @@ export class OrderDetailComponent   {
       document.body.classList.remove('overlay');
     }
   }
-  
-  
-   }
+
+
+}
 
 

@@ -1,16 +1,19 @@
+import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-lorry-receipt',
+  imports: [IonicModule, CommonModule],
   templateUrl: './lorry-receipt.component.html',
   styleUrls: ['./lorry-receipt.component.scss'],
 })
-export class LorryReceiptComponent   {
+export class LorryReceiptComponent {
   isSecondAccordionOpen: boolean = false;
   isPopupOpen: boolean = false;
 
   activeTab: number = 1;
-constructor(){}
+  constructor() { }
 
   setActiveTab(tabIndex: number): void {
     this.activeTab = tabIndex;
@@ -27,5 +30,5 @@ constructor(){}
   }
   printPage() {
     window.print();
-}
+  }
 }

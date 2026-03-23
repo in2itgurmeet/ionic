@@ -1,0 +1,36 @@
+
+.Input_optSection{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+.submit_button{
+    margin-top: 140px !important;
+}
+
+ion-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.otp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  #timer {
+    margin-top: 10px;
+    font-size: 18px;
+    color: red;
+  }
+  
+
+  .native-input.sc-ion-input-md {
+    padding-left: 12px !important;
+  }
+  

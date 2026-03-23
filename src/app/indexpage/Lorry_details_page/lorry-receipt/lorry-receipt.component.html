@@ -3,27 +3,25 @@
 
   <ion-text class="row p-2" style="background: rgb(245, 245, 245) !important">
     <ion-text class="bg-white tab-bar" style="height: 45px;">
-      
-      <div class="tab-bar g-0" >
-        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)"  routerLink="/indexpage/Loory-receipt">Loory Receipt</a>
-        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)"  routerLink="/indexpage/Shiping-lable">Shipping Lable</a>
-        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)" routerLink="/indexpage/Proof-delivery">Proof of Delivery</a>
+
+      <div class="tab-bar g-0">
+        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)" routerLink="/indexpage/loory-receipt">Loory
+          Receipt</a>
+        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)"
+          routerLink="/indexpage/shiping-lable">Shipping Lable</a>
+        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)"
+          routerLink="/indexpage/proof-delivery">Proof of Delivery</a>
       </div>
-      
-      
-      
+
+
+
     </ion-text>
     <!-- Top Lorry Section -->
     <ion-text class="p-2 mt-5">
       <ion-text class="container-fluid_main bg-white">
         <ion-text class="top_Lorry_section bg-banner">
           <ion-text class="Side_Section text-start" style="line-height: normal">
-            <img
-              src="../../../../assets/icon/logo.jpg"
-              class="mb-1"
-              width="100px"
-              alt=""
-            />
+            <img src="../../../../assets/icon/logo.jpg" class="mb-1" width="100px" alt="" />
             <p>loory receipt</p>
             <p>CN No:<span></span></p>
             <p>GST No:<span></span></p>
@@ -164,12 +162,8 @@
         <!---------extra gap------------>
         <ion-text class="Extra_gap"> </ion-text>
         <ion-text class="top_Lorry_section py-3 px-2">
-          <ion-text class="fw-bold" style="font-size: 12px"
-            >Receiver Sign,Stamp,Mob..</ion-text
-          >
-          <ion-text class="fw-bold" style="font-size: 12px"
-            >PLC Logistic Pvt Ltd</ion-text
-          >
+          <ion-text class="fw-bold" style="font-size: 12px">Receiver Sign,Stamp,Mob..</ion-text>
+          <ion-text class="fw-bold" style="font-size: 12px">PLC Logistic Pvt Ltd</ion-text>
         </ion-text>
       </ion-text>
       <br />
@@ -180,12 +174,11 @@
   </ion-text>
 </ion-text>
 <ion-text class="Footer border">
-  <ion-text class="px-3"
-    ><p class="share_btn btn" style="margin: 0px">
-      <i class="fa fa-share-alt me-2" aria-hidden="true"></i
-      ><span class="fw-bold">Share</span>
-    </p></ion-text
-  >
+  <ion-text class="px-3">
+    <p class="share_btn btn" style="margin: 0px">
+      <i class="fa fa-share-alt me-2" aria-hidden="true"></i><span class="fw-bold">Share</span>
+    </p>
+  </ion-text>
   <ion-text class="px-2 py-2">
     <button class="me-2 btn btn-primary" (click)="printPage()">Print</button>
     <button class="Dwonload_button btn" (click)="openPopup() ">Dwonload</button>
@@ -201,5 +194,4 @@
   </ion-text>
 
 </ion-card>
-<div *ngIf="isPopupOpen" class="overlay"
-(click)="openPopup()"></div>
+<div *ngIf="isPopupOpen" class="overlay" (click)="openPopup()"></div>

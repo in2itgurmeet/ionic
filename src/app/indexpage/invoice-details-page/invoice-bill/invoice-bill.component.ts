@@ -1,15 +1,18 @@
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-invoice-bill',
-  templateUrl: './invoice-bill.component.html',
-  styleUrls: ['./invoice-bill.component.scss'],
+  selector: 'app-invoice-Bill',
+  imports: [CommonModule, IonicModule],
+  templateUrl: './invoice-Bill.component.html',
+  styleUrls: ['./invoice-Bill.component.scss'],
 })
-export class InvoiceBillComponent  implements OnInit {
+export class InvoiceBillComponent implements OnInit {
   isPopupOpen: boolean = false;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   openPopup() {
     this.isPopupOpen = !this.isPopupOpen;
     if (this.isPopupOpen) {
@@ -20,7 +23,7 @@ export class InvoiceBillComponent  implements OnInit {
   }
   printPage() {
     window.print();
-}
+  }
 
 
 }

@@ -1,0 +1,44 @@
+<ion-text class="container-fluid custom-scrollbar">
+  <ion-text class="row bg_liner">
+    <a href="" class="Back_button" routerLink="/auth/SendOtp"><img src="../../../assets/icon/back_button.png"
+        height="30px" alt="back_button">
+    </a>
+    <img src="../../../assets/icon/Login_svgImage.webp" alt="Description of image" class="m_auto mt-3 mb-3"
+      style="width: 350px; height: 250px;" />
+
+    <ion-text class="ion-padding Form_content container-fluid">
+      <ion-text class="d-flex justify-content-center">
+        <hr class="w-25" />
+      </ion-text>
+      <ion-text class="Header_informer">
+        <h2>RESET PASSWORD</h2>
+        <p>Create a new Password</p>
+      </ion-text>
+      <form>
+
+        <div class="mb-2" style="display: flex; flex-direction: column; position: relative;">
+          <ion-label class="form-label">Password</ion-label>
+          <div class="input-container">
+            <ion-input [type]="passwordType" class="form_input" id="exampleInputPassword1"
+              placeholder="Enter your password"></ion-input>
+            <ion-icon [name]="passwordIcon" (click)="togglePasswordVisibility()" class="icon_eye"></ion-icon>
+          </div>
+        </div>
+        <div class="mb-2" style="display: flex; flex-direction: column; position: relative;">
+          <ion-label class="form-label">Confirm Password</ion-label>
+          <div class="input-container">
+            <ion-input [type]="passwordType" class="form_input" id="exampleInputPassword1"
+              placeholder="Enter your password"></ion-input>
+            <ion-icon [name]="passwordIcon" (click)="togglePasswordVisibility()" class="icon_eye"></ion-icon>
+          </div>
+        </div>
+        <ion-button type="submit" class="submit_button mt-3 col-12" routerLink="/Auth">
+          Submit
+        </ion-button>
+
+
+
+      </form>
+    </ion-text>
+  </ion-text>
+</ion-text>

@@ -5,14 +5,13 @@
     <ion-text class="bg-white tab-bar">
       <div class=" g-0" style="overflow: scroll;">
         <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)">All</a>
-        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)">Pendinig</a>
+        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)">Pending</a>
         <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)">Booked</a>
         <a [ngClass]="{'active': activeTab === 4}" (click)="setActiveTab(4)">In-transit</a>
         <a [ngClass]="{'active': activeTab === 5}" (click)="setActiveTab(5)">Delivered</a>
         <a [ngClass]="{'active': activeTab === 6}" (click)="setActiveTab(6)">Cancelled</a>
       </div>
     </ion-text>
-
     <ion-text class="main-container mt-5">
       <ion-text class="content_section">
         <ion-text class="top_search_bar">
@@ -228,11 +227,11 @@
   <ng-template>
     <ion-content class="ion-padding ">
       <ion-list class="list">
-        <ion-text routerLink="/indexpage/FtlBooking">
+        <ion-text [routerLink]="['/indexpage/ftlBooking']">
           Create FTL Order
         </ion-text>
 
-        <ion-text routerLink="/indexpage/PtlBooking">
+        <ion-text [routerLink]="['/indexpage/ptlBooking']">
           Create PTL Order
         </ion-text>
 
@@ -245,7 +244,7 @@
 
 <ion-popover trigger="bottom-start2" side="bottom" alignment="start">
   <ng-template>
-    <ion-content >
+    <ion-content>
       <ion-list class="list px-3">
 
         <ion-text>
