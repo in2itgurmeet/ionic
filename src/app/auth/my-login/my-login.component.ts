@@ -1,5 +1,5 @@
 import { IonicModule } from '@ionic/angular';
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -8,6 +8,9 @@ import { RouterLink } from '@angular/router';
   imports: [IonicModule, CommonModule, RouterLink],
   templateUrl: './my-login.component.html',
   styleUrls: ['./my-login.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
+
 })
 export class MyLoginComponent {
   passwordType: string = 'password';

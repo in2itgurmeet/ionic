@@ -10,19 +10,19 @@ const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: MyLoginComponent },
   {
-    path: 'Register',
+    path: 'register',
     component: RegisterpageComponent,
   },
   {
-    path: 'ForgetPassword',
+    path: 'forgetPassword',
     component: ForgetPasswordComponent,
   },
   {
-    path: 'SendOtp',
+    path: 'sendOtp',
     component: OTPComponent,
   },
   {
-    path: 'ResetPassword',
+    path: 'resetpassword',
     component: ResetPaswordComponent,
   }
 ];

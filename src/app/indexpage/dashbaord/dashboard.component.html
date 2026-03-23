@@ -1,7 +1,7 @@
-<ion-text class="container-fluid custom-scrollbar" style="background-color: #fdfdfd !important">
-  <ion-text class="row" style="background-color: #fdfdfd !important">
-    <ion-text class="dashboard_top mb-2">
-      <ion-text class="ptl_section shadow ">
+<ion-col class="container-fluid custom-scrollbar">
+  <ion-text class="row">
+    <ion-row class="dashboard_top mb-2">
+      <ion-col class="ptl_section shadow ">
         <ion-text class="ptl_imgsection">
           <img src="../../../assets/icon/interior-large-logistics-warehouse-ai-generative.jpg" alt=""
             style="width: -webkit-fill-available" />
@@ -11,8 +11,8 @@
           <span><a><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
           </span>
         </ion-text>
-      </ion-text>
-      <ion-text class="ptl_section shadow ">
+      </ion-col>
+      <ion-col class="ptl_section shadow ">
         <ion-text class="ptl_imgsection">
           <img src="../../../assets/icon/ptliimage2.jpg" style="width: -webkit-fill-available" alt="" />
         </ion-text>
@@ -20,13 +20,14 @@
           <p [routerLink]="['/indexpage/ptlBooking']">Create PTL Order</p>
           <span><a><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
           </span>
-        </ion-text></ion-text>
-    </ion-text>
+        </ion-text>
+      </ion-col>
+    </ion-row>
 
-    <ion-text class="MainCounters_section padding_callss">
-      <ion-text class="content_section shadow ">
+    <ion-row class="MainCounters_section p-0">
+      <ion-card class="content_section shadow ">
         <ion-text class="Counters_tophedding">
-          <ion-text class="Order_view">Order Overview</ion-text>
+          <ion-card-subtitle class="Order_view">Order Overview</ion-card-subtitle>
           <ion-text class="Text_small" [routerLink]="['/indexpage/all-product']">See Order</ion-text>
         </ion-text>
         <ion-text class="Counters_section">
@@ -77,8 +78,8 @@
             <ion-text class="Counter_number">10</ion-text>
           </ion-text>
         </ion-text>
-      </ion-text>
-    </ion-text>
+      </ion-card>
+    </ion-row>
 
     <ion-text class="p-2">
       <ion-text class="Maping_section shadow ">
@@ -234,4 +235,4 @@
       </ion-text>
     </ion-text>
   </ion-text>
-</ion-text>
+</ion-col>

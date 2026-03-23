@@ -15,3 +15,12 @@
   cursor: pointer;
   z-index: 99;
 }
+
+.forget-password {
+  color: var(--orange);
+  text-align: end;
+}
+.form_content {
+  border-top: 1px solid var(--neutral-200) !important;
+  border-radius: 20px;
+}

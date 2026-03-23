@@ -1,42 +1,70 @@
-<ion-text class="container-fluid custom-scrollbar">
-  <ion-text class="row bg_liner">
-    <a href="" class="Back_button" routerLink="/auth/ForgetPassword"><img src="../../../assets/icon/back_button.png"
-        height="30px" alt="back_button">
-    </a>
-    <img src="../../../assets/icon/otp_image" alt="Description of image" class="m_auto mt-3 mb-3"
-      style="width: 350px; height: 250px" />
+<ion-page>
+  <ion-col [fullscreen]="true">
 
-    <ion-text class="ion-padding Form_content container-fluid">
-      <ion-text class="d-flex justify-content-center">
-        <hr class="w-25" />
-      </ion-text>
-      <ion-text class="Header_informer">
-        <h2>ENTER OTP</h2>
-        <p>OTP has been sent to +91 9999999999</p>
-      </ion-text>
-      <form class="mt-3 mb-5">
-        <ion-label class="form-label ">Enter your Otp</ion-label>
-        <div class="Input_optSection">
+    <div class="container-fluid custom-scrollbar">
+      <div class="row">
 
-          <ion-input type="email" class="form_input  border" maxlength="1" />
-          <ion-input type="email" class="form_input  border" maxlength="1" />
-          <ion-input type="email" class="form_input  border" maxlength="1" />
-          <ion-input type="email" class="form_input  border" maxlength="1" />
-          <ion-input type="email" class="form_input  border" maxlength="1" />
-          <ion-input type="email" class="form_input  border" maxlength="1" />
+        <div class="mt-2 ms-2">
+          <a routerLink="/auth/forgetPassword">
+            <img src="assets/icon/back_button.png" height="30px" />
+          </a>
+        </div>
+
+        <!-- Image -->
+        <div class="text-center">
+          <img src="assets/icon/otp_image.webp" class="mt-3 mb-3" style="width: 340px; height: 250px" />
+        </div>
+
+        <!-- Form -->
+        <div class="ion-padding form_content">
+
+          <div class="d-flex justify-content-center">
+            <hr class="w-25" />
+          </div>
+
+          <div class="Header_informer text-center">
+            <h2>ENTER OTP</h2>
+            <p>OTP has been sent to +91 9999999999</p>
+          </div>
+
+          <form class="mt-3 mb-5">
+
+            <ion-label>Enter your OTP</ion-label>
+
+            <!-- OTP Inputs -->
+            <div class="Input_optSection d-flex justify-content-between mt-2">
+
+              <ion-input maxlength="1" class="form_input border text-center"></ion-input>
+              <ion-input maxlength="1" class="form_input border text-center"></ion-input>
+              <ion-input maxlength="1" class="form_input border text-center"></ion-input>
+              <ion-input maxlength="1" class="form_input border text-center"></ion-input>
+              <ion-input maxlength="1" class="form_input border text-center"></ion-input>
+              <ion-input maxlength="1" class="form_input border text-center"></ion-input>
+
+            </div>
+
+            <!-- Timer / Resend -->
+            <div class="text-center mt-3">
+              <p *ngIf="showTimer">
+                {{ minutes }}:{{ seconds | number:'2.0-0' }}
+              </p>
+
+              <p *ngIf="!showTimer" class="resend_text">
+                Resend Your OTP
+              </p>
+            </div>
+
+            <ion-button expand="block" class="mt-4" [routerLink]="['/auth/resetpassword']">
+              Submit OTP
+            </ion-button>
+
+          </form>
 
         </div>
-        <ion-text class="resend_text">
-          <p *ngIf="showTimer" id="timer">{{ minutes }}:{{ seconds | number: '2.0-0' }}</p>
+      </div>
+      <!-- Back Button -->
 
-          <p *ngIf="!showTimer">Resend Your OTP</p>
-        </ion-text>
+    </div>
 
-        <ion-button type="submit" class="submit_button mt-5 col-12" routerLink="/auth/ResetPassword">
-          Submit OTP
-        </ion-button>
-
-      </form>
-    </ion-text>
-  </ion-text>
-</ion-text>
+  </ion-col>
+</ion-page>

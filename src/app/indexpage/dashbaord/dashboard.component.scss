@@ -62,11 +62,7 @@
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  padding: 5px 10px 0px 10px;
-}
-
-.padding_callss {
-  padding: 5px 10px 0px 10px;
+  padding: 0px 18px 0px;
 }
 
 .ptl_section {
@@ -180,7 +176,7 @@ span {
   flex-direction: column;
   border-radius: 5px;
   padding: 12px;
-  background-image: url('../../../assets/icon/cropestimage.jpg');
+  background-image: url("../../../assets/icon/cropestimage.jpg");
   background-size: cover;
 }
 
@@ -286,21 +282,24 @@ span {
   display: flex;
   border-radius: 5px;
   border: 1px solid rgba(255, 236, 165, 1);
-  background: linear-gradient(90deg, rgba(255, 236, 165, 1) 0%, rgba(237, 235, 183, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 236, 165, 1) 0%,
+    rgba(237, 235, 183, 1) 100%
+  );
 }
 
 .text_section {
   display: flex;
   flex-direction: column;
-  
 }
 
 .text_section p {
-	font-size: 12px;
-	color: azure;
-	font-weight: 700;
-	line-height: 16px;
-	color: rgb(184, 183, 183);
+  font-size: 12px;
+  color: azure;
+  font-weight: 700;
+  line-height: 16px;
+  color: rgb(184, 183, 183);
 }
 
 .Card_Section {
@@ -309,5 +308,8 @@ span {
 
 .Card_text {
   font-weight: 700;
-  font-size:small;
+  font-size: small;
+}
+.container_ormore span img {
+  max-width: 50px;
 }
