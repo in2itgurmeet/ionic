@@ -1,6 +1,6 @@
 <ion-text class="container-fluid custom-scrollbar">
   <ion-text class="row bg_liner">
-    <div #slider class="slider-container">
+    <!-- <div #slider class="slider-container">
       <div class="slide p-3 col-4">
         <img src="../../assets/icon/bg1.png" class=" img-fluid" height="280px" alt="" />
         <ion-text class="dotted ">
@@ -19,7 +19,22 @@
           <span></span> <span></span> <span class="first"></span>
         </ion-text>
       </div>
-    </div>
+    </div> -->
+    <swiper-container slides-per-view="1" loop="true" autoplay="true" autoplay-delay="3000"
+      autoplay-disable-on-interaction="false" pagination="true">
+      <swiper-slide>
+        <img src="../../assets/icon/bg1.png" class="img-fluid" />
+      </swiper-slide>
+
+      <swiper-slide>
+        <img src="../../assets/icon/bg2.png" class="img-fluid" />
+      </swiper-slide>
+
+      <swiper-slide>
+        <img src="../../assets/icon/bg3.png" class="img-fluid" />
+      </swiper-slide>
+    </swiper-container>
+
     <ion-text>
       <ion-text class="img-section">
         <img src="../../assets/icon/logo.jpg" alt="">
@@ -34,7 +49,7 @@
     </ion-button>
     <ion-text class="buton_text_down mt-2 mb-4">
       <p>alredy have an account? </p>
-      <p><a href="" [routerLink]="['Auth']">login</a></p>
+      <p><a href="" [routerLink]="['/auth']">login</a></p>
     </ion-text>
   </ion-text>
 </ion-text>
