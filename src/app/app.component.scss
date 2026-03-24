@@ -89,18 +89,18 @@ ion-button {
   padding-left: 12px !important;
 }
 
-.container_ormore {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  /* Align text and headings to the center */
-}
+// .container_ormore {
+//   display: flex;
+//   justify-content: center;
+//   text-align: center;
+//   /* Align text and headings to the center */
+// }
 
-.container_ormore img {
-  margin: -22px 0px 0px 0px;
-  height: 53px;
-  width: 140px;
-}
+// .container_ormore img {
+//   margin: -22px 0px 0px 0px;
+//   height: 53px;
+//   width: 140px;
+// }
 
 hr {
   width: 100%;
@@ -140,12 +140,12 @@ ion-button::part(native) {
   box-shadow: none !important;
 }
 
-ion-input {
-  // Override styles for the sc-ion-input-md-h class
-  &.sc-ion-input-md-h {
-    margin-top: 0 !important; // Remove the top margin
-  }
-}
+// ion-input {
+//   // Override styles for the sc-ion-input-md-h class
+//   &.sc-ion-input-md-h {
+//     margin-top: 0 !important; // Remove the top margin
+//   }
+// }
 
 .bg_liner {
   background-image: linear-gradient(
@@ -156,28 +156,28 @@ ion-input {
   ) !important;
 }
 
-.form-label {
-  margin: 0px 0px 2px 2px;
-  font-weight: bolder;
-}
+// .form-label {
+//   margin: 0px 0px 2px 2px;
+//   font-weight: bolder;
+// }
 
-.form_input {
-  border: 1px solid #dcdcdc;
-  border-radius: 5px;
-  background-color: white;
-  margin-top: 5px;
-}
+// .form_input {
+//   border: 1px solid #dcdcdc;
+//   border-radius: 5px;
+//   background-color: white;
+//   margin-top: 5px;
+// }
 
-/* Apply --highlight-color-focused only when input is focused */
-ion-input:focus {
-  --highlight-color-focused: var(--ion-color-primary, #0054e9);
-}
+// /* Apply --highlight-color-focused only when input is focused */
+// ion-input:focus {
+//   --highlight-color-focused: var(--ion-color-primary, #0054e9);
+// }
 
-/* Revert --highlight-color-focused to default when input is not focused */
-ion-input:not(:focus) {
-  --highlight-color-focused: initial;
-  /* Revert to the default value */
-}
+// /* Revert --highlight-color-focused to default when input is not focused */
+// ion-input:not(:focus) {
+//   --highlight-color-focused: initial;
+//   /* Revert to the default value */
+// }
 
 .Back_button {
   position: relative;

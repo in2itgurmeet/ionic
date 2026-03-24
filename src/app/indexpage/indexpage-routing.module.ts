@@ -27,7 +27,7 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'createOrderFTl',
+    path: 'createOrderFtl',
     component: CreateorderComponentFtl,
   },
   {
@@ -39,7 +39,7 @@ const routes: Routes = [
     component: FtlbookinComponent,
   },
   {
-    path: 'createOrderPTl',
+    path: 'createOrderPtl',
     component: CreateorderComponentPtl,
   },
   {

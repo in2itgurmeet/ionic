@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-all-product',
@@ -147,4 +148,55 @@ export class AllProductComponent implements OnInit {
     });
     await alert.present();
   }
+
+
+  /**
+   * @description cancel order 
+   * @param item 
+   * @returns 
+   */
+  cancelOrder(item: any) {
+    if (!this.canCancel(item.status)) return;
+    Swal.fire({
+      title: 'Cancel Order?',
+      text: 'Are you sure you want to cancel this order?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Cancel it!',
+      cancelButtonText: 'No',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.api.updateStatus(item.id, 'Cancelled').subscribe({
+          next: () => {
+            item.status = 'Cancelled';
+
+            Swal.fire({
+              title: 'Cancelled!',
+              text: 'Order has been cancelled.',
+              icon: 'success',
+              timer: 1500,
+              showConfirmButton: false
+            });
+          },
+          error: (err) => {
+            console.log(err);
+
+            Swal.fire({
+              title: 'Error!',
+              text: 'Something went wrong.',
+              icon: 'error'
+            });
+          }
+        });
+      }
+    });
+  }
+
+
+  canCancel(status: string): boolean {
+    return status !== 'Delivered' && status !== 'Cancelled';
+  }
+
 }

@@ -1,35 +1,72 @@
 .input_feild_section {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    height: 50px;
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  height: 50px;
 }
-
 .svg_content {
-    width: calc(100% - 90%);
-    max-width: calc(100% - 90%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: calc(100% - 90%);
+  max-width: calc(100% - 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .Input_content {
-
-    width: calc(100% - 10%);
-    max-width: calc(100% - 10%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px 0px;
-
+  width: calc(100% - 10%);
+  max-width: calc(100% - 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0px;
+}
+.fa-map-marker {
+  font-size: larger;
 }
 
 ion-input {
-    margin-top: 0px !important;
+  margin-top: 0 !important; // Remove the top margin
 }
 
-.fa-map-marker {
-    font-size: larger;
+ion-input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none !important;
+}
+
+/* Hide calendar icon in Firefox */
+ion-input[type="datetime-local"]::-moz-clear {
+  display: none !important;
+}
+
+/* General styling for the input */
+.form_input {
+  border: none !important;
+}
+
+.position-relative {
+  position: relative;
+}
+
+/* dropdown */
+.dropdown-list {
+  position: absolute;
+  top: 81px;
+  left: 0;
+  width: 349px;
+  z-index: 9999;
+  background: #fff;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* input container */
+.input_feild_section {
+  width: 100%;
+  display: flex;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  height: 50px;
 }

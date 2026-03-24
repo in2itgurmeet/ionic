@@ -1,60 +1,68 @@
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    line-height: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  line-height: normal;
 }
 
 .heading_cargo {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    justify-content: space-between;
-
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  justify-content: space-between;
 }
 
 .heading_cargo h6 {
-
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .heading_cargo p {
-    color: #ff6347;
+  color: #ff6347;
 }
 
 .Multi_input_calc {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
 }
 
 .form_input2 {
-    width: calc(96% / 4);
-    max-width: calc(96% / 4);
-    display: flex;
-    justify-content: space-between;
+  width: calc(96% / 4);
+  max-width: calc(96% / 4);
+  display: flex;
+  justify-content: space-between;
 }
 
 .font_content_section {
-    width: calc(96% / 2);
-    max-width: calc(96% / 2);
-    justify-content: space-between;
-
+  width: calc(96% / 2);
+  max-width: calc(96% / 2);
+  justify-content: space-between;
 }
 
 ._svg_text {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.Form_input_box {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-
-    text-align: start;
+.form_input_box {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 10px;
+}
+.form_content {
+  border-top: 1px solid var(--neutral-200);
+  border-radius: 20px;
+}
+ion-input {
+  --padding-start: 10px !important;
+  --padding-end: 10px;
+}
+.remove_button {
+  color: #ff6347;
+  cursor: pointer;
 }

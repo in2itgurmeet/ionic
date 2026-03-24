@@ -131,6 +131,10 @@
   flex-direction: column;
   line-height: 10px;
 }
+.disabled-text {
+  opacity: 0.5;
+  pointer-events: none;
+}
 
 .Pickup_section {
   width: calc(100%);
@@ -235,6 +239,9 @@ ion-card {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  ion-text {
+    padding: 0px 5px;
+  }
 }
 
 .list ion-text:hover {

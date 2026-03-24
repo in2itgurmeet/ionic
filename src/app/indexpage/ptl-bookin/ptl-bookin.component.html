@@ -11,25 +11,48 @@
             placeholder="11-04-2024 at 07:00AM" style="border: none !important;" />
         </ion-col>
       </ion-text>
-      <ion-col class="input_feild_section px-2 mt-2">
-        <ion-text class="svg_content">
-          <i class="fa fa-map-marker text-success" aria-hidden="true"></i>
+      <ion-col class="px-2 mt-2 position-relative">
 
+        <ion-text class="input_feild_section">
+          <ion-text class="svg_content">
+            <i class="fa fa-map-marker text-success"></i>
+          </ion-text>
 
+          <ion-text class="Input_content">
+            <ion-input type="text" class="form_input" [value]="selectedPickup?.properties?.formatted"
+              (ionInput)="searchPickup($event)" placeholder="Where should we pick up your items?"></ion-input>
+          </ion-text>
         </ion-text>
-        <ion-text class="Input_content">
-          <ion-input type="text" class="form_input" id="exampleInputPassword1"
-            placeholder="Where should we pick up your items?" style="border: none !important;" />
-        </ion-text>
+
+        @if (pickupResults.length > 0) {
+        <ion-list class="dropdown-list">
+          @for (item of pickupResults; track $index) {
+          <ion-item (click)="selectPickup(item)">
+            {{ item.properties.formatted }}
+          </ion-item>
+          }
+        </ion-list>
+        }
       </ion-col>
-      <ion-col class="input_feild_section px-2 mt-2">
-        <ion-text class="svg_content">
-          <i class="fa fa-map-marker text-danger" aria-hidden="true"></i>
+      <ion-col class="px-2 mt-2 position-relative">
+        <ion-text class="input_feild_section">
+          <ion-text class="svg_content">
+            <i class="fa fa-map-marker text-danger"></i>
+          </ion-text>
+          <ion-text class="Input_content">
+            <ion-input type="text" class="form_input" [value]="selectedDelivery?.properties?.formatted"
+              (ionInput)="searchDelivery($event)" placeholder="Where should we delivery your items?"></ion-input>
+          </ion-text>
         </ion-text>
-        <ion-text class="Input_content">
-          <ion-input type="text" class="form_input" id="exampleInputPassword1"
-            placeholder="Where should we delivery your items?" style="border: none !important;" />
-        </ion-text>
+        @if (deliveryResults.length > 0) {
+        <ion-list class="dropdown-list">
+          @for (item of deliveryResults; track $index) {
+          <ion-item (click)="selectDelivery(item)">
+            {{ item.properties.formatted }}
+          </ion-item>
+          }
+        </ion-list>
+        }
       </ion-col>
     </ion-text>
   </ion-col>

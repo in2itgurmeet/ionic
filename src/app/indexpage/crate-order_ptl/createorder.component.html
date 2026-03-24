@@ -1,287 +1,145 @@
-<ion-text class="container-fluid custom-scrollbar">
-  <ion-text class="row" style="background: none !important">
-    <ion-text class="w-100 g-0">
+<ion-row>
+  <ion-col>
+    <ion-text>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28016.502845213363!2d77.36665289878115!3d28.627878201452216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55758ca9645%3A0xf89fa8c1f37c1d09!2sDream%20N%20Design%20Interiors!5e0!3m2!1sen!2sin!4v1716189490243!5m2!1sen!2sin"
-        class="full-width-map"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        width="100%"
-        height="320px"
-      >
+        class="full-width-map" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%"
+        height="320px">
       </iframe>
     </ion-text>
-
-    <ion-text
-      class="ion-padding Form_content container-fluid"
-      style="margin-top: -20px"
-    >
-      <form>
+    <ion-text class="form_content">
+      <form [formGroup]="cargoForm">
         <ion-text class="d-flex justify-content-center">
           <hr class="w-25" />
         </ion-text>
-        <ion-text class="Form_input_box">
+        <ion-text class="form_input_box">
           <ion-label class="form-label">Reference Number</ion-label>
-          <ion-input
-            type="email"
-            class="form_input"
-            aria-describedby="emailHelp"
-            placeholder="Enter email Reference Number"
-          />
+          <ion-input type="email" class="form-control" formControlName="referenceNumber" aria-describedby="emailHelp"
+            placeholder="Enter email Reference Number" />
         </ion-text>
         <ion-text class="d-flex justify-content-center px-1">
           <hr class="w-100" />
         </ion-text>
 
-        <ion-text class="Form_input_box">
+        <ion-text class="form_input_box">
           <ion-label class="form-label">Sendre's Name</ion-label>
-          <ion-input
-            type="text"
-            class="form_input"
-            placeholder="Enter  Sendre's Name"
-          />
+          <ion-input type="text" class="form-control" formControlName="senderName" placeholder="Enter  Sendre's Name" />
         </ion-text>
         <br />
-        <ion-text class="Form_input_box">
+        <ion-text class="form_input_box">
           <ion-label class="form-label">Sendre's Mobile Number</ion-label>
-          <ion-input
-            type="email"
-            class="form_input"
-            aria-describedby="emailHelp"
-            placeholder="Enter Sendre's Mobile Number"
-          />
+          <ion-input type="email" class="form-control" formControlName="senderMobile" aria-describedby="emailHelp"
+            placeholder="Enter Sendre's Mobile Number" />
           <ion-text class="resend_text">
             <p>Add from Contacts</p>
           </ion-text>
         </ion-text>
-        <ion-text
-          class="d-flex justify-content-center px-1 g-0"
-          style="margin: -18px 0px"
-        >
+        <ion-text class="d-flex justify-content-center px-1 g-0" style="margin: -18px 0px">
           <hr class="w-100" />
         </ion-text>
         <br />
-        <ion-text class="Form_input_box">
+        <ion-text class="form_input_box">
           <ion-label class="form-label">Receiver's Name</ion-label>
-          <ion-input
-            type="text"
-            class="form_input"
-            placeholder="Enter  Receiver's Name"
-          />
+          <ion-input type="text" class="form-control" formControlName="receiverName"
+            placeholder="Enter  Receiver's Name" />
           <br />
-        </ion-text >
-        <ion-text class="Form_input_box">
+        </ion-text>
+        <ion-text class="form_input_box">
           <ion-label class="form-label">Receiver's Mobile Number</ion-label>
-          <ion-input
-            type="email"
-            class="form_input"
-            aria-describedby="emailHelp"
-            placeholder="Enter Receiver's Mobile Number"
-          />
+          <ion-input type="email" class="form-control" formControlName="receiverMobile" aria-describedby="emailHelp"
+            placeholder="Enter Receiver's Mobile Number" />
           <ion-text class="resend_text">
             <p>Add from Contacts</p>
           </ion-text>
         </ion-text>
-
-        <ion-text
-          class="d-flex justify-content-center px-1 g-0"
-          style="margin: -18px 0px"
-        >
-          <hr class="w-100" />
-        </ion-text>
-
-      <ion-text class="vichle_section p-2">
-        <ion-text class="seltct_vichle py-2 mt-2 mb-2">
+        @for (vehicle of vehicles; track $index) {
+        <ion-card class="seltct_vichle py-2 m-0 mt-2 mb-2">
           <ion-text class="_Svg_continer py-1 px-1">
-            <img src="../../../assets/icon/Select_vichle.png" class="img-fluid" alt="">
+            <img [src]="vehicle.img" class="img-fluid" alt="">
           </ion-text>
-          
+
           <ion-text class="_continer_text">
             <ion-text class="_svg_text">
               <ion-text class="d-flex mt-1">
-                <h6 class="fw-bold m-0">Tata Ace</h6><span class="p-0">780kg</span>
+                <h6 class="fw-bold m-0">{{vehicle.name}}</h6>
+                <span class="p-0">{{vehicle.capacity}}</span>
               </ion-text>
-              <ion-text><p style="font-size: small;">7FT X 4.5FT X 6FT</p></ion-text>
-            </ion-text>
-            <ion-text class="Selector_icon p-2 px-3">
-               <ion-checkbox ></ion-checkbox>
-            </ion-text>
-          </ion-text>
-        </ion-text>
-        <ion-text class="seltct_vichle py-2 mt-2 mb-2">
-          <ion-text class="_Svg_continer py-1 px-1">
-            <img src="../../../assets/icon/Select_vichle.png" class="img-fluid" alt="">
-          </ion-text>
-          
-          <ion-text class="_continer_text">
-            <ion-text class="_svg_text">
-              <ion-text class="d-flex">
-                <h6 class="fw-bold m-0">20FT Eicher</h6><span style="font-size: 10px;">780kg</span>
+              <ion-text>
+                <p style="font-size: small;">{{vehicle.dimensions}}</p>
               </ion-text>
-              <ion-text><p style="font-size: small;">10FT X 4.5FT X 6FT</p></ion-text>
             </ion-text>
-            <ion-text class="Selector_icon p-2 px-3">
-               <ion-checkbox ></ion-checkbox>
-            </ion-text>
-          </ion-text>
-        </ion-text>
-        <ion-text class="seltct_vichle py-2 mt-2 mb-2">
-          <ion-text class="_Svg_continer py-1 px-1">
-            <img src="../../../assets/icon/Select_vichle.png" class="img-fluid" alt="">
-          </ion-text>
-          
-          <ion-text class="_continer_text">
-            <ion-text class="_svg_text">
-              <ion-text class="d-flex">
-                <h6 class="fw-bold m-0">Tata Ace</h6><span style="font-size: 10px;">780kg</span>
-              </ion-text>
-              <ion-text><p style="font-size: small;">7FT X 4.5FT X 6FT</p></ion-text>
-            </ion-text>
-            <ion-text class="Selector_icon p-2 px-3">
-               <ion-checkbox ></ion-checkbox>
-            </ion-text>
-          </ion-text>
-        </ion-text>
-      </ion-text>
 
-        <ion-text
-          class="d-flex justify-content-center px-1 g-0"
-          style="margin: -18px 0px"
-        >
+            <ion-text class="Selector_icon p-2 px-3">
+              <ion-checkbox [checked]="selectedVehicle.controls.includes(vehicle.name)"
+                (ionChange)="onVehicleChange($event, vehicle.name)">
+              </ion-checkbox>
+            </ion-text>
+          </ion-text>
+        </ion-card>
+        }
+
+
+        <ion-text class="d-flex justify-content-center px-1 g-0" style="margin: -18px 0px">
           <hr class="w-100" />
         </ion-text>
-
         <ion-text class="heading_cargo mt-3">
           <h6>Cargo Detail</h6>
-          <p>Add Cargo</p>
+          <p (click)="addCargo()">Add Cargo</p>
         </ion-text>
-        <ion-text class="Form_input_box">
-          <ion-label class="form-label">Goods Description</ion-label>
-          <ion-input
-            type="email"
-            class="form_input"
-            aria-describedby="emailHelp"
-            placeholder="Enter Goods Description (Name)"
-          />
-        </ion-text>
-        <ion-text class="Form_input_box">
-          <ion-label class="form-label">Dimensions</ion-label>
+        <div formArrayName="cargoItems">
+          @for (cargo of cargoItems.controls;; track $index) {
 
-          <ion-text class="Multi_input_calc">
-            <ion-input
-              type="text"
-              class="form_input2 form_input"
-              placeholder="Lenght"
-            />
-            X
-            <ion-input
-              type="text"
-              class="form_input2 form_input"
-              placeholder="Width"
-            />
-            X
-            <ion-input
-              type="text"
-              class="form_input2 form_input"
-              placeholder="Height"
-            />
-            =
-            <ion-input
-              type="text"
-              class="form_input2 form_input"
-              placeholder="CM"
-            />
-          </ion-text>
-        </ion-text>
+          <ion-row [formGroupName]="$index">
+            <ion-text class="form_input_box w-100">
+              <ion-row class="d-flex justify-content-between">
 
-        <ion-text class="Multi_input_calc mt-2">
-          <ion-text class="font_content_section Form_input_box">
-            <ion-label class="form-label">Goods Quantity</ion-label>
-            <ion-input
-              type="number"
-              class="form_input px-2"
-              placeholder="Enter Quantity"
-            />
-          </ion-text>
-          <ion-text class="font_content_section Form_input_box">
-            <ion-label class="form-label">Weight(Kg)</ion-label>
-            <ion-input
-              type="number"
-              class="form_input px-2"
-              placeholder="Enter Weight"
-            />
-          </ion-text>
-        </ion-text>
-        <ion-text class="d-flex justify-content-center px-1 g-0">
-          <hr class="w-100" />
-        </ion-text>
+                <ion-label class="form-label">Goods Description</ion-label>
+                @if ($index > 0) {
+                <span class="remove_button" (click)="removeCargo($index)">
+                  Remove
+                </span>
+                }
+              </ion-row>
+              <ion-input type="email" class="form-control w-100" formControlName="goodsDescription"
+                aria-describedby="emailHelp" placeholder="Enter Goods Description (Name)" />
+            </ion-text>
+            <ion-text class="form_input_box">
+              <ion-label class="form-label">Dimensions</ion-label>
+              <ion-text class="Multi_input_calc">
+                <ion-input type="number" class="form_input2 form-control" formControlName="length"
+                  placeholder="Lenght" />
+                X
+                <ion-input type="number" class="form_input2 form-control" formControlName="width" placeholder="Width" />
+                X
+                <ion-input type="number" class="form_input2 form-control" formControlName="height"
+                  placeholder="Height" />
+                =
+                <ion-input type="number" class="form_input2 form-control" formControlName="dimensionCM"
+                  placeholder="CM" />
+              </ion-text>
+            </ion-text>
 
-        <ion-text class="mb-2">
-          <ion-text style="display: flex; justify-content: space-between"
-            ><ion-label class="form-label">Goods Description</ion-label>
-            <span style="color: #ff6347">Remove</span></ion-text
-          >
-          <ion-input
-            type="email"
-            class="form_input"
-            aria-describedby="emailHelp"
-            placeholder="Enter Goods Description (Name)"
-          />
-        </ion-text>
-        <ion-text class="Form_input_box">
-          <ion-label class="form-label">Dimensions</ion-label>
-
-          <ion-text class="Multi_input_calc">
-            <ion-input
-              type="text"
-              class="form_input2 form_input"
-              placeholder="Lenght"
-            />
-            X
-            <ion-input
-              type="text"
-              class="form_input2 form_input"
-              placeholder="Width"
-            />
-            X
-            <ion-input
-              type="text"
-              class="form_input2 form_input"
-              placeholder="Height"
-            />
-            =
-            <ion-input
-              type="text"
-              class="form_input2 form_input"
-              placeholder="CM"
-            />
-          </ion-text>
-        </ion-text>
-        <ion-text class="Multi_input_calc mt-2">
-          <ion-text class="font_content_section Form_input_box">
-            <ion-label class="form-label">Goods Quantity</ion-label>
-            <ion-input
-              type="number"
-              class="form_input px-2"
-              placeholder="Enter Quantity"
-            />
-          </ion-text>
-          <ion-text class="font_content_section Form_input_box">
-            <ion-label class="form-label">Weight(Kg)</ion-label>
-            <ion-input
-              type="number"
-              class="form_input px-2"
-              placeholder="Enter Weight"
-            />
-          </ion-text>
-        </ion-text>
-
-        
-        <ion-button type="submit" class="submit_button mt-3 col-12">
+            <ion-text class="Multi_input_calc mt-2">
+              <ion-text class="font_content_section form_input_box">
+                <ion-label class="form-label">Goods Quantity</ion-label>
+                <ion-input type="number" class="px-2 form-control" placeholder="Enter Quantity" />
+              </ion-text>
+              <ion-text class="font_content_section form_input_box">
+                <ion-label class="form-label">Weight(Kg)</ion-label>
+                <ion-input type="number" class="px-2 form-control" placeholder="Enter Weight" />
+              </ion-text>
+            </ion-text>
+            <ion-text class="d-flex justify-content-center px-1 g-0">
+              <hr class="w-100" />
+            </ion-text>
+          </ion-row>
+          }
+        </div>
+        <ion-button type="button" (click)="submitForm()" [disabled]=" cargoForm.invalid"
+          class="submit_button mt-3 col-12">
           Confirm & Proceed
         </ion-button>
       </form>
     </ion-text>
-  </ion-text>
-</ion-text>
+  </ion-col>
+</ion-row>

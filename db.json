@@ -4,7 +4,7 @@
       "id": 1,
       "orderId": "ORD1242342350",
       "tripNo": "LR/1220324324553",
-      "status": "Pending",
+      "status": "Cancelled",
       "bookingType": "FTL",
       "pickup": {
         "location": "New Delhi Sarita Vihar",

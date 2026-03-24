@@ -111,7 +111,8 @@
           </ion-text>
           <br>
         </ion-card>
-        <ion-popover [trigger]="'setting-' + item.id" side="bottom" alignment="start">
+        <ion-popover [trigger]="'setting-' + item.id" side="bottom" alignment="start" [dismissOnSelect]="true"
+          [showBackdrop]="false">
           <ng-template>
             <ion-content>
               <ion-list class="list px-3">
@@ -121,7 +122,8 @@
                 <ion-text>
                   See Order Details
                 </ion-text>
-                <ion-text>
+                <ion-text (click)="canCancel(item.status) && cancelOrder(item)"
+                  [ngClass]="{'disabled-text': !canCancel(item.status)}">
                   Cancel Order
                 </ion-text>
               </ion-list>

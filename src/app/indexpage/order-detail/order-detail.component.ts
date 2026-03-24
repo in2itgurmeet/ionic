@@ -15,11 +15,6 @@ export class OrderDetailComponent {
   toggleAccordion() {
     this.isSecondAccordionOpen = !this.isSecondAccordionOpen;
   }
-
-
-
-
-
   openPopup() {
     this.isPopupOpen = !this.isPopupOpen;
     if (this.isPopupOpen) {

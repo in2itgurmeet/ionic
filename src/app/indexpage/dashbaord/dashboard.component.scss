@@ -310,6 +310,15 @@ span {
   font-weight: 700;
   font-size: small;
 }
-.container_ormore span img {
-  max-width: 50px;
+.container_ormore {
+  display: flex;
+  justify-content: space-between;
+  align-items: last baseline;
+  hr {
+    margin: 0px;
+    width: 120px;
+  }
+  span img {
+    max-width: 50px;
+  }
 }

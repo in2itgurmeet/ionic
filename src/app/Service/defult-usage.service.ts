@@ -30,6 +30,13 @@ export class DefultUsageService {
 
 
 
+  vehicles = [
+    { name: 'Tata Ace', capacity: '780kg', dimensions: '7FT X 4.5FT X 6FT', img: '../../../assets/icon/Select_vichle.png' },
+    { name: '20FT Eicher', capacity: '780kg', dimensions: '10FT X 4.5FT X 6FT', img: '../../../assets/icon/Select_vichle.png' },
+    { name: 'Tata Ace', capacity: '780kg', dimensions: '7FT X 4.5FT X 6FT', img: '../../../assets/icon/Select_vichle.png' },
+  ];
+
+
 
 
   ///
