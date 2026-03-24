@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-createorder',
@@ -14,7 +15,7 @@ export class CreateorderComponentPtl {
   cargoForm!: FormGroup;
   vehicles: any[] = [];
 
-  constructor(private fb: FormBuilder, private defultService: DefultUsageService) {
+  constructor(private fb: FormBuilder, private defultService: DefultUsageService, private route: Router) {
     this.vehicles = this.defultService.vehicles;
   }
 
@@ -63,6 +64,7 @@ export class CreateorderComponentPtl {
   submitForm() {
     if (this.cargoForm.valid) {
       console.log(this.cargoForm.value);
+      this.route.navigate(['/indexpage/order-details/2']);
     } else {
       console.log('Form invalid');
     }

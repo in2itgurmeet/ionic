@@ -2,6 +2,7 @@ import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-createorder',
   imports: [IonicModule, CommonModule, ReactiveFormsModule],
@@ -12,7 +13,7 @@ export class CreateorderComponentFtl implements OnInit {
 
   cargoForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private route: Router) { }
 
   ngOnInit() {
     this.cargoForm = this.fb.group({
@@ -57,6 +58,7 @@ export class CreateorderComponentFtl implements OnInit {
   submitForm() {
     if (this.cargoForm.valid) {
       console.log(this.cargoForm.value);
+      this.route.navigate(['/indexpage/order-details/2']);
     } else {
       console.log('Form invalid');
     }

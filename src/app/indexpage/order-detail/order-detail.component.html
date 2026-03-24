@@ -8,7 +8,7 @@
       </iframe>
     </ion-text>
 
-    <ion-col class="ion-padding Form_content container-fluid" style="margin-top: -20px">
+    <ion-col class="ion-padding form_content container-fluid" style="margin-top: -20px">
       <form>
         <ion-text class="d-flex justify-content-center">
           <hr class="w-25" />
@@ -26,7 +26,7 @@
 
         <!---HIDE CONENT-->
         @if(isSecondAccordionOpen){
-        <ion-text class="_content_hide mt-5 fade-slow" [ngClass]="{'fade-slow': isSecondAccordionOpen}">
+        <ion-row class="_content_hide mt-2 fade-slow" [ngClass]="{'show': isSecondAccordionOpen}">
           <ion-text class="Hide_content">
             <ion-text>
               <p class="Top_content">
@@ -131,7 +131,7 @@
               </ion-text>
 
             </ion-text>
-            <ion-text class="vichle_section p-2">
+            <ion-card class="vichle_section p-2">
               <ion-text class="seltct_vichle py-2 mt-2 mb-2">
                 <ion-text class="_Svg_continer py-1 px-1">
                   <img src="../../../assets/icon/Select_vichle.png" class="img-fluid" alt="" />
@@ -165,7 +165,7 @@
                   <p class="font-size ms-2">50% vehichle utilized by Volume</p>
                 </ion-text>
               </ion-text>
-            </ion-text>
+            </ion-card>
           </ion-text>
 
           <ion-text class="payment_method py-2" lines="none">
@@ -184,7 +184,7 @@
               </ion-text>
             </ion-text>
           </ion-text>
-        </ion-text>
+        </ion-row>
         }
         <ion-text class="d-flex justify-content-center px-1 g-0">
           <hr class="w-100" />

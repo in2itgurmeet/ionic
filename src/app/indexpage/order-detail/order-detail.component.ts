@@ -23,8 +23,6 @@ export class OrderDetailComponent {
       document.body.classList.remove('overlay');
     }
   }
-
-
 }
 
 
