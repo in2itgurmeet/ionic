@@ -71,7 +71,6 @@ export class CreateorderComponentPtl {
   }
   subscribeToDimensionChanges(cargoGroup?: FormGroup) {
     const groups: FormGroup[] = cargoGroup ? [cargoGroup] : this.cargoItems.controls as FormGroup[];
-
     groups.forEach(group => {
       ['length', 'width', 'height'].forEach(key => {
         group.get(key)?.valueChanges.subscribe(() => this.calculateCM(group));

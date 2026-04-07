@@ -10,11 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./createorder.component.scss'],
 })
 export class CreateorderComponentFtl implements OnInit {
-
   cargoForm!: FormGroup;
-
   constructor(private fb: FormBuilder, private route: Router) { }
-
   ngOnInit() {
     this.cargoForm = this.fb.group({
       referenceNumber: ['', Validators.required],
@@ -25,7 +22,6 @@ export class CreateorderComponentFtl implements OnInit {
       cargoItems: this.fb.array([this.createCargoItem()]),
     });
     this.subscribeToDimensionChanges();
-
   }
 
   createCargoItem(): FormGroup {
