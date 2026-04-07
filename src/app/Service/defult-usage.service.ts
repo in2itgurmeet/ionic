@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 
 @Injectable({
@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class DefultUsageService {
   greeting: string;
+  bookingMode = signal<'FTL' | 'PTL'>('FTL');
 
   constructor() {
     const now = new Date();

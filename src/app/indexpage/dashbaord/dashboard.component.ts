@@ -13,7 +13,7 @@ import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 export class DashboardComponent {
   formattedDateTime: string | undefined;
   private timer: any;
-  constructor(public defultServise: DefultUsageService, private routermodule: Router) {
+  constructor(public defultServise: DefultUsageService, private route: Router) {
     this.updateDateTime();
     this.timer = setInterval(() => {
       this.updateDateTime();
@@ -47,12 +47,16 @@ export class DashboardComponent {
 
 
 
-  // fun() {
-  //   console.log('sfgh');
-  //   this.routermodule.navigate(['/ptlBooking']);
-  // }
-
-
+  addModeOfbooking(event: any) {
+    if (event == 'FTL') {
+      this.defultServise.bookingMode.set('FTL')
+      this.route.navigate(['/indexpage/booking']);
+    }
+    else if (event == 'PTL') {
+      this.defultServise.bookingMode.set('PTL')
+      this.route.navigate(['/indexpage/booking']);
+    }
+  }
 
 
 

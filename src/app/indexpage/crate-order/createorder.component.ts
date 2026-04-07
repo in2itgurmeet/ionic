@@ -14,9 +14,10 @@ import { Route, Router } from '@angular/router';
 export class CreateorderComponentPtl {
   cargoForm!: FormGroup;
   vehicles: any[] = [];
-
+  bookingType: any;
   constructor(private fb: FormBuilder, private defultService: DefultUsageService, private route: Router) {
     this.vehicles = this.defultService.vehicles;
+    this.bookingType = this.defultService.bookingMode();
   }
 
   ngOnInit() {

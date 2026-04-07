@@ -120,7 +120,7 @@ export class AllProductComponent implements OnInit {
   handleAction(item: any) {
     switch (item.status) {
       case 'Pending':
-        this.router.navigate(['/indexpage/ftlBooking'], {
+        this.router.navigate(['/indexpage/booking'], {
           queryParams: { orderId: item.orderId }
         });
         break;

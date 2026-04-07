@@ -1,4 +1,4 @@
-import { routes } from './../../app.routes';
+import { routes } from '../../app.routes';
 import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -6,20 +6,22 @@ import { Api } from 'src/app/Service/api';
 import { HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 
 @Component({
-  selector: 'app-ftlbookin',
+  selector: 'app-booking',
   imports: [CommonModule, IonicModule, FormsModule],
-  templateUrl: './ftlbookin.component.html',
-  styleUrls: ['./ftlbookin.component.scss'],
+  templateUrl: './booking.component.html',
+  styleUrls: ['./booking.component.scss'],
 })
-export class FtlbookinComponent {
+export class bookinComponent {
 
   pickupResults: any[] = [];
   deliveryResults: any[] = [];
   selectedPickup: any = null;
   selectedDelivery: any = null;
-  constructor(private api: Api, private routes: Router) {
+  bookingType: any;
+  constructor(private api: Api, private routes: Router, private deultService: DefultUsageService) {
 
   }
   searchPickup(event: any) {
@@ -33,6 +35,8 @@ export class FtlbookinComponent {
     }
   }
   ngOnInit() {
+    this.bookingType = this.deultService.bookingMode();
+    console.log(this.bookingType);
     const now = new Date();
 
     this.day = this.pad(now.getDate());
@@ -72,11 +76,9 @@ export class FtlbookinComponent {
 
   selectDelivery(item: any) {
     this.selectedDelivery = item;
-    this.routes.navigate(['/indexpage/createOrderFtl'], { queryParams: { orderId: item.orderId } });
+    this.routes.navigate(['/indexpage/createOrder'], { queryParams: { orderId: item.orderId } });
     this.deliveryResults = [];
   }
-
-
 
 
   @HostListener('document:click', ['$event'])

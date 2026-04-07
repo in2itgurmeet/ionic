@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashbaord/dashboard.component';
-import { PtlBookinComponent } from './ptl-bookin/ptl-bookin.component';
-import { FtlbookinComponent } from './ftl-bookin/ftlbookin.component';
-import { CreateorderComponentPtl } from './crate-order_ptl/createorder.component';
+import { bookinComponent } from './booking/booking.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { BookedComponent } from './booked/booked.component';
 import { LorryReceiptComponent } from './Lorry_details_page/lorry-receipt/lorry-receipt.component';
@@ -14,7 +12,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { InvoiceDetailsComponent } from './invoice-details-page/invoice-details/invoice-details.component';
 import { InvoiceBillComponent } from './invoice-details-page/invoice-bill/invoice-bill.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
-import { CreateorderComponentFtl } from './crate-order_ftl/createorder.component';
+import { CreateorderComponentPtl } from './crate-order/createorder.component';
 
 const routes: Routes = [
   {
@@ -27,19 +25,11 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'createOrderFtl',
-    component: CreateorderComponentFtl,
+    path: 'booking',
+    component: bookinComponent,
   },
   {
-    path: 'ptlBooking',
-    component: PtlBookinComponent,
-  },
-  {
-    path: 'ftlBooking',
-    component: FtlbookinComponent,
-  },
-  {
-    path: 'createOrderPtl',
+    path: 'createOrder',
     component: CreateorderComponentPtl,
   },
   {

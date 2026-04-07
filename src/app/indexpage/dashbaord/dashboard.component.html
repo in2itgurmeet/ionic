@@ -6,9 +6,9 @@
           <img src="../../../assets/icon/interior-large-logistics-warehouse-ai-generative.jpg" alt=""
             style="width: -webkit-fill-available" />
         </ion-text>
-        <ion-text class="FormatText px-2" [routerLink]="['/indexpage/ftlBooking']">
+        <ion-text class="formatText px-2" (click)="addModeOfbooking('FTL')">
           <p>Create FTL Order</p>
-          <span><a><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+          <span><i class="fa fa-arrow-right" aria-hidden="true"></i>
           </span>
         </ion-text>
       </ion-col>
@@ -16,7 +16,7 @@
         <ion-text class="ptl_imgsection">
           <img src="../../../assets/icon/ptliimage2.jpg" style="width: -webkit-fill-available" alt="" />
         </ion-text>
-        <ion-text class="FormatText px-2" [routerLink]="['/indexpage/ptlBooking']">
+        <ion-text class="formatText px-2" (click)="addModeOfbooking('PTL')">
           <p>Create PTL Order</p>
           <span><a><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
           </span>

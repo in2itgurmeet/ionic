@@ -1,7 +1,13 @@
 <ion-row>
   <ion-col class="row g-0" style="background: none !important;">
 
-    <ion-text class="Heading_top fw-bold mt-3">Order Booking type: Partial truckload (PTL)</ion-text>
+    <ion-text class="Heading_top fw-bold mt-3">
+      @if(bookingType == 'FTL'){
+      Order Booking type: Partial truckload (FTL)
+      }@else if (bookingType == 'PTL') {
+      Order Booking type: Partial truckload (PTL)
+      }
+    </ion-text>
 
     <form action="">
 
@@ -14,8 +20,6 @@
             <ion-item (click)="openPicker()" class="ion_item_date_modal">
               {{ selectedDate || 'Select Date & Time' }}
             </ion-item>
-            <!-- <ion-input type="datetime-local" class="form_input" id="exampleInputPassword1" [min]="minDate"
-              placeholder="11-04-2024 at 07:00AM" style="border: none !important;" /> -->
           </ion-col>
         </ion-text>
         <ion-col class="px-2 mt-2 position-relative">
@@ -31,9 +35,9 @@
           @if (pickupResults.length > 0) {
           <ion-list class="dropdown-list">
             @for (item of pickupResults; track $index) {
-            <ion-text (click)="selectPickup(item)">
+            <ion-item (click)="selectPickup(item)">
               {{ item.properties.formatted }}
-            </ion-text>
+            </ion-item>
             }
           </ion-list>
           }
@@ -51,9 +55,9 @@
           @if (deliveryResults.length > 0) {
           <ion-list class="dropdown-list">
             @for (item of deliveryResults; track $index) {
-            <ion-text (click)="selectDelivery(item)">
+            <ion-item (click)="selectDelivery(item)">
               {{ item.properties.formatted }}
-            </ion-text>
+            </ion-item>
             }
           </ion-list>
           }
@@ -86,6 +90,7 @@
       <ion-datetime presentation="date" [(ngModel)]="calendarDate" (ionChange)="onDateChange($event)">
       </ion-datetime>
 
+      <!-- BUTTON -->
       <ion-button expand="block" (click)="confirm()">
         Done
       </ion-button>

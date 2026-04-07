@@ -52,6 +52,7 @@
             <p>Add from Contacts</p>
           </ion-text>
         </ion-text>
+        @if(bookingType == 'PTL'){
         @for (vehicle of vehicles; track $index) {
         <ion-card class="seltct_vichle py-2 m-0 mt-2 mb-2">
           <ion-text class="_Svg_continer py-1 px-1">
@@ -76,6 +77,7 @@
             </ion-text>
           </ion-text>
         </ion-card>
+        }
         }
 
 

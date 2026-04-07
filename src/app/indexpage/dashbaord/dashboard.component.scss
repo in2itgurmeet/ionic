@@ -88,7 +88,7 @@
   height: 100px;
 }
 
-.FormatText {
+.formatText {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -98,15 +98,18 @@
   border-radius: 0px 0px 8px 8px;
   border-top: 1px solid rgb(241, 241, 241);
 }
+ion-text {
+  display: block;
+}
 
-.FormatText p,
+.formatText p,
 span {
   font-size: 15px;
   font-weight: 500;
   text-transform: capitalize;
 }
 
-.FormatText span {
+.formatText span {
   margin-top: 2px;
 }
 
