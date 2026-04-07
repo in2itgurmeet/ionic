@@ -13,6 +13,7 @@ import { InvoiceDetailsComponent } from './invoice-details-page/invoice-details/
 import { InvoiceBillComponent } from './invoice-details-page/invoice-bill/invoice-bill.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { CreateorderComponentPtl } from './crate-order/createorder.component';
+import { LorryDeatilsComponent } from './Lorry_details_page/lorry-deatils/lorry-deatils.component';
 
 const routes: Routes = [
   {
@@ -41,18 +42,6 @@ const routes: Routes = [
     component: BookedComponent,
   },
   {
-    path: 'loory-receipt',
-    component: LorryReceiptComponent,
-  },
-  {
-    path: 'proof-delivery',
-    component: ProofOfDeliveryComponent,
-  },
-  {
-    path: 'shiping-lable',
-    component: ShipingLableComponent,
-  },
-  {
     path: 'all-product',
     component: AllProductComponent,
   },
@@ -72,6 +61,10 @@ const routes: Routes = [
     path: 'invoice-Bill',
     component: InvoiceBillComponent,
   },
+  {
+    path: 'lorry-details',
+    component: LorryDeatilsComponent
+  }
 ];
 
 @NgModule({

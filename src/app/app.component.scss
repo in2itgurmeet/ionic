@@ -229,3 +229,9 @@ ion-button::part(native) {
   align-items: center;
   margin: 0 auto;
 }
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}

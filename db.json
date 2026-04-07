@@ -440,5 +440,58 @@
       "amount": "2700",
       "paymentType": "COD"
     }
+  ],
+  "booking": [
+    {
+      "pickup": "Frankfurt, HE, Germany",
+      "delivery": "Delhi Cantonment, New Delhi, India",
+      "bookingType": "PTL",
+      "date": "07 Apr 2026, 04:08 PM",
+      "referenceNumber": "RFN12023",
+      "senderName": "Gurmeet",
+      "senderMobile": "730203032123",
+      "receiverName": "Manu Shukla",
+      "receiverMobile": "98012873123",
+      "selectedVehicle": ["20FT Eicher"],
+      "cargoItems": [
+        {
+          "goodsDescription": "Washing Mashine",
+          "length": 6,
+          "width": 3,
+          "height": 5,
+          "quantity": 20,
+          "weight": 15
+        }
+      ],
+      "id": 2
+    },
+    {
+      "referenceNumber": "RFN001234",
+      "senderName": "Manu shukla",
+      "senderMobile": "738391274323",
+      "receiverName": "Imtiyaj Khan",
+      "receiverMobile": "86345277632",
+      "selectedVehicle": [
+        {
+          "name": "20FT Eicher",
+          "capacity": "780kg",
+          "dimensions": "10FT X 4.5FT X 6FT",
+          "img": "../../../assets/icon/Select_vichle.png"
+        }
+      ],
+      "cargoItems": [
+        {
+          "goodsDescription": "Ace",
+          "length": 12,
+          "width": 3,
+          "height": 12,
+          "quantity": 50,
+          "weight": 14
+        }
+      ],
+      "bookingType": "PTL",
+      "orderId": "ORD1775558926305",
+      "id": 3
+    }
   ]
 }

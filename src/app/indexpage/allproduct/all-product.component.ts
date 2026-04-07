@@ -2,14 +2,14 @@ import { Api } from './../../Service/api';
 import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import Swal from 'sweetalert2';
+import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 
 @Component({
   selector: 'app-all-product',
-  imports: [IonicModule, CommonModule, RouterLink],
+  imports: [IonicModule, CommonModule],
   templateUrl: './all-product.component.html',
   styleUrls: ['./all-product.component.scss'],
 })
@@ -26,7 +26,7 @@ export class AllProductComponent implements OnInit {
     6: 'Cancelled'
   };
 
-  constructor(private api: Api, private router: Router, private alertCtrl: AlertController) { }
+  constructor(private api: Api, private router: Router, private alertCtrl: AlertController, private defultServise: DefultUsageService, private route: Router) { }
 
   setActiveTab(tabIndex: number): void {
     this.activeTab = tabIndex;
@@ -199,4 +199,21 @@ export class AllProductComponent implements OnInit {
     return status !== 'Delivered' && status !== 'Cancelled';
   }
 
+
+  setBookingType(event: any) {
+    if (event == 'FTL') {
+      this.defultServise.bookingMode.set('FTL')
+      this.route.navigate(['/indexpage/booking']);
+    }
+    else if (event == 'PTL') {
+      this.defultServise.bookingMode.set('PTL')
+      this.route.navigate(['/indexpage/booking']);
+    }
+  }
+  getLorryReciept(event: any) {
+    if (event) {
+      this.route.navigate(['/indexpage/booking']);
+    }
+
+  }
 }

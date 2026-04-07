@@ -1,0 +1,27 @@
+<ion-row>
+
+  <ion-header class="bg-white tab-bar">
+    <div class="tab-bar g-0">
+      <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)" routerLink="/indexpage/loory-receipt">Loory
+        Receipt</a>
+      <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)"
+        routerLink="/indexpage/shiping-lable">Shipping
+        Lable</a>
+      <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)" routerLink="/indexpage/proof-delivery">Proof
+        of
+        Delivery</a>
+    </div>
+  </ion-header>
+
+  @if (activeTab == 1) {
+  <app-lorry-receipt></app-lorry-receipt>
+  }
+  @if (activeTab == 2) {
+  <app-shiping-lable></app-shiping-lable>
+  }
+  @if (activeTab == 3) {
+  <app-proof-of-delivery></app-proof-of-delivery>
+  }
+
+
+</ion-row>

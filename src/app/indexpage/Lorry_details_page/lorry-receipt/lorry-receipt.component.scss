@@ -3,22 +3,21 @@
   max-width: calc(100%);
   display: flex;
   flex-direction: column;
-  line-height: 10px; 
+  line-height: 10px;
   border-radius: 5px;
   border: 1px solid grey;
 }
 .scrollable-container {
-   /* Set this to whatever height you need */
+  /* Set this to whatever height you need */
   overflow: auto;
- 
 }
 
-span{
+span {
   line-height: normal;
 }
-.bg-banner{
-    background-color: rgb(255, 227, 176);
-    border: 1px solid rgb(252, 220, 162);
+.bg-banner {
+  background-color: rgb(255, 227, 176);
+  border: 1px solid rgb(252, 220, 162);
 }
 .top_Lorry_section {
   width: calc(100%);
@@ -42,31 +41,28 @@ span{
   line-height: 0px;
   margin: 0px;
 }
-.Information p{
-    font-size: 12px;
-    line-height: 10px;
+.Information p {
+  font-size: 12px;
+  line-height: 10px;
 }
-.Information .fw-bold span{
-    font-weight: 500 !important;
-    color: rgb(190, 190, 190) !important;
+.Information .fw-bold span {
+  font-weight: 500 !important;
+  color: rgb(190, 190, 190) !important;
 }
 
-.Consignment_container .Consiger_headding{
+.Consignment_container .Consiger_headding {
   color: #ff8670;
 }
-.Consignment_container .Consiger_headding_sub{
+.Consignment_container .Consiger_headding_sub {
   color: black;
   font-weight: 700;
   font-size: 13px;
 }
-.Consiger_headding_Details{
+.Consiger_headding_Details {
   color: rgb(190, 190, 190) !important;
   font-size: small;
   line-height: normal;
 }
-
-
-
 
 /* my-table.component.css */
 
@@ -76,14 +72,14 @@ table {
   border-radius: 5px !important;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #d8d8d8;
   padding: 8px;
   text-align: center;
   font-size: 10px;
-
 }
-td{
+td {
   color: #a0a0a0;
   line-height: 13px;
 }
@@ -91,14 +87,14 @@ td{
 th {
   background-color: #f3f3f3;
 }
-ol li{
+ol li {
   font-size: 12px;
 }
-.Extra_gap{
+.Extra_gap {
   height: 100px;
   padding: 10px;
 }
-.Footer{
+.Footer {
   width: calc(100%);
   max-width: calc(100%);
   padding: 10px;
@@ -106,31 +102,28 @@ ol li{
   justify-content: space-between;
   background-color: white;
 }
-.Footer ion-text{
+.Footer ion-text {
   width: calc(96% / 2);
   max-width: calc(96% / 2);
   display: flex;
   align-items: center;
-  
- 
 }
-.Dwonload_button{
-  background-color:#ff6347;
+.Dwonload_button {
+  background-color: #ff6347;
   border-radius: 5px;
   color: white;
-} 
-.share_btn{
+}
+.share_btn {
   color: #ff6347;
   font-size: small;
- 
+
   padding: 5px;
   border-radius: 5px;
 }
 
-.nav-link{
+.nav-link {
   color: white;
 }
-
 
 .Popup {
   position: fixed;
@@ -166,14 +159,14 @@ ol li{
 }
 .my_poup p {
   border: 4px solid rgb(14, 167, 0);
-    background-color: rgb(14, 167, 0);
-    border-radius: 50%;
-    padding: 5px;
-    height: 50px;
-    display: flex;
-    font-size: xx-large;
+  background-color: rgb(14, 167, 0);
+  border-radius: 50%;
+  padding: 5px;
+  height: 50px;
+  display: flex;
+  font-size: xx-large;
 }
-.fa-check{
+.fa-check {
   color: white;
 }
 .my_poup span {
@@ -182,51 +175,6 @@ ol li{
   color: rgb(223, 223, 223);
   font-family: cursive;
 }
-.w-mx{
+.w-mx {
   width: max-content;
-}
-
-.tab-bar {
-  display: flex;
-  justify-content: flex-start;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent tabs from wrapping to the next line */
-  padding: 7px;
-  background: white;
-  width: 100%;
-  overflow: scroll;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  z-index: 999;
-}
-.tab-bar a {
-  text-decoration: none;
-  color: black;
-  border: none;
-  padding: 10px 40px 0px 0px;
-  cursor: pointer;
-  font-size: 14px;
-  display: inline-block; /* Ensure each tab is inline */
-}
-
-.tab-bar a.active {
-  color: orange;
-  text-decoration: underline;
-  text-decoration-thickness: 2px; /* Adjust the thickness of the underline */
-  text-underline-offset: 5px;
-}
-
-/* Ensure the scrollbar is always visible */
-.tab-bar::-webkit-scrollbar {
-  height: 20px; /* Height of the horizontal scrollbar */
-}
-
-.tab-bar::-webkit-scrollbar-thumb {
-  background: #ccc; /* Color of the scrollbar thumb */
-  border-radius: 3px;
-}
-
-.tab-bar::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color of the scrollbar track */
 }

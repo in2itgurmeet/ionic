@@ -23,6 +23,11 @@ export class Api {
       `https://api.geoapify.com/v1/geocode/autocomplete?text=${query}&apiKey=${this.loactionKey}`
     );
   }
-
+  getBookingData(): Observable<any> {
+    return this.http.get(this.apiUrl + "/booking");
+  }
+  createBookingData(data: any): Observable<any> {
+    return this.http.post(this.apiUrl + "/booking", data);
+  }
 
 }

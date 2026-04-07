@@ -58,19 +58,13 @@
                             <p class="fw-bold w-mx">+91 9999999999</p>
                             <p class="fw-bold">Steelservice&#64;gmail.com</p>
                             <p class="fw-bold w-mx">Thane Mumbai-Mharathra</p>
-
-
                         </ion-text>
                     </ion-text>
                 </ion-text>
-
-
-                <!-- Horizontal Line -->
                 <span class="hr_lines" style="width: 95%">
                     <hr />
                 </span>
                 <ion-text class="p-2">
-
                     <p class="fw-bold mt-2 ms-2" style="font-size: small;">Service Fees</p>
                     <ion-card>
                         <ion-text class="top_Lorry_section mt-2">
@@ -78,7 +72,6 @@
                                 <p class="fw-bold">Tranpotation Charge </p>
                                 <p class="fw-bold">Loding & Unloading </p>
                             </ion-text>
-                            <!-- Repeated Information Section -->
                             <ion-text class="Side_Section  py-2">
                                 <p class="fw-bold">3000.00</p>
                                 <p class="fw-bold w-mx">1000.00</p>
@@ -93,7 +86,6 @@
                                 <p class="fw-bold">SGST(9%) </p>
                                 <p class="fw-bold">CGST(9%) </p>
                             </ion-text>
-                            <!-- Repeated Information Section -->
                             <ion-text class="Side_Section  ">
                                 <p class="fw-bold">4000.00</p>
                                 <p class="fw-bold w-mx">360.00</p>
@@ -109,7 +101,6 @@
                                 <p class="fw-bold text-success">Paid </p>
                                 <p class="fw-bold text-danger">Outstanding </p>
                             </ion-text>
-                            <!-- Repeated Information Section -->
                             <ion-text class="Side_Section  ">
                                 <p class="fw-bold text-dark">4720.00</p>
                                 <p class="fw-bold w-mx text-success">1000.00</p>
@@ -122,10 +113,6 @@
             </ion-text>
 
         </ion-text>
-
-        <!--------fotter tollbar-->
-
-
     </ion-text>
 </ion-text>
 <ion-text class="Footer border">
@@ -139,13 +126,15 @@
         <button class="Dwonload_button btn" (click)="openPopup() ">Dwonload</button>
     </ion-text>
 </ion-text>
-<ion-card *ngIf="isPopupOpen" class="Popup p-5">
+@if(isPopupOpen){
+<ion-card class="Popup p-5">
     <ion-text class="my_poup">
         <i class="fa fa-times" aria-hidden="true" (click)="openPopup()"></i>
-
         <p><i class="fa fa-check" aria-hidden="true"></i></p>
         <h6 class="fw-bold">Download SuccessFull!</h6>
         <span> Loory Receipt has been Downloaded SuccessFully. </span>
     </ion-text>
 </ion-card>
-<div *ngIf="isPopupOpen" class="overlay" (click)="openPopup()"></div>
+} @if(isPopupOpen){
+<div class="overlay" (click)="openPopup()"></div>
+}

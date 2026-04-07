@@ -9,7 +9,7 @@
       }
     </ion-text>
 
-    <form action="">
+    <form action="" [formGroup]="booking">
 
       <ion-text class="px-2 py-3">
         <ion-text class="input_feild_section px-2 mt-2">
@@ -29,7 +29,8 @@
             </ion-text>
             <ion-text class="Input_content">
               <ion-input type="text" class="form_input" [value]="selectedPickup?.properties?.formatted"
-                (ionInput)="searchPickup($event)" placeholder="Where should we pick up your items?"></ion-input>
+                formControlName="pickup" (ionInput)="searchPickup($event)"
+                placeholder="Where should we pick up your items?"></ion-input>
             </ion-text>
           </ion-text>
           @if (pickupResults.length > 0) {
@@ -49,7 +50,8 @@
             </ion-text>
             <ion-text class="Input_content">
               <ion-input type="text" class="form_input" [value]="selectedDelivery?.properties?.formatted"
-                (ionInput)="searchDelivery($event)" placeholder="Where should we delivery your items?"></ion-input>
+                formControlName="delivery" (ionInput)="searchDelivery($event)"
+                placeholder="Where should we delivery your items?"></ion-input>
             </ion-text>
           </ion-text>
           @if (deliveryResults.length > 0) {

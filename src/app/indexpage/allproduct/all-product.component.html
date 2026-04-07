@@ -115,7 +115,7 @@
           [showBackdrop]="false">
           <ng-template>
             <ion-content>
-              <ion-list class="list px-3">
+              <ion-list class="list px-3" (click)="getLorryReciept(item.id)">
                 <ion-text>
                   Print LR
                 </ion-text>
@@ -158,10 +158,10 @@
   <ng-template>
     <ion-content class="ion-padding ">
       <ion-list class="list">
-        <ion-text [routerLink]="['/indexpage/booking']">
+        <ion-text (click)="setBookingType('FTL')">
           Create FTL Order
         </ion-text>
-        <ion-text [routerLink]="['/indexpage/booking']">
+        <ion-text (click)="setBookingType('PTL')">
           Create PTL Order
         </ion-text>
       </ion-list>

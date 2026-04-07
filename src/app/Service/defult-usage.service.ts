@@ -7,6 +7,7 @@ import { Injectable, signal } from '@angular/core';
 export class DefultUsageService {
   greeting: string;
   bookingMode = signal<'FTL' | 'PTL'>('FTL');
+  orderData: any = {};
 
   constructor() {
     const now = new Date();
@@ -38,6 +39,17 @@ export class DefultUsageService {
   ];
 
 
+  setOrderData(data: any) {
+    this.orderData = { ...this.orderData, ...data };
+  }
+
+  getOrderData() {
+    return this.orderData;
+  }
+
+  clearOrderData() {
+    this.orderData = {};
+  }
 
 
   ///
