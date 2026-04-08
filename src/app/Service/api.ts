@@ -29,5 +29,7 @@ export class Api {
   createBookingData(data: any): Observable<any> {
     return this.http.post(this.apiUrl + "/booking", data);
   }
-
+  getInvoiceData(): Observable<any> {
+    return this.http.get(this.apiUrl + "/invoices-details");
+  }
 }

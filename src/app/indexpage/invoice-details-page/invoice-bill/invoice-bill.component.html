@@ -12,9 +12,9 @@
 
                     </ion-text>
                     <ion-text class="Side_Section  py-3">
-                        <p class="fw-bold">+91 999999999</p>
-                        <p class="fw-bold">abcd&#64;gmail.com</p>
-                        <p class="fw-bold w-mx">Mumbai Mharashtra</p>
+                        <p class="fw-bold">{{invoiceBill.company.name}}</p>
+                        <p class="fw-bold">{{invoiceBill.company.email}}</p>
+                        <p class="fw-bold w-mx">{{invoiceBill.company.address}}</p>
 
                     </ion-text>
                 </ion-text>
@@ -29,9 +29,9 @@
                         </ion-text>
                         <!-- Repeated Information Section -->
                         <ion-text class="Side_Section  py-2">
-                            <p class="fw-bold">INV/23-24/12212</p>
-                            <p class="fw-bold">MH 04 AA 2025</p>
-                            <p class="fw-bold w-mx">+91 9999999999</p>
+                            <p class="fw-bold">{{invoiceBill.invoiceNo}}</p>
+                            <p class="fw-bold">{{invoiceBill.date}}</p>
+                            <p class="fw-bold w-mx">{{invoiceBill.dueDate}}</p>
                         </ion-text>
                     </ion-text>
                 </ion-text>
@@ -54,10 +54,10 @@
                         </ion-text>
                         <!-- Repeated Information Section -->
                         <ion-text class="Side_Section  py-2">
-                            <p class="fw-bold">Steel Serviec Pvt Ltd</p>
-                            <p class="fw-bold w-mx">+91 9999999999</p>
-                            <p class="fw-bold">Steelservice&#64;gmail.com</p>
-                            <p class="fw-bold w-mx">Thane Mumbai-Mharathra</p>
+                            <p class="fw-bold">{{invoiceBill.customer.name}}</p>
+                            <p class="fw-bold w-mx">{{invoiceBill.customer.mobile}}</p>
+                            <p class="fw-bold">{{invoiceBill.customer.email}}</p>
+                            <p class="fw-bold w-mx">{{invoiceBill.customer.address}}</p>
                         </ion-text>
                     </ion-text>
                 </ion-text>
@@ -73,8 +73,8 @@
                                 <p class="fw-bold">Loding & Unloading </p>
                             </ion-text>
                             <ion-text class="Side_Section  py-2">
-                                <p class="fw-bold">3000.00</p>
-                                <p class="fw-bold w-mx">1000.00</p>
+                                <p class="fw-bold">{{invoiceBill.charges.transportation | currency : 'INR'}}</p>
+                                <p class="fw-bold w-mx">{{invoiceBill.charges.loadingUnloading | currency : 'INR'}}</p>
                             </ion-text>
                         </ion-text>
                         <ion-text class="hr_lines" style="width: 95%">
@@ -83,13 +83,13 @@
                         <ion-text class="top_Lorry_section">
                             <ion-text class="Side_Section Information ">
                                 <p class="fw-bold">Gross Total </p>
-                                <p class="fw-bold">SGST(9%) </p>
-                                <p class="fw-bold">CGST(9%) </p>
+                                <p class="fw-bold">SGST({{invoiceBill.tax.sgstPercent | percent}}) </p>
+                                <p class="fw-bold">CGST({{invoiceBill.tax.cgstPercent | percent}}) </p>
                             </ion-text>
                             <ion-text class="Side_Section  ">
-                                <p class="fw-bold">4000.00</p>
-                                <p class="fw-bold w-mx">360.00</p>
-                                <p class="fw-bold">360.00</p>
+                                <p class="fw-bold">{{invoiceBill.total.gross | currency : 'INR'}}</p>
+                                <p class="fw-bold w-mx">{{invoiceBill.tax.sgstAmount | currency : 'INR'}}</p>
+                                <p class="fw-bold">{{invoiceBill.tax.cgstAmount | currency : 'INR'}}</p>
                             </ion-text>
                         </ion-text>
                         <span class="hr_lines" style="width: 95%">
@@ -102,9 +102,9 @@
                                 <p class="fw-bold text-danger">Outstanding </p>
                             </ion-text>
                             <ion-text class="Side_Section  ">
-                                <p class="fw-bold text-dark">4720.00</p>
-                                <p class="fw-bold w-mx text-success">1000.00</p>
-                                <p class="fw-bold text-danger">3720.00 </p>
+                                <p class="fw-bold text-dark">{{invoiceBill.total.final | currency : 'INR'}}</p>
+                                <p class="fw-bold w-mx text-success">{{invoiceBill.total.paid | currency : 'INR'}}</p>
+                                <p class="fw-bold text-danger">{{invoiceBill.total.outstanding | currency : 'INR'}} </p>
                             </ion-text>
                         </ion-text>
                     </ion-card>
