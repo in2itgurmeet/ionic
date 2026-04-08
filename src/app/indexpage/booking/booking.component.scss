@@ -172,4 +172,5 @@ ion-datetime.datetime-size-fixed {
 
 .ion_item_date_modal::part(native) {
   padding: 0px;
+  --inner-border-width: 0px !important;
 }

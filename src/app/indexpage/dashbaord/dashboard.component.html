@@ -1,18 +1,17 @@
-<ion-col class="container-fluid custom-scrollbar">
-  <ion-text class="row">
+<ion-row>
+  <ion-col>
     <ion-row class="dashboard_top mb-2">
-      <ion-col class="ptl_section shadow ">
+      <ion-col class="ptl_section shadow">
         <ion-text class="ptl_imgsection">
           <img src="../../../assets/icon/interior-large-logistics-warehouse-ai-generative.jpg" alt=""
             style="width: -webkit-fill-available" />
         </ion-text>
         <ion-text class="formatText px-2" (click)="addModeOfbooking('FTL')">
           <p>Create FTL Order</p>
-          <span><i class="fa fa-arrow-right" aria-hidden="true"></i>
-          </span>
+          <span><i class="fa fa-arrow-right" aria-hidden="true"></i> </span>
         </ion-text>
       </ion-col>
-      <ion-col class="ptl_section shadow ">
+      <ion-col class="ptl_section shadow">
         <ion-text class="ptl_imgsection">
           <img src="../../../assets/icon/ptliimage2.jpg" style="width: -webkit-fill-available" alt="" />
         </ion-text>
@@ -25,9 +24,9 @@
     </ion-row>
 
     <ion-row class="MainCounters_section p-0">
-      <ion-card class="content_section shadow ">
+      <ion-col class="content_section shadow">
         <ion-text class="Counters_tophedding">
-          <ion-card-subtitle class="Order_view">Order Overview</ion-card-subtitle>
+          <ion-text class="Order_view">Order Overview</ion-text>
           <ion-text class="Text_small" [routerLink]="['/indexpage/all-product']">See Order</ion-text>
         </ion-text>
         <ion-text class="Counters_section">
@@ -78,11 +77,11 @@
             <ion-text class="Counter_number">10</ion-text>
           </ion-text>
         </ion-text>
-      </ion-card>
+      </ion-col>
     </ion-row>
 
     <ion-text class="p-2">
-      <ion-text class="Maping_section shadow ">
+      <ion-text class="Maping_section shadow">
         <ion-text class="map_continer">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28016.502845213363!2d77.36665289878115!3d28.627878201452216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55758ca9645%3A0xf89fa8c1f37c1d09!2sDream%20N%20Design%20Interiors!5e0!3m2!1sen!2sin!4v1716189490243!5m2!1sen!2sin"
@@ -97,13 +96,13 @@
             <ion-text class="">Trip No:LR/2343</ion-text>
           </ion-text>
           <ion-text class="Text_format_colum">
-            <ion-text class="Counters_section px-3 mb-1" style="padding: 10px; font-size: smaller;">
+            <ion-text class="Counters_section px-3 mb-1" style="padding: 10px; font-size: smaller">
               <ion-text>
                 <span class="fw-bold">ORD122467269</span>
               </ion-text>
               <ion-text style="display: flex; gap: 1px"><Span><i class="fa fa-file-text-o me-1" aria-hidden="true"></i>
                 </Span>
-                <p> 4,27,300 | PREPAID</p>
+                <p>4,27,300 | PREPAID</p>
               </ion-text>
             </ion-text>
             <hr style="width: 91%; margin: auto" />
@@ -126,7 +125,7 @@
                 </ion-text>
               </ion-text>
             </ion-text>
-            <div class="container_ormore  mt-3 px-3">
+            <div class="container_ormore mt-3 px-3">
               <hr />
               <span class="ms-2 me-2"><img src="../../../assets/icon/delivery-truck.png" alt="" /></span>
               <hr />
@@ -140,9 +139,9 @@
     </ion-text>
 
     <ion-text class="p-2">
-      <ion-text class="continer_Svg_Text py-3  ">
-        <ion-text class="img-section ">
-          <img src="../../../assets/icon/dashboard_svgimage.png" style="height: 70px;" class="img-fluid" alt="">
+      <ion-text class="continer_Svg_Text py-3">
+        <ion-text class="img-section">
+          <img src="../../../assets/icon/dashboard_svgimage.png" style="height: 70px" class="img-fluid" alt="" />
         </ion-text>
         <ion-text class="text_section">
           <h6 class="fw-bold">Order Pickup & delivery Mode Easy!</h6>
@@ -152,7 +151,7 @@
     </ion-text>
 
     <ion-text class="MainCounters_section padding_callss">
-      <ion-text class="content_section shadow " style="background: none !important;">
+      <ion-text class="content_section shadow" style="background: none !important">
         <ion-text class="Counters_tophedding">
           <ion-text class="Order_view">Invoice Overview</ion-text>
           <ion-text class="Text_small">See Invoices</ion-text>
@@ -166,7 +165,7 @@
             <ion-text class="Counter_number">2,41,200</ion-text>
           </ion-text>
           <ion-text class="Counter">
-            <ion-text class="Py_content_text " style="color: rgb(57, 132, 245);"><span>
+            <ion-text class="Py_content_text" style="color: rgb(57, 132, 245)"><span>
                 <i class="fa fa-clock-o me-1" aria-hidden="true"></i>
               </span>
               DUE AMOUNT</ion-text>
@@ -189,50 +188,48 @@
             <ion-text class="Counter_number">4,24,430</ion-text>
           </ion-text>
         </ion-text>
-
       </ion-text>
     </ion-text>
 
-    <ion-text class="container-fluid mt-2  ">
-      <ion-text class="row p-2 " style="background: none !important">
-        <ion-text class="border py-2 Card_Section shadow">
+    <ion-text class="mt-2">
+      <ion-text class="" style="background: none !important">
+        <ion-text class="border p-1 Card_Section shadow">
           <ion-text class="img_content img-fluid">
             <img src="../../../assets/icon/logo.jpg" height="20px" style="margin-top: -10px" alt="" />
             <p class="fs-6 fw-bold text-white">Welcome To Proxima Logistic</p>
             <p class="fw-bold text-white">{{ formattedDateTime }}</p>
           </ion-text>
 
-
           <ion-text class="text_section px-2">
             <h6 class="fw-bold">Order Pickup & delivery Mode Easy!</h6>
-            <p style="color: rgb(184, 183, 183);">Place Order Offortlessly for your goods Delivers!</p>
+            <p style="color: rgb(184, 183, 183)">
+              Place Order Offortlessly for your goods Delivers!
+            </p>
           </ion-text>
         </ion-text>
       </ion-text>
     </ion-text>
 
-
     <ion-text class="dashboard_top mb-2 mt-2">
-      <ion-text class="ptl_section shadow ">
+      <ion-text class="ptl_section shadow">
         <ion-text class="ptl_imgsection">
           <img src="../../../assets/icon/interior-large-logistics-warehouse-ai-generative.jpg" alt=""
             style="width: -webkit-fill-available" />
         </ion-text>
         <ion-text class="text_section px-2">
-          <h6 class="Card_text">Order Pickup & delivery Mode Easy!</h6>
-          <p style="color: rgb(184, 183, 183);">Place Order Offortlessly for your goods Delivers!</p>
+          <h6 class="Card_text pt-1">Order Pickup & delivery Mode Easy!</h6>
+          <p>Place Order Offortlessly for your goods Delivers!</p>
         </ion-text>
       </ion-text>
-      <ion-text class="ptl_section shadow ">
+      <ion-text class="ptl_section shadow">
         <ion-text class="ptl_imgsection">
           <img src="../../../assets/icon/ptliimage2.jpg" style="width: -webkit-fill-available" alt="" />
         </ion-text>
         <ion-text class="text_section px-2">
-          <h6 class="Card_text">Order Pickup & delivery Mode Easy!</h6>
-          <p>Place Order Offortlessly for your goods Delivers!
-          </p>
+          <h6 class="Card_text pt-1">Order Pickup & delivery Mode Easy!</h6>
+          <p>Place Order Offortlessly for your goods Delivers!</p>
         </ion-text>
       </ion-text>
     </ion-text>
-  </ion-text>
-</ion-col>
+  </ion-col>
+</ion-row>

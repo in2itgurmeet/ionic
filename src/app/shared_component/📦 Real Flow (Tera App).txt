@@ -1,0 +1,65 @@
+Create Order
+   ↓
+Fill Pickup & Delivery Details
+   ↓
+Add Cargo / Material Details
+   ↓
+Select Vehicle Type (FTL / PTL)
+   ↓
+Price Calculation
+   ↓
+Confirm Booking
+   ↓
+Order Booked ✅
+   ↓
+Assign Driver & Vehicle
+   ↓
+Generate LR (Lorry Receipt)
+   ↓
+Generate Shipping Label
+   ↓
+Transport Start 🚚
+   ↓
+In Transit (Tracking Active)
+   ↓
+Driver Reaches Destination
+   ↓
+👉 Show Invoice (to Consignee)
+   ↓
+Check Payment Type
+   ↓
+   ├── PREPAID → Skip Payment
+   │
+   └── TO-PAY / COD
+           ↓
+        Collect Payment 💰
+           ↓
+        Update Payment Status
+   ↓
+Capture Signature (POD)
+   ↓
+Upload Proof (Photo / Signature)
+   ↓
+Order Delivered ✅
+   ↓
+Order Complete 🎉
+
+
+
+
+// createtion Flow
+Consignor → Order create karta hai
+   ↓
+Driver → goods pickup karta hai
+   ↓
+Driver → transport karta hai
+   ↓
+Driver → destination pe jata hai
+   ↓
+Consignee → invoice dekhta hai
+   ↓
+Consignee → payment karta hai (if needed)
+   ↓
+Consignee → signature deta hai
+   ↓
+Driver → delivery complete karta hai

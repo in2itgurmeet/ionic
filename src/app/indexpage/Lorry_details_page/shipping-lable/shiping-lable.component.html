@@ -1,25 +1,26 @@
 <ion-col>
   <ion-text class="row  p-2 g-0">
+    @for (item of shippingData; track $index) {
+
     <ion-card class="border mt-5">
       <ion-col class="px-3">
         <ion-text class="top_content">
           <ion-text>
-            <img src="../../../../assets/icon/logo.jpg" class="img-fluid p-3 w-50" alt="">
+            <img [src]="[item.company.logo]" class="img-fluid p-3 w-50" alt="">
           </ion-text>
-          <ion-text class="Doket_num">
-            <h6 class="fw-bold">DOCKET NO</h6>
+          <ion-text class="doket_num d-flex gap-1">
+            <p class="fw-bold">DOCKET NO: <span>{{item.docketNo}}</span>
+            </p>
           </ion-text>
         </ion-text>
         <ion-text class="top_content mt-3 ">
           <ion-text class="Origin px-2">
             <h6 class="" style="margin: 0px;">ORIGIN</h6>
-            <p style="font-weight: 400 !important; line-height: normal;">Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit.</p>
+            <p style="font-weight: 400 !important; line-height: normal;">{{item.origin.address}}</p>
           </ion-text>
           <ion-text class="Ship_ment px-2">
             <h6 style="margin: 0px;">SHIP TO</h6>
-            <p style="font-weight: 400 !important; line-height: normal;">Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit.</p>
+            <p style="font-weight: 400 !important; line-height: normal;">{{item.destination.address}}</p>
           </ion-text>
         </ion-text>
 
@@ -27,21 +28,24 @@
           <ion-text class="Origin2 ">
             <h6 class="" style="margin: 0px;">DATE</h6>
             <p style="font-weight: 400 !important; line-height: normal; font-size: 12px; width: max-content;">
-              11-march-2024</p>
+              {{item.shipment.date}}</p>
           </ion-text>
           <ion-text class="Origin2 px-2">
             <h6 class="" style="margin: 0px;">WEIGHT</h6>
-            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">10kg</p>
+            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">{{item.shipment.weight}}</p>
           </ion-text>
           <ion-text class="Ship_ment2 px-2">
             <h6 style="margin: 0px;">PACKAGES</h6>
-            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">1/10</p>
+            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">
+              {{item.shipment.currentPackage}}/{{item.shipment.totalPackages}}</p>
           </ion-text>
         </ion-text>
         <ion-item class="Invoice_no">
           <ion-text>
             <h6>INVOICE NO</h6>
-            <p style="font-weight: 400 !important; line-height: normal; margin: 0px;">INV/23-24/0021</p>
+            <p style="font-weight: 400 !important; line-height: normal; margin: 0px;">
+              {{item.invoice.invoiceNo}}
+            </p>
           </ion-text>
         </ion-item>
         <ion-item class="Invoice_no">
@@ -51,17 +55,17 @@
         </ion-item>
         <ion-item class="Invoice_no">
           <ion-text>
-            <h6>SHIPPED BY:<span>V-EXPRESS</span> </h6>
+            <h6>SHIPPED BY:<span>{{item.company.name}}</span> </h6>
           </ion-text>
         </ion-item>
         <ion-item lines="none">
           <ion-text>
-            <img src="https://www.shutterstock.com/image-vector/horizontal-black-barcode-on-white-600nw-1221838477.jpg"
-              alt="">
+            <img [src]="[item.barcode.imageUrl]" alt="">
             <p class="text-center" style="font-weight: 400 !important; line-height: normal; margin: 0px;">ADWQ321850</p>
           </ion-text>
         </ion-item>
       </ion-col>
     </ion-card>
+    }
   </ion-text>
 </ion-col>

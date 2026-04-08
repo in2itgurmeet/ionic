@@ -74,13 +74,6 @@ ion-input {
   flex-direction: column;
 }
 
-// .seltct_vichle {
-//   width: calc(100%);
-//   max-width: calc(100%);
-//   display: flex;
-//   justify-content: space-between;
-// }
-
 .vichle_card {
   width: 100%;
   max-width: 100%;
@@ -507,4 +500,7 @@ form {
 ._Svg_continer {
   width: calc(15%);
   max-width: calc(15%);
+}
+.map-box {
+  width: stretch;
 }

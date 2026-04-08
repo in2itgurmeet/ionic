@@ -62,13 +62,11 @@
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  padding: 0px 18px 0px;
 }
 
 .ptl_section {
   width: calc(94% / 2);
   max-width: calc(94% / 2);
-
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -113,10 +111,10 @@ span {
   margin-top: 2px;
 }
 
-// .ptl_section:hover{
-//     transform: scale(1.1);
-//     transition: 1s;
-// }
+.ptl_section:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
 
 .content_section {
   width: calc(100%);

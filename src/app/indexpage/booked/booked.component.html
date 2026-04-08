@@ -1,13 +1,12 @@
-<ion-text class="container-fluid custom-scrollbar">
-  <ion-text class="row" style="background: none !important">
-    <ion-text class="w-100 g-0">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28016.502845213363!2d77.36665289878115!3d28.627878201452216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55758ca9645%3A0xf89fa8c1f37c1d09!2sDream%20N%20Design%20Interiors!5e0!3m2!1sen!2sin!4v1716189490243!5m2!1sen!2sin"
-        class="full-width-map" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%"
-        height="320px">
-
-      </iframe>
-    </ion-text>
+<ion-row>
+  <ion-text class="w-100">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28016.502845213363!2d77.36665289878115!3d28.627878201452216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55758ca9645%3A0xf89fa8c1f37c1d09!2sDream%20N%20Design%20Interiors!5e0!3m2!1sen!2sin!4v1716189490243!5m2!1sen!2sin"
+      class="full-width-map" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%"
+      height="320px">
+    </iframe>
+  </ion-text>
+  <ion-col>
     <ion-text class="ion-padding Form_content container-fluid" style="margin-top: -20px">
       <form>
         <ion-text class="d-flex justify-content-center">
@@ -270,20 +269,21 @@
 
 
           <ion-card class="Booked_overview py-3 px-2 lh-3">
-            <ion-button class="See_invoice_button submit_button">See Invoice</ion-button>
+            <ion-button class="See_invoice_button submit_button" [routerLink]="['/indexpage/invoice-details']">See
+              Invoice</ion-button>
             <ion-text>
-              <p>Order Type: <span class="fw-bold fs-2">PREPAID</span></p>
+              <p>Order Type: <span class="fw-bold ">PREPAID</span></p>
             </ion-text>
             <ion-text>
-              <p>Transaction ID: <span class="fw-bold fs-2">141212222024</span></p>
+              <p>Transaction ID: <span class="fw-bold ">141212222024</span></p>
             </ion-text>
             <ion-text>
-              <p>Payment Method: <span class="fw-bold fs-2">Google Pay</span></p>
+              <p>Payment Method: <span class="fw-bold ">Google Pay</span></p>
             </ion-text>
             <ion-text>
-              <p>From: <span class="fw-bold fs-2">STL Group</span></p>
+              <p>From: <span class="fw-bold ">STL Group</span></p>
             </ion-text> <ion-text>
-              <p>to: <span class="fw-bold fs-2">Transpoart Pvt Ltd.</span></p>
+              <p>to: <span class="fw-bold ">Transpoart Pvt Ltd.</span></p>
             </ion-text>
           </ion-card>
 
@@ -297,17 +297,19 @@
               </ion-text>
               <ion-text class="Input_content2 ms-3">
 
-                <p class="text-dark" style="line-height: 20px; font-weight: 600;">Click Here Or Download Or Print LR,
+                <p class="text-dark" style="line-height: 20px; font-weight: 600;"
+                  [routerLink]="['/indexpage/lorry-details']">Click
+                  Here Or Download Or Print LR,
                   Shipping Labels, And Proof Of Delivery. </p>
               </ion-text>
             </ion-text>
           </ion-card>
 
         </ion-text>
-        <ion-button type="button" class="submit_button mt-3 col-12">
+        <ion-button type="button" class="submit_button mt-3 col-12" [routerLink]="['/indexpage/tracking-Order/2']">
           Track Order
         </ion-button>
       </form>
     </ion-text>
-  </ion-text>
-</ion-text>
+  </ion-col>
+</ion-row>

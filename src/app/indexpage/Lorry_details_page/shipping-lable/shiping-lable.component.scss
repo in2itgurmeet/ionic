@@ -1,9 +1,7 @@
 * {
   margin: 0px;
 }
-.row {
-  background: none !important;
-}
+
 .top_content {
   width: calc(100%);
   max-width: calc(100%);
@@ -45,12 +43,12 @@ p {
   font-size: small;
   color: grey;
   text-align: justify;
-  font-weight: none !important;
+  font-weight: none;
 }
 
-.Doket_num {
+.doket_num {
   display: flex;
-  justify-content: flex-end !important;
+  justify-content: flex-end;
   align-items: end;
 }
 .Origin {

@@ -1,36 +1,36 @@
-<ion-text class="container-fluid_main scrollable-container">
-  <ion-text class="row p-2" style="background: rgb(245, 245, 245) !important">
+<ion-col>
+  <ion-row>
 
     <ion-text class="p-2 mt-5">
       <ion-text class="container-fluid_main bg-white">
         <ion-text class="top_Lorry_section bg-banner">
           <ion-text class="Side_Section text-start" style="line-height: normal">
-            <img src="../../../../assets/icon/logo.jpg" class="mb-1" width="100px" alt="" />
+            <img [src]="[lrData.company.logo]" class="mb-1" width="100px" alt="" />
             <p>loory receipt</p>
-            <p>CN No:<span></span></p>
-            <p>GST No:<span></span></p>
+            <p>CN No:<span>{{lrData.cnNo}}</span></p>
+            <p>GST No:<span>{{lrData.gstNo}}</span></p>
           </ion-text>
           <ion-text class="Side_Section text-end">
             <p style="word-break: break-all">
-              Lorem ipsum dolor sit amet consectetur quo quidem?
+              {{lrData.company.address}}
             </p>
-            <p>Mob No: <span>+91 999999999</span></p>
-            <p>Email: <span>abcd&#64;gmail.com</span></p>
-            <p>Web: <span>www.weblogin.com</span></p>
+            <p>Mob No: <span>{{lrData.company.mobile}}</span></p>
+            <p>Email: <span>{{lrData.company.email}}</span></p>
+            <p>Web: <span>{{lrData.company.website}}</span></p>
           </ion-text>
         </ion-text>
         <ion-text class="top_Lorry_section mt-2">
           <ion-text class="Side_Section Information py-2">
-            <p class="fw-bold">LR No: <span>Trip/23-24/12212</span></p>
-            <p class="fw-bold">Vehicle: <span>20FT Eciher</span></p>
-            <p class="fw-bold">Driver: <span>Austin Thurstain</span></p>
-            <p class="fw-bold w-mx">License No: <span>2224234256223</span></p>
+            <p class="fw-bold">LR No: <span>{{lrData.lrNo}}</span></p>
+            <p class="fw-bold">Vehicle: <span>{{lrData.vehicle.type}}</span></p>
+            <p class="fw-bold">Driver: <span>{{lrData.driver.name}}</span></p>
+            <p class="fw-bold w-mx">License No: <span>{{lrData.driver.licenseNo}}</span></p>
           </ion-text>
           <ion-text class="Side_Section Information py-2">
-            <p class="fw-bold">Trip Date: <span>Trip/23-24/12212</span></p>
-            <p class="fw-bold">Vehicle No: <span>MH 04 AA 2025</span></p>
-            <p class="fw-bold w-mx">Mobile No: <span>+91 9999999999</span></p>
-            <p class="fw-bold">RTO No: <span></span></p>
+            <p class="fw-bold">Trip Date: <span>Trip/{{lrData.tripDate}}</span></p>
+            <p class="fw-bold">Vehicle No: <span>{{lrData.vehicle.number}}</span></p>
+            <p class="fw-bold w-mx">Mobile No: <span>{{lrData.driver.mobile}}</span></p>
+            <p class="fw-bold">RTO No: <span>{{lrData.vehicle.rtoNo}}</span></p>
           </ion-text>
         </ion-text>
         <ion-text class="hr_lines" style="width: 95%">
@@ -42,15 +42,15 @@
         </ion-text>
         <ion-text class="Consignment_container px-2">
           <p class="Consiger_headding fw-bold">Consignor</p>
-          <p class="Consiger_headding_sub">The Steel Service Group Pvt Ltd.</p>
+          <p class="Consiger_headding_sub">{{lrData.consignor.name}}</p>
           <p class="Consiger_headding_Details">
-            Lorem ipsum dolor sit amet Quia, nesciunt saepe Pincode-201008
+            {{lrData.consignor.address}},{{lrData.consignor.pincode}}
           </p>
           <p class="Consiger_headding_Details">
-            Mobile No: <span>+91 9999999999</span>
+            Mobile No: <span>{{lrData.consignor.mobile}}</span>
           </p>
           <p class="Consiger_headding_Details">
-            GSTIN No: <span>24AAB24327973</span>
+            GSTIN No: <span>{{lrData.consignor.gstin}}</span>
           </p>
         </ion-text>
         <ion-text class="hr_lines" style="width: 95%">
@@ -59,39 +59,77 @@
         <ion-text class="Consignment_container px-2">
           <p class="Consiger_headding fw-bold">Consignee</p>
           <p class="Consiger_headding_sub">
-            The Steel Service Group Pvt Ltd. Pincode-201008
+            {{lrData.consignee.name}}
           </p>
           <p class="Consiger_headding_Details">
-            Lorem ipsum dolor sit amet Quia, nesciunt saepe
+            {{lrData.consignee.address}},{{lrData.consignee.pincode}}
           </p>
           <p class="Consiger_headding_Details">
-            Mobile No: <span>+91 9999999999</span>
+            Mobile No: <span>{{lrData.consignee.mobile}}</span>
           </p>
           <p class="Consiger_headding_Details">
-            GSTIN No: <span>24AAB24327973</span>
+            GSTIN No: <span>{{lrData.consignee.gstin}}</span>
           </p>
         </ion-text>
         <ion-text class="hr_lines" style="width: 95%">
           <hr />
         </ion-text>
         <ion-text class="top_Lorry_section mt-2">
+
+          <!-- LEFT SIDE -->
           <ion-text class="Side_Section Information py-2">
-            <p class="fw-bold">Invoice No: <span>INV/23-24/0021</span></p>
-            <p class="fw-bold">Reference No: <span>REF00221</span></p>
-            <p class="fw-bold">DO No: <span></span></p>
-            <p class="fw-bold w-mx">Eway Bill: <span>562242XXXX6223</span></p>
-            <p class="fw-bold w-mx">Eway Bill Exp-Date: <span>08-02-2024</span></p>
-            <p class="fw-bold">GST Paid By: <span></span></p>
-            <p class="fw-bold">Container No: <span></span></p>
+            <p class="fw-bold">Invoice No:
+              <span>{{lrData.invoice.invoiceNo}}</span>
+            </p>
+
+            <p class="fw-bold">Reference No:
+              <span>{{lrData.invoice.referenceNo}}</span>
+            </p>
+
+            <p class="fw-bold">DO No:
+              <span>{{lrData.invoice.doNo || '-'}}</span>
+            </p>
+
+            <p class="fw-bold w-mx">Eway Bill:
+              <span>{{lrData.invoice.ewayBillNo}}</span>
+            </p>
+
+            <p class="fw-bold w-mx">Eway Bill Exp-Date:
+              <span>{{lrData.invoice.ewayBillExpiry}}</span>
+            </p>
+
+            <p class="fw-bold">GST Paid By:
+              <span>{{lrData.invoice.gstPaidBy || 'Consignor'}}</span>
+            </p>
+
+            <p class="fw-bold">Container No:
+              <span>{{lrData.invoice.containerNo || '-'}}</span>
+            </p>
           </ion-text>
           <ion-text class="Side_Section Information py-2">
-            <p class="fw-bold">Date: <span>11-05-2024</span></p>
-            <p class="fw-bold">L/C No: <span>MH 04 AA 2025</span></p>
-            <p class="fw-bold">Expiry Date: <span>18-02-2035</span></p>
-            <p class="fw-bold">Service: <span>Full Truck Load</span></p>
-            <p class="fw-bold text-center">Container Size: <span>17LPT</span></p>
+            <p class="fw-bold">Date:
+              <span>{{lrData.service.date}}</span>
+            </p>
+
+            <p class="fw-bold">L/C No:
+              <span>{{lrData.invoice.lcNo || '-'}}</span>
+            </p>
+
+            <p class="fw-bold">Expiry Date:
+              <span>{{lrData.invoice.expiryDate || '-'}}</span>
+            </p>
+
+            <p class="fw-bold">Service:
+              <span>{{lrData.service.type}}</span>
+            </p>
+
+            <p class="fw-bold text-center">Container Size:
+              <span>{{lrData.service.containerSize}}</span>
+            </p>
           </ion-text>
+
         </ion-text>
+
         <ion-text class="px-2">
           <table>
             <thead>
@@ -105,14 +143,16 @@
               </tr>
             </thead>
             <tbody>
+              @for (item of lrData.items; track $index) {
               <tr>
-                <td>1</td>
-                <td>Slitting <br>(17 LPT)</td>
-                <td>Box</td>
-                <td>100</td>
-                <td style="line-height: normal">As per party bill</td>
-                <td>10</td>
+                <td>{{$index + 1}}</td>
+                <td>{{item.description}} <br>(17 LPT)</td>
+                <td>{{item.unit}}</td>
+                <td>{{item.weightKg}}</td>
+                <td style="line-height: normal">{{item.amount}}</td>
+                <td>{{item.quantity}}</td>
               </tr>
+              }
             </tbody>
           </table>
 
@@ -125,18 +165,21 @@
         <ion-text class="px-2">
           <p class="fw-bold">Term's & Conditions</p>
           <ol style="line-height: 18px; margin: -7px 0px 6px -8px">
-            <li>Goods Once Sold One will not be accepted.</li>
-            <li>We are not responsible for any Transpotation Damage.</li>
-            <li>Goods Once Sold One will not be accepted</li>
-            <li>We are not responsibble for any Transpotation Damage</li>
+            @for (item of lrData.terms; track $index) {
+            <li>
+              {{ item }}
+            </li>
+            }
           </ol>
         </ion-text>
+
 
         <!---------extra gap------------>
         <ion-text class="Extra_gap"> </ion-text>
         <ion-text class="top_Lorry_section py-3 px-2">
-          <ion-text class="fw-bold" style="font-size: 12px">Receiver Sign,Stamp,Mob..</ion-text>
-          <ion-text class="fw-bold" style="font-size: 12px">PLC Logistic Pvt Ltd</ion-text>
+          <ion-text class="fw-bold" style="font-size: 12px">{{lrData.receiver.name}},{{lrData.receiver.mobile}}
+          </ion-text>
+          <ion-text class="fw-bold" style="font-size: 12px">{{lrData.consignee.name}}</ion-text>
         </ion-text>
       </ion-text>
       <br />
@@ -144,8 +187,8 @@
 
     <!--------fotter tollbar-->
 
-  </ion-text>
-</ion-text>
+  </ion-row>
+</ion-col>
 <ion-text class="Footer border">
   <ion-text class="px-3">
     <p class="share_btn btn" style="margin: 0px">

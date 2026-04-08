@@ -47,18 +47,18 @@ export class DashboardComponent {
 
 
 
-  addModeOfbooking(event: any) {
-    if (event == 'FTL') {
-      this.defultServise.bookingMode.set('FTL')
-      this.route.navigate(['/indexpage/booking']);
-    }
-    else if (event == 'PTL') {
-      this.defultServise.bookingMode.set('PTL')
-      this.route.navigate(['/indexpage/booking']);
-    }
+  addModeOfbooking(mode: 'FTL' | 'PTL') {
+    this.defultServise.bookingMode.set(mode);
+    localStorage.setItem('bookingMode', mode);
+    this.route.navigate(['/indexpage/booking']);
   }
 
 
+  seeAllOrder(event: any) {
+    if (event) {
+      this.route.navigate(['/indexpage/allproduct']);
+    }
+  }
 
 
 

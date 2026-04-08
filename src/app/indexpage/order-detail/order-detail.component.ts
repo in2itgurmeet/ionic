@@ -1,10 +1,11 @@
 import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-order-detail',
-  imports: [IonicModule, CommonModule],
+  imports: [IonicModule, CommonModule, RouterLink],
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.scss'],
 })
