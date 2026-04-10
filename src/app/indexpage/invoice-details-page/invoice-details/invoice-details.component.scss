@@ -88,7 +88,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 0px -19px 0px;
 }
 
 .card_main_container2 {
@@ -109,7 +108,9 @@
   line-height: 0px;
   padding: 10px 0px;
 }
-
+hr {
+  margin-top: 0px;
+}
 .card_main_container ion-text {
   width: calc(98% / 2);
   max-width: calc(98% / 2);
@@ -144,7 +145,6 @@
 }
 
 .badge {
-  background-color: rgb(194, 248, 194);
   padding: 3px 10px;
   border-radius: 5px;
 }
@@ -163,11 +163,35 @@
 }
 
 .submit_button {
-  position: relative;
-  top: -17px;
   background-color: #ff6347;
   color: white;
   font-weight: bold;
   border-radius: 5px;
   padding: 5px;
+  border: none;
+  font-size: smaller;
+}
+
+.paying_button_section {
+  padding-inline: 30px;
+}
+.badge-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.badge-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+.submit_button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
 }

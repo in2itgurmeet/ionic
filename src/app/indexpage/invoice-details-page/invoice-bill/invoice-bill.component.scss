@@ -1,179 +1,178 @@
 .container-fluid_main {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    flex-direction: column;
-    line-height: 10px;
-    border-radius: 5px;
-    border: 1px solid grey;
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  flex-direction: column;
+  line-height: 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
 }
 
 .scrollable-container {
-    /* Set this to whatever height you need */
-    overflow: auto;
+  /* Set this to whatever height you need */
+  overflow: auto;
 }
 
 span {
-    line-height: normal;
+  line-height: normal;
 }
 
 .bg-banner {
-    background-color: rgb(255, 235, 199);
-    border: 1px solid rgb(255, 233, 191);
+  background-color: rgb(255, 235, 199);
+  border: 1px solid rgb(255, 233, 191);
 }
 
 .top_Lorry_section {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    justify-content: space-between;
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  justify-content: space-between;
 
-    border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 ion-card {
-    background-color: #f6f6f6;
+  background-color: #f6f6f6;
 }
 
 .Side_Section {
-    padding: 10px;
-    width: calc(100% / 2);
-    max-width: calc(100% / 2);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-size: 12px;
-    gap: 0px;
+  padding: 10px;
+  width: calc(100% / 2);
+  max-width: calc(100% / 2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 12px;
+  gap: 10px;
+  p {
+    text-align: -webkit-right;
+    line-height: normal;
+    margin: 0px;
+  }
 }
 
 .Information {
-    align-items: flex-start !important;
+  align-items: flex-start !important;
 }
 
 .text-start {
-    line-height: 0px;
-    margin: 0px;
+  line-height: 0px;
+  margin: 0px;
 }
 
 .Information p {
-    font-size: 12px;
-    line-height: 10px;
+  font-size: 12px;
+  line-height: 10px;
 }
 
 .Information .fw-bold span {
-    font-weight: 500 !important;
-    color: rgb(190, 190, 190) !important;
+  font-weight: 500 !important;
+  color: rgb(190, 190, 190) !important;
 }
 
-
-
-
 hr {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 .Extra_gap {
-    height: 100px;
-    padding: 10px;
+  height: 100px;
+  padding: 10px;
 }
 
-.Footer {
-    width: calc(100%);
-    max-width: calc(100%);
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
+.footer {
+  width: calc(100%);
+  max-width: calc(100%);
+  padding: 10px;
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  justify-content: space-between;
+  background-color: white;
 }
 
-.Footer ion-text {
-    width: calc(96% / 2);
-    max-width: calc(96% / 2);
-    display: flex;
-    align-items: center;
-
-
+.footer ion-text {
+  width: calc(96% / 2);
+  max-width: calc(96% / 2);
+  display: flex;
+  align-items: center;
 }
 
 .Dwonload_button {
-    background-color: #ff6347;
-    border-radius: 5px;
-    color: white;
+  background-color: #ff6347;
+  border-radius: 5px;
+  color: white;
 }
 
 .share_btn {
-    color: #ff6347;
-    font-size: small;
+  color: #ff6347;
+  font-size: small;
 
-    padding: 5px;
-    border-radius: 5px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .nav-link {
-    color: white;
+  color: white;
 }
 
-
 .Popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 80%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    background: white;
-   
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: white;
 }
 
 .my_poup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: rgba(51, 51, 51, 0.5);
-    /* Black with 50% opacity */
-    /* Ensure it's on top of everything else */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(51, 51, 51, 0.5);
+  /* Black with 50% opacity */
+  /* Ensure it's on top of everything else */
 }
 
 .fa-times {
-    position: absolute;
-    top: 11px;
-    right: 21px;
-    font-size: large;
+  position: absolute;
+  top: 11px;
+  right: 21px;
+  font-size: large;
 }
 
 .my_poup p {
-    border: 4px solid rgb(14, 167, 0);
-    background-color: rgb(14, 167, 0);
-    border-radius: 50%;
-    padding: 5px;
-    height: 50px;
-    display: flex;
-    font-size: xx-large;
+  border: 4px solid rgb(14, 167, 0);
+  background-color: rgb(14, 167, 0);
+  border-radius: 50%;
+  padding: 5px;
+  height: 50px;
+  display: flex;
+  font-size: xx-large;
 }
 
 .fa-check {
-    color: white;
+  color: white;
 }
 
 .my_poup span {
-    line-height: 20px;
-    font-size: medium;
-    color: rgb(197, 197, 197);
-    font-family: cursive;
+  line-height: 20px;
+  font-size: medium;
+  color: rgb(197, 197, 197);
+  font-family: cursive;
 }
 
 .w-mx {
-    width: max-content;
+  width: max-content;
 }

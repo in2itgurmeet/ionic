@@ -1,22 +1,29 @@
-<!-- <ion-text class="g-0 container-fluid">
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home" [routerLink]="['/indexpage']">
-        <ion-icon name="home"></ion-icon>
-        Home
-      </ion-tab-button>
-      <ion-tab-button tab="Product" [routerLink]="['/indexpage/All-Product']">
-        <ion-icon name="newspaper"></ion-icon>
-        Order
-      </ion-tab-button>
-      <ion-tab-button tab="Invoice" [routerLink]="['/indexpage/Invoice-details']">
-        <ion-icon name="library"></ion-icon>
-        Invoice
-      </ion-tab-button>
-      <ion-tab-button tab="Account" [routerLink]="['../auth']">
-        <ion-icon name="person"></ion-icon>
-        Account
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-text> -->
+<ion-content>
+  <!-- Page content yahan aayega -->
+</ion-content>
+
+<ion-footer>
+  <div class="custom-tab-bar">
+
+    <div class="tab-item" (click)="goTo('/indexpage')">
+      <ion-icon name="home"></ion-icon>
+      <span>Home</span>
+    </div>
+
+    <div class="tab-item" (click)="goTo('/indexpage/all-Product')">
+      <ion-icon name="newspaper"></ion-icon>
+      <span>Order</span>
+    </div>
+
+    <div class="tab-item" (click)="goTo('/indexpage/Invoice-details')">
+      <ion-icon name="library"></ion-icon>
+      <span>Invoice</span>
+    </div>
+
+    <div class="tab-item" (click)="goTo('/auth')">
+      <ion-icon name="person"></ion-icon>
+      <span>Account</span>
+    </div>
+
+  </div>
+</ion-footer>

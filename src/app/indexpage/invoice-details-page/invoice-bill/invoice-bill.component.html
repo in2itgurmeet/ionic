@@ -1,9 +1,6 @@
-<ion-text class="container-fluid_main scrollable-container">
-    <!-- Your existing content here -->
+<ion-col>
 
-    <ion-text class="row p-2" style="background: rgb(245, 245, 245) !important">
-
-        <!-- Top Lorry Section -->
+    <ion-row class="row g-0">
         <ion-text class="p-2 mt-2">
             <ion-text class="container-fluid_main bg-white">
                 <ion-text class="top_Lorry_section bg-banner">
@@ -29,9 +26,9 @@
                         </ion-text>
                         <!-- Repeated Information Section -->
                         <ion-text class="Side_Section  py-2">
-                            <p class="fw-bold">{{invoiceBill.invoiceNo}}</p>
-                            <p class="fw-bold">{{invoiceBill.date}}</p>
-                            <p class="fw-bold w-mx">{{invoiceBill.dueDate}}</p>
+                            <p class="fw-bold">{{invoiceData?.invoiceNo}}</p>
+                            <p class="fw-bold">{{invoiceData?.date}}</p>
+                            <p class="fw-bold w-mx">{{invoiceData?.dueDate}}</p>
                         </ion-text>
                     </ion-text>
                 </ion-text>
@@ -113,19 +110,19 @@
             </ion-text>
 
         </ion-text>
-    </ion-text>
-</ion-text>
-<ion-text class="Footer border">
-    <ion-text class="px-3">
-        <p class="share_btn btn" style="margin: 0px">
-            <i class="fa fa-share-alt me-2" aria-hidden="true"></i><span class="fw-bold">Share</span>
-        </p>
-    </ion-text>
-    <ion-text class="px-2 py-2">
-        <button class="me-2 btn btn-primary" (click)="printPage()">Print</button>
-        <button class="Dwonload_button btn" (click)="openPopup() ">Dwonload</button>
-    </ion-text>
-</ion-text>
+        <ion-footer class="footer border">
+            <ion-text class="px-3">
+                <p class="share_btn btn" style="margin: 0px">
+                    <i class="fa fa-share-alt me-2" aria-hidden="true"></i><span class="fw-bold">Share</span>
+                </p>
+            </ion-text>
+            <ion-text class="px-2 py-2">
+                <button class="me-2 btn btn-primary" (click)="printPage()">Print</button>
+                <button class="Dwonload_button btn" (click)="openPopup() ">Dwonload</button>
+            </ion-text>
+        </ion-footer>
+    </ion-row>
+</ion-col>
 @if(isPopupOpen){
 <ion-card class="Popup p-5">
     <ion-text class="my_poup">

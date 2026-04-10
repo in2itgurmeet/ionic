@@ -1,12 +1,12 @@
 import { AuthComponent } from './theams/auth/auth.component';
 import { HomeComponent } from './theams/home/home.component';
 import { Routes } from '@angular/router';
-import { MainFeatureComponent } from './theams/main-feature/main-feature.component';
+import { ConsignorThemeComponent } from './theams/consignor-theme/consignor.component';
+import { DriverTheameComponent } from './theams/driver-theame/driver-theame.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-
   {
     path: 'auth',
     component: AuthComponent,
@@ -19,11 +19,21 @@ export const routes: Routes = [
   },
   {
     path: 'indexpage',
-    component: MainFeatureComponent,
+    component: ConsignorThemeComponent,
     children: [
       {
         path: '',
         loadChildren: () => import('./indexpage/indexpage.module').then(m => m.IndexpageModule)
+      }
+    ]
+  },
+  {
+    path: 'getOrder',
+    component: DriverTheameComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./driver/driver-module').then(m => m.DriverModule)
       }
     ]
   }

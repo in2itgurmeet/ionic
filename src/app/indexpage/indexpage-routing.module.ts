@@ -38,7 +38,7 @@ const routes: Routes = [
     component: OrderDetailComponent,
   },
   {
-    path: 'booked',
+    path: 'booked/:id',
     component: BookedComponent,
   },
   {
@@ -58,11 +58,11 @@ const routes: Routes = [
     component: InvoiceDetailsComponent,
   },
   {
-    path: 'invoice-Bill',
+    path: 'invoice-Bill/:id',
     component: InvoiceBillComponent,
   },
   {
-    path: 'lorry-details',
+    path: 'lorry-details/:id',
     component: LorryDeatilsComponent
   }
 ];

@@ -2,12 +2,13 @@
   <ion-row>
     <ion-header class="bg-white shadow-lg">
       <div class="tab-bar g-0">
-        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1)">All</a>
-        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2)">Overdue</a>
-        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3)">Due</a>
-        <a [ngClass]="{'active': activeTab === 4}" (click)="setActiveTab(4)">Paid</a>
+        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1, 'all')">All</a>
+        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2, 'overdue')">Overdue</a>
+        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3, 'due')">Due</a>
+        <a [ngClass]="{'active': activeTab === 4}" (click)="setActiveTab(4, 'paid')">Paid</a>
       </div>
     </ion-header>
+
     <ion-text>
       <ion-row class="py-3 px-2 ">
         <ion-text class="input_feild_section px-2 ">
@@ -23,7 +24,7 @@
         <ion-card class="card_section mt-2 ">
           <ion-card-content class="card_main_container py-3 px-2">
             <ion-text class="text_section px-2">
-              <p class="fw-bold" routerLink="/indexpage/invoice-Bill">
+              <p class="fw-bold" [routerLink]="['/indexpage/invoice-Bill',item.invoiceNo]">
                 {{item.invoiceNo}}
               </p>
               <p class="Date_timeDelevery method_section">
@@ -32,29 +33,24 @@
             </ion-text>
 
             <ion-text class="button_section">
-              <button class="badge" [ngClass]="getStatus(item).cls" [disabled]="getStatus(item).dis">
+              <span class="badge" [ngClass]="getStatus(item).cls">
                 {{ getStatus(item).text }}
-              </button>
+              </span>
             </ion-text>
           </ion-card-content>
-
           <hr>
-
-          <!-- Customer -->
-          <ion-text class="card_main_container">
+          <ion-text class="card_main_container d-flex justify-content-between align-items-baseline">
             <ion-text class="text_section px-2">
               <p class="fw-bold Company_name">{{item.customer}}</p>
               <p class="ph-num">{{item.mobile}}</p>
             </ion-text>
-
-            <ion-text class="button_section">
+            <ion-text class="button_section d-flex justify-content-end paying_button_section ">
               <button class="submit_button" [disabled]="getStatus(item).dis">
                 Pay Now
               </button>
             </ion-text>
           </ion-text>
 
-          <!-- Bottom -->
           <ion-text class="card_main_container2 py-1">
             <ion-text class="my_section">
               <p class="method_section">Due Date</p>
@@ -80,8 +76,6 @@
 
         </ion-card>
         }
-
-
       </ion-row>
     </ion-text>
   </ion-row>

@@ -1,7 +1,7 @@
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -11,8 +11,10 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-
+  goTo(path: string) {
+    this.router.navigate([path]);
+  }
 
 }

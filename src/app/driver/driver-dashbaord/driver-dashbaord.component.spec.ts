@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MainFeatureComponent } from './main-feature.component';
+import { DriverDashbaordComponent } from './driver-dashbaord.component';
 
-describe('MainFeatureComponent', () => {
-  let component: MainFeatureComponent;
-  let fixture: ComponentFixture<MainFeatureComponent>;
+describe('DriverDashbaordComponent', () => {
+  let component: DriverDashbaordComponent;
+  let fixture: ComponentFixture<DriverDashbaordComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainFeatureComponent ],
+      declarations: [ DriverDashbaordComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MainFeatureComponent);
+    fixture = TestBed.createComponent(DriverDashbaordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

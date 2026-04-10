@@ -4,15 +4,14 @@ import { Router, RouterOutlet } from '@angular/router';
 import { FooterComponent } from 'src/app/shared_component/footer/footer.component';
 
 @Component({
-  selector: 'app-main-feature',
-  imports: [RouterOutlet, FooterComponent, IonicModule],
-  templateUrl: './main-feature.component.html',
-  styleUrls: ['./main-feature.component.scss'],
+  selector: 'app-consignor',
+  templateUrl: './consignor.component.html',
+  styleUrls: ['./consignor.component.scss'],
+  imports: [RouterOutlet, IonicModule],
+
 })
-export class MainFeatureComponent implements OnInit {
+export class ConsignorThemeComponent implements OnInit {
 
-
-  ngOnInit() { }
   showContent: boolean = false;
   constructor(private router: Router) {
     this.router.events.subscribe((_event: any) => {
@@ -21,7 +20,6 @@ export class MainFeatureComponent implements OnInit {
         this.router.url === '/indexpage/feedback' ||
         this.router.url === '/indexpage/invoice-Bill' ||
         this.router.url === '/indexpage/shiping-lable'
-
       ) {
         this.showContent = false;
       } else {
@@ -29,4 +27,10 @@ export class MainFeatureComponent implements OnInit {
       }
     });
   }
+
+  ngOnInit() {
+    console.log(this.showContent);
+  }
+
+
 }

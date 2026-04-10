@@ -2,14 +2,14 @@ import { Api } from './../../Service/api';
 import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 
 @Component({
   selector: 'app-all-product',
-  imports: [IonicModule, CommonModule],
+  imports: [IonicModule, CommonModule, RouterLink],
   templateUrl: './all-product.component.html',
   styleUrls: ['./all-product.component.scss'],
 })
@@ -208,8 +208,13 @@ export class AllProductComponent implements OnInit {
 
   getLorryReciept(event: any) {
     if (event) {
-      this.route.navigate(['/indexpage/booking']);
+      // this.route.navigate(['/indexpage/lorry-details/', event]);
     }
-
   }
+  getOrderDetails(event: any) {
+    if (event) {
+      this.route.navigate(['/indexpage/lorry-details', event]);
+    }
+  }
+
 }

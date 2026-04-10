@@ -119,7 +119,7 @@
                 <ion-text>
                   Print LR
                 </ion-text>
-                <ion-text>
+                <ion-text [routerLink]="['/indexpage/booked/',item.orderId]">
                   See Order Details
                 </ion-text>
                 <ion-text (click)="canCancel(item.status) && cancelOrder(item)"

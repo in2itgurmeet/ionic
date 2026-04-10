@@ -1,0 +1,99 @@
+<ion-col class="dashboard-content">
+  <ion-row class="px-2">
+    <ion-text class="w-100">
+      <ion-header class="custom-header">
+        <div class="header-container">
+
+          <div class="left-section">
+            <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359554_1280.png" class="profile-img" />
+
+            <div class="text-section">
+              <h2>Hi, Raju</h2>
+              <p>Ready to deliver ?</p>
+            </div>
+          </div>
+          <div class="right-section">
+            <ion-icon [icon]="notificationIcon"></ion-icon>
+            <span class="badge">5</span>
+            <ion-icon [icon]="menuIcon" (click)="openMenu()"></ion-icon>
+          </div>
+
+        </div>
+      </ion-header>
+
+      <!-- 
+<ion-text class="header">
+        <div class="user-info">
+          <img src="assets/avatar.png" class="avatar" />
+          <div>
+            <h2>Hi, Rajiv</h2>
+            <p>Delivery Performer</p>
+          </div>
+        </div>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-text>
+      <div class="stats-card w-100">
+        <div class="stat">
+          <p>Total Deliveries</p>
+          <h3>15</h3>
+        </div>
+        <div class="stat">
+          <p>Completed</p>
+          <h3>13</h3>
+        </div>
+        <div class="stat">
+          <p>Pending</p>
+          <h3>2</h3>
+        </div>
+      </div>
+    -->
+
+
+    </ion-text>
+
+  </ion-row>
+
+</ion-col>
+@if(viewSidebar){
+<ion-col class="sidebar" [class.open]="viewSidebar">
+  <ion-row class="no-gap row g-0">
+    <ion-icon (click)="openMenu()" [icon]="closeIcon">close</ion-icon>
+    <ion-text class="sidebar-content">
+      sidebar
+    </ion-text>
+  </ion-row>
+</ion-col>
+}
+@if(viewSidebar){
+<div class="overlay" (click)="openMenu()"></div>
+
+}
+<!-- <div class="section">
+  <h3>Assigned Deliveries</h3>
+
+  <div class="delivery-card" *ngFor="let item of deliveries">
+
+    <div class="top-row">
+      <div>
+        <h4>Order - {{item.id}}</h4>
+        <p>{{item.date}}</p>
+      </div>
+      <span class="status" [ngClass]="item.status">
+        {{item.status}}
+      </span>
+    </div>
+
+    <div class="address">
+      <p>📍 {{item.address}}</p>
+      <p>⏱ {{item.time}}</p>
+    </div>
+
+    <div class="bottom-row">
+      <span class="price">₹ {{item.price}}</span>
+      <ion-button size="small" color="warning">
+        Start
+      </ion-button>
+    </div>
+
+  </div>
+</div> -->

@@ -63,3 +63,62 @@ Consignee → payment karta hai (if needed)
 Consignee → signature deta hai
    ↓
 Driver → delivery complete karta hai
+
+
+
+   driver or Consignor
+/-----------------------/
+Consigner → Order create
+        ↓
+Backend → Save
+        ↓
+Admin/System → Driver assign
+        ↓
+Driver App → Order dikhega
+        ↓
+Driver → Pickup → Deliver
+        ↓
+Consigner → Status dekhega
+
+
+========================================
+🔥 Tum kya banana chahte ho (Clear Vision)
+
+👉 Admin Website (Angular)
+Jisme Employee login kare aur:
+
+📄 Order manage kare
+🧾 Invoice create kare
+🚚 eWay Bill generate kare
+📊 Invoice details dekhe
+👨‍✈️ Driver assign kare
+
+👉 Ye bilkul real company jaisa system hai 💯
+
+🔹 1. Roles define karo (IMPORTANT)
+
+👉 Minimum 2 roles rakho:
+
+👤 Admin
+Full access
+Driver assign
+All orders
+👨‍💼 Employee
+Invoice create
+eWay bill create
+Order view
+
+
+
+
+🔹 Kis liye use karte hain?
+  Web native Extention for Ionic angular 
+👉 Jab tumhe mobile ke native features chahiye hote hain:
+
+✅ Common use cases:
+📷 Camera open karna
+📁 File upload/download
+📍 GPS location lena
+🔔 Push notifications
+📞 Phone call / contacts access
+🔋 Battery status

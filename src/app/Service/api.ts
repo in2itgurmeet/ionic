@@ -32,4 +32,15 @@ export class Api {
   getInvoiceData(): Observable<any> {
     return this.http.get(this.apiUrl + "/invoices-details");
   }
+
+  getInvoiceByInvoiceNo(invoiceNo: string) {
+    return this.http.get<any[]>(
+      `${this.apiUrl}/invoices-details?invoiceNo=${encodeURIComponent(invoiceNo)}`
+    );
+  }
+  getOrderById(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/orders?orderId=${id}
+`);
+  }
+
 }

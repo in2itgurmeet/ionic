@@ -1,18 +1,27 @@
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Api } from 'src/app/Service/api';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-invoice-Bill',
+  selector: 'app-invoice-bill',
   imports: [CommonModule, IonicModule],
-  templateUrl: './invoice-Bill.component.html',
-  styleUrls: ['./invoice-Bill.component.scss'],
+  templateUrl: './invoice-bill.component.html',
+  styleUrls: ['./invoice-bill.component.scss'],
 })
 export class InvoiceBillComponent implements OnInit {
   isPopupOpen: boolean = false;
-  constructor() { }
+  invoiceData: any;
+  constructor(private apiService: Api, private route: ActivatedRoute) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      this.getInvoiceDetails(id);
+    });
+
+  }
   openPopup() {
     this.isPopupOpen = !this.isPopupOpen;
     if (this.isPopupOpen) {
@@ -24,7 +33,13 @@ export class InvoiceBillComponent implements OnInit {
   printPage() {
     window.print();
   }
-
+  getInvoiceDetails(id: any) {
+    this.apiService.getInvoiceByInvoiceNo(id).subscribe({
+      next: (res) => {
+        this.invoiceData = res[0];
+      }
+    });
+  }
 
   invoiceBill = {
     "invoiceId": "INV20260408001",
@@ -33,7 +48,7 @@ export class InvoiceBillComponent implements OnInit {
     "dueDate": "2026-04-10",
     "paymentType": "TO_PAY",
     "company": {
-      "name": "PLC Logistic Pvt Ltd",
+      "name": "Proxima Digital Logistics Pvt Ltd",
       "logo": "assets/icon/logo.jpg",
       "address": "Plot 21, Sector 18, Gurugram, Haryana - 122015",
       "mobile": "+91 9812345678",
