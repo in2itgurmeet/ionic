@@ -3,7 +3,6 @@
     <ion-text class="w-100">
       <ion-header class="custom-header">
         <div class="header-container">
-
           <div class="left-section">
             <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359554_1280.png" class="profile-img" />
 
@@ -17,10 +16,44 @@
             <span class="badge">5</span>
             <ion-icon [icon]="menuIcon" (click)="openMenu()"></ion-icon>
           </div>
-
         </div>
       </ion-header>
 
+
+
+      <div class="section">
+        <h3>Assigned Deliveries</h3>
+        @for (item of deliveries; track $index) {
+        <div class="delivery-card">
+          <div class="top-row">
+            <div>
+              <h4>Order - {{item.orderId}}</h4>
+              <p>{{item.tripNumber}}</p>
+            </div>
+            <span class="status" [ngClass]="item.status">
+              {{item.status}}
+            </span>
+          </div>
+          <div class="address">
+            <p class="pickup">
+              📍 {{item.pickup?.location}}
+            </p>
+            <p class="drop">
+              🏁 {{item.delivery?.location}}
+            </p>
+            <p class="meta">
+              🚗 {{item.distance}} | ⏱ {{item.estimatedTime}}
+            </p>
+          </div>
+          <div class="bottom-row">
+            <span class="price">₹ {{item.earnings}}</span>
+            <ion-button size="small" class="button_start" color="warning">
+              Start
+            </ion-button>
+          </div>
+        </div>
+        }
+      </div>
       <!-- 
 <ion-text class="header">
         <div class="user-info">
@@ -47,53 +80,41 @@
         </div>
       </div>
     -->
-
-
     </ion-text>
-
   </ion-row>
-
 </ion-col>
-@if(viewSidebar){
+@if (viewSidebar) {
 <ion-col class="sidebar" [class.open]="viewSidebar">
   <ion-row class="no-gap row g-0">
-    <ion-icon (click)="openMenu()" [icon]="closeIcon">close</ion-icon>
-    <ion-text class="sidebar-content">
-      sidebar
+    <ion-text class="d-flex px-2 align-items-center mt-3">
+      <ion-text class="sidebar-content">
+        <div class="left-section">
+          <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359554_1280.png" class="profile-img" />
+          <div class="text-section">
+            <h2>Hi, Raju</h2>
+            <p>Ready to deliver ?</p>
+          </div>
+        </div>
+      </ion-text>
+      <ion-icon (click)="openMenu()" class="icon_menu" [icon]="closeIcon">close</ion-icon>
+    </ion-text>
+    <ion-text>
+      <div class="sidebar-menu">
+        <ion-list>
+          <ion-item class="d-flex">
+            <ion-icon [icon]="gridIcon" class="dashboard"></ion-icon>
+            <ion-label>Dashbaord</ion-label>
+          </ion-item>
+          <ion-item class="d-flex">
+            <ion-icon [icon]="bagIcon" class="order"></ion-icon>
+            <ion-label>My Order</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
     </ion-text>
   </ion-row>
 </ion-col>
 }
-@if(viewSidebar){
+@if (viewSidebar) {
 <div class="overlay" (click)="openMenu()"></div>
-
 }
-<!-- <div class="section">
-  <h3>Assigned Deliveries</h3>
-
-  <div class="delivery-card" *ngFor="let item of deliveries">
-
-    <div class="top-row">
-      <div>
-        <h4>Order - {{item.id}}</h4>
-        <p>{{item.date}}</p>
-      </div>
-      <span class="status" [ngClass]="item.status">
-        {{item.status}}
-      </span>
-    </div>
-
-    <div class="address">
-      <p>📍 {{item.address}}</p>
-      <p>⏱ {{item.time}}</p>
-    </div>
-
-    <div class="bottom-row">
-      <span class="price">₹ {{item.price}}</span>
-      <ion-button size="small" color="warning">
-        Start
-      </ion-button>
-    </div>
-
-  </div>
-</div> -->

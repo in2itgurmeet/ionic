@@ -43,4 +43,8 @@ export class Api {
 `);
   }
 
+  getDeliveriesData(): Observable<any> {
+    return this.http.get(this.apiUrl + "/deliveries");
+  }
+
 }

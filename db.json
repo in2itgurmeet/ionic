@@ -452,9 +452,7 @@
       "senderMobile": "730203032123",
       "receiverName": "Manu Shukla",
       "receiverMobile": "98012873123",
-      "selectedVehicle": [
-        "20FT Eicher"
-      ],
+      "selectedVehicle": ["20FT Eicher"],
       "cargoItems": [
         {
           "goodsDescription": "Washing Mashine",
@@ -790,6 +788,31 @@
       "dueDate": "2024-03-05",
       "total": 7800,
       "paid": 0
+    }
+  ],
+
+  "deliveries": [
+    {
+      "id": 1,
+      "orderId": "ORD1242342350",
+      "tripNumber": "LR/1220324324553",
+      "status": "ongoing",
+      "pickup": {
+        "location": "New Delhi Sarita Vihar",
+        "contactName": "Austin Thurstan"
+      },
+      "delivery": {
+        "location": "Gurgaon Sector 21",
+        "contactName": "Rahul Mehra"
+      },
+      "distance": "32 km",
+      "estimatedTime": "55 mins",
+      "load": {
+        "weight": "500 kg",
+        "quantity": 25
+      },
+      "earnings": 4720,
+      "paymentType": "prepaid"
     }
   ]
 }
