@@ -33,17 +33,19 @@ export class DriverDashbaordComponent implements OnInit {
   chartApiData: any;
 
   ngOnInit() {
-    this.driverApi.getChartData().subscribe((res: any) => {
-      this.chartApiData = res;
-      this.loadChart('weekly', res);
-    });
+    this.driverApi.getChartData().subscribe(
+      {
+        next: (res) => {
+          this.chartApiData = res;
+          this.loadChart('weekly', res);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      }
+    )
+    this.getDeleiveries()
   }
-
-  ngAfterViewInit() {
-  }
-
-
-
 
   getDeleiveries() {
     this.api.getDeliveriesData().subscribe({
@@ -59,12 +61,8 @@ export class DriverDashbaordComponent implements OnInit {
   logPopup() {
     this.logPopupFlag = !this.logPopupFlag
   }
-
-
-
   loadChart(type: string, apiData: any) {
     this.currentType = type;
-
     if (this.chart) {
       this.chart.destroy();
     }
