@@ -1,152 +1,137 @@
-.section {
-  .delivery-card {
-    .top-row div {
-      p,
-      h4 {
-        color: var(--white);
-      }
-    }
-    .bottom-row {
-      .price {
-        color: var(--white);
-      }
-      .button_start {
-        background-color: var(--orange);
-        border-radius: 5px;
-      }
-    }
-  }
+.chart_container {
+  width: calc(100%);
+  max-width: calc(100%);
+  border: 1px solid var(--neutral-cross);
+  border-radius: 5px;
+  height: calc(25vh);
+  background-image: url("/assets/icon/ulimate truck.jpg");
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.img_section {
-  .log_popup_section {
-    position: absolute;
-    top: 57px;
-    left: 15px;
-    z-index: 99;
-    ion-list {
-      margin: 0px;
-      padding: 0px;
-      border-radius: 10px;
-      border: 1px solid var(--neutral-cross);
-    }
-  }
+.py_content_text {
+  font-family: emoji;
 }
-.custom-header {
-  padding: 10px 15px;
-}
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(80%, 300px);
-  height: 100vh;
-  background: var(--white);
-  z-index: 999;
-  transform: translateX(100%);
-  transition: 0.3s ease;
+.content_section {
+  width: calc(100%);
+  max-width: calc(100%);
+  border: 1px solid rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 98;
+.content_section {
+  background-image: url("/assets/icon/Backgorund_counters.png");
+  background-size: inherit;
+  background-position: 20px 10px 10px 10px;
 }
 
-ion-header,
-ion-toolbar {
-  --box-shadow: none !important;
-  box-shadow: none !important;
-}
-.sidebar {
-  transform: translateX(100%);
-  .no-gap {
-    ion-text {
-      .sidebar-content {
-        width: 100%;
-        background: white;
-        border-radius: 10px 0px 0px 0px;
-      }
-      .sidebar-menu {
-        ion-list {
-          ion-item {
-            ion-icon {
-              font-size: large;
-            }
-            .dashboard {
-              color: orange;
-            }
-            .order {
-              color: green;
-            }
-          }
-        }
-      }
-      .icon_menu {
-        font-size: 25px;
-      }
-    }
-  }
-}
-
-.sidebar.open {
-  transform: translateX(0);
-}
-
-.header-container {
+.counters_tophedding {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0px 10px 0px 10px;
+  margin: 0px 5px -5px 3px;
 }
 
-.left-section {
-  display: flex;
-  align-items: center;
+.counters_tophedding .order_view {
+  font-weight: 700;
 }
 
-.profile-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.text-section {
-  margin-left: 10px;
-}
-
-.text-section h2 {
-  font-size: 16px;
-  margin: 0;
-  font-weight: 600;
-}
-
-.text-section p {
-  font-size: 12px;
-  margin: 0;
-  color: gray;
-}
-
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  position: relative;
-}
-
-.right-section ion-icon {
-  font-size: 20px;
-}
-
-.badge {
-  position: absolute;
-  top: -5px;
-  right: 28px;
-  background: red;
-  color: white;
+.text_small {
   font-size: 10px;
-  padding: 2px 5px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  color: #ff6347;
+}
+
+.loaction_divide_section {
+  width: calc(98% / 2);
+  max-width: calc(98% / 2);
+  display: flex;
+  justify-content: space-between;
+}
+
+.counters_section {
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  width: calc(98% / 2);
+  max-width: calc(98% / 2);
+  gap: 5px;
+  border: 1px solid rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 12px;
+  background-image: url("/assets/icon/cropestimage.jpg");
+  background-size: cover;
+}
+
+.counter .total {
+  color: grey;
+}
+
+.counter .pending {
+  color: rgb(219, 219, 57);
+}
+
+.counter_number {
+  font-size: 15px;
+  font-weight: bold;
+}
+.dashboard-bg {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  h1 {
+    font-family: cursive;
+  }
+  .mx-auto {
+    p {
+      font-family: "FontAwesome";
+    }
+  }
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px;
+}
+.btn-group-custom {
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  width: fit-content;
+  margin-bottom: 15px;
+
+  button {
+    padding: 8px 16px;
+    border: none;
+    background: var(--feather-bg);
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  button:not(:last-child) {
+    border-right: 1px solid #ddd;
+  }
+
+  .active-btn {
+    background: var(--neutral-900);
+    color: var(--white);
+    font-weight: 600;
+  }
 }

@@ -28,7 +28,7 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'getOrder',
+    path: 'drive-dashbaord',
     component: DriverTheameComponent,
     children: [
       {

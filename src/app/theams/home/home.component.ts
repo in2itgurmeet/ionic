@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { AuthRoutingModule } from "src/app/auth/auth-routing-module";
+import { AuthRoutingModule } from 'src/app/feature/auth/auth-routing-module';
 import { register } from 'swiper/element/bundle';
 register();
 

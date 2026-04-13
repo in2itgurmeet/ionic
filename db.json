@@ -814,5 +814,20 @@
       "earnings": 4720,
       "paymentType": "prepaid"
     }
-  ]
+  ],
+
+  "chartData": {
+    "monthly": {
+      "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "data": [120, 150, 180, 90, 200, 170]
+    },
+    "weekly": {
+      "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      "data": [12, 19, 8, 15, 20, 10, 14]
+    },
+    "today": {
+      "labels": ["9AM", "12PM", "3PM", "6PM", "9PM"],
+      "data": [2, 5, 3, 6, 4]
+    }
+  }
 }

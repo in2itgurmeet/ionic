@@ -32,6 +32,7 @@
     "@ngx-translate/http-loader": "^17.0.0",
     "apexcharts": "^5.10.4",
     "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
     "font-awesome": "^4.7.0",
     "ionicons": "^7.4.0",
     "json-server": "^0.17.4",

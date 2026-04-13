@@ -1,4 +1,3 @@
-import { routes } from '../../app.routes';
 import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
