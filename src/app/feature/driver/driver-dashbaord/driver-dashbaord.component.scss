@@ -17,51 +17,17 @@
     }
   }
 }
-.delivery-card {
-  background: #1c1c1e;
-  border-radius: 14px;
-  padding: 12px;
-  margin-bottom: 12px;
-
-  .top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    h4 {
-      margin: 0;
-    }
-
-    .status {
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-size: 12px;
-    }
-
-    .ongoing {
-      background: #2ecc71;
-      color: #000;
-    }
-
-    .pending {
-      background: #f1c40f;
-      color: #000;
-    }
-  }
-
-  .address {
-    margin: 10px 0;
-    font-size: 13px;
-    color: #ccc;
-  }
-
-  .bottom-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .price {
-      font-weight: bold;
+.img_section {
+  .log_popup_section {
+    position: absolute;
+    top: 57px;
+    left: 15px;
+    z-index: 99;
+    ion-list {
+      margin: 0px;
+      padding: 0px;
+      border-radius: 10px;
+      border: 1px solid var(--neutral-cross);
     }
   }
 }

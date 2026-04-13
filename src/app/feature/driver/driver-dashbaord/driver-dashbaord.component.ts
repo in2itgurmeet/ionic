@@ -1,7 +1,7 @@
 import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { menuOutline, notificationsOutline, closeCircleSharp, bagHandleOutline, gridOutline } from 'ionicons/icons';
+import { menuOutline, notificationsOutline, closeCircleSharp, bagHandleOutline, gridOutline, settings, logOut } from 'ionicons/icons';
 import { Api } from 'src/app/Service/api';
 
 @Component({
@@ -16,7 +16,10 @@ export class DriverDashbaordComponent implements OnInit {
   closeIcon = closeCircleSharp;
   bagIcon = bagHandleOutline
   gridIcon = gridOutline
+  logOut = logOut
   viewSidebar = false;
+  settings = settings
+  logPopupFlag: boolean = false;
   deliveries: any[] = [];
   constructor(private api: Api) { }
   ngOnInit() { }
@@ -35,5 +38,9 @@ export class DriverDashbaordComponent implements OnInit {
         console.log(err);
       }
     })
+  }
+
+  logPopup() {
+    this.logPopupFlag = !this.logPopupFlag
   }
 }

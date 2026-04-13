@@ -13,7 +13,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./auth/auth-module').then(m => m.AuthModule)
+        loadChildren: () => import('./feature/auth/auth-module').then(m => m.AuthModule)
       }
     ]
   },
@@ -23,7 +23,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./indexpage/indexpage.module').then(m => m.IndexpageModule)
+        loadChildren: () => import('./feature/indexpage/indexpage.module').then(m => m.IndexpageModule)
       }
     ]
   },
@@ -33,7 +33,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./driver/driver-module').then(m => m.DriverModule)
+        loadChildren: () => import('./feature/driver/driver-module').then(m => m.DriverModule)
       }
     ]
   }
