@@ -4,14 +4,14 @@
             <ion-header class="custom-header">
                 <div class="header-container">
                     <div class="left-section">
-                        @if(urlEndPoint == "/drive-dashbaord"){
                         <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359554_1280.png"
                             class="profile-img" />
                         <div class="text-section">
                             <h2>Hi, Raju</h2>
                             <p>Ready to deliver ?</p>
                         </div>
-                        }@else {
+
+                        <!-- @else {
                         <div class="logo">
                             <div class="circle">
                                 <span class="pl">
@@ -23,25 +23,50 @@
                                 <p>Loogistics</p>
                             </div>
                         </div>
-                        }
+                        } -->
                     </div>
                     <div class="right-section">
-                        <ion-icon [icon]="notificationIcon"></ion-icon>
+                        <ion-icon [icon]="icons.notification"></ion-icon>
                         <span class="badge">5</span>
-                        <ion-icon [icon]="menuIcon" (click)="openSidebar()"></ion-icon>
+                        <ion-icon [icon]="icons.menu" (click)="openSidebar()"></ion-icon>
                     </div>
                 </div>
             </ion-header>
             <div class="section">
-
                 <router-outlet></router-outlet>
-
             </div>
         </ion-text>
     </ion-row>
+    <div class="custom-tabs">
+        <div class="tab-btn" [ngClass]="{active: urlEndPoint == '/driver/dashboard'}"
+            (click)="navigate('/driver/dashboard')">
+
+            <ion-icon [icon]="icons.dashboard"></ion-icon>
+            <span>Home</span>
+        </div>
+
+        <div class="tab-btn" [class.active]="urlEndPoint == '/driver/orders'" (click)="navigate('/driver/orders')">
+
+            <ion-icon [icon]="icons.orders"></ion-icon>
+            <span>Orders</span>
+        </div>
+
+        <div class="tab-btn" [class.active]="urlEndPoint == '/driver/analytics'"
+            (click)="navigate('/driver/analytics')">
+
+            <ion-icon [icon]="icons.barChart"></ion-icon>
+            <span>Analytics</span>
+        </div>
+
+        <div class="tab-btn" [class.active]="urlEndPoint == '/driver/settings'" (click)="navigate('/driver/settings')">
+
+            <ion-icon [icon]="icons.settings"></ion-icon>
+            <span>Settings</span>
+        </div>
+
+    </div>
+
 </ion-col>
-
-
 
 @if (viewSidebar) {
 <ion-col class="sidebar" [class.open]="viewSidebar">
@@ -69,7 +94,7 @@
                     </div>
                 </div>
             </ion-text>
-            <ion-icon (click)="openSidebar()" class="icon_menu" [icon]="closeIcon">close</ion-icon>
+            <ion-icon (click)="openSidebar()" class="icon_menu" [icon]="icons.close">close</ion-icon>
         </ion-text>
         <ion-text>
             <div class="sidebar-menu">

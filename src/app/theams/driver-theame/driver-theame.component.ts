@@ -1,11 +1,14 @@
 import { IonicModule } from '@ionic/angular';
-import { Component, effect, OnInit, Signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { menuOutline, notificationsOutline, closeCircleSharp, bagHandleOutline, gridOutline, settings, logOut, flash, colorWandOutline } from 'ionicons/icons';
+import { menuOutline, notificationsOutline, closeCircleSharp, bagHandleOutline, gridOutline, settings, logOut } from 'ionicons/icons';
 import { Api } from 'src/app/Service/api';
 import { OutsideClickEmitterDirective } from 'src/app/core/directive/outside-click-emitter.directive';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
+import { AppIcons } from 'src/app/shared_component/ionicIcon';
+
+
 @Component({
   selector: 'app-driver-theame',
   templateUrl: './driver-theame.component.html',
@@ -13,22 +16,24 @@ import { DefultUsageService } from 'src/app/Service/defult-usage.service';
   imports: [IonicModule, CommonModule, RouterLink, OutsideClickEmitterDirective, RouterOutlet]
 })
 export class DriverTheameComponent implements OnInit {
-  menuIcon = menuOutline;
-  notificationIcon = notificationsOutline;
-  closeIcon = closeCircleSharp;
-  bagIcon = bagHandleOutline
-  gridIcon = gridOutline
+  icons = AppIcons;
+
   logOut = logOut;
   viewSidebar: any;
   settings = settings
   urlEndPoint: any;
   logPopupFlag: boolean = false;
   deliveries: any[] = [];
-  constructor(private api: Api, private defultService: DefultUsageService, private routes: Router) {
+  constructor(private api: Api, private defultService: DefultUsageService, private routes: Router, private router: Router) {
 
   }
   ngOnInit() {
-    console.log(this.routes.url)
+    this.routes.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.urlEndPoint = event.url;
+      }
+    });
+    this.getDeleiveries()
   }
 
 
@@ -56,17 +61,17 @@ export class DriverTheameComponent implements OnInit {
   }
   sidbarJson = [
     {
-      icon: this.gridIcon,
+      icon: this.icons.menu,
       lable: "Dashbaord",
       routerLink: "/drive-dashbaord"
     },
     {
-      icon: this.bagIcon,
+      icon: this.icons.bag,
       lable: "My Order",
       routerLink: "/drive-dashbaord/myOrders"
     },
     {
-      icon: this.settings,
+      icon: this.icons.settings,
       lable: "Settings",
       routerLink: "/drive-dashbaord/settings"
     },
@@ -74,5 +79,10 @@ export class DriverTheameComponent implements OnInit {
   goToPage() {
     this.urlEndPoint = this.routes.url
     this.viewSidebar = false
+  }
+
+  navigate(path: string) {
+    this.router.navigate([path]);
+    this.urlEndPoint = path;
   }
 }

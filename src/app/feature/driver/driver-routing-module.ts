@@ -7,8 +7,9 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: DriverDashbaordComponent },
+  { path: 'myOrders', component: MyOrdersComponent },
+  { path: 'myOrders', component: MyOrdersComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: 'myOrders', component: MyOrdersComponent }
 ];
 
 @NgModule({
