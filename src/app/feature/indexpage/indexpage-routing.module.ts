@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashbaord/dashboard.component';
-import { bookinComponent } from './booking/booking.component';
+import { CreateBookingTypeComponent } from './create-booking-type/create-booking.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { BookedComponent } from './booked/booked.component';
 import { AllProductComponent } from './allproduct/all-product.component';
@@ -9,7 +9,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { InvoiceDetailsComponent } from './invoice-details-page/invoice-details/invoice-details.component';
 import { InvoiceBillComponent } from './invoice-details-page/invoice-bill/invoice-bill.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
-import { CreateorderComponentPtl } from './crate-order/createorder.component';
+import { CreateFullorderComponent } from './crate-full-order/crate-full-order.component';
 import { LorryDeatilsComponent } from './Lorry_details_page/lorry-deatils/lorry-deatils.component';
 
 const routes: Routes = [
@@ -24,11 +24,11 @@ const routes: Routes = [
   },
   {
     path: 'booking',
-    component: bookinComponent,
+    component: CreateBookingTypeComponent,
   },
   {
     path: 'createOrder',
-    component: CreateorderComponentPtl,
+    component: CreateFullorderComponent,
   },
   {
     path: 'order-details/:id',

@@ -15,15 +15,14 @@ import { Api } from 'src/app/Service/api';
 @Component({
   selector: 'app-createorder',
   imports: [CommonModule, IonicModule, ReactiveFormsModule],
-  templateUrl: './createorder.component.html',
-  styleUrls: ['./createorder.component.scss'],
+  templateUrl: './crate-full-order.component.html',
+  styleUrls: ['./crate-full-order.component.scss'],
 })
-export class CreateorderComponentPtl {
+export class CreateFullorderComponent {
   cargoForm!: FormGroup;
   vehicles: any[] = [];
   bookingType: any;
   orderData: any = {};
-
   constructor(
     private fb: FormBuilder,
     private defultService: DefultUsageService,
@@ -36,6 +35,11 @@ export class CreateorderComponentPtl {
 
   ngOnInit() {
     this.orderData = this.defultService.getOrderData();
+    this.handleBookingTypeValidator();
+    this.subscribeToDimensionChanges();
+    this.initCargoForm();
+  }
+  initCargoForm() {
     this.cargoForm = this.fb.group({
       referenceNumber: ['', Validators.required],
       senderName: ['', Validators.required],
@@ -45,11 +49,7 @@ export class CreateorderComponentPtl {
       selectedVehicle: this.fb.array([], Validators.required),
       cargoItems: this.fb.array([this.createCargoItem()]),
     });
-    this.handleBookingTypeValidator();
-
-    this.subscribeToDimensionChanges();
   }
-
   createCargoItem(): FormGroup {
     return this.fb.group({
       goodsDescription: ['', Validators.required],
@@ -81,14 +81,14 @@ export class CreateorderComponentPtl {
   submitForm() {
     if (this.cargoForm.valid) {
       const vehicleObjects = this.selectedVehicle.value.map((name: any) =>
-        this.defultService.vehicles.find(v => v.name === name)
+        this.defultService.vehicles.find((v) => v.name === name),
       );
       const orderId = `ORD${Date.now()}`;
       const finalPayload = {
         ...this.cargoForm.value,
         selectedVehicle: vehicleObjects,
         bookingType: this.bookingType,
-        orderId: orderId
+        orderId: orderId,
       };
       this.orderService.createBookingData(finalPayload).subscribe({
         next: (res) => {
@@ -126,7 +126,7 @@ export class CreateorderComponentPtl {
       this.selectedVehicle.push(this.fb.control(vehicle));
     } else {
       const index = this.selectedVehicle.controls.findIndex(
-        x => x.value.name === vehicle.name
+        (x) => x.value.name === vehicle.name,
       );
       if (index >= 0) {
         this.selectedVehicle.removeAt(index);

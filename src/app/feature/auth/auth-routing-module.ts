@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MyLoginComponent } from './my-login/my-login.component';
+import { LoginComponent } from './login/login.component';
 import { RegisterpageComponent } from './registerpage/registerpage.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { OTPComponent } from './otp/otp.component';
-import { ResetPaswordComponent } from './reset-pasword/reset-pasword.component';
+import { OtpComponent } from './otp/otp.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '', component: MyLoginComponent },
+  { path: '', component: LoginComponent },
   {
     path: 'register',
     component: RegisterpageComponent,
@@ -19,11 +19,11 @@ const routes: Routes = [
   },
   {
     path: 'sendOtp',
-    component: OTPComponent,
+    component: OtpComponent,
   },
   {
     path: 'resetpassword',
-    component: ResetPaswordComponent,
+    component: ResetPasswordComponent,
   }
 ];
 

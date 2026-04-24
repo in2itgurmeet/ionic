@@ -108,9 +108,6 @@ Invoice create
 eWay bill create
 Order view
 
-
-
-
 🔹 Kis liye use karte hain?
   Web native Extention for Ionic angular 
 👉 Jab tumhe mobile ke native features chahiye hote hain:
@@ -122,3 +119,13 @@ Order view
 🔔 Push notifications
 📞 Phone call / contacts access
 🔋 Battery status
+
+
+
+Consignor App → Order Create
+        ↓
+Admin Panel → Driver Assign
+        ↓
+Driver App → Execute Delivery
+        ↓
+Tracking Updates → Consignor sees live status

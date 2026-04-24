@@ -16,10 +16,10 @@ import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 @Component({
   selector: 'app-booking',
   imports: [CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.scss'],
+  templateUrl: './create-booking.component.html',
+  styleUrls: ['./create-booking.component.scss'],
 })
-export class bookinComponent {
+export class CreateBookingTypeComponent {
   pickupResults: any[] = [];
   deliveryResults: any[] = [];
   selectedPickup: any = null;

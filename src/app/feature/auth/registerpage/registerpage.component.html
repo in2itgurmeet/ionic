@@ -24,50 +24,38 @@
             <h2>REGISTER PAGE</h2>
             <p>Create your New Account :-)</p>
           </div>
-
-          <form>
-
-            <!-- Full Name -->
+          <form [formGroup]="registerForm">
             <div class="mb-2 d-flex flex-column">
               <ion-label>Full Name</ion-label>
-              <ion-input type="text" placeholder="Enter your Full Name"></ion-input>
+              <ion-input type="text" placeholder="Enter your Full Name" formControlName="name"></ion-input>
             </div>
-
-            <!-- Phone -->
             <div class="mb-2 d-flex flex-column">
               <ion-label>Phone No</ion-label>
-              <ion-input type="tel" placeholder="Enter your Phone Number"></ion-input>
+              <ion-input type="tel" placeholder="Enter your Phone Number" formControlName="phone"></ion-input>
             </div>
-
-            <!-- Company -->
+            <div class="mb-2 d-flex flex-column">
+             <ion-label>Email</ion-label>
+             <ion-input type="text" placeholder="Enter your Email" formControlName="email"></ion-input>
+           </div>
             <div class="mb-2 d-flex flex-column">
               <ion-label>Your Company Name</ion-label>
-              <ion-input type="text" placeholder="Enter your Company Name"></ion-input>
+              <ion-input type="text" placeholder="Enter your Company Name" formControlName="company"></ion-input>
             </div>
-
-            <!-- Password -->
             <div class="mb-2 d-flex flex-column position-relative">
               <ion-label>Password</ion-label>
               <div class="input-container">
-                <ion-input [type]="passwordType" placeholder="Enter your password"></ion-input>
-
+                <ion-input [type]="passwordType" placeholder="Enter your password" formControlName="password"></ion-input>
                 <ion-icon [name]="passwordIcon" (click)="togglePasswordVisibility()" class="icon_eye">
                 </ion-icon>
               </div>
             </div>
-
-            <!-- Submit -->
-            <ion-button expand="block" class="mt-3">
+            <ion-button expand="block" class="mt-3" (click)="onSubmit()">
               Submit
             </ion-button>
-
-            <!-- Login -->
             <p class="text-center mt-3">
               Already a member?
               <a [routerLink]="['/auth']">Login</a>
             </p>
-
-            <!-- Social -->
             <div class="d-flex justify-content-between mt-3 px-3">
               <ion-button class="col-5">
                 <i class="fa fa-google-plus me-1"></i> Google
