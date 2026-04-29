@@ -3,7 +3,8 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Authservice } from '../service/authservice';
+import { AuthService } from '../service/authservice';
+import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 
 @Component({
   selector: 'app-registerpage',
@@ -18,7 +19,7 @@ export class RegisterpageComponent implements OnInit {
   passwordIcon: string = 'eye-off';
   password: string = '';
   registerForm!: FormGroup
-  constructor(private apiService:Authservice) { }
+  constructor(private apiService:AuthService,private defultService:DefultUsageService) { }
 
   ngOnInit() { 
     this.initForm()
@@ -49,9 +50,10 @@ export class RegisterpageComponent implements OnInit {
   onSubmit() {
     this.apiService.registerUser(this.registerForm.value).subscribe({
       next: (res) => {
+        this.defultService.successToast(res.message);
         this.registerForm.reset();
       },error: (err) => {
-        console.log(err);
+        this.defultService.errorToast(err.error.message);
       }
     })
   }

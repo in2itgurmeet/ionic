@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class Authservice {
+export class AuthService {
 
   constructor(private http: HttpClient) { }
 
@@ -16,5 +16,17 @@ export class Authservice {
 
   registerUser(data: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/auth/register`, data, { observe: 'response' })
+  }
+
+  forgetPassWord(email:any):Observable<any>{
+    return this.http.post(`${environment.apiUrl}/auth/forget-password`, email);
+  }
+
+  verifyOtp(data:any):Observable<any>{
+    return this.http.post(`${environment.apiUrl}/auth/verify-otp`, data);
+  }
+
+  resetPassword(data:any):Observable<any>{
+    return this.http.post(`${environment.apiUrl}/auth/reset-password`, data);
   }
 }

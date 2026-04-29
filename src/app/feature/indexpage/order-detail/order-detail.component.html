@@ -252,11 +252,11 @@
         </ion-text>
         <ion-text class="Form_input_box">
           <ion-label class="form-label">UPI ID</ion-label>
-          <ion-input style="z-index: 1;" type="email" class="form_input" aria-describedby="emailHelp"
+          <ion-input style="z-index: 1;" type="email" class="form_input" aria-describedby="emailHelp" [formControl]="upiId"
             placeholder="Enter Your UPI ID" />
 
         </ion-text>
-        <ion-button type="button" class="submit_button mt-3 col-12" (click)="openPopup()"
+        <ion-button type="button" class="submit_button mt-3 col-12" (click)="onSubmit()"
           [routerLink]="['/indexpage/booked']">
           Book Now
         </ion-button>

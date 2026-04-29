@@ -12,6 +12,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
+import { IndexService } from '../service/index-service';
 
 @Component({
   selector: 'app-booking',
@@ -39,6 +40,7 @@ export class CreateBookingTypeComponent {
     private api: Api,
     private routes: Router,
     private deultService: DefultUsageService,
+    private indexService: IndexService,
   ) {
     this.booking = new FormGroup({});
   }
@@ -103,7 +105,15 @@ export class CreateBookingTypeComponent {
         bookingType: this.bookingType,
         date: this.selectedDate,
       };
-      this.deultService.setOrderData(payload);
+      this.indexService.createOrderStep1(payload).subscribe({
+        next: (res: any) => {
+          this.deultService.successToast(res.message);
+          localStorage.setItem('ordId', res.orderId);
+        },
+        error: (err: any) => {
+          this.deultService.errorToast(err.error.message || err.message);
+        },
+      });
     }
     this.routes.navigate(['/indexpage/createOrder']);
     this.deliveryResults = [];

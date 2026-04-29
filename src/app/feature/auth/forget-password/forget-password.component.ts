@@ -10,6 +10,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthFlowService } from '../auth-flow-service';
+import { AuthService } from '../service/authservice';
+import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 
 @Component({
   selector: 'app-forget-password',
@@ -32,6 +34,9 @@ export class ForgetPasswordComponent implements OnInit {
     private routes: Router,
     public flow: AuthFlowService,
     private fb: FormBuilder,
+    private authApi: AuthService,
+    private defulService: DefultUsageService,
+
   ) {
     this.flow.loadEmail();
   }
@@ -83,10 +88,7 @@ export class ForgetPasswordComponent implements OnInit {
       }
     }, 1000);
   }
-  onSubmitForgetPass() {
-    console.log(this.forgetPasswordForm.value);
-    this.routes.navigate(['/auth/sendOtp']);
-  }
+
 
   passwordMatchValidator(form: FormGroup) {
     const password = form.get('password')?.value;
@@ -107,23 +109,51 @@ export class ForgetPasswordComponent implements OnInit {
 
   sendOtp() {
     if (this.forgetPasswordForm.invalid) return;
-    this.flow.setEmail(this.forgetPasswordForm.value.email);
-    this.flow.setStep('otp');
-  }
 
+    this.authApi.forgetPassWord(this.forgetPasswordForm.value).subscribe({
+      next: (res) => {
+        this.flow.setEmail(this.forgetPasswordForm.value.email);
+        this.flow.setStep('otp');
+        this.defulService.successToast(res.message);
+      },
+      error: (err) => {
+        this.defulService.errorToast(
+          err?.error?.message
+        );
+      }
+    });
+  }
   verifyOtp() {
     if (this.otpForm.invalid) return;
-    this.flow.setStep('reset-password');
+    this.authApi.verifyOtp(this.otpForm.value).subscribe({
+      next: (res) => {
+        this.defulService.successToast(res.message);
+        this.flow.setStep('reset-password');
+      },
+      error: (err) => {
+        this.defulService.errorToast(
+          err?.error?.message
+        );
+      }
+    })
   }
 
-    onSubmitResetPass() {
-      console.log(this.resetPasswordForm.value);
-      this.routes.navigate(['/auth']);
-    }
-      
+  onSubmitResetPass() {
+    if (this.resetPasswordForm.invalid) return;
+    this.authApi.resetPassword(this.resetPasswordForm.value).subscribe({
+      next: (res) => {
+        this.defulService.successToast(res.message);
+        this.routes.navigate(['/auth']);
+      },
+      error: (err) => {
+        this.defulService.errorToast(
+          err?.error?.message
+        );
+      }
+    })
+  }
+
   goBack(event: any) {
     this.flow.setStep(event);
   }
-
-
 }

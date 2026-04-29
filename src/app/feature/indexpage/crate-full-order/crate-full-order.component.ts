@@ -1,3 +1,4 @@
+import { IndexService } from './../service/index-service';
 import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,19 +23,19 @@ export class CreateFullorderComponent {
   cargoForm!: FormGroup;
   vehicles: any[] = [];
   bookingType: any;
-  orderData: any = {};
+  ordId: any;
   constructor(
     private fb: FormBuilder,
     private defultService: DefultUsageService,
     private route: Router,
-    private orderService: Api,
+    private indexService: IndexService,
   ) {
     this.vehicles = this.defultService.vehicles;
     this.bookingType = this.defultService.bookingMode();
   }
 
   ngOnInit() {
-    this.orderData = this.defultService.getOrderData();
+    this.ordId = localStorage.getItem('ordId');
     this.handleBookingTypeValidator();
     this.subscribeToDimensionChanges();
     this.initCargoForm();
@@ -78,31 +79,34 @@ export class CreateFullorderComponent {
     }
   }
 
-  submitForm() {
-    if (this.cargoForm.valid) {
-      const vehicleObjects = this.selectedVehicle.value.map((name: any) =>
-        this.defultService.vehicles.find((v) => v.name === name),
-      );
-      const orderId = `ORD${Date.now()}`;
-      const finalPayload = {
-        ...this.cargoForm.value,
-        selectedVehicle: vehicleObjects,
-        bookingType: this.bookingType,
-        orderId: orderId,
-      };
-      this.orderService.createBookingData(finalPayload).subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
-      this.route.navigate(['/indexpage/order-details/2']);
-    } else {
-      console.log('Form invalid');
-    }
+ submitForm() {
+  if (this.cargoForm.valid) {
+
+    const vehicleObjects = this.selectedVehicle.value.map((name: any) =>
+      this.defultService.vehicles.find((v) => v.name === name)
+    );
+
+    const finalPayload = {
+      ...this.cargoForm.value,
+      selectedVehicle: vehicleObjects,
+      amount: this.calculateTotalAmount()
+    };
+
+    this.indexService.createOrderStep2(finalPayload, this.ordId).subscribe({
+      next: (res) => {
+        this.defultService.successToast(res.message);
+        this.route.navigate(['/indexpage/order-details/2']);
+      },
+      error: (err) => {
+        this.defultService.errorToast(err.error.message);
+      }
+    });
+
+  } else {
+    this.defultService.errorToast('Please fill in all required fields.');
   }
+}
+
   subscribeToDimensionChanges(cargoGroup?: FormGroup) {
     const groups: FormGroup[] = cargoGroup
       ? [cargoGroup]
@@ -145,5 +149,16 @@ export class CreateFullorderComponent {
       selectedVehicleControl?.clearValidators();
     }
     selectedVehicleControl?.updateValueAndValidity();
+  }
+
+  calculateTotalAmount(): number {
+    let total = 0;
+    this.cargoItems.value.forEach((item: any) => {
+      const weight = item.weight || 0;
+      const quantity = item.quantity || 0;
+      total += weight * quantity * 10;
+    });
+
+    return total;
   }
 }

@@ -1,4 +1,5 @@
 import { Injectable, signal } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ export class DefultUsageService {
   );
   orderData: any = {};
 
-  constructor() {
+  constructor(    private toastController: ToastController
+) {
     const now = new Date();
     const currentHour = now.getHours();
     if (currentHour < 12) {
@@ -31,16 +33,30 @@ export class DefultUsageService {
     { name: 'Tata Ace', capacity: '780kg', dimensions: '7FT X 4.5FT X 6FT', img: '../../../assets/icon/Select_vichle.png' },
   ];
 
-  setOrderData(data: any) {
-    this.orderData = { ...this.orderData, ...data };
+
+
+
+    async successToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 3000,
+      position: 'top',
+      color: 'success',
+      icon: 'checkmark-circle'
+    });
+
+    await toast.present();
   }
 
-  getOrderData() {
-    return this.orderData;
-  }
+  async errorToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 3000,
+      position: 'top',
+      color: 'danger',
+      icon: 'close-circle'
+    });
 
-  clearOrderData() {
-    this.orderData = {};
+    await toast.present();
   }
-
 }
