@@ -3,6 +3,8 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Authservice } from '../service/authservice';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-my-login',
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup
   showPassword: boolean = false;
 
-  constructor() { }
+  constructor(private apiService:Authservice,private toastController: ToastController) { }
 
 ngOnInit(): void {
   this.initLoginForm();
@@ -46,7 +48,28 @@ initLoginForm() {
 
 
 
+
   submit() {
-    console.log(this.loginForm.value);
+   this.apiService.loginUser(this.loginForm.value).subscribe({
+     next: (res) => {
+      localStorage.setItem('token', res.token);
+      this.loginForm.reset();
+      async successToast(msg: string) {
+  const toast = await this.toastController.create({
+    message: msg,
+    duration: 3000,
+    position: 'top',
+    color: 'success',
+    icon: 'checkmark-circle'
+  });
+
+  await toast.present();
+}
+
+     },
+     error: (err) => {
+       console.log(err);
+     }
+   });
   }
 }

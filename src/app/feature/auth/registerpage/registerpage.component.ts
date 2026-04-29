@@ -3,6 +3,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Authservice } from '../service/authservice';
 
 @Component({
   selector: 'app-registerpage',
@@ -17,7 +18,7 @@ export class RegisterpageComponent implements OnInit {
   passwordIcon: string = 'eye-off';
   password: string = '';
   registerForm!: FormGroup
-  constructor() { }
+  constructor(private apiService:Authservice) { }
 
   ngOnInit() { 
     this.initForm()
@@ -46,6 +47,12 @@ export class RegisterpageComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.registerForm.value);
+    this.apiService.registerUser(this.registerForm.value).subscribe({
+      next: (res) => {
+        this.registerForm.reset();
+      },error: (err) => {
+        console.log(err);
+      }
+    })
   }
 }
