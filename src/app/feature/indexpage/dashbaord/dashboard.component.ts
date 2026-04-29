@@ -61,6 +61,83 @@ export class DashboardComponent {
   }
 
 
+  dashbaordData = {
+    "message": "Dashboard Data Fetched Successfully",
+    "data": {
+      "orders": {
+        "total": 120,
+        "pending": 18,
+        "booked": 35,
+        "inTransit": 22,
+        "completed": 38,
+        "cancelled": 7
+      },
+      "invoice": {
+        "totalAmount": 542300,
+        "paidAmount": 410000,
+        "dueAmount": 102300,
+        "overdueAmount": 30000
+      },
+      "latestTransitOrder": {
+        "_id": "662f8ab1234567890abc1234",
+        "orderId": "ORD122467269",
+        "lrNumber": "LR/2343",
+        "referenceNumber": "REF0012",
+        "bookingType": "FTL",
+        "paymentType": "Prepaid",
+        "status": "In Transit",
+        "amount": 427300,
+        "pickup": {
+          "address": "Delhi Red Fort, Delhi",
+          "date": "11-Mar-2026",
+          "time": "11:00 AM"
+        },
+        "delivery": {
+          "address": "Jaipur Transport Nagar, Rajasthan",
+          "date": "12-Mar-2026",
+          "time": "06:00 PM"
+        },
+        "vehicle": {
+          "name": "Tata Ace",
+          "capacity": "780 KG",
+          "dimension": "7FT X 4.5FT X 6FT",
+          "vehicleNumber": "DL1LAB1234"
+        },
+        "driver": {
+          "name": "Rohit Kumar",
+          "mobile": "9876543210"
+        },
+        "cargo": {
+          "goodsDescription": "Printing Machine - Electronics",
+          "quantity": 25,
+          "weight": 500,
+          "dimension": "20CM X 18CM X 16CM"
+        }
+      },
+      "recentOrders": [
+        {
+          "orderId": "ORD122467270",
+          "status": "Booked",
+          "amount": 12000
+        },
+        {
+          "orderId": "ORD122467271",
+          "status": "Pending",
+          "amount": 9500
+        },
+        {
+          "orderId": "ORD122467272",
+          "status": "Completed",
+          "amount": 22000
+        }
+      ],
+      "todaySummary": {
+        "todayOrders": 8,
+        "todayDelivered": 5,
+        "todayRevenue": 78500
+      }
+    }
+  }
 
 
 

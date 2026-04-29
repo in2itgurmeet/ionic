@@ -57,26 +57,26 @@ export class OrderDetailComponent {
     });
   }
 
-onSubmit() {
-  if (this.upiId.invalid) {
-    this.defultService.errorToast('Enter valid UPI ID');
-    return;
-  }
-  const payload = {
-    paymentType: 'UPI',
-    upiId: this.upiId.value,
-    amount: this.orderData.amount
-  };
-
-  this.indexService.payMentProcess(payload, this.ordId).subscribe({
-    next: (res) => {
-      this.defultService.successToast(res.message);
-      this.openPopup();
-    },
-    error: (err) => {
-      this.defultService.errorToast(err.error.message);
+  onSubmit() {
+    if (this.upiId.invalid) {
+      this.defultService.errorToast('Enter valid UPI ID');
+      return;
     }
-  });
-}
+    const payload = {
+      paymentType: 'UPI',
+      upiId: this.upiId.value,
+      amount: this.orderData.amount
+    };
+
+    this.indexService.payMentProcess(payload, this.ordId).subscribe({
+      next: (res) => {
+        this.defultService.successToast(res.message);
+        this.openPopup();
+      },
+      error: (err) => {
+        this.defultService.errorToast(err.error.message);
+      }
+    });
+  }
 
 }
