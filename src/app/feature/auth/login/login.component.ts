@@ -1,7 +1,7 @@
 import { IonicModule } from '@ionic/angular';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   FormControl,
   FormGroup,
@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private apiService: AuthService,
-    private defultService:DefultUsageService
+    private defultService:DefultUsageService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         this.loginForm.reset();
         this.defultService.successToast(res.message);
+        this.route.navigate(['/indexpage']);
       },
       error: (err) => {
         this.defultService.errorToast(err.error.message);

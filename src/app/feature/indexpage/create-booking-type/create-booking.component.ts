@@ -96,27 +96,65 @@ export class CreateBookingTypeComponent {
     this.pickupResults = [];
   }
 
+  // selectDelivery(item: any) {
+  //   const value = item?.properties?.formatted;
+  //   this.booking.get('delivery')?.setValue(value);
+  //   if (this.booking.valid) {
+  //     let payload = {
+  //       ...this.booking.value,
+  //       bookingType: this.bookingType,
+  //       date: this.selectedDate,
+  //     };
+  //     this.indexService.createOrderStep1(payload).subscribe({
+  //       next: (res: any) => {
+  //         this.deultService.successToast(res.message);
+  //         localStorage.setItem('ordId', res.orderId);
+  //       },
+  //       error: (err: any) => {
+  //         this.deultService.errorToast(err.error.message || err.message);
+  //       },
+  //     });
+  //   }
+  //   this.routes.navigate(['/indexpage/createOrder']);
+  //   this.deliveryResults = [];
+  // }
   selectDelivery(item: any) {
-    const value = item?.properties?.formatted;
+    const value = item.properties.formatted;
+
     this.booking.get('delivery')?.setValue(value);
-    if (this.booking.valid) {
-      let payload = {
-        ...this.booking.value,
-        bookingType: this.bookingType,
-        date: this.selectedDate,
-      };
-      this.indexService.createOrderStep1(payload).subscribe({
-        next: (res: any) => {
-          this.deultService.successToast(res.message);
-          localStorage.setItem('ordId', res.orderId);
-        },
-        error: (err: any) => {
-          this.deultService.errorToast(err.error.message || err.message);
-        },
-      });
-    }
-    this.routes.navigate(['/indexpage/createOrder']);
+
     this.deliveryResults = [];
+
+    if (this.booking.invalid) return;
+
+    const payload = {
+      bookingType: this.bookingType,
+
+      pickup: {
+        location: this.booking.value.pickup,
+        date: `${this.day} ${this.month} ${this.year}`,
+        time: `${this.hour}:${this.minute} ${this.ampm}`,
+      },
+
+      delivery: {
+        location: this.booking.value.delivery,
+      },
+    };
+
+    console.log(payload);
+
+    this.indexService.createOrderStep1(payload).subscribe({
+      next: (res: any) => {
+        this.deultService.successToast(res.body.message);
+        localStorage.setItem('ordId', res.body.data._id);
+        this.routes.navigate(['/indexpage/createOrder']);
+      },
+      error: (err: any) => {
+        this.deultService.errorToast(
+          err.error.message || 'Something went wrong'
+        );
+      },
+    });
   }
 
   @HostListener('document:click', ['$event'])

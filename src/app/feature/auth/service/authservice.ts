@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   forgetPassWord(email:any):Observable<any>{
-    return this.http.post(`${environment.apiUrl}/auth/forget-password`, email);
+    return this.http.post(`${environment.apiUrl}/auth/forgot-password`, email);
   }
 
   verifyOtp(data:any):Observable<any>{

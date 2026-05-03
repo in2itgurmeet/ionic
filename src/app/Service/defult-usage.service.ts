@@ -11,6 +11,7 @@ export class DefultUsageService {
     (localStorage.getItem('bookingMode') as 'FTL' | 'PTL') || 'FTL'
   );
   orderData: any = {};
+   isLoggedIn = signal(!!localStorage.getItem('token'));
 
   constructor(    private toastController: ToastController
 ) {
@@ -58,5 +59,19 @@ export class DefultUsageService {
     });
 
     await toast.present();
+  }
+
+
+
+
+
+  logout() {
+    localStorage.removeItem('token');
+    this.isLoggedIn.set(false);
+  }
+
+  login(token: string) {
+    localStorage.setItem('token', token);
+    this.isLoggedIn.set(true);
   }
 }

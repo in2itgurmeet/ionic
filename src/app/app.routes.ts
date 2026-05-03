@@ -2,7 +2,7 @@ import { AuthComponent } from './theams/auth/auth.component';
 import { HomeComponent } from './theams/home/home.component';
 import { Routes } from '@angular/router';
 import { ConsignorThemeComponent } from './theams/consignor-theme/consignor.component';
-import { DriverTheameComponent } from './theams/driver-theame/driver-theame.component';
+import { AuthGuard } from './core/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +20,7 @@ export const routes: Routes = [
   {
     path: 'indexpage',
     component: ConsignorThemeComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -27,14 +28,4 @@ export const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'drive-dashbaord',
-    component: DriverTheameComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./feature/driver/driver-module').then(m => m.DriverModule)
-      }
-    ]
-  }
 ];

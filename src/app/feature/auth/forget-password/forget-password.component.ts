@@ -2,6 +2,9 @@ import { IonicModule } from '@ionic/angular';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { ViewChild, ElementRef } from '@angular/core';
+import { IonInput } from '@ionic/angular';
+
 import {
   FormBuilder,
   FormControl,
@@ -30,6 +33,14 @@ export class ForgetPasswordComponent implements OnInit {
   passwordIcon: string = 'eye-off';
   password: string = '';
   resetPasswordForm: any;
+@ViewChild('d1') d1!: IonInput;
+@ViewChild('d2') d2!: IonInput;
+@ViewChild('d3') d3!: IonInput;
+@ViewChild('d4') d4!: IonInput;
+@ViewChild('d5') d5!: IonInput;
+@ViewChild('d6') d6!: IonInput;
+
+
   constructor(
     private routes: Router,
     public flow: AuthFlowService,
@@ -93,7 +104,6 @@ export class ForgetPasswordComponent implements OnInit {
   passwordMatchValidator(form: FormGroup) {
     const password = form.get('password')?.value;
     const confirmPassword = form.get('confirmPassword')?.value;
-
     return password === confirmPassword ? null : { mismatch: true };
   }
 
@@ -108,8 +118,6 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   sendOtp() {
-    if (this.forgetPasswordForm.invalid) return;
-
     this.authApi.forgetPassWord(this.forgetPasswordForm.value).subscribe({
       next: (res) => {
         this.flow.setEmail(this.forgetPasswordForm.value.email);
@@ -124,36 +132,64 @@ export class ForgetPasswordComponent implements OnInit {
     });
   }
   verifyOtp() {
-    if (this.otpForm.invalid) return;
-    this.authApi.verifyOtp(this.otpForm.value).subscribe({
+    const otp =
+      this.otpForm.value.d1 +
+      this.otpForm.value.d2 +
+      this.otpForm.value.d3 +
+      this.otpForm.value.d4 +
+      this.otpForm.value.d5 +
+      this.otpForm.value.d6;
+    this.authApi.verifyOtp({
+      email: this.flow.email(),
+      otp: otp
+    }).subscribe({
       next: (res) => {
         this.defulService.successToast(res.message);
         this.flow.setStep('reset-password');
       },
       error: (err) => {
-        this.defulService.errorToast(
-          err?.error?.message
-        );
+        this.defulService.errorToast(err?.error?.message);
       }
-    })
+    });
   }
 
-  onSubmitResetPass() {
-    if (this.resetPasswordForm.invalid) return;
-    this.authApi.resetPassword(this.resetPasswordForm.value).subscribe({
-      next: (res) => {
-        this.defulService.successToast(res.message);
-        this.routes.navigate(['/auth']);
-      },
-      error: (err) => {
-        this.defulService.errorToast(
-          err?.error?.message
-        );
-      }
-    })
-  }
+
+onSubmitResetPass() {
+  if (this.resetPasswordForm.invalid) return;
+
+  const payload = {
+    email: this.flow.email(), // yeh zaroor bhejna hai
+    newPassword: this.resetPasswordForm.value.password
+  };
+  this.authApi.resetPassword(payload).subscribe({
+    next: (res) => {
+      this.defulService.successToast(res.message);
+      this.resetPasswordForm.reset();
+      this.forgetPasswordForm.reset();
+      this.otpForm.reset();
+      this.routes.navigate(['/auth']);
+    },
+    error: (err) => {
+      this.defulService.errorToast(err?.error?.message);
+    }
+  });
+}
+
 
   goBack(event: any) {
     this.flow.setStep(event);
   }
+
+  moveToNext(event: any, next: any, prev?: any) {
+    const value = event.target.value;
+
+    if (value.length === 1 && next) {
+      next.setFocus();
+    }
+
+    if (value.length === 0 && prev) {
+      prev.setFocus();
+    }
+  }
+
 }

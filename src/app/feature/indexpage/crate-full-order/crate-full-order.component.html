@@ -54,6 +54,19 @@
             <p>Add from Contacts</p>
           </ion-text>
         </ion-text>
+         <ion-text class="form_input_box">
+          <ion-label class="form-label">Receiver's Consignor Company</ion-label>
+          <ion-input
+            type="text"
+            class="form-control"
+            formControlName="consignorCompany"
+            aria-describedby="emailHelp"
+            placeholder="Enter Consignor Company Name"
+          />
+          <ion-text class="resend_text">
+            <p>Add from Contacts</p>
+          </ion-text>
+        </ion-text>
         <ion-text
           class="d-flex justify-content-center px-1 g-0"
           style="margin: -18px 0px"
@@ -74,11 +87,24 @@
         <ion-text class="form_input_box">
           <ion-label class="form-label">Receiver's Mobile Number</ion-label>
           <ion-input
-            type="email"
+            type="text"
             class="form-control"
             formControlName="receiverMobile"
             aria-describedby="emailHelp"
             placeholder="Enter Receiver's Mobile Number"
+          />
+          <ion-text class="resend_text">
+            <p>Add from Contacts</p>
+          </ion-text>
+        </ion-text>
+         <ion-text class="form_input_box">
+          <ion-label class="form-label">Receiver's Consignee Company</ion-label>
+          <ion-input
+            type="text"
+            class="form-control"
+            formControlName="consigneeCompany"
+            aria-describedby="emailHelp"
+            placeholder="Enter Consignee Company Name"
           />
           <ion-text class="resend_text">
             <p>Add from Contacts</p>

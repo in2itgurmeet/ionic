@@ -9,23 +9,23 @@ export class IndexService {
   constructor(private http: HttpClient) { }
 
   createOrderStep1(data: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/orders/step1`, data, { observe: 'response' });
+    return this.http.post(`${environment.apiUrl}/order/step1`, data, { observe: 'response' });
   }
 
   createOrderStep2(data: any, id: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/orders/step2/${id}`, data, { observe: 'response' });
+    return this.http.put(`${environment.apiUrl}/order/step2/${id}`, data, { observe: 'response' });
   }
 
   payMentProcess(data: any, id: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/orders/payment/${id}`, data, { observe: 'response' });
+    return this.http.put(`${environment.apiUrl}/order/payment/${id}`, data, { observe: 'response' });
   }
 
 
   getOrderById(id: any): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/orders/${id}`, { observe: 'response' });
+    return this.http.get(`${environment.apiUrl}/order/${id}`, { observe: 'response' });
   }
   getAllOrders():Observable<any>{
-    return this.http.get(`${environment.apiUrl}/orders/orderlist`, { observe: 'response' });
+    return this.http.get(`${environment.apiUrl}/order/orderlist`, { observe: 'response' });
   }
 
 }

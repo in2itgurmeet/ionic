@@ -49,6 +49,7 @@ export class RegisterpageComponent implements OnInit {
 
   onSubmit() {
     this.apiService.registerUser(this.registerForm.value).subscribe({
+
       next: (res) => {
         this.defultService.successToast(res.message);
         this.registerForm.reset();

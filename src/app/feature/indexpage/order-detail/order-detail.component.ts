@@ -1,14 +1,14 @@
 import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 import { IndexService } from '../service/index-service';
 import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-order-detail',
-  imports: [IonicModule, CommonModule, RouterLink, ReactiveFormsModule],
+  imports: [IonicModule, CommonModule, ReactiveFormsModule],
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.scss'],
 })
@@ -30,6 +30,7 @@ export class OrderDetailComponent {
   constructor(
     private defultService: DefultUsageService,
     private indexService: IndexService,
+    private route: Router
   ) {
     this.ordId = localStorage.getItem('ordId');
   }
@@ -48,7 +49,7 @@ export class OrderDetailComponent {
   getByOrderId() {
     this.indexService.getOrderById(this.ordId).subscribe({
       next: (res) => {
-        this.orderData = res.data;
+        this.orderData = res.body.data;
         this.defultService.successToast(res.message);
       },
       error: (err) => {
@@ -57,26 +58,30 @@ export class OrderDetailComponent {
     });
   }
 
-  onSubmit() {
-    if (this.upiId.invalid) {
-      this.defultService.errorToast('Enter valid UPI ID');
-      return;
+onSubmit() {
+  const payload = {
+    paymentType: 'UPI',
+    upiId: this.upiId.value?.trim(),
+    amount: this.orderData.amount
+  };
+
+  this.indexService.payMentProcess(payload, this.ordId).subscribe({
+    next: (res: any) => {
+      this.defultService.successToast(res.message);
+      this.openPopup();
+
+      setTimeout(() => {
+        this.route.navigate(['/indexpage/booked', this.ordId]);
+      }, 1500);
+    },
+
+    error: (err: any) => {
+      this.defultService.errorToast(
+        err?.error?.message || 'Payment Failed'
+      );
     }
-    const payload = {
-      paymentType: 'UPI',
-      upiId: this.upiId.value,
-      amount: this.orderData.amount
-    };
+  });
+}
 
-    this.indexService.payMentProcess(payload, this.ordId).subscribe({
-      next: (res) => {
-        this.defultService.successToast(res.message);
-        this.openPopup();
-      },
-      error: (err) => {
-        this.defultService.errorToast(err.error.message);
-      }
-    });
-  }
 
 }

@@ -36,15 +36,21 @@ export class CreateFullorderComponent {
 
   ngOnInit() {
     this.ordId = localStorage.getItem('ordId');
-    this.handleBookingTypeValidator();
-    this.subscribeToDimensionChanges();
+
     this.initCargoForm();
+
+    this.handleBookingTypeValidator();
+
+    this.subscribeToDimensionChanges();
   }
+
   initCargoForm() {
     this.cargoForm = this.fb.group({
       referenceNumber: ['', Validators.required],
+      consignorCompany: ['', Validators.required],
       senderName: ['', Validators.required],
       senderMobile: ['', Validators.required],
+      consigneeCompany: ['', Validators.required],
       receiverName: ['', Validators.required],
       receiverMobile: ['', Validators.required],
       selectedVehicle: this.fb.array([], Validators.required),
@@ -79,8 +85,7 @@ export class CreateFullorderComponent {
     }
   }
 
- submitForm() {
-  if (this.cargoForm.valid) {
+  submitForm() {
 
     const vehicleObjects = this.selectedVehicle.value.map((name: any) =>
       this.defultService.vehicles.find((v) => v.name === name)
@@ -102,10 +107,8 @@ export class CreateFullorderComponent {
       }
     });
 
-  } else {
-    this.defultService.errorToast('Please fill in all required fields.');
   }
-}
+
 
   subscribeToDimensionChanges(cargoGroup?: FormGroup) {
     const groups: FormGroup[] = cargoGroup

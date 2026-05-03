@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IS_PUBLIC_API, NO_LOADER } from '../core/auth.interceptor';
 
 @Injectable({
   providedIn: 'root',
@@ -18,11 +19,16 @@ export class Api {
       status: status
     });
   }
-  searchLocation(query: string) {
-    return this.http.get(
-      `https://api.geoapify.com/v1/geocode/autocomplete?text=${query}&apiKey=${this.loactionKey}`
-    );
-  }
+searchLocation(query: string) {
+  return this.http.get(
+    `https://api.geoapify.com/v1/geocode/autocomplete?text=${query}&apiKey=${this.loactionKey}`,
+    {
+      context: new HttpContext()
+        .set(IS_PUBLIC_API, true)
+        .set(NO_LOADER, true)
+    }
+  );
+}
   getBookingData(): Observable<any> {
     return this.http.get(this.apiUrl + "/booking");
   }
