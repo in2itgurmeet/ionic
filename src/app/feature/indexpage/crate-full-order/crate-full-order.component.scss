@@ -4,7 +4,10 @@ form {
   gap: 5px;
   line-height: normal;
 }
-
+.card_container_box {
+  height: 220px;
+  overflow: scroll;
+}
 .heading_cargo {
   width: calc(100%);
   max-width: calc(100%);

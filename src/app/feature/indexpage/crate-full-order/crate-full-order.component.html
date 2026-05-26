@@ -111,33 +111,34 @@
           </ion-text>
         </ion-text>
         @if (bookingType == "PTL") {
-          @for (vehicle of vehicles; track $index) {
-            <ion-card class="seltct_vichle py-2 m-0 mt-2 mb-2">
-              <ion-text class="_Svg_continer py-1 px-1">
-                <img [src]="vehicle.img" class="img-fluid" alt="" />
-              </ion-text>
-
-              <ion-text class="_continer_text">
-                <ion-text class="_svg_text">
-                  <ion-text class="d-flex mt-1">
-                    <h6 class="fw-bold m-0">{{ vehicle.name }}</h6>
-                    <span class="p-0">{{ vehicle.capacity }}</span>
+          <div class="card_container_box">
+            @for (vehicle of vehicles; track $index) {
+              <ion-card class="seltct_vichle py-2 m-0 mt-2 mb-2">
+                <ion-text class="_Svg_continer py-1 px-1">
+                  <img [src]="vehicle.img" class="img-fluid" alt="" />
+                </ion-text>
+                <ion-text class="_continer_text">
+                  <ion-text class="_svg_text">
+                    <ion-text class="d-flex mt-1">
+                      <h6 class="fw-bold m-0">{{ vehicle.name }}</h6>
+                      <span class="p-0">{{ vehicle.capacity }}</span>
+                    </ion-text>
+                    <ion-text>
+                      <p style="font-size: small">{{ vehicle.dimensions }}</p>
+                    </ion-text>
                   </ion-text>
-                  <ion-text>
-                    <p style="font-size: small">{{ vehicle.dimensions }}</p>
+  
+                  <ion-text class="Selector_icon p-2 px-3">
+                    <ion-checkbox
+                      [checked]="selectedVehicle.controls.includes(vehicle.name)"
+                      (ionChange)="onVehicleChange($event, vehicle.name)"
+                    >
+                    </ion-checkbox>
                   </ion-text>
                 </ion-text>
-
-                <ion-text class="Selector_icon p-2 px-3">
-                  <ion-checkbox
-                    [checked]="selectedVehicle.controls.includes(vehicle.name)"
-                    (ionChange)="onVehicleChange($event, vehicle.name)"
-                  >
-                  </ion-checkbox>
-                </ion-text>
-              </ion-text>
-            </ion-card>
-          }
+              </ion-card>
+            }
+          </div>
         }
 
         <ion-text

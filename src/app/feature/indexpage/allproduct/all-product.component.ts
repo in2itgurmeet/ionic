@@ -6,7 +6,6 @@ import { AlertController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 import { Api } from 'src/app/Service/api';
-
 @Component({
   selector: 'app-all-product',
   imports: [IonicModule, CommonModule, RouterLink],
