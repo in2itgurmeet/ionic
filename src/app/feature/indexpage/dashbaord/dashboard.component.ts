@@ -44,23 +44,16 @@ export class DashboardComponent {
   ngOnDestroy(): void {
     clearInterval(this.timer);
   }
-
-
-
   addModeOfbooking(mode: 'FTL' | 'PTL') {
     this.defultServise.bookingMode.set(mode);
     localStorage.setItem('bookingMode', mode);
     this.route.navigate(['/indexpage/booking']);
   }
-
-
   seeAllOrder(event: any) {
     if (event) {
       this.route.navigate(['/indexpage/allproduct']);
     }
   }
-
-
   dashbaordData = {
     "message": "Dashboard Data Fetched Successfully",
     "data": {
@@ -138,7 +131,5 @@ export class DashboardComponent {
       }
     }
   }
-
-
 
 }

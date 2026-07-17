@@ -25,7 +25,10 @@ export class IndexService {
     return this.http.get(`${environment.apiUrl}/order/${id}`, { observe: 'response' });
   }
   getAllOrders():Observable<any>{
-    return this.http.get(`${environment.apiUrl}/order/orderlist`, { observe: 'response' });
+    return this.http.get(`${environment.apiUrl}/order/my/all`, { observe: 'response' });
+  }
+  updateOrderStatus(id: any, status: string): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/order/status/${id}`, { status }, { observe: 'response' });
   }
 
 }

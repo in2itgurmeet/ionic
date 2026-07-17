@@ -15,7 +15,7 @@
         </ion-text>
         <ion-text class="heading_cargo">
           <ion-text>
-            <h2 class="fw-bold booked">In Transit</h2>
+            <h2 class="fw-bold booked">{{ orderData?.status || 'In Transit' }}</h2>
           </ion-text>
         </ion-text>
 
@@ -24,10 +24,10 @@
           <ion-text class="Hide_content">
             <ion-text>
               <p class="Top_content">
-                Distance<span class="fw-bold">1300 km</span>
+                Distance<span class="fw-bold">{{ orderData?.distance || 'N/A' }}</span>
               </p>
               <p class="Top_content">
-                Expected Travel Time <span class="fw-bold">1 Day</span>
+                Expected Travel Time <span class="fw-bold">{{ orderData?.expectedTravelTime || 'N/A' }}</span>
               </p>
             </ion-text>
             <ion-text class="d-flex justify-content-center px-1 g-0">
@@ -36,25 +36,25 @@
             <ion-text>
               <ion-text class="Booked_overview">
                 <ion-text>
-                  <p>Order No: <span class="fw-bold">ORD122467269</span></p>
+                  <p>Order No: <span class="fw-bold">{{ orderData?.orderId }}</span></p>
                 </ion-text>
                 <ion-text>
-                  <p>Order Date: <span class="fw-bold">09-march-2024</span></p>
+                  <p>Order Date: <span class="fw-bold">{{ orderData?.createdAt | date: 'dd-MMM-yyyy' }}</span></p>
                 </ion-text>
                 <ion-text>
-                  <p>Order type: <span class="fw-bold">PREPAID</span></p>
+                  <p>Order type: <span class="fw-bold">{{ orderData?.paymentType }}</span></p>
                 </ion-text>
 
               </ion-text>
               <ion-text class="Booked_overview">
                 <ion-text>
-                  <p>Booking type: <span class="fw-bold">FTL</span></p>
+                  <p>Booking type: <span class="fw-bold">{{ orderData?.bookingType }}</span></p>
                 </ion-text>
                 <ion-text>
-                  <p>Tracking ID: <span class="fw-bold">1922467269</span></p>
+                  <p>Tracking ID: <span class="fw-bold">{{ orderData?.trackingId }}</span></p>
                 </ion-text>
                 <ion-text>
-                  <p>Trip No: <span class="fw-bold">LR/!1220</span></p>
+                  <p>Trip No: <span class="fw-bold">{{ orderData?.tripNo }}</span></p>
                 </ion-text>
 
 
@@ -65,7 +65,7 @@
             </ion-text>
           </ion-text>
 
-          <!----coustomer Adding---->
+          <!----customer Adding---->
 
 
 
@@ -76,18 +76,18 @@
                 <i class="fa fa-map-marker text-success" aria-hidden="true"></i>
               </ion-text>
               <ion-text class="Input_content text-start">
-                <p class="text-success fw-bold">Pickup: 11-March-2024 at 10:00AM</p>
+                <p class="text-success fw-bold">Pickup: {{ orderData?.pickup?.date || 'N/A' }} at {{ orderData?.pickup?.time || 'N/A' }}</p>
               </ion-text>
             </ion-text>
 
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
-                Austin Throustone
+                {{ orderData?.pickup?.person || 'N/A' }}
                 <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
-                    aria-hidden="true"></i>+91 9999999999
+                    aria-hidden="true"></i>+91 {{ orderData?.pickup?.phone || 'N/A' }}
                 </span>
               </p>
-              <p>Lorem ipsum dolor sit andae odio nostrum. 201009</p>
+              <p>{{ orderData?.pickup?.location }}</p>
             </ion-text>
 
             <ion-text class="input_feild_section px-1 mt-2">
@@ -95,18 +95,18 @@
                 <i class="fa fa-map-marker text-danger" aria-hidden="true"></i>
               </ion-text>
               <ion-text class="Input_content text-start">
-                <p class="text-danger fw-bold">Delivery: 12-March-2024 at 11:00AM (Estimoted)</p>
+                <p class="text-danger fw-bold">Delivery: {{ orderData?.delivery?.date || orderData?.pickup?.date || 'N/A' }} at {{ orderData?.pickup?.time || 'N/A' }} (Estimated)</p>
               </ion-text>
             </ion-text>
 
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
-                Austin Throustone
+                {{ orderData?.delivery?.person || 'N/A' }}
                 <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
-                    aria-hidden="true"></i>+91 9999999999
+                    aria-hidden="true"></i>+91 {{ orderData?.delivery?.phone || 'N/A' }}
                 </span>
               </p>
-              <p>Lorem ipsum dolor sit andae odio nostrum. 201009</p>
+              <p>{{ orderData?.delivery?.location }}</p>
             </ion-text>
           </ion-text>
 
@@ -128,7 +128,7 @@
             </ion-text>
             <ion-text class="tracKing_time">
               <h6 class="fw-bold" style="font-size: 13px;">Activity: <span>Vehicle Gate In</span></h6>
-              <p style="font-size: 13px;">Loaction: <span>Bhiwandi 423423</span></p>
+              <p style="font-size: 13px;">Location: <span>Bhiwandi 423423</span></p>
             </ion-text>
           </ion-text>
           <ion-text class="first_tracking">
@@ -145,7 +145,7 @@
             <ion-text class="tracKing_time">
               <h6 class="fw-bold" style="font-size: 13px;">Activity: <span class="text-success">Vehicle Gate Out</span>
               </h6>
-              <p style="font-size: 13px;">Loaction: <span>Suart 423423</span></p>
+              <p style="font-size: 13px;">Location: <span>Surat 423423</span></p>
             </ion-text>
           </ion-text>
           <ion-text class="first_tracking">
@@ -162,7 +162,7 @@
             <ion-text class="tracKing_time">
               <h6 class="fw-bold" style="font-size: 13px;">Activity: <span class="text-success">Vehicle Gate In</span>
               </h6>
-              <p style="font-size: 13px;">Loaction: <span>Ahemdabad 423423</span></p>
+              <p style="font-size: 13px;">Location: <span>Ahmedabad 423423</span></p>
             </ion-text>
           </ion-text>
           <ion-text class="first_tracking">
@@ -177,7 +177,7 @@
             </ion-text>
             <ion-text class="tracKing_time">
               <h6 class="fw-bold" style="font-size: 13px;">Activity: <span class="text-success">Pickup</span></h6>
-              <p style="font-size: 13px;">Loaction: <span>Bhiwandi 423423</span></p>
+              <p style="font-size: 13px;">Location: <span>Bhiwandi 423423</span></p>
             </ion-text>
           </ion-text>
 

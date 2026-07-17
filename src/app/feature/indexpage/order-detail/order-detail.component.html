@@ -28,23 +28,23 @@
           <ion-text class="Hide_content">
             <ion-text>
               <p class="Top_content">
-                Distance<span class="fw-bold">1300 km</span>
+                Distance<span class="fw-bold">{{ orderData?.distance || 'N/A' }}</span>
               </p>
               <p class="Top_content">
-                Expected Travel Time <span class="fw-bold">1 Day</span>
+                Expected Travel Time <span class="fw-bold">{{ orderData?.expectedTravelTime || 'N/A' }}</span>
               </p>
             </ion-text>
             <ion-text>
-              <p>Order No: <span class="fw-bold">ORD122467269</span></p>
+              <p>Order No: <span class="fw-bold">{{ orderData?.orderId }}</span></p>
             </ion-text>
             <ion-text>
-              <p>Order Date: <span class="fw-bold">09-march-2024</span></p>
+              <p>Order Date: <span class="fw-bold">{{ orderData?.createdAt | date: 'dd-MMM-yyyy' }}</span></p>
             </ion-text>
             <ion-text>
-              <p>Reference No: <span class="fw-bold">REF0012</span></p>
+              <p>Reference No: <span class="fw-bold">{{ orderData?.lrNo || orderData?.docketNo || 'N/A' }}</span></p>
             </ion-text>
             <ion-text>
-              <p>Booking type: <span class="fw-bold">FTL</span></p>
+              <p>Booking type: <span class="fw-bold">{{ orderData?.bookingType }}</span></p>
             </ion-text>
             <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
               <hr class="w-100" />
@@ -63,12 +63,12 @@
 
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
-                STL Group
+                {{ orderData?.consignorCompany || 'STL Group' }}
                 <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
-                    aria-hidden="true"></i>+91 9999999999
+                    aria-hidden="true"></i>+91 {{ orderData?.pickup?.phone || '9999999999' }}
                 </span>
               </p>
-              <p>Lorem ipsum dolor sit andae odio nostrum. 201009</p>
+              <p>{{ orderData?.pickup?.location }}</p>
             </ion-text>
           </ion-text>
 
@@ -83,18 +83,18 @@
                 <i class="fa fa-map-marker text-success" aria-hidden="true"></i>
               </ion-text>
               <ion-text class="Input_content text-start">
-                <p class="text-success">Pickup: 11-March-2024 at 10:00AM</p>
+                <p class="text-success">Pickup: {{ orderData?.pickup?.date || 'N/A' }} at {{ orderData?.pickup?.time || 'N/A' }}</p>
               </ion-text>
             </ion-text>
 
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
-                Austin Throustone
+                {{ orderData?.pickup?.person || 'N/A' }}
                 <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
-                    aria-hidden="true"></i>+91 9999999999
+                    aria-hidden="true"></i>+91 {{ orderData?.pickup?.phone || 'N/A' }}
                 </span>
               </p>
-              <p>Lorem ipsum dolor sit andae odio nostrum. 201009</p>
+              <p>{{ orderData?.pickup?.location }}</p>
             </ion-text>
 
             <ion-text class="input_feild_section px-1 mt-2">
@@ -102,18 +102,18 @@
                 <i class="fa fa-map-marker text-danger" aria-hidden="true"></i>
               </ion-text>
               <ion-text class="Input_content text-start">
-                <p class="text-danger">Delivery: 12-March-2024 at 11:00AM</p>
+                <p class="text-danger">Delivery: {{ orderData?.delivery?.date || orderData?.pickup?.date || 'N/A' }} (Estimated)</p>
               </ion-text>
             </ion-text>
 
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
-                Austin Throustone
+                {{ orderData?.delivery?.person || 'N/A' }}
                 <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
-                    aria-hidden="true"></i>+91 9999999999
+                    aria-hidden="true"></i>+91 {{ orderData?.delivery?.phone || 'N/A' }}
                 </span>
               </p>
-              <p>Lorem ipsum dolor sit andae odio nostrum. 201009</p>
+              <p>{{ orderData?.delivery?.location }}</p>
             </ion-text>
           </ion-text>
 
@@ -121,12 +121,11 @@
             <hr class="w-100" />
           </ion-text>
 
-          <ion-text>
+          <ion-text *ngIf="orderData?.vehicle">
             <ion-text class="heading_cargo">
               <ion-text class="fw-bold">
                 <h6>Vehicle Details</h6>
               </ion-text>
-
             </ion-text>
             <ion-card class="vichle_section p-2">
               <ion-text class="seltct_vichle py-2 mt-2 mb-2">
@@ -137,11 +136,11 @@
                 <ion-text class="_continer_text ms-2">
                   <ion-text class="_svg_text">
                     <ion-text class="d-flex mt-1">
-                      <h6 class="fw-bold m-0">Tata Ace</h6>
-                      <span class="p-0">780kg</span>
+                      <h6 class="fw-bold m-0">{{ orderData?.vehicle?.name }}</h6>
+                      <span class="p-0">{{ orderData?.vehicle?.capacity }}</span>
                     </ion-text>
                     <ion-text>
-                      <p style="font-size: small">7FT X 4.5FT X 6FT</p>
+                      <p style="font-size: small">{{ orderData?.vehicle?.dimension }}</p>
                     </ion-text>
                   </ion-text>
                 </ion-text>
@@ -150,22 +149,22 @@
                 <ion-text class="px-2">
                   <p>
                     <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                    <span class="fw-bold"> 500Kg</span>
+                    <span class="fw-bold"> {{ orderData?.cargo?.weight || orderData?.weight || '0kg' }}</span>
                   </p>
-                  <p class="font-size ms-2">70% vehichle utilized by Weight</p>
+                  <p class="font-size ms-2">70% vehicle utilized by Weight</p>
                 </ion-text>
                 <ion-text class="px-2">
                   <p>
                     <i class="fa fa-pie-chart" aria-hidden="true"></i>
                     <span class="fw-bold"> 15CBM</span>
                   </p>
-                  <p class="font-size ms-2">50% vehichle utilized by Volume</p>
+                  <p class="font-size ms-2">50% vehicle utilized by Volume</p>
                 </ion-text>
               </ion-text>
             </ion-card>
           </ion-text>
 
-          <ion-text class="payment_method py-2" lines="none">
+          <ion-text class="payment_method py-2" lines="none" *ngIf="orderData?.cargo">
             <ion-text class="w-100">
               <h6 class="fw-bold">Cargo Details</h6>
             </ion-text>
@@ -175,9 +174,9 @@
                 <img src="../../../assets/icon/BoxImage_OrderDeatils.png" class="img-fluid" alt="">
               </ion-text>
               <ion-text class="Input_content2 ms-3">
-                <h6 class="text-dark fw-bold">Printing Machine - Electronics</h6>
-                <p class="font-size2">Qty: 25 | Weight:500Kg</p>
-                <p class="font-size2">20CM X 18CM X 16CM</p>
+                <h6 class="text-dark fw-bold">{{ orderData?.cargo?.goodsDescription }}</h6>
+                <p class="font-size2">Qty: {{ orderData?.cargo?.quantity }} | Weight:{{ orderData?.cargo?.weight }}Kg</p>
+                <p class="font-size2">{{ orderData?.cargo?.dimension }}</p>
               </ion-text>
             </ion-text>
           </ion-text>
@@ -193,15 +192,15 @@
           <ion-card class="Card_section p-2">
             <ion-text class="heading_cargo">
               <ion-text>
-                <p class="fw-bold">Transpotation Change</p>
+                <p class="fw-bold">Transportation Charge</p>
               </ion-text>
-              <ion-text>3000.00</ion-text>
+              <ion-text>{{ transportationFee }}</ion-text>
             </ion-text>
             <ion-text class="heading_cargo">
               <ion-text>
                 <p class="fw-bold">Loading & Unloading</p>
               </ion-text>
-              <ion-text>1000.00</ion-text>
+              <ion-text>{{ loadingFee }}</ion-text>
             </ion-text>
             <ion-text class="d-flex justify-content-center px-1 g-0 m-0" style="margin: -16px 0px 0px 0px">
               <hr class="w-100" />
@@ -210,19 +209,19 @@
               <ion-text>
                 <p class="fw-bold">Gross Total</p>
               </ion-text>
-              <ion-text>4000.00</ion-text>
+              <ion-text>{{ grossTotal }}</ion-text>
             </ion-text>
             <ion-text class="heading_cargo">
               <ion-text>
                 <p class="fw-bold">SGST (9%)</p>
               </ion-text>
-              <ion-text>360.00</ion-text>
+              <ion-text>{{ sgst }}</ion-text>
             </ion-text>
             <ion-text class="heading_cargo">
               <ion-text>
                 <p class="fw-bold">CGST (9%)</p>
               </ion-text>
-              <ion-text>360.00</ion-text>
+              <ion-text>{{ cgst }}</ion-text>
             </ion-text>
             <ion-text class="d-flex justify-content-center px-1 g-0" style="margin: -16px 0px 0px 0px">
               <hr class="w-100" />
@@ -231,7 +230,7 @@
               <ion-text>
                 <p class="fw-bold">New Total</p>
               </ion-text>
-              <ion-text>4720.00</ion-text>
+              <ion-text>{{ netTotal }}</ion-text>
             </ion-text>
           </ion-card>
         </ion-text>

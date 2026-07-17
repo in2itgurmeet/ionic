@@ -100,7 +100,7 @@ export class CreateFullorderComponent {
     this.indexService.createOrderStep2(finalPayload, this.ordId).subscribe({
       next: (res) => {
         this.defultService.successToast(res.message);
-        this.route.navigate(['/indexpage/order-details/2']);
+        this.route.navigate(['/indexpage/order-details', this.ordId]);
       },
       error: (err) => {
         this.defultService.errorToast(err.error.message);

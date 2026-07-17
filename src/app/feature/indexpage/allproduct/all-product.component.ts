@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
-import { Api } from 'src/app/Service/api';
+import { IndexService } from '../service/index-service';
 
 @Component({
   selector: 'app-all-product',
@@ -14,7 +14,7 @@ import { Api } from 'src/app/Service/api';
   styleUrls: ['./all-product.component.scss'],
 })
 export class AllProductComponent implements OnInit {
-  orderData: any[] = []
+  orderData: any[] = [];
   allOrders: any[] = [];
   activeTab: number = 1;
   tabStatusMap: any = {
@@ -26,7 +26,12 @@ export class AllProductComponent implements OnInit {
     6: 'Cancelled'
   };
 
-  constructor(private api: Api, private router: Router, private alertCtrl: AlertController, private defultServise: DefultUsageService, private route: Router) { }
+  constructor(
+    private router: Router, 
+    private alertCtrl: AlertController, 
+    private defultServise: DefultUsageService, 
+    private indexService: IndexService
+  ) { }
 
   setActiveTab(tabIndex: number): void {
     this.activeTab = tabIndex;
@@ -34,17 +39,16 @@ export class AllProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getOrders()
+    this.getOrders();
   }
 
   /**
-   * @description get orders
-   * @author Gurmeet kumar
+   * @description get orders from real backend
    */
   getOrders() {
-    this.api.getOrdersData().subscribe({
+    this.indexService.getAllOrders().subscribe({
       next: (res) => {
-        this.allOrders = res;
+        this.allOrders = res.body.data || [];
         this.filterData();
       },
       error: (err) => {
@@ -52,15 +56,23 @@ export class AllProductComponent implements OnInit {
       }
     });
   }
+
   /**
-   * @description filter data by status
-   * @author Gurmeet kumar
+   * @description filter data by status mapping Draft -> Pending
    */
   filterData() {
     const selectedStatus = this.tabStatusMap[this.activeTab];
 
     if (selectedStatus === 'All') {
       this.orderData = this.allOrders;
+    } else if (selectedStatus === 'Pending') {
+      this.orderData = this.allOrders.filter(
+        item => item.status === 'Pending' || item.status === 'Draft'
+      );
+    } else if (selectedStatus === 'In-Transit') {
+      this.orderData = this.allOrders.filter(
+        item => item.status === 'In-Transit' || item.status === 'Assigned' || item.status === 'Pickup Started'
+      );
     } else {
       this.orderData = this.allOrders.filter(
         item => item.status === selectedStatus
@@ -71,10 +83,13 @@ export class AllProductComponent implements OnInit {
   getStatusClass(status: string) {
     switch (status) {
       case 'Pending':
+      case 'Draft':
         return 'bg-warning text-dark';
       case 'Booked':
         return 'bg-primary text-white';
       case 'In-Transit':
+      case 'Assigned':
+      case 'Pickup Started':
         return 'bg-info text-white';
       case 'Delivered':
         return 'bg-success text-white';
@@ -85,23 +100,23 @@ export class AllProductComponent implements OnInit {
     }
   }
 
-
   isButtonDisabled(status: string): boolean {
     return status === 'Delivered' || status === 'Cancelled';
   }
 
   /**
    * @description get button text
-   * @param status 
-   * @returns 
    */
   getButtonText(status: string): string {
     switch (status) {
       case 'Pending':
+      case 'Draft':
         return 'Book Now';
       case 'Booked':
         return 'View Details';
       case 'In-Transit':
+      case 'Assigned':
+      case 'Pickup Started':
         return 'Track Order';
       case 'Delivered':
         return 'Completed';
@@ -113,22 +128,21 @@ export class AllProductComponent implements OnInit {
   }
 
   /**
-    * @description handle action by status
-    * @param item by action
-    * @author Gurmeet kumar
+    * @description handle action using MongoDB _id
     */
   handleAction(item: any) {
     switch (item.status) {
       case 'Pending':
-        this.router.navigate(['/indexpage/booking'], {
-          queryParams: { orderId: item.orderId }
-        });
+      case 'Draft':
+        this.router.navigate(['/indexpage/order-details', item._id]);
         break;
       case 'Booked':
-        this.router.navigate(['/indexpage/order-details', item.orderId]);
+        this.router.navigate(['/indexpage/booked', item._id]);
         break;
       case 'In-Transit':
-        this.router.navigate(['/indexpage/tracking-Order', item.orderId]);
+      case 'Assigned':
+      case 'Pickup Started':
+        this.router.navigate(['/indexpage/tracking-Order', item._id]);
         break;
       default:
         console.log('No action for this status');
@@ -137,8 +151,6 @@ export class AllProductComponent implements OnInit {
 
   /**
    * @description show full address
-   * @param address
-   * @author Gurmeet kumar
    */
   async showFullAddress(address: string) {
     const alert = await this.alertCtrl.create({
@@ -149,11 +161,8 @@ export class AllProductComponent implements OnInit {
     await alert.present();
   }
 
-
   /**
-   * @description cancel order 
-   * @param item 
-   * @returns 
+   * @description cancel order via backend status update
    */
   cancelOrder(item: any) {
     if (!this.canCancel(item.status)) return;
@@ -168,7 +177,7 @@ export class AllProductComponent implements OnInit {
       cancelButtonColor: '#3085d6'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.api.updateStatus(item.id, 'Cancelled').subscribe({
+        this.indexService.updateOrderStatus(item._id, 'Cancelled').subscribe({
           next: () => {
             item.status = 'Cancelled';
 
@@ -179,6 +188,7 @@ export class AllProductComponent implements OnInit {
               timer: 1500,
               showConfirmButton: false
             });
+            this.getOrders();
           },
           error: (err) => {
             console.log(err);
@@ -194,27 +204,25 @@ export class AllProductComponent implements OnInit {
     });
   }
 
-
   canCancel(status: string): boolean {
     return status !== 'Delivered' && status !== 'Cancelled';
   }
 
-
   setBookingType(mode: 'FTL' | 'PTL') {
     this.defultServise.bookingMode.set(mode);
     localStorage.setItem('bookingMode', mode);
-    this.route.navigate(['/indexpage/booking']);
+    this.router.navigate(['/indexpage/booking']);
   }
 
-  getLorryReciept(event: any) {
-    if (event) {
-      // this.route.navigate(['/indexpage/lorry-details/', event]);
-    }
-  }
-  getOrderDetails(event: any) {
-    if (event) {
-      this.route.navigate(['/indexpage/lorry-details', event]);
+  getLorryReciept(id: any) {
+    if (id) {
+       this.router.navigate(['/indexpage/lorry-details/', id]);
     }
   }
 
+  getOrderDetails(id: any) {
+    if (id) {
+      this.router.navigate(['/indexpage/lorry-details', id]);
+    }
+  }
 }
