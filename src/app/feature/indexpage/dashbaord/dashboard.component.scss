@@ -1,16 +1,16 @@
 .Text_content {
-  font-size: x-large;
+  font-size: var(--fs-16);
   font-weight: 700;
   text-transform: capitalize;
 }
 
 .Top_content {
-  padding: 10px;
+  padding: calc(10 * var(--px));
 }
 
 .Top_content a {
   background: orange;
-  padding: 8px;
+  padding: calc(8 * var(--px));
   border-radius: 50%;
   display: flex;
 }
@@ -35,8 +35,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
+  top: calc(0 * var(--px));
+  left: calc(0 * var(--px));
   background: orange;
   border-radius: 50%;
   z-index: -1;
@@ -47,9 +47,9 @@
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  height: 200px;
-  padding: 20px;
-  border-radius: 10px;
+  height: calc(200 * var(--px));
+  padding: calc(20 * var(--px));
+  border-radius: calc(10 * var(--px));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,13 +61,13 @@
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: calc(10 * var(--px));
 }
 
 .ptl_section {
   width: calc(94% / 2);
   max-width: calc(94% / 2);
-  border-radius: 10px;
+  border-radius: calc(10 * var(--px));
   display: flex;
   flex-direction: column;
   background-size: contain;
@@ -82,8 +82,8 @@
 }
 
 .ptl_imgsection img {
-  border-radius: 10px 10px 0px 0px;
-  height: 100px;
+  border-radius: calc(10 * var(--px)) calc(10 * var(--px))calc(0 * var(--px));
+  height: calc(100 * var(--px));
 }
 
 .formatText {
@@ -91,9 +91,10 @@
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
-  padding: 7px 5px 0px 5px;
+  padding: calc(7 * var(--px)) calc(5 * var(--px)) calc(0 * var(--px)) calc(5 * var(--px));
   background-color: white;
-  border-radius: 0px 0px 8px 8px;
+  // border-radius: 0px 0px 8px 8px;
+  border-radius: 0px 0px calc(10 * var(--px)) calc(10 * var(--px));
   border-top: 1px solid rgb(241, 241, 241);
 }
 ion-text {
@@ -102,20 +103,14 @@ ion-text {
 
 .formatText p,
 span {
-  font-size: 15px;
+  font-size: calc(12 * var(--px));
   font-weight: 500;
   text-transform: capitalize;
 }
 
 .formatText span {
-  margin-top: 2px;
+  margin-top: calc(2 * var(--px));
 }
-
-// .ptl_section:hover {
-//   transform: scale(1.1);
-//   transition: 1s;
-// }
-
 .content_section {
   width: calc(100%);
   max-width: calc(100%);
@@ -123,24 +118,25 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 5px;
+  gap: calc(5 * var(--px));
   background-color: white;
-  padding: 10px;
-  border-radius: 10px;
+  padding: calc(10 * var(--px));
+  border-radius: calc(10 * var(--px));
 }
 
 .content_section {
   background-image: url("/assets/icon/Backgorund_counters.png");
   background-size: cover;
-  background-position: 20px 10px 10px 10px;
+  background-position: calc(20 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px));
 }
 
 .Counters_tophedding {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 10px 0px 10px;
+  padding: calc(10 * var(--px)) calc(10 * var(--px)) calc(0 * var(--px)) calc(10 * var(--px));
   margin: 0px 5px -5px 3px;
+
 }
 
 .Counters_tophedding .Order_view {
@@ -148,7 +144,7 @@ span {
 }
 
 .Text_small {
-  font-size: 10px;
+  font-size: var(--fs-10);
   display: flex;
   align-items: center;
   color: #ff6347;
@@ -171,12 +167,12 @@ span {
 .Counter {
   width: calc(98% / 2);
   max-width: calc(98% / 2);
-  gap: 5px;
+  gap: calc(5 * var(--px));
   border: 1px solid rgb(241, 241, 241);
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
-  padding: 12px;
+  border-radius: calc(5 * var(--px));
+  padding: calc(12 * var(--px));
   background-image: url("/assets/icon/cropestimage.jpg");
   background-size: cover;
 }
@@ -190,12 +186,12 @@ span {
 }
 
 .Counter_number {
-  font-size: 15px;
+  font-size: var(--fs-14);
   font-weight: bold;
 }
 
 .Py_content_text {
-  font-size: 12px;
+  font-size: var(--fs-12);
   font-weight: 700;
   text-transform: capitalize;
   display: flex;
@@ -203,20 +199,20 @@ span {
 }
 
 .Counters_tophedding ion-text p {
-  font-size: small;
+  font-size: var(--fs-8);
 }
 
 .Text_content {
   color: #ff6347;
-  font-size: 14px;
+  font-size: var(--fs-14);
 
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0px 0px calc(8 * var(--px)) calc(8 * var(--px));
   border: 1px solid rgb(240, 240, 240);
 }
 
 .full-width-map {
   width: 100%;
-  height: 300px;
+  height: calc(300 * var(--px));
   border: 0;
 }
 
@@ -226,13 +222,13 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-  border-radius: 10px;
+  gap: calc(10 * var(--px));
+  border-radius: calc(10 * var(--px));
   border: 1px solid rgb(240, 240, 240);
 }
 
 .map_continer iframe {
-  border-radius: 10px 10px 0px 0px;
+  border-radius: calc(10 * var(--px)) calc(10 * var(--px)) 0px 0px;
 }
 
 .Text_mapping_Contnier {
@@ -241,8 +237,8 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-  padding: 10px;
+  gap: calc(10 * var(--px));
+  padding: calc(10 * var(--px));
 }
 
 .Text_format_colum {
@@ -274,14 +270,14 @@ span {
 }
 
 .text-Location {
-  font-size: 12px;
+  font-size: var(--fs-12);
 }
 
 .continer_Svg_Text {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
-  border-radius: 5px;
+  border-radius: calc(5 * var(--px));
   border: 1px solid rgba(255, 236, 165, 1);
   background: linear-gradient(
     90deg,
@@ -296,7 +292,7 @@ span {
 }
 
 .text_section p {
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: azure;
   font-weight: 700;
   line-height: 16px;
@@ -309,7 +305,7 @@ span {
 
 .Card_text {
   font-weight: 700;
-  font-size: small;
+  font-size: var(--fs-8);
 }
 .container_ormore {
   display: flex;
@@ -317,9 +313,9 @@ span {
   align-items: last baseline;
   hr {
     margin: 0px;
-    width: 120px;
+    width: calc(120 * var(--px));
   }
   span img {
-    max-width: 50px;
+    max-width: calc(50 * var(--px));
   }
 }

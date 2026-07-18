@@ -27,9 +27,9 @@ export class AllProductComponent implements OnInit {
   };
 
   constructor(
-    private router: Router, 
-    private alertCtrl: AlertController, 
-    private defultServise: DefultUsageService, 
+    private router: Router,
+    private alertCtrl: AlertController,
+    private defultServise: DefultUsageService,
     private indexService: IndexService
   ) { }
 
@@ -216,7 +216,7 @@ export class AllProductComponent implements OnInit {
 
   getLorryReciept(id: any) {
     if (id) {
-       this.router.navigate(['/indexpage/lorry-details/', id]);
+      this.router.navigate(['/indexpage/lorry-details/', id]);
     }
   }
 

@@ -1,7 +1,7 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: calc(5 * var(--px));
   line-height: normal;
 }
 
@@ -26,7 +26,7 @@ form {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: calc(5 * var(--px));
 }
 
 .form_input2 {
@@ -45,22 +45,22 @@ form {
 ._svg_text {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: calc(5 * var(--px));
 }
 
 .form_input_box {
   display: flex;
   flex-direction: column;
   text-align: start;
-  gap: 10px;
+  gap: calc(10 * var(--px));
 }
 .form_content {
   border-top: 1px solid var(--neutral-200);
   border-radius: 20px;
 }
 ion-input {
-  --padding-start: 10px !important;
-  --padding-end: 10px;
+  --padding-start: calc(10 * var(--px)) !important;
+  --padding-end: calc(10 * var(--px));
 }
 .remove_button {
   color: #ff6347;
@@ -80,15 +80,15 @@ ion-input {
   display: flex;
   justify-content: space-between;
   border: #f86e56;
-  border-radius: 5px;
-  padding: 10px 0px;
+  border-radius: calc(5 * var(--px));
+  padding: calc(10 * var(--px)) calc(0 * var(--px));
   background: #ff8670;
 }
 
 ._svg_text {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: calc(5 * var(--px));
 }
 
 .vichle_card ion-text {
@@ -96,7 +96,7 @@ ion-input {
   max-width: calc(98% / 2);
   display: flex;
   flex-direction: column;
-  line-height: 0px;
+  line-height: calc(0 * var(--px));
 }
 
 .vichle_card ion-text p span {
@@ -110,18 +110,18 @@ ion-input {
   align-items: center;
 }
 .Text_content {
-  font-size: x-large;
+  font-size: var(--fs-18);
   font-weight: 700;
   text-transform: capitalize;
 }
 
 .Top_content {
-  padding: 10px;
+  padding: calc(10 * var(--px));
 }
 
 .Top_content a {
   background: orange;
-  padding: 8px;
+  padding: calc(8 * var(--px));
   border-radius: 50%;
   display: flex;
 }
@@ -146,8 +146,8 @@ ion-input {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
+  top: calc(0 * var(--px));
+  left: calc(0 * var(--px));
   background: orange;
   border-radius: 50%;
   z-index: -1;
@@ -158,9 +158,9 @@ ion-input {
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  height: 200px;
-  padding: 20px;
-  border-radius: 10px;
+  height: calc(200 * var(--px));
+  padding: calc(20 * var(--px));
+  border-radius: calc(10 * var(--px));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -172,15 +172,15 @@ ion-input {
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  padding: 0px 18px 0px;
+  gap: calc(10 * var(--px));
+  padding: calc(0 * var(--px)) calc(18 * var(--px)) calc(0 * var(--px));
 }
 
 .ptl_section {
   width: calc(94% / 2);
   max-width: calc(94% / 2);
 
-  border-radius: 10px;
+  border-radius: calc(10 * var(--px));
   display: flex;
   flex-direction: column;
   background-size: contain;
@@ -195,8 +195,8 @@ ion-input {
 }
 
 .ptl_imgsection img {
-  border-radius: 10px 10px 0px 0px;
-  height: 100px;
+  border-radius: calc(10 * var(--px)) calc(10 * var(--px)) calc(0 * var(--px)) calc(0 * var(--px));
+  height: calc(100 * var(--px));
 }
 
 .FormatText {
@@ -204,9 +204,9 @@ ion-input {
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
-  padding: 7px 5px 0px 5px;
+  padding: calc(7 * var(--px)) calc(5 * var(--px)) calc(0 * var(--px)) calc(5 * var(--px));
   background-color: white;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: calc(0 * var(--px)) calc(0 * var(--px)) calc(8 * var(--px)) calc(8 * var(--px));
   border-top: 1px solid rgb(241, 241, 241);
 }
 
@@ -242,15 +242,15 @@ span {
 .content_section {
   background-image: url("/assets/icon/Backgorund_counters.png");
   background-size: cover;
-  background-position: 20px 10px 10px 10px;
+  background-position: calc(20 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px));
 }
 
 .Counters_tophedding {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 10px 0px 10px;
-  margin: 0px 5px -5px 3px;
+  padding: calc(0 * var(--px)) calc(10 * var(--px)) calc(0 * var(--px)) calc(10 * var(--px));
+  margin: calc(0 * var(--px)) calc(5 * var(--px)) calc(-5 * var(--px)) calc(3 * var(--px));
 }
 
 .Counters_tophedding .Order_view {
@@ -320,7 +320,7 @@ span {
   color: #ff6347;
   font-size: 14px;
 
-  border-radius: 0px 0px 8px 8px;
+  border-radius: calc(0 * var(--px)) calc(0 * var(--px)) calc(8 * var(--px)) calc(8 * var(--px));
   border: 1px solid rgb(240, 240, 240);
 }
 
@@ -342,7 +342,7 @@ span {
 }
 
 .map_continer iframe {
-  border-radius: 10px 10px 0px 0px;
+  border-radius: calc(10 * var(--px)) calc(10 * var(--px)) calc(0 * var(--px)) calc(0 * var(--px));
 }
 
 .Text_mapping_Contnier {
@@ -351,8 +351,8 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-  padding: 10px;
+  gap: calc(10px * var(--px));
+  padding: calc(10px * var(--px));
 }
 
 .Text_format_colum {
@@ -360,7 +360,7 @@ span {
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid rgb(240, 240, 240);
-  border-radius: 5px;
+  border-radius: calc(5 * var(--px));
   background-color: rgb(245, 245, 245);
 }
 
@@ -384,14 +384,14 @@ span {
 }
 
 .text-Location {
-  font-size: 12px;
+  font-size: var(--fs-12);
 }
 
 .continer_Svg_Text {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
-  border-radius: 5px;
+  border-radius: calc(5 * var(--px));
   border: 1px solid rgba(255, 236, 165, 1);
   background: linear-gradient(
     90deg,
@@ -406,15 +406,15 @@ span {
 }
 
 .text_section p {
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: azure;
   font-weight: 700;
-  line-height: 16px;
+  line-height: calc(16 * var(--px));
   color: rgb(184, 183, 183);
 }
 
 .Card_Section {
-  border-radius: 5px;
+  border-radius: calc(5 * var(--px));
 }
 
 .Card_text {
@@ -427,17 +427,17 @@ span {
   align-items: last baseline;
   hr {
     margin: 0px;
-    width: 120px;
+    width: calc(120 * var(--px));
   }
   span img {
-    max-width: 50px;
+    max-width: calc(50 * var(--px));
   }
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: calc(5 * var(--px));
   line-height: normal;
 }
 
@@ -484,17 +484,17 @@ form {
   display: flex;
   justify-content: space-between;
   border: 1px solid rgb(241, 241, 241);
-  border-radius: 5px;
+  border-radius: calc(5 * var(--px));
 }
 
 .d-flex span {
-  font-size: 10px;
+  font-size: var(--fs-10);
   border: 1px solid rgb(241, 241, 241);
-  border-radius: 5px;
+  border-radius: calc(5 * var(--px));
   background: rgb(245, 243, 243);
   color: rgb(12, 187, 12);
-  margin: 1px 0px 0px 5px;
-  padding: 1px 7px !important;
+  margin: calc(1 * var(--px)) calc(0 * var(--px)) calc(0 * var(--px)) calc(5 * var(--px));
+  padding: calc(1 * var(--px)) calc(7 * var(--px)) !important;
 }
 
 ._Svg_continer {

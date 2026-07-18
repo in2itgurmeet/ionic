@@ -3,8 +3,8 @@
   max-width: calc(100%);
   display: flex;
   border: 1px solid lightgray;
-  border-radius: 5px;
-  height: 50px;
+  border-radius: calc(5 * var(--px));
+  height: calc(50 * var(--px));
 }
 .svg_content {
   width: calc(100% - 90%);
@@ -19,7 +19,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  margin: 5px 0px;
+  margin: calc(5px * var(--px)) 0px;
 }
 .fa-map-marker {
   font-size: larger;
@@ -64,32 +64,32 @@ ion-input[type="datetime-local"]::-moz-clear {
 
 /* input container */
 .input_feild_section {
-  width: 100%;
+  width: calc(100%);
   display: flex;
   border: 1px solid lightgray;
-  border-radius: 5px;
-  height: 50px;
+  border-radius: calc(5 * var(--px));
+  height: calc(50 * var(--px));
 }
 .custom-modal {
   --height: 70%;
-  --border-radius: 12px;
+  --border-radius: calc(12 * var(--px));
 }
 
 .picker-container {
-  padding: 15px;
+  padding: calc(15 * var(--px));
 }
 
 .top-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: calc(10 * var(--px));
+  margin-bottom: calc(10 * var(--px));
 }
 
 .box {
-  padding: 6px;
+  padding: calc(6 * var(--px));
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: calc(6 * var(--px));
 }
 .custom-modal::part(content) {
   height: auto;
@@ -111,16 +111,16 @@ ion-input[type="datetime-local"]::-moz-clear {
   }
 }
 .small {
-  width: 50px;
+  width: calc(50 * var(--px));
 }
 
 .date-time-row.modern {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: calc(15 * var(--px));
   background: #f9f9f9;
-  padding: 12px 15px;
-  border-radius: 12px;
+  padding: calc(12 * var(--px)) calc(15 * var(--px));
+  border-radius: calc(12 * var(--px));
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   align-items: center;
   justify-content: space-between;
@@ -129,16 +129,16 @@ ion-input[type="datetime-local"]::-moz-clear {
 .date-container,
 .time-container {
   display: flex;
-  gap: 10px;
+  gap: calc(10 * var(--px));
   align-items: center;
 }
 
 .box {
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: calc(10 * var(--px)) calc(12 * var(--px));
+  border-radius: calc(8 * var(--px));
   border: 1px solid #ddd;
   outline: none;
-  font-size: 14px;
+  font-size: var(--fs-14);
   text-align: center;
   transition: all 0.3s ease;
   background: #fff;
@@ -151,18 +151,18 @@ ion-input[type="datetime-local"]::-moz-clear {
 }
 
 .time-box {
-  width: 60px;
+  width: calc(60 * var(--px));
 }
 
 .ampm-box {
-  padding: 10px;
+  padding: calc(10 * var(--px));
   background: #e9f0ff;
   border-color: #b0c4ff;
   font-weight: 500;
 }
 
 .separator {
-  font-size: 18px;
+  font-size: var(--fs-18);
   font-weight: bold;
   color: #555;
 }
