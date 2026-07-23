@@ -1,7 +1,7 @@
 import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Api } from 'src/app/Service/api';
+import { IndexService } from '../../service/index-service';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class InvoiceDetailsComponent implements OnInit {
   isDisabled = true;
   activeTab: number = 1;
   invoiceData: any[] = [];
-  constructor(private apiService: Api) { }
+  constructor(private indexService: IndexService) { }
 
   setActiveTab(tabIndex: number, filter: string): void {
     this.activeTab = tabIndex;
@@ -26,17 +26,22 @@ export class InvoiceDetailsComponent implements OnInit {
   }
 
   getInvoiceList(filter: any) {
-    this.apiService.getInvoiceData().subscribe({
+    this.indexService.getInvoiceList().subscribe({
       next: (res) => {
-        let data = res.map((item: any) => ({
+        let backendList = res.body?.data || [];
+        let data = backendList.map((item: any) => ({
           ...item,
-          status: this.getStatus(item)
+          customer: item.customer?.name || 'STL Group',
+          mobile: item.customer?.mobile || '+91 9999999999',
+          total: item.total?.final || item.total?.gross || 0,
+          paid: item.total?.paid || 0,
+          dueDate: item.dueDate || new Date().toISOString().split('T')[0]
         }));
 
         this.invoiceData =
           filter === 'all'
             ? data
-            : data.filter((item: any) => item.status.type === filter);
+            : data.filter((item: any) => this.getStatus(item).type === filter);
 
       }
     });
@@ -47,7 +52,7 @@ export class InvoiceDetailsComponent implements OnInit {
     const due = new Date(inv.dueDate);
     const out = inv.total - inv.paid;
 
-    if (out === 0) {
+    if (out <= 0) {
       return {
         text: 'Paid',
         type: 'paid',
@@ -74,8 +79,5 @@ export class InvoiceDetailsComponent implements OnInit {
         dis: false
       };
   }
-
-
-
 
 }

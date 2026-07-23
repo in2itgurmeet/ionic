@@ -4,6 +4,7 @@ import { IonicModule } from "@ionic/angular";
 import { LorryReceiptComponent } from '../lorry-receipt/lorry-receipt.component';
 import { ProofOfDeliveryComponent } from '../proof-of-delivery/proof-of-delivery.component';
 import { ShipingLableComponent } from '../shipping-lable/shiping-lable.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lorry-deatils',
@@ -14,9 +15,14 @@ import { ShipingLableComponent } from '../shipping-lable/shiping-lable.component
 export class LorryDeatilsComponent implements OnInit {
 
   activeTab: number = 1;
-  constructor() { }
+  orderId: string = '';
+
+  constructor(private route: ActivatedRoute) { }
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.route.paramMap.subscribe(params => {
+      this.orderId = params.get('id') || '';
+    });
   }
 
   setActiveTab(tabIndex: number): void {

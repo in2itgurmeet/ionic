@@ -9,9 +9,9 @@
 
                     </ion-text>
                     <ion-text class="Side_Section  py-3">
-                        <p class="fw-bold">{{invoiceBill.company.name}}</p>
-                        <p class="fw-bold">{{invoiceBill.company.email}}</p>
-                        <p class="fw-bold w-mx">{{invoiceBill.company.address}}</p>
+                        <p class="fw-bold">{{invoiceData?.company?.name}}</p>
+                        <p class="fw-bold">{{invoiceData?.company?.email}}</p>
+                        <p class="fw-bold w-mx">{{invoiceData?.company?.address}}</p>
 
                     </ion-text>
                 </ion-text>
@@ -51,10 +51,10 @@
                         </ion-text>
                         <!-- Repeated Information Section -->
                         <ion-text class="Side_Section  py-2">
-                            <p class="fw-bold">{{invoiceBill.customer.name}}</p>
-                            <p class="fw-bold w-mx">{{invoiceBill.customer.mobile}}</p>
-                            <p class="fw-bold">{{invoiceBill.customer.email}}</p>
-                            <p class="fw-bold w-mx">{{invoiceBill.customer.address}}</p>
+                            <p class="fw-bold">{{invoiceData?.customer?.name}}</p>
+                            <p class="fw-bold w-mx">{{invoiceData?.customer?.mobile}}</p>
+                            <p class="fw-bold">{{invoiceData?.customer?.email}}</p>
+                            <p class="fw-bold w-mx">{{invoiceData?.customer?.address}}</p>
                         </ion-text>
                     </ion-text>
                 </ion-text>
@@ -70,8 +70,8 @@
                                 <p class="fw-bold">Loding & Unloading </p>
                             </ion-text>
                             <ion-text class="Side_Section  py-2">
-                                <p class="fw-bold">{{invoiceBill.charges.transportation | currency : 'INR'}}</p>
-                                <p class="fw-bold w-mx">{{invoiceBill.charges.loadingUnloading | currency : 'INR'}}</p>
+                                <p class="fw-bold">{{invoiceData?.charges?.transportation | currency : 'INR'}}</p>
+                                <p class="fw-bold w-mx">{{invoiceData?.charges?.loadingUnloading | currency : 'INR'}}</p>
                             </ion-text>
                         </ion-text>
                         <ion-text class="hr_lines" style="width: 95%">
@@ -80,13 +80,13 @@
                         <ion-text class="top_Lorry_section">
                             <ion-text class="Side_Section Information ">
                                 <p class="fw-bold">Gross Total </p>
-                                <p class="fw-bold">SGST({{invoiceBill.tax.sgstPercent | percent}}) </p>
-                                <p class="fw-bold">CGST({{invoiceBill.tax.cgstPercent | percent}}) </p>
+                                <p class="fw-bold">SGST({{invoiceData?.tax?.sgstPercent | percent}}) </p>
+                                <p class="fw-bold">CGST({{invoiceData?.tax?.cgstPercent | percent}}) </p>
                             </ion-text>
                             <ion-text class="Side_Section  ">
-                                <p class="fw-bold">{{invoiceBill.total.gross | currency : 'INR'}}</p>
-                                <p class="fw-bold w-mx">{{invoiceBill.tax.sgstAmount | currency : 'INR'}}</p>
-                                <p class="fw-bold">{{invoiceBill.tax.cgstAmount | currency : 'INR'}}</p>
+                                <p class="fw-bold">{{invoiceData?.total?.gross | currency : 'INR'}}</p>
+                                <p class="fw-bold w-mx">{{invoiceData?.tax?.sgstAmount | currency : 'INR'}}</p>
+                                <p class="fw-bold">{{invoiceData?.tax?.cgstAmount | currency : 'INR'}}</p>
                             </ion-text>
                         </ion-text>
                         <span class="hr_lines" style="width: 95%">
@@ -99,9 +99,9 @@
                                 <p class="fw-bold text-danger">Outstanding </p>
                             </ion-text>
                             <ion-text class="Side_Section  ">
-                                <p class="fw-bold text-dark">{{invoiceBill.total.final | currency : 'INR'}}</p>
-                                <p class="fw-bold w-mx text-success">{{invoiceBill.total.paid | currency : 'INR'}}</p>
-                                <p class="fw-bold text-danger">{{invoiceBill.total.outstanding | currency : 'INR'}} </p>
+                                <p class="fw-bold text-dark">{{invoiceData?.total?.final | currency : 'INR'}}</p>
+                                <p class="fw-bold w-mx text-success">{{invoiceData?.total?.paid | currency : 'INR'}}</p>
+                                <p class="fw-bold text-danger">{{invoiceData?.total?.outstanding | currency : 'INR'}} </p>
                             </ion-text>
                         </ion-text>
                     </ion-card>

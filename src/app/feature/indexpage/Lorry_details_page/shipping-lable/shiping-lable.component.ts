@@ -1,6 +1,7 @@
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IndexService } from '../../service/index-service';
 
 @Component({
   selector: 'app-shiping-lable',
@@ -8,47 +9,16 @@ import { Component } from '@angular/core';
   templateUrl: './shiping-lable.component.html',
   styleUrls: ['./shiping-lable.component.scss'],
 })
-export class ShipingLableComponent {
+export class ShipingLableComponent implements OnInit {
+  @Input() orderId: string = '';
 
   activeTab: number = 1;
-  constructor() { }
 
-  setActiveTab(tabIndex: number): void {
-    this.activeTab = tabIndex;
-  }
-
-  shippingData = [
+  shippingData: any[] = [
     {
       "docketNo": "ADWQ321850",
       "company": {
-        "name": "V-EXPRESS",
-        "logo": "assets/icon/logo.jpg"
-      },
-      "origin": {
-        "address": "Sector 63, Noida, Uttar Pradesh - 201301"
-      },
-      "destination": {
-        "address": "Bhiwandi Industrial Area, Thane, Maharashtra - 421302"
-      },
-      "shipment": {
-        "date": "2026-04-08",
-        "weight": "10kg",
-        "totalPackages": 10,
-        "currentPackage": 1
-      },
-      "invoice": {
-        "invoiceNo": "INV/24-25/8891"
-      },
-      "returnToOrigin": true,
-      "barcode": {
-        "value": "ADWQ321850",
-        "imageUrl": "https://www.shutterstock.com/image-vector/horizontal-black-barcode-on-white-600nw-1221838477.jpg"
-      }
-    },
-    {
-      "docketNo": "ADWQ321850",
-      "company": {
-        "name": "V-EXPRESS",
+        "name": "PLC Logistic Pvt Ltd",
         "logo": "assets/icon/logo.jpg"
       },
       "origin": {
@@ -72,6 +42,57 @@ export class ShipingLableComponent {
         "imageUrl": "https://www.shutterstock.com/image-vector/horizontal-black-barcode-on-white-600nw-1221838477.jpg"
       }
     }
+  ];
 
-  ]
+  constructor(private indexService: IndexService) { }
+
+  ngOnInit() {
+    if (this.orderId) {
+      this.getShippingLabelDetails();
+    }
+  }
+
+  getShippingLabelDetails() {
+    this.indexService.getShippingLabel(this.orderId).subscribe({
+      next: (res) => {
+        const data = res.body?.data;
+        if (data) {
+          this.shippingData = [
+            {
+              docketNo: data.docketNo,
+              company: {
+                name: data.company?.name || "PLC Logistic Pvt Ltd",
+                logo: "assets/icon/logo.jpg"
+              },
+              origin: {
+                address: data.origin?.address || ""
+              },
+              destination: {
+                address: data.destination?.address || ""
+              },
+              shipment: {
+                date: data.shipment?.date || new Date(data.createdAt).toISOString().split('T')[0],
+                weight: data.shipment?.weight || "0kg",
+                totalPackages: data.shipment?.totalPackages || 1,
+                currentPackage: data.shipment?.currentPackage || 1
+              },
+              invoice: {
+                invoiceNo: data.docketNo
+              },
+              returnToOrigin: data.returnToOrigin ?? true,
+              barcode: {
+                value: data.barcode?.value || data.docketNo,
+                imageUrl: data.barcode?.imageUrl || "https://www.shutterstock.com/image-vector/horizontal-black-barcode-on-white-600nw-1221838477.jpg"
+              }
+            }
+          ];
+        }
+      }
+    });
+  }
+
+  setActiveTab(tabIndex: number): void {
+    this.activeTab = tabIndex;
+  }
+
 }

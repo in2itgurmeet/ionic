@@ -1,21 +1,42 @@
 <ion-text class="row p-2">
 
-  <ion-text class="img_container mt-5">
-    <img src="../../../../assets/icon/import_exort-removebg-preview.png" alt="Description of image"
-      class="m_auto mt-3 mb-3 img-fluid" />
-  </ion-text>
-
-  <ion-text class="px-3">
-    <ion-text class="Text_content_top">
-      <p>Click The button below to access your <br> proof of Delivery</p>
+  @if (podData && podData.status === 'Delivered') {
+    <ion-card class="border p-3 mt-4 w-100 bg-white text-start">
+      <h6 class="fw-bold text-success border-bottom pb-2" style="font-size: 16px;">
+        <i class="fa fa-check-circle me-2"></i>Proof of Delivery
+      </h6>
+      <div class="mt-2" style="line-height: normal; font-size: 14px;">
+        <p class="mb-1"><span class="text-muted">Receiver Name:</span> <strong class="text-dark">{{ podData.receiver?.name || 'N/A' }}</strong></p>
+        <p class="mb-1"><span class="text-muted">Mobile Number:</span> <strong class="text-dark">{{ podData.receiver?.mobile || 'N/A' }}</strong></p>
+        <p class="mb-1"><span class="text-muted">Delivered At:</span> <strong class="text-dark">{{ podData.deliveredAt || 'N/A' }}</strong></p>
+        <p class="mb-1"><span class="text-muted">Status:</span> <span class="badge badge-success bg-success text-white px-2 py-1">{{ podData.status }}</span></p>
+        <p class="mb-2"><span class="text-muted">Remarks:</span> <span class="text-dark">{{ podData.remarks || 'None' }}</span></p>
+        
+        @if (podData.signatureImage) {
+          <div class="border-top pt-2 mt-2">
+            <span class="text-muted d-block mb-1">Receiver Signature:</span>
+            <img [src]="podData.signatureImage" alt="Signature" class="border p-1 bg-light" style="max-height: 80px; max-width: 200px;" />
+          </div>
+        }
+      </div>
+    </ion-card>
+  } @else {
+    <ion-text class="img_container mt-5">
+      <img src="../../../../assets/icon/import_exort-removebg-preview.png" alt="Description of image"
+        class="m_auto mt-3 mb-3 img-fluid" />
     </ion-text>
-    <ion-text class="btn_section">
-      <ion-button type="submit" class="submit_button mt-3 col-8">
-        Get Proof Of Delivery
-      </ion-button>
-    </ion-text>
 
-  </ion-text>
+    <ion-text class="px-3">
+      <ion-text class="Text_content_top">
+        <p>Proof of Delivery is pending.<br> It will be available once the order is delivered.</p>
+      </ion-text>
+      <ion-text class="btn_section">
+        <ion-button (click)="getProofOfDelivery()" class="submit_button mt-3 col-8">
+          Check Delivery Status
+        </ion-button>
+      </ion-text>
+    </ion-text>
+  }
   <ion-text class="dashboard_top mb-2 mt-5">
     <ion-text class="ptl_section shadow" routerLink="/indexpage/booking">
       <ion-text class="ptl_imgsection">

@@ -42,6 +42,16 @@ export class CreateFullorderComponent {
     this.handleBookingTypeValidator();
 
     this.subscribeToDimensionChanges();
+
+    this.indexService.getVehicles().subscribe({
+      next: (res: any) => {
+        this.vehicles = res.data || [];
+      },
+      error: (err: any) => {
+        console.error('Failed to load vehicles:', err);
+        this.vehicles = this.defultService.vehicles;
+      }
+    });
   }
 
   initCargoForm() {
@@ -88,7 +98,7 @@ export class CreateFullorderComponent {
   submitForm() {
 
     const vehicleObjects = this.selectedVehicle.value.map((name: any) =>
-      this.defultService.vehicles.find((v) => v.name === name)
+      this.vehicles.find((v: any) => v.name === name)
     );
 
     const finalPayload = {

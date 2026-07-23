@@ -1,7 +1,7 @@
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Api } from 'src/app/Service/api';
+import { IndexService } from '../../service/index-service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,36 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InvoiceBillComponent implements OnInit {
   isPopupOpen: boolean = false;
-  invoiceData: any;
-  constructor(private apiService: Api, private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const id = params.get('id');
-      this.getInvoiceDetails(id);
-    });
-
-  }
-  openPopup() {
-    this.isPopupOpen = !this.isPopupOpen;
-    if (this.isPopupOpen) {
-      document.body.classList.add('overlay');
-    } else {
-      document.body.classList.remove('overlay');
-    }
-  }
-  printPage() {
-    window.print();
-  }
-  getInvoiceDetails(id: any) {
-    this.apiService.getInvoiceByInvoiceNo(id).subscribe({
-      next: (res) => {
-        this.invoiceData = res[0];
-      }
-    });
-  }
-
-  invoiceBill = {
+  invoiceData: any = {
     "invoiceId": "INV20260408001",
     "invoiceNo": "INV/24-25/8891",
     "date": "2026-04-08",
@@ -70,8 +41,8 @@ export class InvoiceBillComponent implements OnInit {
       "loadingUnloading": 1000
     },
     "tax": {
-      "sgstPercent": 9,
-      "cgstPercent": 9,
+      "sgstPercent": 0.09,
+      "cgstPercent": 0.09,
       "sgstAmount": 360,
       "cgstAmount": 360
     },
@@ -87,7 +58,43 @@ export class InvoiceBillComponent implements OnInit {
       "transactionId": "TXN20260408001"
     },
     "notes": "Thank you for doing business with us."
-  }
+  };
 
+  constructor(private indexService: IndexService, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.getInvoiceDetails(id);
+      }
+    });
+
+  }
+  openPopup() {
+    this.isPopupOpen = !this.isPopupOpen;
+    if (this.isPopupOpen) {
+      document.body.classList.add('overlay');
+    } else {
+      document.body.classList.remove('overlay');
+    }
+  }
+  printPage() {
+    window.print();
+  }
+  getInvoiceDetails(id: any) {
+    this.indexService.getInvoiceByNo(id).subscribe({
+      next: (res) => {
+        let data = res.body?.data;
+        if (data) {
+          if (data.tax) {
+            data.tax.sgstPercent = (data.tax.sgstPercent || 9) / 100;
+            data.tax.cgstPercent = (data.tax.cgstPercent || 9) / 100;
+          }
+          this.invoiceData = data;
+        }
+      }
+    });
+  }
 
 }

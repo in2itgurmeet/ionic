@@ -31,4 +31,28 @@ export class IndexService {
     return this.http.put(`${environment.apiUrl}/order/status/${id}`, { status }, { observe: 'response' });
   }
 
+  getInvoiceList(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/invoice/list`, { observe: 'response' });
+  }
+
+  getInvoiceByNo(invoiceNo: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/invoice/${invoiceNo}`, { observe: 'response' });
+  }
+
+  getLorryReceipt(lrNo: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/lorry-receipt/${lrNo}`, { observe: 'response' });
+  }
+
+  getShippingLabel(docketNo: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/shipping-label/${docketNo}`, { observe: 'response' });
+  }
+
+  getProofDelivery(orderId: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/proof-delivery/${orderId}`, { observe: 'response' });
+  }
+
+  getVehicles(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/vehicles`);
+  }
+
 }
