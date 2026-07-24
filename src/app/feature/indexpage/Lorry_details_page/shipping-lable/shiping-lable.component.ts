@@ -57,35 +57,7 @@ export class ShipingLableComponent implements OnInit {
       next: (res) => {
         const data = res.body?.data;
         if (data) {
-          this.shippingData = [
-            {
-              docketNo: data.docketNo,
-              company: {
-                name: data.company?.name || "PLC Logistic Pvt Ltd",
-                logo: "assets/icon/logo.jpg"
-              },
-              origin: {
-                address: data.origin?.address || ""
-              },
-              destination: {
-                address: data.destination?.address || ""
-              },
-              shipment: {
-                date: data.shipment?.date || new Date(data.createdAt).toISOString().split('T')[0],
-                weight: data.shipment?.weight || "0kg",
-                totalPackages: data.shipment?.totalPackages || 1,
-                currentPackage: data.shipment?.currentPackage || 1
-              },
-              invoice: {
-                invoiceNo: data.docketNo
-              },
-              returnToOrigin: data.returnToOrigin ?? true,
-              barcode: {
-                value: data.barcode?.value || data.docketNo,
-                imageUrl: data.barcode?.imageUrl || "https://www.shutterstock.com/image-vector/horizontal-black-barcode-on-white-600nw-1221838477.jpg"
-              }
-            }
-          ];
+          this.shippingData = [data];
         }
       }
     });

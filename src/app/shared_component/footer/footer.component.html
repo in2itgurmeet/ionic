@@ -1,29 +1,21 @@
-<ion-content>
-  <!-- Page content yahan aayega -->
-</ion-content>
-
-<ion-footer>
-  <div class="custom-tab-bar">
-
-    <div class="tab-item" (click)="goTo('/indexpage')">
-      <ion-icon name="home"></ion-icon>
-      <span>Home</span>
-    </div>
-
-    <div class="tab-item" (click)="goTo('/indexpage/all-Product')">
-      <ion-icon name="newspaper"></ion-icon>
-      <span>Order</span>
-    </div>
-
-    <div class="tab-item" (click)="goTo('/indexpage/Invoice-details')">
-      <ion-icon name="library"></ion-icon>
-      <span>Invoice</span>
-    </div>
-
-    <div class="tab-item" (click)="goTo('/auth')">
-      <ion-icon name="person"></ion-icon>
-      <span>Account</span>
-    </div>
-
+<div class="custom-tab-bar">
+  <div class="tab-item" [class.active]="isActive('/indexpage')" (click)="goTo('/indexpage')">
+    <ion-icon name="home-outline"></ion-icon>
+    <span>Home</span>
   </div>
-</ion-footer>
+
+  <div class="tab-item" [class.active]="isActive('/indexpage/all-product')" (click)="goTo('/indexpage/all-product')">
+    <ion-icon name="newspaper-outline"></ion-icon>
+    <span>Orders</span>
+  </div>
+
+  <div class="tab-item" [class.active]="isActive('/indexpage/invoice-details')" (click)="goTo('/indexpage/invoice-details')">
+    <ion-icon name="receipt-outline"></ion-icon>
+    <span>Invoices</span>
+  </div>
+
+  <div class="tab-item" [class.active]="isActive('/indexpage/profile')" (click)="goTo('/indexpage/profile')">
+    <ion-icon name="person-outline"></ion-icon>
+    <span>Profile</span>
+  </div>
+</div>

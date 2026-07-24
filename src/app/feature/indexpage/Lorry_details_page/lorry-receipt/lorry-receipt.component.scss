@@ -178,3 +178,53 @@ ol li {
 .w-mx {
   width: max-content;
 }
+
+.share-icon-wrap {
+  border: 4px solid #13b4c4 !important;
+  background-color: #13b4c4 !important;
+  border-radius: 50%;
+  padding: 10px;
+  height: 55px;
+  width: 55px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  i {
+    color: #ffffff !important;
+  }
+}
+
+@media print {
+  /* Hide all elements on the body */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* Make the receipt component structure visible */
+  .container-fluid_main, .container-fluid_main * {
+    visibility: visible;
+  }
+  
+  /* Position the container cleanly at 0, 0 spanning 100% print width */
+  .container-fluid_main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    border: 1px solid #000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  /* Hide operational buttons and outer layouts */
+  .Footer, .share_btn, .Dwonload_button, button, .tab-bar, ion-header, app-footer {
+    display: none !important;
+  }
+}

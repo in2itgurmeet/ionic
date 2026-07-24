@@ -55,4 +55,20 @@ export class IndexService {
     return this.http.get(`${environment.apiUrl}/vehicles`);
   }
 
+  getConsignorProfile(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/auth/profile`);
+  }
+
+  updateConsignorProfile(data: any): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/auth/profile`, data);
+  }
+
+  uploadConsignorProfileImage(formData: FormData): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/auth/profile-image`, formData);
+  }
+
+  shareLorryReceipt(email: string, pdfBase64: string, lrNo: string): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/lorry-receipt/share`, { email, pdfBase64, lrNo });
+  }
+
 }

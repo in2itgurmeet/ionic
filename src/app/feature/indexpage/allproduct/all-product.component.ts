@@ -216,7 +216,7 @@ export class AllProductComponent implements OnInit {
 
   getLorryReciept(id: any) {
     if (id) {
-      this.router.navigate(['/indexpage/lorry-details/', id]);
+      this.router.navigate(['/indexpage/lorry-details/', id], { queryParams: { action: 'print' } });
     }
   }
 

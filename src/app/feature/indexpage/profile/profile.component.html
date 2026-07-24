@@ -1,0 +1,164 @@
+<ion-content class="hide-scrollbar" fullscreen="true">
+  <!-- Top Teal Header Card Banner -->
+  <div class="header-bg">
+    <div class="header-nav">
+      <ion-button fill="clear" class="back-btn" (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      <h2>Profile Settings</h2>
+      <ion-button fill="clear" class="settings-btn" (click)="toggleEdit()">
+        <ion-icon [name]="isEditing ? 'close-outline' : 'create-outline'"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="profile-container">
+    <!-- User Avatar Section (Overlapping) -->
+    <div class="avatar-wrapper">
+      <div class="avatar-inner" (click)="triggerFileInput()">
+        <img [src]="profileImage" alt="User Profile Image" />
+        <div class="camera-badge">
+          <ion-icon name="camera-outline"></ion-icon>
+        </div>
+      </div>
+      <input
+        type="file"
+        id="profile-image-upload"
+        style="display: none"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+      />
+      
+      <div class="user-meta text-center" *ngIf="userData">
+        <h3>{{ userData.name }}</h3>
+        <p>{{ userData.email }}</p>
+      </div>
+    </div>
+
+    <!-- Mapped Stats Section -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <ion-icon name="cube-outline" class="stat-icon yellow"></ion-icon>
+        <div class="stat-val">{{ stats.totalBookings }}</div>
+        <div class="stat-label">Total Bookings</div>
+      </div>
+      <div class="stat-card">
+        <ion-icon name="airplane-outline" class="stat-icon teal-c"></ion-icon>
+        <div class="stat-val">{{ stats.inTransit }}</div>
+        <div class="stat-label">In-Transit</div>
+      </div>
+      <div class="stat-card">
+        <ion-icon name="checkmark-done-outline" class="stat-icon green"></ion-icon>
+        <div class="stat-val">{{ stats.delivered }}</div>
+        <div class="stat-label">Delivered</div>
+      </div>
+    </div>
+
+    <!-- Edit Form VS View Details View -->
+    <div class="details-section">
+      <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <div class="form-card">
+          <!-- Fields Wrapper -->
+          <div class="profile-field" [class.editable]="isEditing">
+            <span class="field-icon"><ion-icon name="person-outline"></ion-icon></span>
+            <div class="field-content">
+              <label>Full Name</label>
+              <span class="view-val" *ngIf="!isEditing">{{ profileForm.get('name')?.value || 'N/A' }}</span>
+              <ion-input type="text" formControlName="name" *ngIf="isEditing" placeholder="Enter Full Name"></ion-input>
+            </div>
+            <ion-icon name="chevron-forward-outline" class="chevron" *ngIf="!isEditing"></ion-icon>
+          </div>
+
+          <div class="profile-field" [class.editable]="isEditing">
+            <span class="field-icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <div class="field-content">
+              <label>Email Address</label>
+              <span class="view-val" *ngIf="!isEditing">{{ profileForm.get('email')?.value || 'N/A' }}</span>
+              <ion-input type="email" formControlName="email" *ngIf="isEditing" placeholder="Enter Email"></ion-input>
+            </div>
+            <ion-icon name="chevron-forward-outline" class="chevron" *ngIf="!isEditing"></ion-icon>
+          </div>
+
+          <div class="profile-field" [class.editable]="isEditing">
+            <span class="field-icon"><ion-icon name="phone-portrait-outline"></ion-icon></span>
+            <div class="field-content">
+              <label>Mobile Number</label>
+              <span class="view-val" *ngIf="!isEditing">{{ profileForm.get('phone')?.value || 'N/A' }}</span>
+              <ion-input type="text" formControlName="phone" *ngIf="isEditing" placeholder="Enter Phone"></ion-input>
+            </div>
+            <ion-icon name="chevron-forward-outline" class="chevron" *ngIf="!isEditing"></ion-icon>
+          </div>
+
+          <div class="profile-field" [class.editable]="isEditing">
+            <span class="field-icon"><ion-icon name="business-outline"></ion-icon></span>
+            <div class="field-content">
+              <label>Company Name</label>
+              <span class="view-val" *ngIf="!isEditing">{{ profileForm.get('companyName')?.value || 'N/A' }}</span>
+              <ion-input type="text" formControlName="companyName" *ngIf="isEditing" placeholder="Enter Company Name"></ion-input>
+            </div>
+            <ion-icon name="chevron-forward-outline" class="chevron" *ngIf="!isEditing"></ion-icon>
+          </div>
+
+          <div class="profile-field" [class.editable]="isEditing">
+            <span class="field-icon"><ion-icon name="document-text-outline"></ion-icon></span>
+            <div class="field-content">
+              <label>GST Number</label>
+              <span class="view-val" *ngIf="!isEditing">{{ profileForm.get('gstNumber')?.value || 'N/A' }}</span>
+              <ion-input type="text" formControlName="gstNumber" *ngIf="isEditing" placeholder="Enter GST Number"></ion-input>
+            </div>
+            <ion-icon name="chevron-forward-outline" class="chevron" *ngIf="!isEditing"></ion-icon>
+          </div>
+
+          <div class="profile-field" [class.editable]="isEditing">
+            <span class="field-icon"><ion-icon name="location-outline"></ion-icon></span>
+            <div class="field-content">
+              <label>Street Address</label>
+              <span class="view-val" *ngIf="!isEditing">{{ profileForm.get('address')?.value || 'N/A' }}</span>
+              <ion-input type="text" formControlName="address" *ngIf="isEditing" placeholder="Enter Address"></ion-input>
+            </div>
+            <ion-icon name="chevron-forward-outline" class="chevron" *ngIf="!isEditing"></ion-icon>
+          </div>
+
+          <!-- Grid for City State Pincode when Editing -->
+          <div class="row g-2 mt-2 px-3" *ngIf="isEditing">
+            <div class="col-4">
+              <ion-input type="text" formControlName="city" placeholder="City"></ion-input>
+            </div>
+            <div class="col-4">
+              <ion-input type="text" formControlName="state" placeholder="State"></ion-input>
+            </div>
+            <div class="col-4">
+              <ion-input type="text" formControlName="pincode" placeholder="Pincode"></ion-input>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orange Referral Banner -->
+        <div class="promo-banner mt-3 mb-3">
+          <div class="promo-content">
+            <h4>Refer a business</h4>
+            <p>Get 10% Cashback on next booking!</p>
+            <div class="promo-btn">PLC Referral</div>
+          </div>
+          <div class="promo-graphics">
+            <ion-icon name="gift-outline" class="gift-box"></ion-icon>
+          </div>
+        </div>
+
+        <!-- Submit Actions -->
+        <div class="action-buttons px-2" *ngIf="isEditing">
+          <ion-button expand="block" type="submit" class="save-btn">
+            Save Profile Details
+          </ion-button>
+        </div>
+
+        <div class="action-buttons px-2 mt-2" *ngIf="!isEditing">
+          <ion-button expand="block" color="danger" fill="outline" class="logout-btn" (click)="logout()">
+            <ion-icon name="log-out-outline" slot="start"></ion-icon>
+            Sign Out
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

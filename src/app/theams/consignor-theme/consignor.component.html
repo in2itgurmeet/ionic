@@ -1,6 +1,8 @@
-<router-outlet></router-outlet>
-@if (showContent) {
-<!-- <ion-text class="position-fixed bottom-0 w-100">
-  <app-footer></app-footer>
-</ion-text> -->
-}
+<div class="app-layout" [class.has-footer]="showContent">
+  <div class="app-content-area">
+    <router-outlet></router-outlet>
+  </div>
+  @if (showContent) {
+    <app-footer class="app-footer-bar"></app-footer>
+  }
+</div>

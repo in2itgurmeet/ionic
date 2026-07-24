@@ -11,6 +11,7 @@ import { InvoiceBillComponent } from './invoice-details-page/invoice-bill/invoic
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { CreateFullorderComponent } from './crate-full-order/crate-full-order.component';
 import { LorryDeatilsComponent } from './Lorry_details_page/lorry-deatils/lorry-deatils.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'feedback',
     component: FeedbackComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: 'invoice-details',

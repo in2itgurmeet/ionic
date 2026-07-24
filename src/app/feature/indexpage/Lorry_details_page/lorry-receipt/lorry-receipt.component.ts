@@ -1,19 +1,25 @@
-import { IonicModule } from '@ionic/angular';
-import { Component, Input, OnInit } from '@angular/core';
+import { IonicModule, ToastController } from '@ionic/angular';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { IndexService } from '../../service/index-service';
+import { LorryPrintComponent } from '../lorry-print/lorry-print.component';
 
 @Component({
   selector: 'app-lorry-receipt',
-  imports: [IonicModule, CommonModule],
+  imports: [IonicModule, CommonModule, FormsModule, LorryPrintComponent],
   templateUrl: './lorry-receipt.component.html',
   styleUrls: ['./lorry-receipt.component.scss'],
 })
 export class LorryReceiptComponent implements OnInit {
   @Input() orderId: string = '';
+  @ViewChild('lorryPrint', { static: false }) lorryPrint!: LorryPrintComponent;
 
   isSecondAccordionOpen: boolean = false;
   isPopupOpen: boolean = false;
+  isShareModalOpen: boolean = false;
+  shareEmail: string = '';
 
   activeTab: number = 1;
 
@@ -104,7 +110,11 @@ export class LorryReceiptComponent implements OnInit {
 
   };
 
-  constructor(private indexService: IndexService) { }
+  constructor(
+    private indexService: IndexService,
+    private route: ActivatedRoute,
+    private toastController: ToastController
+  ) { }
 
   ngOnInit() {
     if (this.orderId) {
@@ -117,80 +127,14 @@ export class LorryReceiptComponent implements OnInit {
       next: (res) => {
         const data = res.body?.data;
         if (data) {
-          this.lrData = {
-            cnNo: data.lrNo || "CN" + Date.now(),
-            gstNo: "06AABCU9603R1ZV",
-            company: {
-              name: "PLC Logistic Pvt Ltd",
-              logo: "assets/icon/logo.jpg",
-              address: "Plot 21, Sector 18, Gurugram, Haryana - 122015",
-              mobile: "+91 9812345678",
-              email: "support@plclogistics.com",
-              website: "www.plclogistics.com"
-            },
-            lrNo: data.lrNo,
-            tripDate: new Date(data.createdAt).toISOString().split('T')[0],
-            vehicle: {
-              type: data.vehicle?.vehicleType || "20FT Eicher",
-              number: data.vehicle?.vehicleNo || "MH 04 AA 2025",
-              rtoNo: "HR55"
-            },
-            driver: {
-              name: data.vehicle?.driverName || "Ravi Kumar",
-              mobile: data.vehicle?.driverMobile || "+91 9876543210",
-              licenseNo: "DL0420110012345"
-            },
-            consignor: {
-              name: data.consignor?.name || "STL Group",
-              address: data.consignor?.address || "Sector 63, Noida, Uttar Pradesh",
-              pincode: "201301",
-              mobile: data.consignor?.mobile || "+91 9123456780",
-              gstin: "09AAACS1234F1Z2"
-            },
-            consignee: {
-              name: data.consignee?.name || "ABC Pvt Ltd",
-              address: data.consignee?.address || "Bhiwandi Industrial Area, Thane, Maharashtra",
-              pincode: "421302",
-              mobile: data.consignee?.mobile || "+91 9988776655",
-              gstin: "27AACCA5678H1Z1"
-            },
-            invoice: {
-              invoiceNo: data.lrNo,
-              referenceNo: data.lrNo,
-              ewayBillNo: "721234567890",
-              ewayBillExpiry: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-              doNo: "",
-              gstPaidBy: "Consignor",
-              containerNo: "CONT12345",
-              lcNo: "LC998877",
-              expiryDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
-            },
-            service: {
-              type: "Full Truck Load",
-              containerSize: "20FT",
-              date: new Date(data.createdAt).toISOString().split('T')[0]
-            },
-            items: [
-              {
-                description: data.goods?.description || "Goods Description",
-                unit: "Box",
-                weightKg: data.goods?.weight || 0,
-                quantity: data.goods?.quantity || 1,
-                amount: (data.freight || 0).toLocaleString()
-              }
-            ],
-            terms: [
-              "Goods once sold will not be accepted.",
-              "Transporter not responsible for damage after dispatch."
-            ],
-            receiver: {
-              name: data.consignee?.name || "Amit Sharma",
-              mobile: data.consignee?.mobile || "+91 9876501234",
-              signature: "assets/icon/logo.jpg",
-              receivedAt: data.updatedAt,
-              remarks: "Goods received in good condition"
+          this.lrData = data;
+          this.route.queryParams.subscribe(params => {
+            if (params['action'] === 'print') {
+              setTimeout(() => {
+                this.printPage();
+              }, 800);
             }
-          };
+          });
         }
       }
     });
@@ -210,7 +154,73 @@ export class LorryReceiptComponent implements OnInit {
   }
 
   printPage() {
-    window.print();
+    if (this.lorryPrint) {
+      this.lorryPrint.generatePdf(this.orderId, 'print');
+    }
+  }
+
+  downloadReceiptPdf() {
+    if (this.lorryPrint) {
+      this.lorryPrint.generatePdf(this.orderId, 'download');
+    }
+  }
+
+  openShareModal() {
+    this.isShareModalOpen = !this.isShareModalOpen;
+    if (this.isShareModalOpen) {
+      document.body.classList.add('overlay');
+    } else {
+      document.body.classList.remove('overlay');
+      this.shareEmail = '';
+    }
+  }
+
+  async shareReceiptByEmail() {
+    if (!this.shareEmail) {
+      this.showToast('Please enter an email address.', 'danger');
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.shareEmail)) {
+      this.showToast('Please enter a valid email address.', 'danger');
+      return;
+    }
+
+    const loadingToast = await this.toastController.create({
+      message: 'Generating and sending PDF Lorry Receipt...',
+      position: 'top',
+      color: 'primary'
+    });
+    await loadingToast.present();
+
+    this.lorryPrint.getPdfBase64(this.orderId).then(base64 => {
+      this.indexService.shareLorryReceipt(this.shareEmail, base64, this.lrData?.lrNo).subscribe({
+        next: (res) => {
+          loadingToast.dismiss();
+          this.showToast('Lorry Receipt shared successfully! ✉️', 'success');
+          this.openShareModal();
+        },
+        error: (err) => {
+          loadingToast.dismiss();
+          console.error('Failed to share LR:', err);
+          this.showToast(err.error?.message || 'Failed to share Lorry Receipt.', 'danger');
+        }
+      });
+    }).catch(err => {
+      loadingToast.dismiss();
+      this.showToast('Failed to generate sharing PDF document.', 'danger');
+    });
+  }
+
+  async showToast(msg: string, color: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 3000,
+      position: 'top',
+      color: color
+    });
+    await toast.present();
   }
 
 }

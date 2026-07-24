@@ -29,6 +29,19 @@ html {
   background: #fff;
   color: #262626;
   letter-spacing: calc(0.5 * var(--px));
+  overflow: hidden !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+* {
+  scrollbar-width: none !important;
 }
 
 div,

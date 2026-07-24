@@ -7,7 +7,7 @@ import { FooterComponent } from 'src/app/shared_component/footer/footer.componen
   selector: 'app-consignor',
   templateUrl: './consignor.component.html',
   styleUrls: ['./consignor.component.scss'],
-  imports: [RouterOutlet, IonicModule],
+  imports: [RouterOutlet, IonicModule, FooterComponent],
 
 })
 export class ConsignorThemeComponent implements OnInit {
@@ -15,15 +15,16 @@ export class ConsignorThemeComponent implements OnInit {
   showContent: boolean = false;
   constructor(private router: Router) {
     this.router.events.subscribe((_event: any) => {
-      if (this.router.url === '/indexpage/booked' ||
-        this.router.url === '/indexpage/loory-receipt' ||
-        this.router.url === '/indexpage/feedback' ||
-        this.router.url === '/indexpage/invoice-Bill' ||
-        this.router.url === '/indexpage/shiping-lable'
+      const url = this.router.url.split('?')[0];
+      if (url === '/indexpage' ||
+          url === '/indexpage/all-product' ||
+          url === '/indexpage/invoice-details' ||
+          url === '/indexpage/feedback' ||
+          url === '/indexpage/profile'
       ) {
-        this.showContent = false;
-      } else {
         this.showContent = true;
+      } else {
+        this.showContent = false;
       }
     });
   }
