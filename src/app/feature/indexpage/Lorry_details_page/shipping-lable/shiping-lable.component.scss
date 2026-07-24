@@ -1,12 +1,9 @@
-* {
-  margin: 0px;
-}
-
 .top_content {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
 }
+
 .top_content ion-text {
   width: calc(100% / 2);
   max-width: calc(100% / 2);
@@ -15,35 +12,46 @@
   line-height: normal;
   flex-direction: column;
 }
+
 .border {
-  border: 3px solid black !important;
-  border-radius: 10px !important;
+  border: calc(3 * var(--px)) solid black !important;
+  border-radius: calc(10 * var(--px)) !important;
 }
+
 .top_content2 {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
 }
+
 .top_content2 ion-text {
   width: calc(100% / 3);
   max-width: calc(100% / 3);
 }
+
 .scrollable-container {
-  /* Set this to whatever height you need */
   overflow: auto;
 }
 
 h6 {
   font-family: emoji;
   font-weight: 900 !important;
-  font-size: 15px;
+  font-size: calc(15 * var(--px));
   width: max-content;
+  margin: 0px;
 }
+
 p {
-  font-size: small;
+  font-size: var(--fs-12);
   color: grey;
   text-align: justify;
-  font-weight: none;
+  font-weight: 400 !important;
+  line-height: normal;
+  margin: 0px;
+}
+
+.date-text {
+  width: max-content;
 }
 
 .doket_num {
@@ -51,33 +59,39 @@ p {
   justify-content: flex-end;
   align-items: end;
 }
-.Origin {
-  border: 3px solid black;
+
+.origin-section {
+  border: calc(3 * var(--px)) solid black;
   border-left: none !important;
   border-bottom: none !important;
-  padding: 3px;
+  padding: calc(3 * var(--px));
 }
-.Ship_ment {
-  border: 3px solid black;
+
+.ship-to-section {
+  border: calc(3 * var(--px)) solid black;
   border-right: none !important;
   border-left: none !important;
   border-bottom: none !important;
-  padding: 3px;
+  padding: calc(3 * var(--px));
 }
-.Ship_ment2 {
-  border: 3px solid black;
+
+.ship-to-details {
+  border: calc(3 * var(--px)) solid black;
   border-right: none !important;
   border-left: none !important;
-  padding: 3px;
+  padding: calc(3 * var(--px));
 }
-.Origin2 {
-  border: 3px solid black;
+
+.origin-details {
+  border: calc(3 * var(--px)) solid black;
   border-left: none !important;
-  padding: 3px;
+  padding: calc(3 * var(--px));
 }
-.Invoice_no {
-  border-bottom: 3px solid black;
+
+.invoice-number {
+  border-bottom: calc(3 * var(--px)) solid black;
 }
-.Invoice_no ion-text {
+
+.invoice-number ion-text {
   margin: auto;
 }

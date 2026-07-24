@@ -20,7 +20,7 @@ form {
   color: #ff6347;
 }
 
-.Multi_input_calc {
+.multi-input-calc {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -109,24 +109,24 @@ ion-input {
   justify-content: space-between;
   align-items: center;
 }
-.Text_content {
+.text-content {
   font-size: var(--fs-18);
   font-weight: 700;
   text-transform: capitalize;
 }
 
-.Top_content {
+.top-content {
   padding: calc(10 * var(--px));
 }
 
-.Top_content a {
+.top-content a {
   background: orange;
   padding: calc(8 * var(--px));
   border-radius: 50%;
   display: flex;
 }
 
-.Top_content a:hover {
+.top-content a:hover {
   animation: pulse 1000ms cubic-bezier(0.9, 0.7, 0.5, 0.9) infinite;
 }
 
@@ -141,7 +141,7 @@ ion-input {
   }
 }
 
-.Top_content a::after {
+.top-content a::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -199,7 +199,7 @@ ion-input {
   height: calc(100 * var(--px));
 }
 
-.FormatText {
+.format-text {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -210,14 +210,14 @@ ion-input {
   border-top: 1px solid rgb(241, 241, 241);
 }
 
-.FormatText p,
+.format-text p,
 span {
   font-size: 15px;
   font-weight: 500;
   text-transform: capitalize;
 }
 
-.FormatText span {
+.format-text span {
   margin-top: 2px;
 }
 
@@ -245,7 +245,7 @@ span {
   background-position: calc(20 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px));
 }
 
-.Counters_tophedding {
+.counters-topheading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -253,32 +253,32 @@ span {
   margin: calc(0 * var(--px)) calc(5 * var(--px)) calc(-5 * var(--px)) calc(3 * var(--px));
 }
 
-.Counters_tophedding .Order_view {
+.counters-topheading .Order_view {
   font-weight: 700;
 }
 
-.Text_small {
+.text-small {
   font-size: 10px;
   display: flex;
   align-items: center;
   color: #ff6347;
 }
 
-.Loaction_divide_section {
+.location-divide-section {
   width: calc(98% / 2);
   max-width: calc(98% / 2);
   display: flex;
   justify-content: space-between;
 }
 
-.Counters_section {
+.counters-section {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
 }
 
-.Counter {
+.counter {
   width: calc(98% / 2);
   max-width: calc(98% / 2);
   gap: 5px;
@@ -291,11 +291,11 @@ span {
   background-size: cover;
 }
 
-.Counter .total {
+.counter .total {
   color: grey;
 }
 
-.Counter .pending {
+.counter .pending {
   color: rgb(219, 219, 57);
 }
 
@@ -497,10 +497,19 @@ form {
   padding: calc(1 * var(--px)) calc(7 * var(--px)) !important;
 }
 
-._Svg_continer {
+._svg-container {
   width: calc(15%);
   max-width: calc(15%);
 }
 .map-box {
   width: stretch;
+}
+
+.negative-margin-y {
+  margin: calc(-18 * var(--px)) 0px !important;
+}
+
+.selector-icon {
+  display: flex;
+  align-items: center;
 }

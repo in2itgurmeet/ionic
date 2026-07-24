@@ -7,7 +7,7 @@
     </iframe>
   </ion-text>
   <ion-col>
-    <ion-text class="ion-padding Form_content container-fluid" style="margin-top: -20px">
+    <ion-text class="ion-padding form_content container-fluid">
       <form>
         <ion-text class="d-flex justify-content-center">
           <hr class="w-25" />
@@ -20,17 +20,17 @@
 
         <!---HIDE CONENT-->
         <ion-text class="_content_hide mt-5">
-          <ion-text class="Hide_content">
+          <ion-text class="hide-content">
             <ion-text>
-              <p class="Top_content">
+              <p class="top-content">
                 Distance<span class="fw-bold">{{ getOrderData?.distance || 'N/A' }}</span>
               </p>
-              <p class="Top_content">
+              <p class="top-content">
                 Expected Travel Time <span class="fw-bold">{{ getOrderData?.expectedTravelTime || 'N/A' }}</span>
               </p>
             </ion-text>
             <ion-text>
-              <ion-text class="Booked_overview">
+              <ion-text class="booked-overview">
                 <ion-text>
                   <p>Order No: <span class="fw-bold">{{ getOrderData?.orderId }}</span></p>
                 </ion-text>
@@ -44,7 +44,7 @@
                   <p>Booking type: <span class="fw-bold">{{ getOrderData?.bookingType }}</span></p>
                 </ion-text>
               </ion-text>
-              <ion-text class="Booked_overview">
+              <ion-text class="booked-overview">
                 <ion-text>
                   <p>Reference No: <span class="fw-bold">{{ getOrderData?.lrNo || getOrderData?.docketNo || 'N/A' }}</span></p>
                 </ion-text>
@@ -67,12 +67,12 @@
               <ion-text class="svg_content">
                 <i class="fa fa-user-circle-o" aria-hidden="true"></i>
               </ion-text>
-              <ion-text class="Input_content text-start content_flex">
+              <ion-text class="input-content text-start content_flex">
                 <p class="fw-bold">Customer</p>
                 <ion-text class="input_feild_section2">
                   <p class="fw-bold">
                     {{ getOrderData?.consignorCompany || 'STL Group' }}
-                    <span class="text_mob" style="font-weight: 700 !important"><i class="fa fa-phone"
+                    <span class="text_mob"><i class="fa fa-phone"
                         aria-hidden="true"></i>+91 {{ getOrderData?.pickup?.phone || '9999999999' }}
                     </span>
                   </p>
@@ -92,12 +92,12 @@
               <ion-text class="svg_content">
                 <i class="fa fa-map-marker text-success" aria-hidden="true"></i>
               </ion-text>
-              <ion-text class="Input_content text-start content_flex">
+              <ion-text class="input-content text-start content_flex">
                 <p class="text-success fw-bold">Pickup: {{ getOrderData?.pickup?.date || 'N/A' }} at {{ getOrderData?.pickup?.time || 'N/A' }}</p>
                 <ion-text class="input_feild_section2 ">
                   <p class="fw-bold">
                     {{ getOrderData?.pickup?.person || 'N/A' }}
-                    <span class="text_mob" style="font-weight: 700 !important"><i class="fa fa-phone"
+                    <span class="text_mob"><i class="fa fa-phone"
                         aria-hidden="true"></i>+91 {{ getOrderData?.pickup?.phone || 'N/A' }}
                     </span>
                   </p>
@@ -110,12 +110,12 @@
               <ion-text class="svg_content">
                 <i class="fa fa-map-marker text-danger" aria-hidden="true"></i>
               </ion-text>
-              <ion-text class="Input_content text-start content_flex">
+              <ion-text class="input-content text-start content_flex">
                 <p class="text-danger fw-bold">Delivery: {{ getOrderData?.delivery?.date || getOrderData?.pickup?.date || 'N/A' }} (Estimated)</p>
                 <ion-text class="input_feild_section2 ">
                   <p class="fw-bold">
                     {{ getOrderData?.delivery?.person || 'N/A' }}
-                    <span class="text_mob" style="font-weight: 700 !important"><i class="fa fa-phone"
+                    <span class="text_mob"><i class="fa fa-phone"
                         aria-hidden="true"></i>+91 {{ getOrderData?.delivery?.phone || 'N/A' }}
                     </span>
                   </p>
@@ -148,14 +148,14 @@
                       <span class="p-0">{{ getOrderData?.vehicle?.capacity }}</span>
                     </ion-text>
                     <ion-text>
-                      <p style="font-size: small">
+                      <p>
                         {{ getOrderData?.vehicle?.dimension }}
                       </p>
                     </ion-text>
                   </ion-text>
                 </ion-text>
               </ion-text>
-              <ion-text class="vichle_card" style="height: 60px">
+              <ion-text class="vichle_card">
                 <ion-text class="px-2">
                   <p>
                     <i class="fa fa-pie-chart" aria-hidden="true"></i>
@@ -168,7 +168,7 @@
                     <i class="fa fa-pie-chart" aria-hidden="true"></i>
                     <span class="fw-bold"> 15CBM</span>
                   </p>
-                  <p class="font-size ms-2" style="width: max-content;">50% vehicle utilized by Volume</p>
+                  <p class="font-size ms-2 w-mx">50% vehicle utilized by Volume</p>
                 </ion-text>
               </ion-text>
             </ion-text>
@@ -179,11 +179,11 @@
               <h6 class="fw-bold">Cargo Details</h6>
             </ion-text>
 
-            <ion-text class="Card_section2">
+            <ion-text class="card-section-2">
               <ion-text class="svg_content2">
                 <img src="../../../assets/icon/BoxImage_OrderDeatils.png" class="img-fluid" alt="" />
               </ion-text>
-              <ion-text class="Input_content2 ms-3">
+              <ion-text class="input-content-2 ms-3">
                 <h6 class="text-dark fw-bold">
                   {{ getOrderData?.cargo?.goodsDescription }}
                 </h6>
@@ -200,7 +200,7 @@
           <ion-text>
             <h6 class="fw-bold">Service Fee</h6>
           </ion-text>
-          <ion-card class="Card_section p-2">
+          <ion-card class="card-section p-2">
             <ion-text class="heading_cargo">
               <ion-text>
                 <p class="fw-bold">Transportation Charge</p>
@@ -213,7 +213,7 @@
               </ion-text>
               <ion-text>{{ loadingFee }}</ion-text>
             </ion-text>
-            <ion-text class="d-flex justify-content-center px-1 g-0 m-0" style="margin: -16px 0px 0px 0px">
+            <ion-text class="d-flex justify-content-center px-1 g-0 m-0 negative-margin-top">
               <hr class="w-100" />
             </ion-text>
             <ion-text class="heading_cargo">
@@ -234,7 +234,7 @@
               </ion-text>
               <ion-text>{{ cgst }}</ion-text>
             </ion-text>
-            <ion-text class="d-flex justify-content-center px-1 g-0" style="margin: -16px 0px 0px 0px">
+            <ion-text class="d-flex justify-content-center px-1 g-0 negative-margin-top">
               <hr class="w-100" />
             </ion-text>
             <ion-text class="heading_cargo">
@@ -260,8 +260,8 @@
           </ion-text>
 
 
-          <ion-card class="Booked_overview py-3 px-2 lh-3">
-            <ion-button class="See_invoice_button submit_button" [routerLink]="['/indexpage/invoice-details']">See
+          <ion-card class="booked-overview py-3 px-2 lh-3">
+            <ion-button class="see-invoice-button submit_button" [routerLink]="['/indexpage/invoice-details']">See
               Invoice</ion-button>
             <ion-text>
               <p>Order Type: <span class="fw-bold ">{{ getOrderData?.paymentType }}</span></p>
@@ -280,16 +280,16 @@
           </ion-card>
 
         </ion-text>
-        <ion-text class="Form_input_box">
+        <ion-text class="form_input_box">
           <ion-label class="form-label">Documents</ion-label>
-          <ion-card class="Lr_dowload">
-            <ion-text class="Card_section2">
+          <ion-card class="lr-download">
+            <ion-text class="card-section-2">
               <ion-text class="svg_content2">
                 <img src="../../../assets/icon/person_Check_invoivebill.png" class="img-fluid" alt="" />
               </ion-text>
-              <ion-text class="Input_content2 ms-3">
+              <ion-text class="input-content-2 ms-3">
 
-                <p class="text-dark" style="line-height: 20px; font-weight: 600;"
+                <p class="text-dark document-hint"
                   [routerLink]="['/indexpage/lorry-details', getOrderData?._id]">Click
                   Here Or Download Or Print LR,
                   Shipping Labels, And Proof Of Delivery. </p>

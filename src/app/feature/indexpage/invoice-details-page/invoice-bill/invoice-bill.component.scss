@@ -3,13 +3,12 @@
   max-width: calc(100%);
   display: flex;
   flex-direction: column;
-  line-height: 10px;
-  border-radius: 5px;
-  border: 1px solid grey;
+  line-height: calc(10 * var(--px));
+  border-radius: calc(5 * var(--px));
+  border: calc(1 * var(--px)) solid grey;
 }
 
 .scrollable-container {
-  /* Set this to whatever height you need */
   overflow: auto;
 }
 
@@ -19,7 +18,7 @@ span {
 
 .bg-banner {
   background-color: rgb(255, 235, 199);
-  border: 1px solid rgb(255, 233, 191);
+  border: calc(1 * var(--px)) solid rgb(255, 233, 191);
 }
 
 .top_Lorry_section {
@@ -27,23 +26,22 @@ span {
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
-
-  border-radius: 5px 5px 0px 0px;
+  border-radius: calc(5 * var(--px)) calc(5 * var(--px)) calc(0 * var(--px)) calc(0 * var(--px));
 }
 
 ion-card {
   background-color: #f6f6f6;
 }
 
-.Side_Section {
-  padding: 10px;
+.side-section {
+  padding: calc(10 * var(--px));
   width: calc(100% / 2);
   max-width: calc(100% / 2);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-size: 12px;
-  gap: 10px;
+  font-size: var(--fs-12);
+  gap: calc(10 * var(--px));
   p {
     text-align: -webkit-right;
     line-height: normal;
@@ -51,21 +49,21 @@ ion-card {
   }
 }
 
-.Information {
+.information {
   align-items: flex-start !important;
 }
 
 .text-start {
-  line-height: 0px;
+  line-height: normal;
   margin: 0px;
 }
 
-.Information p {
-  font-size: 12px;
-  line-height: 10px;
+.information p {
+  font-size: var(--fs-12);
+  line-height: calc(10 * var(--px));
 }
 
-.Information .fw-bold span {
+.information .fw-bold span {
   font-weight: 500 !important;
   color: rgb(190, 190, 190) !important;
 }
@@ -74,15 +72,15 @@ hr {
   margin: 0 !important;
 }
 
-.Extra_gap {
-  height: 100px;
-  padding: 10px;
+.extra-gap {
+  height: calc(100 * var(--px));
+  padding: calc(10 * var(--px));
 }
 
 .footer {
   width: calc(100%);
   max-width: calc(100%);
-  padding: 10px;
+  padding: calc(10 * var(--px));
   display: flex;
   position: fixed;
   bottom: 0px;
@@ -97,25 +95,25 @@ hr {
   align-items: center;
 }
 
-.Dwonload_button {
+.download-button {
   background-color: #ff6347;
-  border-radius: 5px;
+  border-radius: calc(5 * var(--px));
   color: white;
 }
 
 .share_btn {
   color: #ff6347;
   font-size: small;
-
-  padding: 5px;
-  border-radius: 5px;
+  padding: calc(5 * var(--px));
+  border-radius: calc(5 * var(--px));
+  margin: 0px;
 }
 
 .nav-link {
   color: white;
 }
 
-.Popup {
+.popup-modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -141,23 +139,21 @@ hr {
   height: 100%;
   z-index: 1;
   background-color: rgba(51, 51, 51, 0.5);
-  /* Black with 50% opacity */
-  /* Ensure it's on top of everything else */
 }
 
 .fa-times {
   position: absolute;
-  top: 11px;
-  right: 21px;
+  top: calc(11 * var(--px));
+  right: calc(21 * var(--px));
   font-size: large;
 }
 
 .my_poup p {
-  border: 4px solid rgb(14, 167, 0);
+  border: calc(4 * var(--px)) solid rgb(14, 167, 0);
   background-color: rgb(14, 167, 0);
   border-radius: 50%;
-  padding: 5px;
-  height: 50px;
+  padding: calc(5 * var(--px));
+  height: calc(50 * var(--px));
   display: flex;
   font-size: xx-large;
 }
@@ -167,7 +163,7 @@ hr {
 }
 
 .my_poup span {
-  line-height: 20px;
+  line-height: calc(20 * var(--px));
   font-size: medium;
   color: rgb(197, 197, 197);
   font-family: cursive;
@@ -175,4 +171,26 @@ hr {
 
 .w-mx {
   width: max-content;
+}
+
+.flex-baseline {
+  display: flex;
+  align-items: baseline;
+}
+
+.company-logo {
+  margin-bottom: calc(4 * var(--px));
+  margin-top: calc(12 * var(--px));
+  margin-left: calc(12 * var(--px));
+  width: calc(100 * var(--px));
+}
+
+.small-text {
+  font-size: var(--fs-12);
+}
+
+.hr_lines {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
 }

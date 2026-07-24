@@ -1,20 +1,20 @@
-.Hide_content {
+.hide-content {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: calc(2 * var(--px));
 }
-.Hide_content ion-text {
+.hide-content ion-text {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
-  gap: 10px;
+  gap: calc(10 * var(--px));
 }
-.Hide_content ion-text .Top_content {
-  border: 1px solid rgb(255, 142, 101);
-  border-radius: 5px;
-  padding: 3px;
+.hide-content ion-text .top-content {
+  border: calc(1 * var(--px)) solid rgb(255, 142, 101);
+  border-radius: calc(5 * var(--px));
+  padding: calc(3 * var(--px));
   background-color: rgb(252, 196, 176);
   font-size: smaller;
 }
@@ -22,7 +22,6 @@
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
-
   font-size: smaller;
 }
 .input_feild_section2 {
@@ -31,33 +30,33 @@
   display: flex;
   flex-direction: column;
   font-size: smaller;
-  line-height: 1px;
+  line-height: calc(1 * var(--px));
 }
 .svg_content {
   width: calc(100% - 90%);
   max-width: calc(100% - 90%);
   display: flex;
   justify-content: center;
-  margin: 10px 0px;
+  margin: calc(10 * var(--px)) calc(0 * var(--px));
   color: rgb(25, 123, 236);
 }
-.Input_content {
+.input-content {
   width: calc(100% - 10%);
   max-width: calc(100% - 10%);
   color: rgb(25, 123, 236);
   display: flex;
   align-items: center;
-  margin: 7px 0px;
+  margin: calc(7 * var(--px)) calc(0 * var(--px));
 }
 .svg_content2 {
   width: calc(100% - 80%);
   max-width: calc(100% - 80%);
   display: flex;
   justify-content: center;
-  margin: 10px 0px;
+  margin: calc(10 * var(--px)) calc(0 * var(--px));
   color: rgb(25, 123, 236);
 }
-.Input_content2 {
+.input-content-2 {
   width: calc(100% - 20%);
   max-width: calc(100% - 20%);
   color: rgb(25, 123, 236);
@@ -67,12 +66,13 @@
 }
 .text_mob {
   color: #ff8670;
+  font-weight: 100 !important;
 }
 .vichle_section {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(241, 241, 241);
-  border-radius: 5px;
+  border: calc(1 * var(--px)) solid rgb(241, 241, 241);
+  border-radius: calc(5 * var(--px));
 }
 .seltct_vichle {
   display: flex;
@@ -84,33 +84,34 @@
   display: flex;
   justify-content: space-between;
   border: #f86e56;
-  border-radius: 5px;
-  padding: 10px 0px;
+  border-radius: calc(5 * var(--px));
+  padding: calc(10 * var(--px)) calc(0 * var(--px));
   background: #ff8670;
+  height: calc(60 * var(--px));
 }
 ._svg_text {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: calc(5 * var(--px));
 }
 .vichle_card ion-text {
   width: calc(98% / 2);
   max-width: calc(98% / 2);
   display: flex;
   flex-direction: column;
-  line-height: 0px;
+  line-height: calc(0 * var(--px));
 }
 .vichle_card ion-text p span {
   font-size: smaller;
 }
 .font-size {
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: rgb(216, 215, 215);
 }
 .font-size2 {
-  font-size: 14px;
+  font-size: calc(14 * var(--px));
   color: rgb(204, 203, 203);
-  line-height: 10px;
+  line-height: calc(10 * var(--px));
 }
 ._Svg_continer {
   width: calc(15%);
@@ -124,19 +125,19 @@
   align-items: center;
 }
 .d-flex span {
-  font-size: 10px;
-  border: 1px solid rgb(241, 241, 241);
-  border-radius: 5px;
+  font-size: var(--fs-10);
+  border: calc(1 * var(--px)) solid rgb(241, 241, 241);
+  border-radius: calc(5 * var(--px));
   background: rgb(245, 243, 243);
   color: rgb(12, 187, 12);
-  margin: 1px 0px 0px 5px;
-  padding: 1px 7px !important;
+  margin: calc(1 * var(--px)) calc(0 * var(--px)) calc(0 * var(--px)) calc(5 * var(--px));
+  padding: calc(1 * var(--px)) calc(7 * var(--px)) !important;
 }
 .coustomer {
-  margin: -10px 0px;
+  margin: calc(-10 * var(--px)) calc(0 * var(--px));
 }
 .mt_1 {
-  margin: -16px 0px 0px 40px;
+  margin: calc(-16 * var(--px)) calc(0 * var(--px)) calc(0 * var(--px)) calc(40 * var(--px));
 }
 .heading_cargo {
   width: calc(100%);
@@ -144,17 +145,17 @@
   display: flex;
   justify-content: space-between;
 }
-.Card_section {
-  padding: 10px;
-  border: 1px solid rgb(241, 241, 241);
-  border-radius: 5px;
+.card-section {
+  padding: calc(10 * var(--px));
+  border: calc(1 * var(--px)) solid rgb(241, 241, 241);
+  border-radius: calc(5 * var(--px));
   display: flex;
   flex-direction: column;
 }
-.Card_section2 {
-  padding: 10px;
-  border: 1px solid rgb(241, 241, 241);
-  border-radius: 5px;
+.card-section-2 {
+  padding: calc(10 * var(--px));
+  border: calc(1 * var(--px)) solid rgb(241, 241, 241);
+  border-radius: calc(5 * var(--px));
   display: flex;
 }
 .heading_cargo h6 {
@@ -163,13 +164,13 @@
 .heading_cargo p {
   font-size: small;
 }
-.Multi_input_calc {
+.multi-input-calc {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: calc(5 * var(--px));
 }
 .form_input2 {
   width: calc(96% / 4);
@@ -195,29 +196,28 @@ ion-card {
   flex-direction: column;
   gap: 2px;
 }
-.Payment_action {
+.payment-action {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: calc(5 * var(--px));
 }
-.Payment_action ion-text {
+.payment-action ion-text {
   width: calc(94% / 5);
   max-width: calc(94% / 5);
   justify-content: center;
   align-items: center;
 }
 
-.Popup {
+.popup-modal {
   position: fixed;
   top: 50%;
   left: 50%;
   width: 80%;
-
   transform: translate(-50%, -50%);
-  z-index: 2; /* Ensure it's above the overlay */
+  z-index: 2;
 }
 .my_poup {
   display: flex;
@@ -234,23 +234,22 @@ ion-card {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: rgba(51, 51, 51, 0.5); /* Black with 50% opacity */
-  /* Ensure it's on top of everything else */
+  background-color: rgba(51, 51, 51, 0.5);
 }
 .fa-times {
   position: absolute;
-  top: 11px;
-  right: 21px;
+  top: calc(11 * var(--px));
+  right: calc(21 * var(--px));
   font-size: large;
 }
 .my_poup p {
-  border: 4px solid rgb(14, 167, 0);
+  border: calc(4 * var(--px)) solid rgb(14, 167, 0);
   border-radius: 50%;
-  padding: 5px;
+  padding: calc(5 * var(--px));
   font-size: xx-large;
 }
 .my_poup span {
-  line-height: 20px;
+  line-height: calc(20 * var(--px));
   font-size: medium;
   color: rgb(197, 196, 196);
 }
@@ -274,6 +273,19 @@ ion-card {
   opacity: 1;
 }
 .form_content {
-  border-top: 2px solid var(--neutral-200);
-  border-radius: 20px;
+  border-top: calc(2 * var(--px)) solid var(--neutral-200);
+  border-radius: calc(20 * var(--px));
+  margin-top: calc(-20 * var(--px));
+}
+
+.negative-margin-top {
+  margin: calc(-16 * var(--px)) 0px 0px 0px !important;
+}
+
+.form_input {
+  z-index: 1;
+}
+
+.w-mx {
+  width: max-content;
 }

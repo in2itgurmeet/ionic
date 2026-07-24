@@ -3,64 +3,71 @@
   max-width: calc(100%);
   display: flex;
   flex-direction: column;
-  line-height: 10px;
-  border-radius: 5px;
-  border: 1px solid grey;
+  line-height: calc(10 * var(--px));
+  border-radius: calc(5 * var(--px));
+  border: calc(1 * var(--px)) solid grey;
 }
+
 .scrollable-container {
-  /* Set this to whatever height you need */
   overflow: auto;
 }
 
 span {
   line-height: normal;
 }
+
 .bg-banner {
   background-color: rgb(255, 227, 176);
-  border: 1px solid rgb(252, 220, 162);
+  border: calc(1 * var(--px)) solid rgb(252, 220, 162);
 }
+
 .top_Lorry_section {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
-
-  border-radius: 5px 5px 0px 0px;
+  border-radius: calc(5 * var(--px)) calc(5 * var(--px)) 0px 0px;
 }
-.Side_Section {
-  padding: 10px;
+
+.side-section {
+  padding: calc(10 * var(--px));
   width: calc(100% / 2);
   max-width: calc(100% / 2);
   display: flex;
   flex-direction: column;
-  line-height: 15px;
-  font-size: 12px;
+  line-height: calc(15 * var(--px));
+  font-size: var(--fs-12);
   gap: 0px;
 }
+
 .text-start {
-  line-height: 0px;
+  line-height: normal;
   margin: 0px;
 }
-.Information p {
-  font-size: 12px;
-  line-height: 10px;
+
+.information-section p {
+  font-size: var(--fs-12);
+  line-height: calc(10 * var(--px));
 }
-.Information .fw-bold span {
+
+.information-section .fw-bold span {
   font-weight: 500 !important;
   color: rgb(190, 190, 190) !important;
 }
 
-.Consignment_container .Consiger_headding {
+.Consignment_container .consignor-heading {
   color: #ff8670;
 }
-.Consignment_container .Consiger_headding_sub {
+
+.Consignment_container .consignor-heading-sub {
   color: black;
   font-weight: 700;
-  font-size: 13px;
+  font-size: calc(13 * var(--px));
 }
-.Consiger_headding_Details {
+
+.consignor-heading-details {
   color: rgb(190, 190, 190) !important;
-  font-size: small;
+  font-size: var(--fs-12);
   line-height: normal;
 }
 
@@ -69,70 +76,80 @@ span {
 table {
   width: 100%;
   border-collapse: collapse;
-  border-radius: 5px !important;
+  border-radius: calc(5 * var(--px)) !important;
 }
 
 th,
 td {
-  border: 1px solid #d8d8d8;
-  padding: 8px;
+  border: calc(1 * var(--px)) solid #d8d8d8;
+  padding: calc(8 * var(--px));
   text-align: center;
-  font-size: 10px;
+  font-size: var(--fs-10);
+  line-height: normal;
 }
+
 td {
   color: #a0a0a0;
-  line-height: 13px;
+  line-height: calc(13 * var(--px));
 }
 
 th {
   background-color: #f3f3f3;
 }
+
 ol li {
-  font-size: 12px;
+  font-size: var(--fs-12);
 }
-.Extra_gap {
-  height: 100px;
-  padding: 10px;
+
+.extra-gap {
+  height: calc(100 * var(--px));
+  padding: calc(10 * var(--px));
 }
-.Footer {
+
+.footer-section {
   width: calc(100%);
   max-width: calc(100%);
-  padding: 10px;
+  padding: calc(10 * var(--px));
   display: flex;
   justify-content: space-between;
   background-color: white;
 }
-.Footer ion-text {
+
+.footer-section ion-text {
   width: calc(96% / 2);
   max-width: calc(96% / 2);
   display: flex;
   align-items: center;
 }
-.Dwonload_button {
-  background-color: #ff6347;
-  border-radius: 5px;
+
+.download-button {
+  background-color: var(--ion-color-primary, #13b4c4);
+  border-radius: calc(5 * var(--px));
   color: white;
 }
-.share_btn {
-  color: #ff6347;
-  font-size: small;
 
-  padding: 5px;
-  border-radius: 5px;
+.share_btn {
+  color: var(--ion-color-primary, #13b4c4);
+  font-size: var(--fs-12);
+  padding: calc(5 * var(--px));
+  border-radius: calc(5 * var(--px));
+  margin: 0px;
 }
 
 .nav-link {
   color: white;
 }
 
-.Popup {
+.popup-modal {
   position: fixed;
   top: 50%;
   left: 50%;
   width: 80%;
   transform: translate(-50%, -50%);
-  z-index: 2; /* Ensure it's above the overlay */
+  z-index: 2;
+  /* Ensure it's above the overlay */
 }
+
 .my_poup {
   display: flex;
   flex-direction: column;
@@ -148,68 +165,110 @@ ol li {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: rgba(51, 51, 51, 0.5); /* Black with 50% opacity */
-  /* Ensure it's on top of everything else */
+  background-color: rgba(51, 51, 51, 0.5);
+  /* Black with 50% opacity */
 }
+
 .fa-times {
   position: absolute;
-  top: 11px;
-  right: 21px;
-  font-size: large;
+  top: calc(11 * var(--px));
+  right: calc(21 * var(--px));
+  font-size: var(--fs-18);
 }
+
 .my_poup p {
-  border: 4px solid rgb(14, 167, 0);
+  border: calc(4 * var(--px)) solid rgb(14, 167, 0);
   background-color: rgb(14, 167, 0);
   border-radius: 50%;
-  padding: 5px;
-  height: 50px;
+  padding: calc(5 * var(--px));
+  height: calc(50 * var(--px));
   display: flex;
-  font-size: xx-large;
+  font-size: var(--fs-32);
 }
+
 .fa-check {
   color: white;
 }
+
 .my_poup span {
-  line-height: 20px;
-  font-size: medium;
+  line-height: calc(20 * var(--px));
+  font-size: var(--fs-14);
   color: rgb(223, 223, 223);
   font-family: cursive;
 }
+
 .w-mx {
   width: max-content;
 }
 
 .share-icon-wrap {
-  border: 4px solid #13b4c4 !important;
+  border: calc(4 * var(--px)) solid #13b4c4 !important;
   background-color: #13b4c4 !important;
   border-radius: 50%;
-  padding: 10px;
-  height: 55px;
-  width: 55px;
+  padding: calc(10 * var(--px));
+  height: calc(55 * var(--px));
+  width: calc(55 * var(--px));
   display: flex !important;
   align-items: center;
   justify-content: center;
-  font-size: xx-large;
-  margin-bottom: 12px;
+  font-size: var(--fs-32);
+  margin-bottom: calc(12 * var(--px));
   margin-left: auto;
   margin-right: auto;
-  
+
   i {
     color: #ffffff !important;
   }
 }
 
+.company-logo {
+  margin-bottom: calc(4 * var(--px));
+  width: calc(100 * var(--px));
+}
+
+.address-text {
+  word-break: break-all;
+}
+
+.hr_lines {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.terms-list {
+  line-height: calc(18 * var(--px));
+  margin: calc(-7 * var(--px)) 0px calc(6 * var(--px)) calc(-8 * var(--px));
+}
+
+.signature-text {
+  font-size: var(--fs-12);
+}
+
+.share-modal-hint {
+  font-size: calc(11 * var(--px));
+}
+
+.share-email-input {
+  background: #F3F7F8;
+  border: calc(1 * var(--px)) solid #E2E8F0;
+  border-radius: calc(8 * var(--px));
+  height: calc(42 * var(--px));
+  --padding-start: calc(12 * var(--px));
+}
+
 @media print {
+
   /* Hide all elements on the body */
   body * {
     visibility: hidden;
   }
-  
+
   /* Make the receipt component structure visible */
-  .container-fluid_main, .container-fluid_main * {
+  .container-fluid_main,
+  .container-fluid_main * {
     visibility: visible;
   }
-  
+
   /* Position the container cleanly at 0, 0 spanning 100% print width */
   .container-fluid_main {
     position: absolute;
@@ -222,9 +281,15 @@ ol li {
     margin: 0 !important;
     box-shadow: none !important;
   }
-  
+
   /* Hide operational buttons and outer layouts */
-  .Footer, .share_btn, .Dwonload_button, button, .tab-bar, ion-header, app-footer {
+  .footer-section,
+  .share_btn,
+  .download-button,
+  button,
+  .tab-bar,
+  ion-header,
+  app-footer {
     display: none !important;
   }
 }

@@ -1,82 +1,78 @@
 <ion-col class="p-0">
-  <ion-row>
-    <ion-header class="bg-white shadow-lg">
-      <div class="tab-bar g-0">
-        <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1, 'all')">All</a>
-        <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2, 'overdue')">Overdue</a>
-        <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3, 'due')">Due</a>
-        <a [ngClass]="{'active': activeTab === 4}" (click)="setActiveTab(4, 'paid')">Paid</a>
+  <!-- Header with Tab Navigation -->
+  <ion-header class="bg-white">
+    <div class="tab-bar">
+      <a [ngClass]="{'active': activeTab === 1}" (click)="setActiveTab(1, 'all')">All</a>
+      <a [ngClass]="{'active': activeTab === 2}" (click)="setActiveTab(2, 'overdue')">Overdue</a>
+      <a [ngClass]="{'active': activeTab === 3}" (click)="setActiveTab(3, 'due')">Due</a>
+      <a [ngClass]="{'active': activeTab === 4}" (click)="setActiveTab(4, 'paid')">Paid</a>
+    </div>
+  </ion-header>
+
+  <!-- High-Fidelity Search Box Container -->
+  <div class="search-container px-3">
+    <div class="search-box-wrapper">
+      <i class="fa fa-search search-icon" aria-hidden="true"></i>
+      <ion-input type="text" class="search-input" placeholder="Search Invoice..." />
+    </div>
+  </div>
+
+  <!-- Cards List Container -->
+  <div class="cards-list px-3 mt-3">
+    @for (item of invoiceData; track $index) {
+    <div class="card_section">
+      <div class="card_main_container py-3 px-3">
+        <div class="text_section">
+          <p class="fw-bold text-dark" [routerLink]="['/indexpage/invoice-Bill', item.invoiceNo]">
+            {{ item.invoiceNo }}
+          </p>
+          <p class="date-time-delivery method_section">
+            {{ item.date }}
+          </p>
+        </div>
+
+        <div class="button_section">
+          <span class="badge" [ngClass]="getStatus(item).cls">
+            {{ getStatus(item).text }}
+          </span>
+        </div>
       </div>
-    </ion-header>
+      <hr>
+      <div class="card_main_container py-3 px-3">
+        <div class="text_section">
+          <p class="fw-bold company-name">{{ item.customer }}</p>
+          <p class="ph-num">{{ item.mobile }}</p>
+        </div>
+        <div class="button_section">
+          <button class="submit_button" [disabled]="getStatus(item).dis">
+            Pay Now
+          </button>
+        </div>
+      </div>
 
-    <ion-text>
-      <ion-row class="py-3 px-2 ">
-        <ion-text class="input_feild_section px-2 ">
-          <ion-text class="svg_content">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </ion-text>
-          <ion-text class="Input_content">
-            <ion-input type="text" class="form_input" id="exampleInputPassword1" placeholder="Search Invoice..."
-              style="border: none !important;" />
-          </ion-text>
-        </ion-text>
-        @for (item of invoiceData; track $index) {
-        <ion-card class="card_section mt-2 ">
-          <ion-card-content class="card_main_container py-3 px-2">
-            <ion-text class="text_section px-2">
-              <p class="fw-bold" [routerLink]="['/indexpage/invoice-Bill',item.invoiceNo]">
-                {{item.invoiceNo}}
-              </p>
-              <p class="Date_timeDelevery method_section">
-                {{item.date}}
-              </p>
-            </ion-text>
+      <div class="card_main_container2 py-2">
+        <div class="my_section">
+          <p class="method_section">Due Date</p>
+          <p class="fw-bold date-time-delivery">
+            {{ item.dueDate }}
+          </p>
+        </div>
 
-            <ion-text class="button_section">
-              <span class="badge" [ngClass]="getStatus(item).cls">
-                {{ getStatus(item).text }}
-              </span>
-            </ion-text>
-          </ion-card-content>
-          <hr>
-          <ion-text class="card_main_container d-flex justify-content-between align-items-baseline">
-            <ion-text class="text_section px-2">
-              <p class="fw-bold Company_name">{{item.customer}}</p>
-              <p class="ph-num">{{item.mobile}}</p>
-            </ion-text>
-            <ion-text class="button_section d-flex justify-content-end paying_button_section ">
-              <button class="submit_button" [disabled]="getStatus(item).dis">
-                Pay Now
-              </button>
-            </ion-text>
-          </ion-text>
+        <div class="my_section">
+          <p class="method_section">Due Amount</p>
+          <p class="fw-bold">
+            {{ item.total - item.paid }}
+          </p>
+        </div>
 
-          <ion-text class="card_main_container2 py-1">
-            <ion-text class="my_section">
-              <p class="method_section">Due Date</p>
-              <p class="fw-bold Date_timeDelevery">
-                {{item.dueDate}}
-              </p>
-            </ion-text>
-
-            <ion-text class="my_section">
-              <p class="method_section">Due Amount</p>
-              <p class="fw-bold">
-                {{item.total - item.paid}}
-              </p>
-            </ion-text>
-
-            <ion-text class="my_section">
-              <p class="method_section">Total Amount</p>
-              <p class="fw-bold">
-                {{item.total}}
-              </p>
-            </ion-text>
-          </ion-text>
-
-        </ion-card>
-        }
-      </ion-row>
-    </ion-text>
-  </ion-row>
+        <div class="my_section">
+          <p class="method_section">Total Amount</p>
+          <p class="fw-bold">
+            {{ item.total }}
+          </p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
 </ion-col>

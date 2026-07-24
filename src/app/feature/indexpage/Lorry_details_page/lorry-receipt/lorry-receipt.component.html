@@ -4,14 +4,14 @@
     <ion-text class="p-2 mt-5">
       <ion-text class="container-fluid_main bg-white">
         <ion-text class="top_Lorry_section bg-banner">
-          <ion-text class="Side_Section text-start" style="line-height: normal">
-            <img [src]="[lrData.company.logo]" class="mb-1" width="100px" alt="" />
+          <ion-text class="side-section text-start">
+            <img [src]="[lrData.company.logo]" class="company-logo" alt="" />
             <p>loory receipt</p>
             <p>CN No:<span>{{lrData?.cnNo}}</span></p>
             <p>GST No:<span>{{lrData?.gstNo}}</span></p>
           </ion-text>
-          <ion-text class="Side_Section text-end">
-            <p style="word-break: break-all">
+          <ion-text class="side-section text-end">
+            <p class="address-text">
               {{lrData?.company?.address}}
             </p>
             <p>Mob No: <span>{{lrData?.company?.mobile}}</span></p>
@@ -20,64 +20,64 @@
           </ion-text>
         </ion-text>
         <ion-text class="top_Lorry_section mt-2">
-          <ion-text class="Side_Section Information py-2">
+          <ion-text class="side-section information-section py-2">
             <p class="fw-bold">LR No: <span>{{lrData?.lrNo}}</span></p>
             <p class="fw-bold">Vehicle: <span>{{lrData?.vehicle?.type}}</span></p>
             <p class="fw-bold">Driver: <span>{{lrData?.driver?.name}}</span></p>
             <p class="fw-bold w-mx">License No: <span>{{lrData?.driver?.licenseNo}}</span></p>
           </ion-text>
-          <ion-text class="Side_Section Information py-2">
+          <ion-text class="side-section information-section py-2">
             <p class="fw-bold">Trip Date: <span>Trip/{{lrData?.tripDate}}</span></p>
             <p class="fw-bold">Vehicle No: <span>{{lrData?.vehicle?.number}}</span></p>
             <p class="fw-bold w-mx">Mobile No: <span>{{lrData?.driver?.mobile}}</span></p>
             <p class="fw-bold">RTO No: <span>{{lrData?.vehicle?.rtoNo}}</span></p>
           </ion-text>
         </ion-text>
-        <ion-text class="hr_lines" style="width: 95%">
+        <ion-text class="hr_lines">
           <hr />
         </ion-text>
         <p class="fw-bold text-center">Consignment Transaction Details</p>
-        <ion-text class="hr_lines" style="width: 95%">
+        <ion-text class="hr_lines">
           <hr />
         </ion-text>
         <ion-text class="Consignment_container px-2">
-          <p class="Consiger_headding fw-bold">Consignor</p>
-          <p class="Consiger_headding_sub">{{lrData?.consignor?.name}}</p>
-          <p class="Consiger_headding_Details">
+          <p class="consignor-heading fw-bold">Consignor</p>
+          <p class="consignor-heading-sub">{{lrData?.consignor?.name}}</p>
+          <p class="consignor-heading-details">
             {{lrData?.consignor?.address}},{{lrData?.consignor?.pincode}}
           </p>
-          <p class="Consiger_headding_Details">
+          <p class="consignor-heading-details">
             Mobile No: <span>{{lrData?.consignor?.mobile}}</span>
           </p>
-          <p class="Consiger_headding_Details">
+          <p class="consignor-heading-details">
             GSTIN No: <span>{{lrData?.consignor?.gstin}}</span>
           </p>
         </ion-text>
-        <ion-text class="hr_lines" style="width: 95%">
+        <ion-text class="hr_lines">
           <hr />
         </ion-text>
         <ion-text class="Consignment_container px-2">
-          <p class="Consiger_headding fw-bold">Consignee</p>
-          <p class="Consiger_headding_sub">
+          <p class="consignor-heading fw-bold">Consignee</p>
+          <p class="consignor-heading-sub">
             {{lrData?.consignee?.name}}
           </p>
-          <p class="Consiger_headding_Details">
+          <p class="consignor-heading-details">
             {{lrData?.consignee?.address}},{{lrData?.consignee?.pincode}}
           </p>
-          <p class="Consiger_headding_Details">
+          <p class="consignor-heading-details">
             Mobile No: <span>{{lrData?.consignee?.mobile}}</span>
           </p>
-          <p class="Consiger_headding_Details">
+          <p class="consignor-heading-details">
             GSTIN No: <span>{{lrData?.consignee?.gstin}}</span>
           </p>
         </ion-text>
-        <ion-text class="hr_lines" style="width: 95%">
+        <ion-text class="hr_lines">
           <hr />
         </ion-text>
         <ion-text class="top_Lorry_section mt-2">
 
           <!-- LEFT SIDE -->
-          <ion-text class="Side_Section Information py-2">
+          <ion-text class="side-section information-section py-2">
             <p class="fw-bold">Invoice No:
               <span>{{lrData?.invoice?.invoiceNo}}</span>
             </p>
@@ -106,7 +106,7 @@
               <span>{{lrData?.invoice?.containerNo || '-'}}</span>
             </p>
           </ion-text>
-          <ion-text class="Side_Section Information py-2">
+          <ion-text class="side-section information-section py-2">
             <p class="fw-bold">Date:
               <span>{{lrData?.service?.date}}</span>
             </p>
@@ -137,7 +137,7 @@
                 <th>sr.</th>
                 <th>Decription</th>
                 <th>UCM</th>
-                <th style="line-height: normal">Weight (Kg)</th>
+                <th>Weight (Kg)</th>
                 <th>Amount</th>
                 <th>Qty</th>
               </tr>
@@ -149,7 +149,7 @@
                 <td>{{item?.description}} <br>(17 LPT)</td>
                 <td>{{item?.unit}}</td>
                 <td>{{item?.weightKg}}</td>
-                <td style="line-height: normal">{{item?.amount}}</td>
+                <td>{{item?.amount}}</td>
                 <td>{{item?.quantity}}</td>
               </tr>
               }
@@ -158,13 +158,13 @@
 
           <!---------horizontaly lines----->
         </ion-text>
-        <ion-text class="hr_lines" style="width: 95%">
+        <ion-text class="hr_lines">
           <hr />
         </ion-text>
 
         <ion-text class="px-2">
           <p class="fw-bold">Term's & Conditions</p>
-          <ol style="line-height: 18px; margin: -7px 0px 6px -8px">
+          <ol class="terms-list">
             @for (item of lrData.terms; track $index) {
             <li>
               {{ item }}
@@ -175,11 +175,11 @@
 
 
         <!---------extra gap------------>
-        <ion-text class="Extra_gap"> </ion-text>
+        <ion-text class="extra-gap"> </ion-text>
         <ion-text class="top_Lorry_section py-3 px-2">
-          <ion-text class="fw-bold" style="font-size: 12px">{{lrData?.receiver?.name}},{{lrData?.receiver?.mobile}}
+          <ion-text class="fw-bold signature-text">{{lrData?.receiver?.name}},{{lrData?.receiver?.mobile}}
           </ion-text>
-          <ion-text class="fw-bold" style="font-size: 12px">{{lrData?.consignee?.name}}</ion-text>
+          <ion-text class="fw-bold signature-text">{{lrData?.consignee?.name}}</ion-text>
         </ion-text>
       </ion-text>
       <br />
@@ -189,20 +189,20 @@
 
   </ion-row>
 </ion-col>
-<ion-text class="Footer border">
+<ion-text class="footer-section border">
   <ion-text class="px-3">
-    <p class="share_btn btn" style="margin: 0px" (click)="openShareModal()">
+    <p class="share_btn btn" (click)="openShareModal()">
       <i class="fa fa-share-alt me-2" aria-hidden="true"></i><span class="fw-bold">Share</span>
     </p>
   </ion-text>
   <ion-text class="px-2 py-2">
     <button class="me-2 btn btn-primary" (click)="printPage()">Print</button>
-    <button class="Dwonload_button btn" (click)="downloadReceiptPdf()">Dwonload</button>
+    <button class="download-button btn" (click)="downloadReceiptPdf()">Dwonload</button>
   </ion-text>
 </ion-text>
 
 <!-- Download Modal -->
-<ion-card *ngIf="isPopupOpen" class="Popup p-5">
+<ion-card *ngIf="isPopupOpen" class="popup-modal p-5">
   <ion-text class="my_poup">
     <i class="fa fa-times" aria-hidden="true" (click)="openPopup()"></i>
 
@@ -214,14 +214,14 @@
 <div *ngIf="isPopupOpen" class="overlay" (click)="openPopup()"></div>
 
 <!-- Share Modal -->
-<ion-card *ngIf="isShareModalOpen" class="Popup p-4">
+<ion-card *ngIf="isShareModalOpen" class="popup-modal p-4">
   <div class="my_poup">
     <i class="fa fa-times" aria-hidden="true" (click)="openShareModal()"></i>
     
     <p class="share-icon-wrap"><i class="fa fa-envelope" aria-hidden="true"></i></p>
     <h6 class="fw-bold mb-3">Share Lorry Receipt</h6>
-    <p class="text-muted small mb-2 text-center" style="font-size: 11px;">Enter the email address where you want to send the Lorry Receipt PDF:</p>
-    <ion-input type="email" [(ngModel)]="shareEmail" placeholder="recipient@example.com" class="mb-3 w-100" style="background: #F3F7F8; border: 1px solid #E2E8F0; border-radius: 8px; height: 42px; --padding-start: 12px;"></ion-input>
+    <p class="text-muted small mb-2 text-center share-modal-hint">Enter the email address where you want to send the Lorry Receipt PDF:</p>
+    <ion-input type="email" [(ngModel)]="shareEmail" placeholder="recipient@example.com" class="mb-3 w-100 share-email-input"></ion-input>
     
     <div class="d-flex w-100 justify-content-end gap-2 mt-2">
       <button class="btn btn-secondary px-3 py-1 btn-sm" (click)="openShareModal()">Cancel</button>

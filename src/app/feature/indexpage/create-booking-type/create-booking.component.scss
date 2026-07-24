@@ -13,13 +13,13 @@
   justify-content: center;
   align-items: center;
 }
-.Input_content {
+.input-content {
   width: calc(100% - 10%);
   max-width: calc(100% - 10%);
   display: flex;
   justify-content: start;
   align-items: center;
-  margin: calc(5px * var(--px)) 0px;
+  margin: calc(5 * var(--px)) 0px;
 }
 .fa-map-marker {
   font-size: larger;
@@ -173,4 +173,12 @@ ion-datetime.datetime-size-fixed {
 .ion_item_date_modal::part(native) {
   padding: 0px;
   --inner-border-width: 0px !important;
+}
+
+.heading-top {
+  display: block;
+}
+
+.no-bg {
+  background: none !important;
 }

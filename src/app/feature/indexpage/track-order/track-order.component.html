@@ -8,7 +8,7 @@
   </ion-text>
   <ion-col>
 
-    <ion-text class="ion-padding Form_content container-fluid" style="margin-top: -20px">
+    <ion-text class="ion-padding form_content container-fluid">
       <form>
         <ion-text class="d-flex justify-content-center">
           <hr class="w-25" />
@@ -21,12 +21,12 @@
 
         <!---HIDE CONENT-->
         <ion-text class="_content_hide mt-5">
-          <ion-text class="Hide_content">
+          <ion-text class="hide-content">
             <ion-text>
-              <p class="Top_content">
+              <p class="top-content">
                 Distance<span class="fw-bold">{{ orderData?.distance || 'N/A' }}</span>
               </p>
-              <p class="Top_content">
+              <p class="top-content">
                 Expected Travel Time <span class="fw-bold">{{ orderData?.expectedTravelTime || 'N/A' }}</span>
               </p>
             </ion-text>
@@ -34,7 +34,7 @@
               <hr class="w-100" />
             </ion-text>
             <ion-text>
-              <ion-text class="Booked_overview">
+              <ion-text class="booked-overview">
                 <ion-text>
                   <p>Order No: <span class="fw-bold">{{ orderData?.orderId }}</span></p>
                 </ion-text>
@@ -46,7 +46,7 @@
                 </ion-text>
 
               </ion-text>
-              <ion-text class="Booked_overview">
+              <ion-text class="booked-overview">
                 <ion-text>
                   <p>Booking type: <span class="fw-bold">{{ orderData?.bookingType }}</span></p>
                 </ion-text>
@@ -75,7 +75,7 @@
               <ion-text class="svg_content">
                 <i class="fa fa-map-marker text-success" aria-hidden="true"></i>
               </ion-text>
-              <ion-text class="Input_content text-start">
+              <ion-text class="input-content text-start">
                 <p class="text-success fw-bold">Pickup: {{ orderData?.pickup?.date || 'N/A' }} at {{ orderData?.pickup?.time || 'N/A' }}</p>
               </ion-text>
             </ion-text>
@@ -83,7 +83,7 @@
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
                 {{ orderData?.pickup?.person || 'N/A' }}
-                <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
+                <span class="text_mob"><i class="fa fa-phone"
                     aria-hidden="true"></i>+91 {{ orderData?.pickup?.phone || 'N/A' }}
                 </span>
               </p>
@@ -94,7 +94,7 @@
               <ion-text class="svg_content">
                 <i class="fa fa-map-marker text-danger" aria-hidden="true"></i>
               </ion-text>
-              <ion-text class="Input_content text-start">
+              <ion-text class="input-content text-start">
                 <p class="text-danger fw-bold">Delivery: {{ orderData?.delivery?.date || orderData?.pickup?.date || 'N/A' }} at {{ orderData?.pickup?.time || 'N/A' }} (Estimated)</p>
               </ion-text>
             </ion-text>
@@ -102,7 +102,7 @@
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
                 {{ orderData?.delivery?.person || 'N/A' }}
-                <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
+                <span class="text_mob"><i class="fa fa-phone"
                     aria-hidden="true"></i>+91 {{ orderData?.delivery?.phone || 'N/A' }}
                 </span>
               </p>
@@ -117,67 +117,67 @@
         </ion-text>
         <ion-text class="tracking_system">
           <ion-text class="first_tracking">
-            <ion-text class="tracKing_time1">
+            <ion-text class="tracking-time-1">
               <h6 class="fw-bold">11:00 AM</h6>
               <p><span>11-05-2024</span></p>
 
             </ion-text>
-            <ion-text class="Track_svg">
+            <ion-text class="track-svg">
               <i class="fa fa-circle-o" aria-hidden="true"></i>
               <span></span>
             </ion-text>
-            <ion-text class="tracKing_time">
-              <h6 class="fw-bold" style="font-size: 13px;">Activity: <span>Vehicle Gate In</span></h6>
-              <p style="font-size: 13px;">Location: <span>Bhiwandi 423423</span></p>
+            <ion-text class="tracking-time">
+              <h6 class="fw-bold">Activity: <span>Vehicle Gate In</span></h6>
+              <p>Location: <span>Bhiwandi 423423</span></p>
             </ion-text>
           </ion-text>
           <ion-text class="first_tracking">
-            <ion-text class="tracKing_time1">
+            <ion-text class="tracking-time-1">
               <h6 class="fw-bold">11:00 AM</h6>
               <p><span>11-05-2024</span></p>
 
             </ion-text>
-            <ion-text class="Track_svg">
+            <ion-text class="track-svg">
               <i class="fa fa-circle" aria-hidden="true"></i>
 
               <span class="solid"></span>
             </ion-text>
-            <ion-text class="tracKing_time">
-              <h6 class="fw-bold" style="font-size: 13px;">Activity: <span class="text-success">Vehicle Gate Out</span>
+            <ion-text class="tracking-time">
+              <h6 class="fw-bold">Activity: <span class="text-success">Vehicle Gate Out</span>
               </h6>
-              <p style="font-size: 13px;">Location: <span>Surat 423423</span></p>
+              <p>Location: <span>Surat 423423</span></p>
             </ion-text>
           </ion-text>
           <ion-text class="first_tracking">
-            <ion-text class="tracKing_time1">
+            <ion-text class="tracking-time-1">
               <h6 class="fw-bold">11:00 AM</h6>
               <p><span>11-05-2024</span></p>
 
             </ion-text>
-            <ion-text class="Track_svg">
+            <ion-text class="track-svg">
               <i class="fa fa-circle" aria-hidden="true"></i>
 
               <span class="solid"></span>
             </ion-text>
-            <ion-text class="tracKing_time">
-              <h6 class="fw-bold" style="font-size: 13px;">Activity: <span class="text-success">Vehicle Gate In</span>
+            <ion-text class="tracking-time">
+              <h6 class="fw-bold">Activity: <span class="text-success">Vehicle Gate In</span>
               </h6>
-              <p style="font-size: 13px;">Location: <span>Ahmedabad 423423</span></p>
+              <p>Location: <span>Ahmedabad 423423</span></p>
             </ion-text>
           </ion-text>
           <ion-text class="first_tracking">
-            <ion-text class="tracKing_time1">
+            <ion-text class="tracking-time-1">
               <h6 class="fw-bold">11:00 AM</h6>
               <p><span>11-05-2024</span></p>
 
             </ion-text>
-            <ion-text class="Track_svg">
+            <ion-text class="track-svg">
               <i class="fa fa-circle" aria-hidden="true"></i>
 
             </ion-text>
-            <ion-text class="tracKing_time">
-              <h6 class="fw-bold" style="font-size: 13px;">Activity: <span class="text-success">Pickup</span></h6>
-              <p style="font-size: 13px;">Location: <span>Bhiwandi 423423</span></p>
+            <ion-text class="tracking-time">
+              <h6 class="fw-bold">Activity: <span class="text-success">Pickup</span></h6>
+              <p>Location: <span>Bhiwandi 423423</span></p>
             </ion-text>
           </ion-text>
 

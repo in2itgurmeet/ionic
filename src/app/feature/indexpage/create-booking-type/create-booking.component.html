@@ -1,7 +1,7 @@
 <ion-row>
-  <ion-col class="row g-0" style="background: none !important;">
+  <ion-col class="row g-0 no-bg">
 
-    <ion-text class="Heading_top fw-bold mt-3">
+    <ion-text class="heading-top fw-bold mt-3">
       @if(bookingType == 'FTL'){
       Order Booking type: Partial truckload (FTL)
       }@else if (bookingType == 'PTL') {
@@ -16,7 +16,7 @@
           <ion-text class="svg_content">
             <i class="fa fa-calendar" aria-hidden="true"></i>
           </ion-text>
-          <ion-col class="Input_content p-0">
+          <ion-col class="input-content p-0">
             <ion-item (click)="openPicker()" class="ion_item_date_modal">
               {{ selectedDate || 'Select Date & Time' }}
             </ion-item>
@@ -27,7 +27,7 @@
             <ion-text class="svg_content">
               <i class="fa fa-map-marker text-success"></i>
             </ion-text>
-            <ion-text class="Input_content">
+            <ion-text class="input-content">
               <ion-input type="text" class="form_input" [value]="selectedPickup?.properties?.formatted"
                 formControlName="pickup" (ionInput)="searchPickup($event)"
                 placeholder="Where should we pick up your items?"></ion-input>
@@ -48,7 +48,7 @@
             <ion-text class="svg_content">
               <i class="fa fa-map-marker text-danger"></i>
             </ion-text>
-            <ion-text class="Input_content">
+            <ion-text class="input-content">
               <ion-input type="text" class="form_input" [value]="selectedDelivery?.properties?.formatted"
                 formControlName="delivery" (ionInput)="searchDelivery($event)"
                 placeholder="Where should we delivery your items?"></ion-input>

@@ -25,7 +25,7 @@
 }
 
 .tab-bar a.active {
-  color: orange;
+  color: var(--ion-color-primary, #13b4c4);
   text-decoration: underline;
   text-decoration-thickness: calc(2 * var(--px));
   text-underline-offset: calc(5 * var(--px));
@@ -44,14 +44,15 @@
   background: transparent;
 }
 
-.Container_Top {
+.container-top {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.Serch_continer {
+.search-container {
   width: calc(100% - 30%);
   max-width: calc(100% - 30%);
   display: flex;
@@ -61,23 +62,25 @@
   justify-content: space-between;
   align-items: center;
   margin: 0px !important;
-  height: max-content;
+  height: calc(45 * var(--px));
 }
 
-.Button_section {
+.button-section {
   width: calc(100% - 70%);
   max-width: calc(100% - 70%);
   display: flex;
   justify-content: flex-end;
+  padding-right: 0rem !important;
 }
 
-.Button_section button {
-  background: #ff6347;
-  padding: calc(7 * var(--px));
-  border-radius: calc(5 * var(--px));
-  color: white;
-  height: fit-content;
-  margin: 0 auto;
+.button-section ion-button {
+  --background: var(--ion-color-primary, #13b4c4);
+  --background-activated: var(--ion-color-primary-shade, #119fad);
+  --background-focused: var(--ion-color-primary-shade, #119fad);
+  --background-hover: var(--ion-color-primary-tint, #2bcbe6);
+  --color: white;
+  --border-radius: 6px;
+  height: 40px;
 }
 .submit_button {
   font-size: smaller;
@@ -85,7 +88,7 @@
 .icon_svg_section {
   width: calc(100% - 90%);
   max-width: calc(100% - 90%);
-  padding:calc(0 * var(--px)) calc(20 * var(--px));
+  padding:calc(0 * var(--px)) calc(6 * var(--px));
   overflow: hidden !important;
 }
 
@@ -103,7 +106,7 @@
   gap: calc(5 * var(--px));
 }
 
-.Card_section_top {
+.card-section-top {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -111,13 +114,13 @@
   align-items: center;
 }
 
-.Card_section_top ion-text {
+.card-section-top ion-text {
   width: calc(96% / 2);
   max-width: calc(96% / 2);
   display: flex;
 }
 
-.Headding_top {
+.heading-top {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -125,7 +128,7 @@
   line-height: calc(10 * var(--px));
 }
 
-.Pickupx_address {
+.pickup-delivery-address {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -137,7 +140,7 @@
   pointer-events: none;
 }
 
-.Pickup_section {
+.pickup-section {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -151,7 +154,7 @@
   display: block;
 }
 
-.Pickup_section ion-text {
+.pickup-section ion-text {
   width: calc(98% / 2);
   max-width: calc(98% / 2);
   display: flex;
@@ -179,7 +182,7 @@ ion-text p {
   font-size: calc(12 * var(--px));
 }
 
-.Weight_messure_section {
+.weight-measure-section {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -188,7 +191,7 @@ ion-text p {
   line-height: calc(20 * var(--px));
 }
 
-.Weight_Mes {
+.weight-measure-details {
   font-size: calc(12 * var(--px));
   font-weight: bold;
 }
@@ -247,7 +250,7 @@ ion-card {
 }
 
 .list ion-text:hover {
-  color: #ff6347;
+  color: var(--ion-color-primary, #13b4c4);
 }
 
 .custom-popover {
@@ -257,4 +260,9 @@ ion-card {
 
 .row {
   --bs-gutter-x: 0rem !important;
+  background: rgb(245, 245, 245) !important;
+}
+
+.trip-no {
+  width: max-content;
 }

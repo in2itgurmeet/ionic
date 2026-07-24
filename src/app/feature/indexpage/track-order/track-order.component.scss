@@ -1,148 +1,160 @@
-.Hide_content {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+.hide-content {
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--px));
+}
+.hide-content ion-text {
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  gap: calc(10 * var(--px));
+}
+.hide-content ion-text .top-content {
+  border: calc(1 * var(--px)) solid rgb(255, 142, 101);
+  border-radius: calc(5 * var(--px));
+  padding: calc(3 * var(--px));
+  background-color: rgb(248, 213, 200);
+  font-size: smaller;
+}
+.input_feild_section {
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  margin: calc(0 * var(--px)) calc(0 * var(--px)) calc(-15 * var(--px)) calc(-16 * var(--px));
+  font-size: smaller;
+}
+.input_feild_section2 {
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  flex-direction: column;
+  font-size: smaller;
+  line-height: calc(1 * var(--px));
+  line-height: normal;
+}
+.input_feild_section2 p {
+  margin: calc(0 * var(--px)) calc(0 * var(--px)) calc(5 * var(--px)) calc(25 * var(--px));
+}
+.booked-overview {
+  display: flex;
+  flex-direction: column;
+  gap: calc(0 * var(--px));
+  line-height: calc(0 * var(--px));
+}
+.booked-overview ion-text p span {
+  font-size: small;
+  color: black;
+}
+.booked-overview ion-text p {
+  font-size: small;
+  color: rgb(202, 202, 202);
+}
+.svg_content {
+  width: calc(100% - 90%);
+  max-width: calc(100% - 90%);
+  display: flex;
+  justify-content: center;
+  margin: calc(10 * var(--px)) calc(0 * var(--px));
+  color: rgb(25, 123, 236);
+}
+.input-content {
+  width: calc(100% - 10%);
+  max-width: calc(100% - 10%);
+  color: rgb(25, 123, 236);
+  display: flex;
+  align-items: center;
+  margin: calc(7 * var(--px)) calc(0 * var(--px));
+}
+
+.text_mob {
+  color: #ff8670;
+  font-weight: 100 !important;
+}
+.tracking_system {
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  flex-direction: column;
+  gap: calc(10 * var(--px));
+}
+.first_tracking {
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  justify-content: space-around;
+  gap: calc(10 * var(--px));
+}
+.tracking-time {
+  width: calc(100% - 40%);
+  max-width: calc(100% - 40%);
+  display: flex;
+  flex-direction: column;
+
+  h6, p {
+    font-size: var(--fs-13) !important;
   }
-  .Hide_content ion-text {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    gap: 10px;
-  }
-  .Hide_content ion-text .Top_content {
-    border: 1px solid rgb(255, 142, 101);
-    border-radius: 5px;
-    padding: 3px;
-    background-color: rgb(248, 213, 200);
-    font-size: smaller;
-  }
-  .input_feild_section {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    margin: 0px 0px -15px -16px;
-    font-size: smaller;
-  }
-  .input_feild_section2 {
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    flex-direction: column;
-    font-size: smaller;
-    line-height: 1px;
-    line-height: normal;
-  }.input_feild_section2 p{
-    margin: 0px 0px 5px 25px;
-  }
-  .Booked_overview{
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    line-height: 0px;
-  }
-  .Booked_overview ion-text p span{
-    font-size: small;
-    color: black;
-  }
-  .Booked_overview ion-text p {
-    font-size: small;
-    color: rgb(202, 202, 202);
-  }
-  .svg_content {
-    width: calc(100% - 90%);
-    max-width: calc(100% - 90%);
-    display: flex;
-    justify-content: center;
-    margin: 10px 0px;
-    color: rgb(25, 123, 236);
-  }
-  .Input_content {
-    width: calc(100% - 10%);
-    max-width: calc(100% - 10%);
-    color: rgb(25, 123, 236);
-    display: flex;
-    align-items: center;
-    margin: 7px 0px;
-  }
- 
-  .text_mob {
-    color: #ff8670;
-  }
-  .tracking_system{
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .first_tracking{
-    width: calc(100%);
-    max-width: calc(100%);
-    display: flex;
-   justify-content: space-around;
-    gap: 10px;
-  }
-  .tracKing_time{
-    width: calc(100% - 40%);
-    max-width: calc( 100% - 40%);
-    display: flex;
-    flex-direction: column;
-  }
-  .tracKing_time1{
-    width: calc(100% - 70%);
-    max-width: calc( 100% - 70%);
-    display: flex;
-    flex-direction: column;
-  }
-  .Track_svg{
+}
+.tracking-time-1 {
+  width: calc(100% - 70%);
+  max-width: calc(100% - 70%);
+  display: flex;
+  flex-direction: column;
+}
+.track-svg {
   width: calc(100% - 80%);
-  max-width: calc( 100% - 80%);
+  max-width: calc(100% - 80%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  }
-  .tracKing_time1 h6{
-    font-size: 14px;
-    
-  }
-  .tracKing_time1 p{
-    font-size: 12px;
-  }
-  
-  p span{
-    color: grey;
-  }
-  h6 span{
-    color: gray;
-    font-weight: 500;
-  }
-  .fa-circle-o , .fa-circle{
-    color: green;
-  }
-  .Track_svg span{
-    border: 1px dashed green;
-    background: white;
-    height: 50px;
-    width: fit-content;
-    position: relative;
-    left: 0px;
-    top: 3px;
-    bottom: 2px;
-  }
-  .solid{
-    border: 1px solid green !important;
-    background: white;
-    height: 50px;
-    width: fit-content;
-    position: relative;
-    left: 0px;
-    top: 3px;
-    bottom: 2px
-  }
-  .text-success{
-    color: rgb(0, 211, 0);
-  }
-  
+}
+.tracking-time-1 h6 {
+  font-size: var(--fs-14);
+}
+.tracking-time-1 p {
+  font-size: var(--fs-12);
+}
+
+p span {
+  color: grey;
+}
+h6 span {
+  color: gray;
+  font-weight: 500;
+}
+.fa-circle-o, .fa-circle {
+  color: green;
+}
+.track-svg span {
+  border: calc(1 * var(--px)) dashed green;
+  background: white;
+  height: calc(50 * var(--px));
+  width: fit-content;
+  position: relative;
+  left: calc(0 * var(--px));
+  top: calc(3 * var(--px));
+  bottom: calc(2 * var(--px));
+}
+.solid {
+  border: calc(1 * var(--px)) solid green !important;
+  background: white;
+  height: calc(50 * var(--px));
+  width: fit-content;
+  position: relative;
+  left: calc(0 * var(--px));
+  top: calc(3 * var(--px));
+  bottom: calc(2 * var(--px));
+}
+.text-success {
+  color: rgb(0, 211, 0);
+}
+
+.form_content {
+  margin-top: calc(-20 * var(--px));
+}
+
+.mt_1 {
+  margin: calc(-16 * var(--px)) calc(0 * var(--px)) calc(0 * var(--px)) calc(40 * var(--px));
+}

@@ -4,11 +4,11 @@
         <ion-text class="p-2 mt-2">
             <ion-text class="container-fluid_main bg-white">
                 <ion-text class="top_Lorry_section bg-banner">
-                    <ion-text class="Side_Section text-start" style=" display: flex;align-items: baseline;">
-                        <img src="../../../../assets/icon/logo.jpg" class="mb-1 mt-3 ms-3" width="100px" alt="" />
+                    <ion-text class="side-section text-start flex-baseline">
+                        <img src="../../../../assets/icon/logo.jpg" class="company-logo" alt="" />
 
                     </ion-text>
-                    <ion-text class="Side_Section  py-3">
+                    <ion-text class="side-section py-3">
                         <p class="fw-bold">{{invoiceData?.company?.name}}</p>
                         <p class="fw-bold">{{invoiceData?.company?.email}}</p>
                         <p class="fw-bold w-mx">{{invoiceData?.company?.address}}</p>
@@ -17,15 +17,15 @@
                 </ion-text>
                 <ion-text class="p-2">
 
-                    <p class="fw-bold mt-4 ms-2" style="font-size: small;">Invoice Deatils</p>
+                    <p class="fw-bold mt-4 ms-2 small-text">Invoice Deatils</p>
                     <ion-text class="top_Lorry_section mt-2">
-                        <ion-text class="Side_Section Information py-2">
+                        <ion-text class="side-section information py-2">
                             <p class="fw-bold">Invoice No</p>
                             <p class="fw-bold">Date </p>
                             <p class="fw-bold">Due date </p>
                         </ion-text>
                         <!-- Repeated Information Section -->
-                        <ion-text class="Side_Section  py-2">
+                        <ion-text class="side-section py-2">
                             <p class="fw-bold">{{invoiceData?.invoiceNo}}</p>
                             <p class="fw-bold">{{invoiceData?.date}}</p>
                             <p class="fw-bold w-mx">{{invoiceData?.dueDate}}</p>
@@ -34,23 +34,23 @@
                 </ion-text>
 
                 <!-- Horizontal Line -->
-                <span class="hr_lines" style="width: 95%">
+                <span class="hr_lines">
                     <hr />
                 </span>
 
                 <!---------invoice Information----------->
                 <ion-text class="p-2">
 
-                    <p class="fw-bold mt-2 ms-2" style="font-size: small;">Invoice For</p>
+                    <p class="fw-bold mt-2 ms-2 small-text">Invoice For</p>
                     <ion-text class="top_Lorry_section mt-2">
-                        <ion-text class="Side_Section Information py-2">
+                        <ion-text class="side-section information py-2">
                             <p class="fw-bold">Coustmer Name</p>
                             <p class="fw-bold">Mobile No </p>
                             <p class="fw-bold">Email </p>
                             <p class="fw-bold">Address </p>
                         </ion-text>
                         <!-- Repeated Information Section -->
-                        <ion-text class="Side_Section  py-2">
+                        <ion-text class="side-section py-2">
                             <p class="fw-bold">{{invoiceData?.customer?.name}}</p>
                             <p class="fw-bold w-mx">{{invoiceData?.customer?.mobile}}</p>
                             <p class="fw-bold">{{invoiceData?.customer?.email}}</p>
@@ -58,47 +58,47 @@
                         </ion-text>
                     </ion-text>
                 </ion-text>
-                <span class="hr_lines" style="width: 95%">
+                <span class="hr_lines">
                     <hr />
                 </span>
                 <ion-text class="p-2">
-                    <p class="fw-bold mt-2 ms-2" style="font-size: small;">Service Fees</p>
+                    <p class="fw-bold mt-2 ms-2 small-text">Service Fees</p>
                     <ion-card>
                         <ion-text class="top_Lorry_section mt-2">
-                            <ion-text class="Side_Section Information py-2">
+                            <ion-text class="side-section information py-2">
                                 <p class="fw-bold">Tranpotation Charge </p>
                                 <p class="fw-bold">Loding & Unloading </p>
                             </ion-text>
-                            <ion-text class="Side_Section  py-2">
+                            <ion-text class="side-section py-2">
                                 <p class="fw-bold">{{invoiceData?.charges?.transportation | currency : 'INR'}}</p>
                                 <p class="fw-bold w-mx">{{invoiceData?.charges?.loadingUnloading | currency : 'INR'}}</p>
                             </ion-text>
                         </ion-text>
-                        <ion-text class="hr_lines" style="width: 95%">
+                        <ion-text class="hr_lines">
                             <hr />
                         </ion-text>
                         <ion-text class="top_Lorry_section">
-                            <ion-text class="Side_Section Information ">
+                            <ion-text class="side-section information ">
                                 <p class="fw-bold">Gross Total </p>
                                 <p class="fw-bold">SGST({{invoiceData?.tax?.sgstPercent | percent}}) </p>
                                 <p class="fw-bold">CGST({{invoiceData?.tax?.cgstPercent | percent}}) </p>
                             </ion-text>
-                            <ion-text class="Side_Section  ">
+                            <ion-text class="side-section ">
                                 <p class="fw-bold">{{invoiceData?.total?.gross | currency : 'INR'}}</p>
                                 <p class="fw-bold w-mx">{{invoiceData?.tax?.sgstAmount | currency : 'INR'}}</p>
                                 <p class="fw-bold">{{invoiceData?.tax?.cgstAmount | currency : 'INR'}}</p>
                             </ion-text>
                         </ion-text>
-                        <span class="hr_lines" style="width: 95%">
+                        <span class="hr_lines">
                             <hr />
                         </span>
                         <ion-text class="top_Lorry_section">
-                            <ion-text class="Side_Section Information ">
+                            <ion-text class="side-section information ">
                                 <p class="fw-bold text-dark">New total </p>
                                 <p class="fw-bold text-success">Paid </p>
                                 <p class="fw-bold text-danger">Outstanding </p>
                             </ion-text>
-                            <ion-text class="Side_Section  ">
+                            <ion-text class="side-section ">
                                 <p class="fw-bold text-dark">{{invoiceData?.total?.final | currency : 'INR'}}</p>
                                 <p class="fw-bold w-mx text-success">{{invoiceData?.total?.paid | currency : 'INR'}}</p>
                                 <p class="fw-bold text-danger">{{invoiceData?.total?.outstanding | currency : 'INR'}} </p>
@@ -112,19 +112,19 @@
         </ion-text>
         <ion-footer class="footer border">
             <ion-text class="px-3">
-                <p class="share_btn btn" style="margin: 0px">
+                <p class="share_btn btn">
                     <i class="fa fa-share-alt me-2" aria-hidden="true"></i><span class="fw-bold">Share</span>
                 </p>
             </ion-text>
             <ion-text class="px-2 py-2">
                 <button class="me-2 btn btn-primary" (click)="printPage()">Print</button>
-                <button class="Dwonload_button btn" (click)="openPopup() ">Dwonload</button>
+                <button class="download-button btn" (click)="openPopup() ">Dwonload</button>
             </ion-text>
         </ion-footer>
     </ion-row>
 </ion-col>
 @if(isPopupOpen){
-<ion-card class="Popup p-5">
+<ion-card class="popup-modal p-5">
     <ion-text class="my_poup">
         <i class="fa fa-times" aria-hidden="true" (click)="openPopup()"></i>
         <p><i class="fa fa-check" aria-hidden="true"></i></p>

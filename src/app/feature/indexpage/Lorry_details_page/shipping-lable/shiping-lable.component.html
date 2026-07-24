@@ -14,46 +14,44 @@
           </ion-text>
         </ion-text>
         <ion-text class="top_content mt-3 ">
-          <ion-text class="Origin px-2">
-            <h6 class="" style="margin: 0px;">ORIGIN</h6>
-            <p style="font-weight: 400 !important; line-height: normal;">{{item.origin.address}}</p>
+          <ion-text class="origin-section px-2">
+            <h6 class="">ORIGIN</h6>
+            <p>{{item.origin.address}}</p>
           </ion-text>
-          <ion-text class="Ship_ment px-2">
-            <h6 style="margin: 0px;">SHIP TO</h6>
-            <p style="font-weight: 400 !important; line-height: normal;">{{item.destination.address}}</p>
+          <ion-text class="ship-to-section px-2">
+            <h6>SHIP TO</h6>
+            <p>{{item.destination.address}}</p>
           </ion-text>
         </ion-text>
 
         <ion-text class="top_content2 ">
-          <ion-text class="Origin2 ">
-            <h6 class="" style="margin: 0px;">DATE</h6>
-            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px; width: max-content;">
-              {{item.shipment.date}}</p>
+          <ion-text class="origin-details ">
+            <h6 class="">DATE</h6>
+            <p class="date-text">{{item.shipment.date}}</p>
           </ion-text>
-          <ion-text class="Origin2 px-2">
-            <h6 class="" style="margin: 0px;">WEIGHT</h6>
-            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">{{item.shipment.weight}}</p>
+          <ion-text class="origin-details px-2">
+            <h6 class="">WEIGHT</h6>
+            <p>{{item.shipment.weight}}</p>
           </ion-text>
-          <ion-text class="Ship_ment2 px-2">
-            <h6 style="margin: 0px;">PACKAGES</h6>
-            <p style="font-weight: 400 !important; line-height: normal; font-size: 12px;">
-              {{item.shipment.currentPackage}}/{{item.shipment.totalPackages}}</p>
+          <ion-text class="ship-to-details px-2">
+            <h6>PACKAGES</h6>
+            <p>{{item.shipment.currentPackage}}/{{item.shipment.totalPackages}}</p>
           </ion-text>
         </ion-text>
-        <ion-item class="Invoice_no">
+        <ion-item class="invoice-number">
           <ion-text>
             <h6>INVOICE NO</h6>
-            <p style="font-weight: 400 !important; line-height: normal; margin: 0px;">
+            <p>
               {{item.invoice.invoiceNo}}
             </p>
           </ion-text>
         </ion-item>
-        <ion-item class="Invoice_no">
+        <ion-item class="invoice-number">
           <ion-text>
             <h6>RETURN TO ORIGIN</h6>
           </ion-text>
         </ion-item>
-        <ion-item class="Invoice_no">
+        <ion-item class="invoice-number">
           <ion-text>
             <h6>SHIPPED BY:<span>{{item.company.name}}</span> </h6>
           </ion-text>
@@ -61,7 +59,7 @@
         <ion-item lines="none">
           <ion-text>
             <img [src]="[item.barcode.imageUrl]" alt="">
-            <p class="text-center" style="font-weight: 400 !important; line-height: normal; margin: 0px;">{{item.barcode.value}}</p>
+            <p class="text-center">{{item.barcode.value}}</p>
           </ion-text>
         </ion-item>
       </ion-col>

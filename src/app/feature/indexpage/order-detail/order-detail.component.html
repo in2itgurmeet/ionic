@@ -8,7 +8,7 @@
       </iframe>
     </ion-text>
 
-    <ion-col class="ion-padding form_content container-fluid" style="margin-top: -20px">
+    <ion-col class="ion-padding form_content container-fluid">
       <form>
         <ion-text class="d-flex justify-content-center">
           <hr class="w-25" />
@@ -25,12 +25,12 @@
         </ion-text>
         @if(isSecondAccordionOpen){
         <ion-row class="_content_hide mt-2 fade-slow" [ngClass]="{'show': isSecondAccordionOpen}">
-          <ion-text class="Hide_content">
+          <ion-text class="hide-content">
             <ion-text>
-              <p class="Top_content">
+              <p class="top-content">
                 Distance<span class="fw-bold">{{ orderData?.distance || 'N/A' }}</span>
               </p>
-              <p class="Top_content">
+              <p class="top-content">
                 Expected Travel Time <span class="fw-bold">{{ orderData?.expectedTravelTime || 'N/A' }}</span>
               </p>
             </ion-text>
@@ -56,7 +56,7 @@
               <ion-text class="svg_content">
                 <i class="fa fa-user-circle-o" aria-hidden="true"></i>
               </ion-text>
-              <ion-text class="Input_content text-start">
+              <ion-text class="input-content text-start">
                 <p class="">Customer</p>
               </ion-text>
             </ion-text>
@@ -64,7 +64,7 @@
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
                 {{ orderData?.consignorCompany || 'STL Group' }}
-                <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
+                <span class="text_mob"><i class="fa fa-phone"
                     aria-hidden="true"></i>+91 {{ orderData?.pickup?.phone || '9999999999' }}
                 </span>
               </p>
@@ -82,7 +82,7 @@
               <ion-text class="svg_content">
                 <i class="fa fa-map-marker text-success" aria-hidden="true"></i>
               </ion-text>
-              <ion-text class="Input_content text-start">
+              <ion-text class="input-content text-start">
                 <p class="text-success">Pickup: {{ orderData?.pickup?.date || 'N/A' }} at {{ orderData?.pickup?.time || 'N/A' }}</p>
               </ion-text>
             </ion-text>
@@ -90,7 +90,7 @@
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
                 {{ orderData?.pickup?.person || 'N/A' }}
-                <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
+                <span class="text_mob"><i class="fa fa-phone"
                     aria-hidden="true"></i>+91 {{ orderData?.pickup?.phone || 'N/A' }}
                 </span>
               </p>
@@ -101,7 +101,7 @@
               <ion-text class="svg_content">
                 <i class="fa fa-map-marker text-danger" aria-hidden="true"></i>
               </ion-text>
-              <ion-text class="Input_content text-start">
+              <ion-text class="input-content text-start">
                 <p class="text-danger">Delivery: {{ orderData?.delivery?.date || orderData?.pickup?.date || 'N/A' }} (Estimated)</p>
               </ion-text>
             </ion-text>
@@ -109,7 +109,7 @@
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
                 {{ orderData?.delivery?.person || 'N/A' }}
-                <span class="text_mob" style="font-weight: 100 !important"><i class="fa fa-phone"
+                <span class="text_mob"><i class="fa fa-phone"
                     aria-hidden="true"></i>+91 {{ orderData?.delivery?.phone || 'N/A' }}
                 </span>
               </p>
@@ -140,12 +140,12 @@
                       <span class="p-0">{{ orderData?.vehicle?.capacity }}</span>
                     </ion-text>
                     <ion-text>
-                      <p style="font-size: small">{{ orderData?.vehicle?.dimension }}</p>
+                      <p>{{ orderData?.vehicle?.dimension }}</p>
                     </ion-text>
                   </ion-text>
                 </ion-text>
               </ion-text>
-              <ion-text class="vichle_card" style="height: 60px">
+              <ion-text class="vichle_card">
                 <ion-text class="px-2">
                   <p>
                     <i class="fa fa-pie-chart" aria-hidden="true"></i>
@@ -169,11 +169,11 @@
               <h6 class="fw-bold">Cargo Details</h6>
             </ion-text>
 
-            <ion-text class="Card_section2">
+            <ion-text class="card-section-2">
               <ion-text class="svg_content2 ">
                 <img src="../../../assets/icon/BoxImage_OrderDeatils.png" class="img-fluid" alt="">
               </ion-text>
-              <ion-text class="Input_content2 ms-3">
+              <ion-text class="input-content-2 ms-3">
                 <h6 class="text-dark fw-bold">{{ orderData?.cargo?.goodsDescription }}</h6>
                 <p class="font-size2">Qty: {{ orderData?.cargo?.quantity }} | Weight:{{ orderData?.cargo?.weight }}Kg</p>
                 <p class="font-size2">{{ orderData?.cargo?.dimension }}</p>
@@ -189,7 +189,7 @@
           <ion-text>
             <h6 class="fw-bold">Service Fee</h6>
           </ion-text>
-          <ion-card class="Card_section p-2">
+          <ion-card class="card-section p-2">
             <ion-text class="heading_cargo">
               <ion-text>
                 <p class="fw-bold">Transportation Charge</p>
@@ -202,7 +202,7 @@
               </ion-text>
               <ion-text>{{ loadingFee }}</ion-text>
             </ion-text>
-            <ion-text class="d-flex justify-content-center px-1 g-0 m-0" style="margin: -16px 0px 0px 0px">
+            <ion-text class="d-flex justify-content-center px-1 g-0 m-0 negative-margin-top">
               <hr class="w-100" />
             </ion-text>
             <ion-text class="heading_cargo">
@@ -223,7 +223,7 @@
               </ion-text>
               <ion-text>{{ cgst }}</ion-text>
             </ion-text>
-            <ion-text class="d-flex justify-content-center px-1 g-0" style="margin: -16px 0px 0px 0px">
+            <ion-text class="d-flex justify-content-center px-1 g-0 negative-margin-top">
               <hr class="w-100" />
             </ion-text>
             <ion-text class="heading_cargo">
@@ -241,7 +241,7 @@
             <h6 class="fw-bold">Payment Method</h6>
           </ion-text>
 
-          <ion-text class="Payment_action">
+          <ion-text class="payment-action">
             <ion-text></ion-text>
             <ion-text></ion-text>
             <ion-text></ion-text>
@@ -249,9 +249,9 @@
             <ion-text></ion-text>
           </ion-text>
         </ion-text>
-        <ion-text class="Form_input_box">
+        <ion-text class="form_input_box">
           <ion-label class="form-label">UPI ID</ion-label>
-          <ion-input style="z-index: 1;" type="email" class="form_input" aria-describedby="emailHelp" [formControl]="upiId"
+          <ion-input type="email" class="form_input" aria-describedby="emailHelp" [formControl]="upiId"
             placeholder="Enter Your UPI ID" />
 
         </ion-text>
@@ -263,7 +263,7 @@
   </ion-col>
 </ion-row>
 
-<ion-card *ngIf="isPopupOpen" class="Popup p-5">
+<ion-card *ngIf="isPopupOpen" class="popup-modal p-5">
   <ion-text class="my_poup">
     <i class="fa fa-times" aria-hidden="true" (click)="openPopup()"></i>
 

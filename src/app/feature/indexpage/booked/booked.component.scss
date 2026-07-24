@@ -1,4 +1,4 @@
-.Hide_content {
+.hide-content {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -6,14 +6,14 @@
   gap: calc(5 * var(--px));
 }
 
-.Hide_content ion-text {
+.hide-content ion-text {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   gap: calc(10 * var(--px));
 }
 
-.Hide_content ion-text .Top_content {
+.hide-content ion-text .top-content {
   border: calc(1 * var(--px)) solid rgb(255, 142, 101);
   border-radius: calc(5 * var(--px));
   padding: calc(3 * var(--px));
@@ -25,7 +25,6 @@
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
-
   font-size: smaller;
 }
 
@@ -38,19 +37,19 @@
   line-height: calc(1 * var(--px));
 }
 
-.Booked_overview {
+.booked-overview {
   display: flex;
   flex-direction: column;
   gap: calc(0 * var(--px));
   line-height: calc(0 * var(--px));
 }
 
-.Booked_overview ion-text p span {
+.booked-overview ion-text p span {
   font-size: smaller;
   color: rgb(78, 78, 78);
 }
 
-.Booked_overview ion-text p {
+.booked-overview ion-text p {
   font-size: small;
   color: rgb(204, 199, 199);
 }
@@ -64,7 +63,7 @@
   color: rgb(25, 123, 236);
 }
 
-.Input_content {
+.input-content {
   width: calc(100% - 10%);
   max-width: calc(100% - 10%);
   color: rgb(25, 123, 236);
@@ -82,7 +81,7 @@
   color: rgb(25, 123, 236);
 }
 
-.Input_content2 {
+.input-content-2 {
   width: calc(100% - 20%);
   max-width: calc(100% - 20%);
   color: rgb(25, 123, 236);
@@ -93,6 +92,7 @@
 
 .text_mob {
   color: #ff8670;
+  font-weight: 700 !important;
 }
 
 .vichle_section {
@@ -120,6 +120,11 @@
   border-radius: calc(5 * var(--px));
   padding: calc(10 * var(--px)) calc(0 * var(--px));
   background: #ff8670;
+  height: calc(60 * var(--px));
+
+  p {
+    font-size: var(--fs-12);
+  }
 }
 
 ._svg_text {
@@ -146,9 +151,9 @@
 }
 
 .font-size2 {
-  font-size: 14px;
+  font-size: calc(14 * var(--px));
   color: rgb(204, 203, 203);
-  line-height: 10px;
+  line-height: calc(10 * var(--px));
 }
 
 ._Svg_continer {
@@ -189,7 +194,7 @@
   justify-content: space-between;
 }
 
-.Card_section {
+.card-section {
   padding: calc(10 * var(--px));
   border: calc(1 * var(--px)) solid rgb(241, 241, 241);
   border-radius: calc(5 * var(--px));
@@ -197,7 +202,7 @@
   flex-direction: column;
 }
 
-.Card_section2 {
+.card-section-2 {
   padding: calc(10 * var(--px));
   border: calc(1 * var(--px)) solid rgb(241, 241, 241);
   border-radius: calc(5 * var(--px));
@@ -212,7 +217,7 @@
   font-size: small;
 }
 
-.Multi_input_calc {
+.multi-input-calc {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -248,7 +253,7 @@ ion-card {
   gap: 2px;
 }
 
-.Payment_action {
+.payment-action {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
@@ -257,22 +262,20 @@ ion-card {
   gap: calc(5 * var(--px));
 }
 
-.Payment_action ion-text {
+.payment-action ion-text {
   width: calc(94% / 5);
   max-width: calc(94% / 5);
   justify-content: center;
   align-items: center;
 }
 
-.Popup {
+.popup-modal {
   position: fixed;
   top: 50%;
   left: 50%;
   width: 80%;
-
   transform: translate(-50%, -50%);
   z-index: 2;
-  /* Ensure it's above the overlay */
 }
 
 .my_poup {
@@ -291,8 +294,6 @@ ion-card {
   height: calc(100%);
   z-index: 1;
   background-color: rgba(51, 51, 51, 0.5);
-  /* Black with 50% opacity */
-  /* Ensure it's on top of everything else */
 }
 
 .fa-times {
@@ -319,7 +320,7 @@ ion-card {
   color: #00ff95;
 }
 
-.See_invoice_button {
+.see-invoice-button {
   width: calc(120 * var(--px));
   height: calc(30 * var(--px));
   font-size: calc(13 * var(--px));
@@ -330,7 +331,7 @@ ion-card {
   --background: rgb(248, 162, 131) !important;
 }
 
-.Lr_dowload {
+.lr-download {
   background: linear-gradient(
     90deg,
     rgba(170, 165, 255, 1) 0%,
@@ -343,4 +344,21 @@ ion-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.form_content {
+  margin-top: calc(-20 * var(--px));
+}
+
+.negative-margin-top {
+  margin: calc(-16 * var(--px)) 0px 0px 0px !important;
+}
+
+.document-hint {
+  line-height: calc(20 * var(--px));
+  font-weight: 600;
+}
+
+.w-mx {
+  width: max-content;
 }
