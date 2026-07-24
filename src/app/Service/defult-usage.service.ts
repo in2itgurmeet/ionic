@@ -37,12 +37,12 @@ export class DefultUsageService {
 
 
 
-    async successToast(msg: string) {
+  async successToast(msg: string) {
     const toast = await this.toastController.create({
       message: msg,
       duration: 3000,
       position: 'top',
-      color: 'success',
+      cssClass: 'design-toast success-toast',
       icon: 'checkmark-circle'
     });
 
@@ -54,7 +54,7 @@ export class DefultUsageService {
       message: msg,
       duration: 3000,
       position: 'top',
-      color: 'danger',
+      cssClass: 'design-toast error-toast',
       icon: 'close-circle'
     });
 

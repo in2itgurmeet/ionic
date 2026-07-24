@@ -4,11 +4,12 @@ import { addIcons } from 'ionicons';
 import * as allIcons from 'ionicons/icons';
 import { DefultUsageService } from './Service/defult-usage.service';
 import { LoaderService } from './Service/loader.service';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, IonicModule],
 })
 export class AppComponent {
 
