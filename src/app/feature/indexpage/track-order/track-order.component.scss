@@ -16,21 +16,21 @@
   border-radius: calc(5 * var(--px));
   padding: calc(3 * var(--px));
   background-color: rgb(248, 213, 200);
-  font-size: smaller;
+  font-size: var(--fs-12);
 }
 .input_feild_section {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   margin: calc(0 * var(--px)) calc(0 * var(--px)) calc(-15 * var(--px)) calc(-16 * var(--px));
-  font-size: smaller;
+  font-size: var(--fs-12);
 }
 .input_feild_section2 {
   width: calc(100%);
   max-width: calc(100%);
   display: flex;
   flex-direction: column;
-  font-size: smaller;
+  font-size: var(--fs-12);
   line-height: calc(1 * var(--px));
   line-height: normal;
 }
@@ -44,11 +44,11 @@
   line-height: calc(0 * var(--px));
 }
 .booked-overview ion-text p span {
-  font-size: small;
+  font-size: var(--fs-14);
   color: black;
 }
 .booked-overview ion-text p {
-  font-size: small;
+  font-size: var(--fs-14);
   color: rgb(202, 202, 202);
 }
 .svg_content {

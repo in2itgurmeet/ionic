@@ -1,10 +1,10 @@
 .Back_button {
   position: relative;
-  top: 20px;
-  left: 10px;
+  top: calc(20 * var(--px));
+  left: calc(10 * var(--px));
 }
 .native-input.sc-ion-input-md {
-  padding-left: 12px !important;
+  padding-left: calc(12 * var(--px)) !important;
 }
 .input-container {
   position: relative;
@@ -14,13 +14,15 @@
 
 .input-container ion-input {
   flex: 1;
-  padding-right: 30px; /* Adjust this to give space for the icon */
+  padding-right: calc(30 * var(--px)); /* Adjust this to give space for the icon */
 }
 
 .input-container .icon_eye {
   position: absolute;
-  right: 10px; /* Adjust this to position the icon correctly */
+  right: calc(15 * var(--px)); /* Adjust this to position the icon correctly */
   cursor: pointer;
   z-index: 99;
+  font-size: 1.3rem;
+  color: #a0b2b6;
 }
 

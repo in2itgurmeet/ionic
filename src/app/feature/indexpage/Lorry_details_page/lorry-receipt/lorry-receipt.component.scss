@@ -179,11 +179,11 @@ ol li {
 .my_poup p {
   border: calc(4 * var(--px)) solid rgb(14, 167, 0);
   background-color: rgb(14, 167, 0);
-  border-radius: 50%;
+  border-radius:10px;
   padding: calc(5 * var(--px));
   height: calc(50 * var(--px));
   display: flex;
-  font-size: var(--fs-32);
+  font-size: var(--fs-14);
 }
 
 .fa-check {

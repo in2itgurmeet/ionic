@@ -5,14 +5,16 @@
 
   ion-input {
     flex: 1;
-    padding-right: 30px;
+    padding-right: calc(30 * var(--px));
   }
 
   .icon_eye {
     position: absolute;
-    right: 10px;
+    right: calc(15 * var(--px));
     cursor: pointer;
     z-index: 99;
+    font-size: calc(1.3 * var(--px));
+    color: #a0b2b6;
   }
 }
 

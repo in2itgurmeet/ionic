@@ -123,7 +123,8 @@
   height: calc(60 * var(--px));
 
   p {
-    font-size: var(--fs-12);
+    font-size: var(--fs-12) !important;
+    margin:0px;
   }
 }
 
@@ -145,10 +146,10 @@
   font-size: smaller;
 }
 
-.font-size {
-  font-size: var(--fs-10);
-  color: rgb(216, 215, 215);
-}
+// .font-size {
+//   font-size: var(--fs-10) !important;
+//   color: rgb(216, 215, 215) !important;
+// }
 
 .font-size2 {
   font-size: calc(14 * var(--px));
@@ -322,13 +323,12 @@ ion-card {
 
 .see-invoice-button {
   width: calc(120 * var(--px));
-  height: calc(30 * var(--px));
-  font-size: calc(13 * var(--px));
+  height: calc(30 * var(--px)) !important;
+  font-size: calc(13 * var(--px)) !important;
   position: absolute;
-  right: calc(10 * var(--px));
-  color: #f86e56;
+  right: calc(9 * var(--px));
+  top: calc(-5 * var(--px));
   font-weight: 700;
-  --background: rgb(248, 162, 131) !important;
 }
 
 .lr-download {

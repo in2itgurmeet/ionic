@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { IndexService } from '../../service/index-service';
 import { LorryPrintComponent } from '../lorry-print/lorry-print.component';
+import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 
 @Component({
   selector: 'app-lorry-receipt',
@@ -113,7 +114,8 @@ export class LorryReceiptComponent implements OnInit {
   constructor(
     private indexService: IndexService,
     private route: ActivatedRoute,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private defultService: DefultUsageService
   ) { }
 
   ngOnInit() {
@@ -177,13 +179,13 @@ export class LorryReceiptComponent implements OnInit {
 
   async shareReceiptByEmail() {
     if (!this.shareEmail) {
-      this.showToast('Please enter an email address.', 'danger');
+      this.defultService.errorToast('Please enter an email address.');
       return;
     }
     
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.shareEmail)) {
-      this.showToast('Please enter a valid email address.', 'danger');
+      this.defultService.errorToast('Please enter a valid email address.');
       return;
     }
 
@@ -198,29 +200,19 @@ export class LorryReceiptComponent implements OnInit {
       this.indexService.shareLorryReceipt(this.shareEmail, base64, this.lrData?.lrNo).subscribe({
         next: (res) => {
           loadingToast.dismiss();
-          this.showToast('Lorry Receipt shared successfully! ✉️', 'success');
-          this.openShareModal();
+          this.defultService.successToast('Lorry Receipt shared successfully! ✉️');
+          // this.openShareModal();
         },
         error: (err) => {
           loadingToast.dismiss();
           console.error('Failed to share LR:', err);
-          this.showToast(err.error?.message || 'Failed to share Lorry Receipt.', 'danger');
+          this.defultService.errorToast(err.error?.message || 'Failed to share Lorry Receipt.');
         }
       });
     }).catch(err => {
       loadingToast.dismiss();
-      this.showToast('Failed to generate sharing PDF document.', 'danger');
+      this.defultService.errorToast('Failed to generate sharing PDF document.');
     });
-  }
-
-  async showToast(msg: string, color: string) {
-    const toast = await this.toastController.create({
-      message: msg,
-      duration: 3000,
-      position: 'top',
-      color: color
-    });
-    await toast.present();
   }
 
 }
