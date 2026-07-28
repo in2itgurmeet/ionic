@@ -202,7 +202,8 @@
 </ion-text>
 
 <!-- Download Modal -->
-<ion-card *ngIf="isPopupOpen" class="popup-modal p-5">
+@if(isPopupOpen) {
+<ion-card class="popup-modal p-5">
   <ion-text class="my_poup">
     <i class="fa fa-times" aria-hidden="true" (click)="openPopup()"></i>
 
@@ -211,24 +212,29 @@
     <span> Loory Receipt has been Downloaded SuccessFully. </span>
   </ion-text>
 </ion-card>
-<div *ngIf="isPopupOpen" class="overlay" (click)="openPopup()"></div>
+<div class="overlay" (click)="openPopup()"></div>
+}
 
 <!-- Share Modal -->
-<ion-card *ngIf="isShareModalOpen" class="popup-modal p-4">
+@if(isShareModalOpen) {
+<ion-card class="popup-modal p-4">
   <div class="my_poup">
     <i class="fa fa-times" aria-hidden="true" (click)="openShareModal()"></i>
-    
+
     <p class="share-icon-wrap"><i class="fa fa-envelope" aria-hidden="true"></i></p>
     <h6 class="fw-bold mb-3">Share Lorry Receipt</h6>
-    <p class="text-muted small mb-2 text-center share-modal-hint">Enter the email address where you want to send the Lorry Receipt PDF:</p>
-    <ion-input type="email" [(ngModel)]="shareEmail" placeholder="recipient@example.com" class="mb-3 w-100 share-email-input"></ion-input>
-    
+    <p class="text-muted small mb-2 text-center share-modal-hint">Enter the email address where you want to send the
+      Lorry Receipt PDF:</p>
+    <ion-input type="email" [(ngModel)]="shareEmail" placeholder="recipient@example.com"
+      class="mb-3 w-100 share-email-input"></ion-input>
+
     <div class="d-flex w-100 justify-content-end gap-2 mt-2">
       <button class="btn btn-secondary px-3 py-1 btn-sm" (click)="openShareModal()">Cancel</button>
       <button class="btn btn-primary px-3 py-1 btn-sm" (click)="shareReceiptByEmail()">Send Email</button>
     </div>
   </div>
 </ion-card>
-<div *ngIf="isShareModalOpen" class="overlay" (click)="openShareModal()"></div>
+<div class="overlay" (click)="openShareModal()"></div>
+}
 
 <app-lorry-print #lorryPrint [lrData]="lrData"></app-lorry-print>

@@ -81,7 +81,9 @@
         <div class="date-container">
           <ion-input type="number" [(ngModel)]="day" class="box day" placeholder="DD"></ion-input>
           <select [(ngModel)]="month" class="box month">
-            <option *ngFor="let m of months" [value]="m">{{m}}</option>
+            @for (m of months; track $index) {
+              <option  [value]="m">{{m}}</option>
+            }
           </select>
           <ion-input type="number" [(ngModel)]="year" class="box year" placeholder="YYYY"></ion-input>
         </div>

@@ -1,130 +1,195 @@
 <div #printArea class="print-container">
-  <div class="lorry-receipt-card" *ngIf="lrData">
-    <!-- Header Banner -->
-    <div class="header-section">
-      <div class="header-left">
-        <div class="company-brand">
-          <img [src]="lrData.company?.logo" alt="Logo" class="logo-img" />
-          <div class="brand-text">
-            <h1>{{ lrData.company?.name }}</h1>
-            <p class="brand-sub">lorry receipt</p>
+  @if (lrData) {
+    <div class="lorry-receipt-card">
+      <!-- Header Banner -->
+      <div class="header-section">
+        <div class="header-left">
+          <div class="company-brand">
+            <img [src]="lrData.company?.logo" alt="Logo" class="logo-img" />
+            <div class="brand-text">
+              <h1>{{ lrData.company?.name }}</h1>
+              <p class="brand-sub">lorry receipt</p>
+            </div>
+          </div>
+          <div class="header-metadata">
+            <p><strong>CN No:</strong> {{ lrData.cnNo }}</p>
+            <p><strong>GST No:</strong> {{ lrData.gstNo }}</p>
           </div>
         </div>
-        <div class="header-metadata">
-          <p><strong>CN No:</strong> {{ lrData.cnNo }}</p>
-          <p><strong>GST No:</strong> {{ lrData.gstNo }}</p>
+        <div class="header-right">
+          <p class="address">{{ lrData.company?.address }}</p>
+          <p><strong>Mob No:</strong> {{ lrData.company?.mobile }}</p>
+          <p><strong>Email:</strong> {{ lrData.company?.email }}</p>
+          <p><strong>Web:</strong> {{ lrData.company?.website }}</p>
         </div>
       </div>
-      <div class="header-right">
-        <p class="address">{{ lrData.company?.address }}</p>
-        <p><strong>Mob No:</strong> {{ lrData.company?.mobile }}</p>
-        <p><strong>Email:</strong> {{ lrData.company?.email }}</p>
-        <p><strong>Web:</strong> {{ lrData.company?.website }}</p>
-      </div>
-    </div>
 
-    <!-- Metadata Grid -->
-    <div class="meta-grid">
-      <div class="meta-row">
-        <div class="meta-col">
-          <p><strong>LR No:</strong> <span>{{ lrData.lrNo }}</span></p>
-          <p><strong>Vehicle:</strong> <span>{{ lrData.vehicle?.type }}</span></p>
-          <p><strong>Driver:</strong> <span>{{ lrData.driver?.name }}</span></p>
-          <p><strong>License No:</strong> <span>{{ lrData.driver?.licenseNo }}</span></p>
-        </div>
-        <div class="meta-col">
-          <p><strong>Trip Date:</strong> <span>{{ lrData.tripDate }}</span></p>
-          <p><strong>Vehicle No:</strong> <span>{{ lrData.vehicle?.number }}</span></p>
-          <p><strong>Mobile No:</strong> <span>{{ lrData.driver?.mobile }}</span></p>
-          <p><strong>RTO No:</strong> <span>{{ lrData.vehicle?.rtoNo }}</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">
-      <h3>Consignment Transaction Details</h3>
-    </div>
-
-    <!-- Consignor & Consignee Row -->
-    <div class="parties-row">
-      <div class="party-box">
-        <h4 class="consignor-title">Consignor</h4>
-        <h5 class="party-name">{{ lrData.consignor?.name }}</h5>
-        <p class="party-address">{{ lrData.consignor?.address }}, {{ lrData.consignor?.pincode }}</p>
-        <p><strong>Mobile No:</strong> {{ lrData.consignor?.mobile }}</p>
-        <p><strong>GSTIN No:</strong> {{ lrData.consignor?.gstin }}</p>
-      </div>
-
-      <div class="party-box">
-        <h4 class="consignee-title">Consignee</h4>
-        <h5 class="party-name">{{ lrData.consignee?.name }}</h5>
-        <p class="party-address">{{ lrData.consignee?.address }}, {{ lrData.consignee?.pincode }}</p>
-        <p><strong>Mobile No:</strong> {{ lrData.consignee?.mobile }}</p>
-        <p><strong>GSTIN No:</strong> {{ lrData.consignee?.gstin }}</p>
-      </div>
-    </div>
-
-    <!-- Cargo details metadata -->
-    <div class="cargo-meta-grid">
-      <div class="cargo-row">
-        <div class="cargo-col">
-          <p><strong>Invoice No:</strong> <span>{{ lrData.invoice?.invoiceNo }}</span></p>
-          <p><strong>Reference No:</strong> <span>{{ lrData.invoice?.referenceNo }}</span></p>
-          <p><strong>DO No:</strong> <span>{{ lrData.invoice?.doNo || 'N/A' }}</span></p>
-          <p><strong>Eway Bill:</strong> <span>{{ lrData.invoice?.ewayBillNo }}</span></p>
-          <p><strong>Eway Bill Exp-Date:</strong> <span>{{ lrData.invoice?.ewayBillExpiry }}</span></p>
-          <p><strong>GST Paid By:</strong> <span>{{ lrData.invoice?.gstPaidBy }}</span></p>
-          <p><strong>Container No:</strong> <span>{{ lrData.invoice?.containerNo || 'N/A' }}</span></p>
-        </div>
-        <div class="cargo-col">
-          <p><strong>Date:</strong> <span>{{ lrData.tripDate }}</span></p>
-          <p><strong>L/C No:</strong> <span>{{ lrData.invoice?.lcNo || 'N/A' }}</span></p>
-          <p><strong>Expiry Date:</strong> <span>{{ lrData.invoice?.expiryDate }}</span></p>
-          <p><strong>Service:</strong> <span>{{ lrData.service?.type }}</span></p>
-          <p><strong>Container Size:</strong> <span>{{ lrData.service?.containerSize }}</span></p>
+      <!-- Metadata Grid -->
+      <div class="meta-grid">
+        <div class="meta-row">
+          <div class="meta-col">
+            <p>
+              <strong>LR No:</strong> <span>{{ lrData.lrNo }}</span>
+            </p>
+            <p>
+              <strong>Vehicle:</strong> <span>{{ lrData.vehicle?.type }}</span>
+            </p>
+            <p>
+              <strong>Driver:</strong> <span>{{ lrData.driver?.name }}</span>
+            </p>
+            <p>
+              <strong>License No:</strong>
+              <span>{{ lrData.driver?.licenseNo }}</span>
+            </p>
+          </div>
+          <div class="meta-col">
+            <p>
+              <strong>Trip Date:</strong> <span>{{ lrData.tripDate }}</span>
+            </p>
+            <p>
+              <strong>Vehicle No:</strong>
+              <span>{{ lrData.vehicle?.number }}</span>
+            </p>
+            <p>
+              <strong>Mobile No:</strong>
+              <span>{{ lrData.driver?.mobile }}</span>
+            </p>
+            <p>
+              <strong>RTO No:</strong> <span>{{ lrData.vehicle?.rtoNo }}</span>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Items Table -->
-    <table class="items-table">
-      <thead>
-        <tr>
-          <th>sr.</th>
-          <th>Description</th>
-          <th>UOM</th>
-          <th>Weight (Kg)</th>
-          <th>Amount</th>
-          <th>Qty</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of lrData.items; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ item.description }}</td>
-          <td>{{ item.unit }}</td>
-          <td>{{ item.weightKg }}</td>
-          <td>{{ item.amount }}</td>
-          <td>{{ item.quantity }}</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Terms & Signature footer -->
-    <div class="terms-section">
-      <h4>Term's & Conditions</h4>
-      <ol>
-        <li *ngFor="let term of lrData.terms">{{ term }}</li>
-      </ol>
-    </div>
-
-    <div class="signature-section">
-      <div class="sig-col">
-        <p class="sig-name">{{ lrData.driver?.name }}, {{ lrData.driver?.mobile }}</p>
+      <div class="section-title">
+        <h3>Consignment Transaction Details</h3>
       </div>
-      <div class="sig-col text-right">
-        <p class="sig-name">{{ lrData.consignee?.name }}</p>
+
+      <!-- Consignor & Consignee Row -->
+      <div class="parties-row">
+        <div class="party-box">
+          <h4 class="consignor-title">Consignor</h4>
+          <h5 class="party-name">{{ lrData.consignor?.name }}</h5>
+          <p class="party-address">
+            {{ lrData.consignor?.address }}, {{ lrData.consignor?.pincode }}
+          </p>
+          <p><strong>Mobile No:</strong> {{ lrData.consignor?.mobile }}</p>
+          <p><strong>GSTIN No:</strong> {{ lrData.consignor?.gstin }}</p>
+        </div>
+
+        <div class="party-box">
+          <h4 class="consignee-title">Consignee</h4>
+          <h5 class="party-name">{{ lrData.consignee?.name }}</h5>
+          <p class="party-address">
+            {{ lrData.consignee?.address }}, {{ lrData.consignee?.pincode }}
+          </p>
+          <p><strong>Mobile No:</strong> {{ lrData.consignee?.mobile }}</p>
+          <p><strong>GSTIN No:</strong> {{ lrData.consignee?.gstin }}</p>
+        </div>
+      </div>
+
+      <!-- Cargo details metadata -->
+      <div class="cargo-meta-grid">
+        <div class="cargo-row">
+          <div class="cargo-col">
+            <p>
+              <strong>Invoice No:</strong>
+              <span>{{ lrData.invoice?.invoiceNo }}</span>
+            </p>
+            <p>
+              <strong>Reference No:</strong>
+              <span>{{ lrData.invoice?.referenceNo }}</span>
+            </p>
+            <p>
+              <strong>DO No:</strong>
+              <span>{{ lrData.invoice?.doNo || "N/A" }}</span>
+            </p>
+            <p>
+              <strong>Eway Bill:</strong>
+              <span>{{ lrData.invoice?.ewayBillNo }}</span>
+            </p>
+            <p>
+              <strong>Eway Bill Exp-Date:</strong>
+              <span>{{ lrData.invoice?.ewayBillExpiry }}</span>
+            </p>
+            <p>
+              <strong>GST Paid By:</strong>
+              <span>{{ lrData.invoice?.gstPaidBy }}</span>
+            </p>
+            <p>
+              <strong>Container No:</strong>
+              <span>{{ lrData.invoice?.containerNo || "N/A" }}</span>
+            </p>
+          </div>
+          <div class="cargo-col">
+            <p>
+              <strong>Date:</strong> <span>{{ lrData.tripDate }}</span>
+            </p>
+            <p>
+              <strong>L/C No:</strong>
+              <span>{{ lrData.invoice?.lcNo || "N/A" }}</span>
+            </p>
+            <p>
+              <strong>Expiry Date:</strong>
+              <span>{{ lrData.invoice?.expiryDate }}</span>
+            </p>
+            <p>
+              <strong>Service:</strong> <span>{{ lrData.service?.type }}</span>
+            </p>
+            <p>
+              <strong>Container Size:</strong>
+              <span>{{ lrData.service?.containerSize }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Items Table -->
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th>sr.</th>
+            <th>Description</th>
+            <th>UOM</th>
+            <th>Weight (Kg)</th>
+            <th>Amount</th>
+            <th>Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of items; track $index) {
+            <tr>
+              <td>{{ $index + 1 }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.unit }}</td>
+              <td>{{ item.weightKg }}</td>
+              <td>{{ item.amount }}</td>
+              <td>{{ item.quantity }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+      <!-- Terms & Signature footer -->
+      <div class="terms-section">
+        <h4>Term's & Conditions</h4>
+        <ol>
+          @for (term of lrData.terms; track $index) {
+            <li >{{ term }}</li>
+          }
+        </ol>
+      </div>
+
+      <div class="signature-section">
+        <div class="sig-col">
+          <p class="sig-name">
+            {{ lrData.driver?.name }}, {{ lrData.driver?.mobile }}
+          </p>
+        </div>
+        <div class="sig-col text-right">
+          <p class="sig-name">{{ lrData.consignee?.name }}</p>
+        </div>
       </div>
     </div>
-  </div>
+  }
 </div>
