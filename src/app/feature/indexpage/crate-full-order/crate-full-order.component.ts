@@ -24,6 +24,7 @@ export class CreateFullorderComponent {
   vehicles: any[] = [];
   bookingType: any;
   ordId: any;
+  submitted = false;
   constructor(
     private fb: FormBuilder,
     private defultService: DefultUsageService,
@@ -95,18 +96,32 @@ export class CreateFullorderComponent {
     }
   }
 
-  submitForm() {
+  showError(controlName: string, errorName: string, groupIndex?: number): boolean {
+    let control: any;
+    if (typeof groupIndex === 'number') {
+      control = this.cargoItems.at(groupIndex)?.get(controlName);
+    } else {
+      control = this.cargoForm.get(controlName);
+    }
+    return !!(control && control.hasError(errorName) && (control.touched || control.dirty || this.submitted));
+  }
 
+  submitForm() {
+    if (this.cargoForm.invalid) {
+      this.submitted = true;
+      this.cargoForm.markAllAsTouched();
+      this.cargoItems.controls.forEach((control) => control.markAllAsTouched());
+      return;
+    }
+    this.submitted = false;
     const vehicleObjects = this.selectedVehicle.value.map((name: any) =>
       this.vehicles.find((v: any) => v.name === name)
     );
-
     const finalPayload = {
       ...this.cargoForm.value,
       selectedVehicle: vehicleObjects,
       amount: this.calculateTotalAmount()
     };
-
     this.indexService.createOrderStep2(finalPayload, this.ordId).subscribe({
       next: (res) => {
         this.defultService.successToast(res.message);
@@ -116,7 +131,6 @@ export class CreateFullorderComponent {
         this.defultService.errorToast(err.error.message);
       }
     });
-
   }
 
 
@@ -130,7 +144,6 @@ export class CreateFullorderComponent {
       });
     });
   }
-
   calculateCM(group: FormGroup) {
     const l = +group.get('length')?.value || 0;
     const w = +group.get('width')?.value || 0;

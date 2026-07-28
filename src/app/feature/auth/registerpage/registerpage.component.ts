@@ -19,6 +19,7 @@ export class RegisterpageComponent implements OnInit, AfterViewInit {
   passwordIcon: string = 'eye-off';
   password: string = '';
   registerForm!: FormGroup;
+  submitted = false;
 
   @ViewChild('formContainer', { read: ElementRef }) formContainer!: ElementRef;
   private gesture!: Gesture;
@@ -110,6 +111,11 @@ export class RegisterpageComponent implements OnInit, AfterViewInit {
     }
   }
 
+  showError(controlName: string, errorName: string): boolean {
+    const control = this.registerForm.get(controlName);
+    return !!(control && control.hasError(errorName) && (control.touched || control.dirty || this.submitted));
+  }
+
   initForm() {
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -124,6 +130,13 @@ export class RegisterpageComponent implements OnInit, AfterViewInit {
 
 
   onSubmit() {
+    if (this.registerForm.invalid) {
+      this.submitted = true;
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    this.submitted = false;
     this.apiService.registerUser(this.registerForm.value).subscribe({
 
       next: (res) => {

@@ -33,12 +33,13 @@ export class ForgetPasswordComponent implements OnInit {
   passwordIcon: string = 'eye-off';
   password: string = '';
   resetPasswordForm: any;
-@ViewChild('d1') d1!: IonInput;
-@ViewChild('d2') d2!: IonInput;
-@ViewChild('d3') d3!: IonInput;
-@ViewChild('d4') d4!: IonInput;
-@ViewChild('d5') d5!: IonInput;
-@ViewChild('d6') d6!: IonInput;
+  submitted = false;
+  @ViewChild('d1') d1!: IonInput;
+  @ViewChild('d2') d2!: IonInput;
+  @ViewChild('d3') d3!: IonInput;
+  @ViewChild('d4') d4!: IonInput;
+  @ViewChild('d5') d5!: IonInput;
+  @ViewChild('d6') d6!: IonInput;
 
 
   constructor(
@@ -117,7 +118,20 @@ export class ForgetPasswordComponent implements OnInit {
     }
   }
 
+  showError(formName: string, controlName: string, errorName: string): boolean {
+    const form = formName === 'forget' ? this.forgetPasswordForm : this.resetPasswordForm;
+    const control = form?.get(controlName);
+    return !!(control && control.hasError(errorName) && (control.touched || control.dirty || this.submitted));
+  }
+
   sendOtp() {
+    if (this.forgetPasswordForm.invalid) {
+      this.submitted = true;
+      this.forgetPasswordForm.markAllAsTouched();
+      return;
+    }
+
+    this.submitted = false;
     this.authApi.forgetPassWord(this.forgetPasswordForm.value).subscribe({
       next: (res) => {
         this.flow.setEmail(this.forgetPasswordForm.value.email);
@@ -154,26 +168,31 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
 
-onSubmitResetPass() {
-  if (this.resetPasswordForm.invalid) return;
-
-  const payload = {
-    email: this.flow.email(), // yeh zaroor bhejna hai
-    newPassword: this.resetPasswordForm.value.password
-  };
-  this.authApi.resetPassword(payload).subscribe({
-    next: (res) => {
-      this.defulService.successToast(res.message);
-      this.resetPasswordForm.reset();
-      this.forgetPasswordForm.reset();
-      this.otpForm.reset();
-      this.routes.navigate(['/auth']);
-    },
-    error: (err) => {
-      this.defulService.errorToast(err?.error?.message);
+  onSubmitResetPass() {
+    if (this.resetPasswordForm.invalid) {
+      this.submitted = true;
+      this.resetPasswordForm.markAllAsTouched();
+      return;
     }
-  });
-}
+
+    this.submitted = false;
+    const payload = {
+      email: this.flow.email(), // yeh zaroor bhejna hai
+      newPassword: this.resetPasswordForm.value.password
+    };
+    this.authApi.resetPassword(payload).subscribe({
+      next: (res) => {
+        this.defulService.successToast(res.message);
+        this.resetPasswordForm.reset();
+        this.forgetPasswordForm.reset();
+        this.otpForm.reset();
+        this.routes.navigate(['/auth']);
+      },
+      error: (err) => {
+        this.defulService.errorToast(err?.error?.message);
+      }
+    });
+  }
 
 
   goBack(event: any) {
@@ -191,5 +210,7 @@ onSubmitResetPass() {
       prev.setFocus();
     }
   }
+  resendOtp() {
 
+  }
 }

@@ -33,6 +33,9 @@
                 placeholder="Where should we pick up your items?"></ion-input>
             </ion-text>
           </ion-text>
+          @if (showError('pickup', 'required')) {
+          <div class="field-error">Pickup location is required.</div>
+          }
           @if (pickupResults.length > 0) {
           <ion-list class="dropdown-list">
             @for (item of pickupResults; track $index) {
@@ -54,6 +57,9 @@
                 placeholder="Where should we delivery your items?"></ion-input>
             </ion-text>
           </ion-text>
+          @if (showError('delivery', 'required')) {
+          <div class="field-error">Delivery location is required.</div>
+          }
           @if (deliveryResults.length > 0) {
           <ion-list class="dropdown-list">
             @for (item of deliveryResults; track $index) {

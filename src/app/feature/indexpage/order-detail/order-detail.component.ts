@@ -67,7 +67,6 @@ export class OrderDetailComponent implements OnInit {
     });
   }
 
-  // Dynamic fee calculation getters
   get transportationFee() {
     return ((this.orderData?.amount || 0) * 0.75).toFixed(2);
   }

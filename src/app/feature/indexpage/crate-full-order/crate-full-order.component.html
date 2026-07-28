@@ -13,31 +13,43 @@
           <hr class="w-25" />
         </ion-text>
         <ion-text class="form_input_box">
-          <ion-label class="form-label">Reference Number</ion-label>
+          <ion-label class="form-label">Reference Number <span class="required-mark">*</span></ion-label>
           <ion-input type="email" class="form-control" formControlName="referenceNumber" aria-describedby="emailHelp"
             placeholder="Enter email Reference Number" />
+          @if (showError('referenceNumber', 'required')) {
+          <div class="field-error">Reference number is required.</div>
+          }
         </ion-text>
         <ion-text class="d-flex justify-content-center px-1">
           <hr class="w-100" />
         </ion-text>
 
         <ion-text class="form_input_box">
-          <ion-label class="form-label">Sendre's Name</ion-label>
+          <ion-label class="form-label">Sendre's Name <span class="required-mark">*</span></ion-label>
           <ion-input type="text" class="form-control" formControlName="senderName" placeholder="Enter  Sendre's Name" />
+          @if (showError('senderName', 'required')) {
+          <div class="field-error">Sender name is required.</div>
+          }
         </ion-text>
         <br />
         <ion-text class="form_input_box">
-          <ion-label class="form-label">Sendre's Mobile Number</ion-label>
+          <ion-label class="form-label">Sendre's Mobile Number <span class="required-mark">*</span></ion-label>
           <ion-input type="email" class="form-control" formControlName="senderMobile" aria-describedby="emailHelp"
             placeholder="Enter Sendre's Mobile Number" />
+          @if (showError('senderMobile', 'required')) {
+          <div class="field-error">Sender mobile is required.</div>
+          }
           <ion-text class="resend_text">
             <p>Add from Contacts</p>
           </ion-text>
         </ion-text>
         <ion-text class="form_input_box">
-          <ion-label class="form-label">Sendre's Consignor Company</ion-label>
+          <ion-label class="form-label">Sendre's Consignor Company <span class="required-mark">*</span></ion-label>
           <ion-input type="text" class="form-control" formControlName="consignorCompany" aria-describedby="emailHelp"
             placeholder="Enter Consignor Company Name" />
+          @if (showError('consignorCompany', 'required')) {
+          <div class="field-error">Consignor company is required.</div>
+          }
           <ion-text class="resend_text">
             <p>Add from Contacts</p>
           </ion-text>
@@ -47,29 +59,41 @@
         </ion-text>
         <br />
         <ion-text class="form_input_box">
-          <ion-label class="form-label">Receiver's Name</ion-label>
+          <ion-label class="form-label">Receiver's Name <span class="required-mark">*</span></ion-label>
           <ion-input type="text" class="form-control" formControlName="receiverName"
             placeholder="Enter  Receiver's Name" />
+          @if (showError('receiverName', 'required')) {
+          <div class="field-error">Receiver name is required.</div>
+          }
           <br />
         </ion-text>
         <ion-text class="form_input_box">
-          <ion-label class="form-label">Receiver's Mobile Number</ion-label>
+          <ion-label class="form-label">Receiver's Mobile Number <span class="required-mark">*</span></ion-label>
           <ion-input type="text" class="form-control" formControlName="receiverMobile" aria-describedby="emailHelp"
             placeholder="Enter Receiver's Mobile Number" />
+          @if (showError('receiverMobile', 'required')) {
+          <div class="field-error">Receiver mobile is required.</div>
+          }
           <ion-text class="resend_text">
             <p>Add from Contacts</p>
           </ion-text>
         </ion-text>
         <ion-text class="form_input_box">
-          <ion-label class="form-label">Receiver's Consignee Company</ion-label>
+          <ion-label class="form-label">Receiver's Consignee Company <span class="required-mark">*</span></ion-label>
           <ion-input type="text" class="form-control" formControlName="consigneeCompany" aria-describedby="emailHelp"
             placeholder="Enter Consignee Company Name" />
+          @if (showError('consigneeCompany', 'required')) {
+          <div class="field-error">Consignee company is required.</div>
+          }
           <ion-text class="resend_text">
             <p>Add from Contacts</p>
           </ion-text>
         </ion-text>
         @if (bookingType == "PTL") {
         <ng-container>
+          @if (showError('selectedVehicle', 'required')) {
+          <div class="field-error mt-2">Please select a vehicle.</div>
+          }
 
           @for (vehicle of vehicles; track $index) {
           <ion-card class="seltct_vichle py-2 m-0 mt-2 mb-2">
@@ -120,6 +144,9 @@
               </ion-row>
               <ion-input type="email" class="form-control w-100" formControlName="goodsDescription"
                 aria-describedby="emailHelp" placeholder="Enter Goods Description (Name)" />
+              @if (showError('goodsDescription', 'required', $index)) {
+              <div class="field-error">Goods description is required.</div>
+              }
             </ion-text>
             <ion-text class="form_input_box">
               <ion-label class="form-label">Dimensions</ion-label>
@@ -135,6 +162,9 @@
                 <ion-input type="number" class="form_input2 form-control" formControlName="dimensionCM"
                   placeholder="CM" />
               </ion-text>
+              @if (showError('length', 'required', $index) || showError('width', 'required', $index) || showError('height', 'required', $index)) {
+              <div class="field-error">Length, width, and height are required.</div>
+              }
             </ion-text>
 
             <ion-text class="multi-input-calc mt-2">
@@ -142,11 +172,17 @@
                 <ion-label class="form-label">Goods Quantity</ion-label>
                 <ion-input type="number" class="px-2 form-control" formControlName="quantity"
                   placeholder="Enter Quantity" />
+                @if (showError('quantity', 'required', $index)) {
+                <div class="field-error">Quantity is required.</div>
+                }
               </ion-text>
               <ion-text class="font_content_section form_input_box">
                 <ion-label class="form-label">Weight(Kg)</ion-label>
                 <ion-input type="number" class="px-2 form-control" formControlName="weight"
                   placeholder="Enter Weight" />
+                @if (showError('weight', 'required', $index)) {
+                <div class="field-error">Weight is required.</div>
+                }
               </ion-text>
             </ion-text>
             <ion-text class="d-flex justify-content-center px-1 g-0">

@@ -70,6 +70,18 @@ ion-input[type="datetime-local"]::-moz-clear {
   border-radius: calc(5 * var(--px));
   height: calc(50 * var(--px));
 }
+.required-mark {
+  color: #ff3b30;
+  margin-left: 2px;
+  font-weight: 700;
+}
+
+.field-error {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: #ff3b30;
+}
+
 .custom-modal {
   --height: 70%;
   --border-radius: calc(12 * var(--px));

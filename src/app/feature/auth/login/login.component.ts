@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   password: string = '';
   loginForm!: FormGroup;
   showPassword: boolean = false;
+  submitted = false;
 
   @ViewChild('formContainer', { read: ElementRef }) formContainer!: ElementRef;
   private gesture!: Gesture;
@@ -49,16 +50,13 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   initDragGesture() {
     const el = this.formContainer.nativeElement;
-    
-    // Dynamically calculate expanded position based on screen height
-    this.expandedY = -(window.innerHeight * 0.35); 
-    
+        this.expandedY = -(window.innerHeight * 0.35); 
+  
     this.gesture = this.gestureCtrl.create({
       el: el,
       gestureName: 'drag-form',
       direction: 'y',
       canStart: () => {
-        // Prevent drag gesture if form is expanded and user is scrolling its content down
         if (this.isExpanded && el.scrollTop > 0) {
           return false;
         }
@@ -112,7 +110,19 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
   }
 
+  showError(controlName: string, errorName: string): boolean {
+    const control = this.loginForm.get(controlName);
+    return !!(control && control.hasError(errorName) && (control.touched || control.dirty || this.submitted));
+  }
+
   submit() {
+    if (this.loginForm.invalid) {
+      this.submitted = true;
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
+    this.submitted = false;
     this.apiService.loginUser(this.loginForm.value).subscribe({
       next: (res) => {
         localStorage.setItem('token', res.token);

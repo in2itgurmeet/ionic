@@ -24,6 +24,7 @@ export class CreateBookingTypeComponent {
   pickupResults: any[] = [];
   deliveryResults: any[] = [];
   selectedPickup: any = null;
+  submitted = false;
   selectedDelivery: any = null;
   bookingType: any;
   isOpen = false;
@@ -79,6 +80,11 @@ export class CreateBookingTypeComponent {
     });
     this.bookingType = this.deultService.bookingMode();
   }
+
+  showError(controlName: string, errorName: string): boolean {
+    const control = this.booking.get(controlName);
+    return !!(control && control.hasError(errorName) && (control.touched || control.dirty || this.submitted));
+  }
   searchDelivery(event: any) {
     const value = event.target.value;
     if (value.length > 2) {
@@ -119,6 +125,13 @@ export class CreateBookingTypeComponent {
   //   this.deliveryResults = [];
   // }
   selectDelivery(item: any) {
+    if (this.booking.invalid) {
+      this.submitted = true;
+      this.booking.markAllAsTouched();
+      return;
+    }
+
+    this.submitted = false;
     const value = item.properties.formatted;
 
     this.booking.get('delivery')?.setValue(value);
