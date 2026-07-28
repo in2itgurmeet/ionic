@@ -26,3 +26,32 @@
   color: #a0b2b6;
 }
 
+.auth-scroll-container,
+.bg_liner {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.form_content {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 10;
+
+  touch-action: none;
+  overflow-y: hidden;
+  background: var(--ion-background-color, #ffffff);
+  border-radius: 20px 20px 0 0;
+  transform: translateY(0);
+}
+
+.form-transition {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.form-expanded {
+  touch-action: pan-y;
+  overflow-y: auto;
+}
