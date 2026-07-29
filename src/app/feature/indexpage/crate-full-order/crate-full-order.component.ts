@@ -12,10 +12,11 @@ import {
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 import { Route, Router } from '@angular/router';
 import { Api } from 'src/app/Service/api';
+import { LeafletMapComponent } from '../../../shared_component/leaflet-map/leaflet-map.component';
 
 @Component({
   selector: 'app-createorder',
-  imports: [CommonModule, IonicModule, ReactiveFormsModule],
+  imports: [CommonModule, IonicModule, ReactiveFormsModule, LeafletMapComponent],
   templateUrl: './crate-full-order.component.html',
   styleUrls: ['./crate-full-order.component.scss'],
 })

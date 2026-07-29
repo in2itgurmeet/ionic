@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 import { IndexService } from '../service/index-service';
 import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+import { LeafletMapComponent } from '../../../shared_component/leaflet-map/leaflet-map.component';
 
 @Component({
   selector: 'app-order-detail',
-  imports: [IonicModule, CommonModule, ReactiveFormsModule],
+  imports: [IonicModule, CommonModule, ReactiveFormsModule, LeafletMapComponent],
   templateUrl: './order-detail.component.html',
   styleUrls: ['./order-detail.component.scss'],
 })

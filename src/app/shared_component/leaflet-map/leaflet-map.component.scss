@@ -1,0 +1,34 @@
+.map-wrapper {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  z-index: 1; /* Keep map below modals/popovers */
+  margin-bottom: 20px;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.directions-panel {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.direction-step {
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.direction-step:last-child {
+  border-bottom: none;
+}

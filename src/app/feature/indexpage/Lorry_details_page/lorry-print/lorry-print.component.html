@@ -157,7 +157,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (item of items; track $index) {
+          @for (item of lrData.items; track $index) {
             <tr>
               <td>{{ $index + 1 }}</td>
               <td>{{ item.description }}</td>

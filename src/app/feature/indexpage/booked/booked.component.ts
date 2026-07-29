@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
 import { IndexService } from '../service/index-service';
+import { LeafletMapComponent } from '../../../shared_component/leaflet-map/leaflet-map.component';
 
 @Component({
   selector: 'app-booked',
-  imports: [IonicModule, CommonModule, RouterLink],
+  imports: [IonicModule, CommonModule, RouterLink, LeafletMapComponent],
   templateUrl: './booked.component.html',
   styleUrls: ['./booked.component.scss'],
 })

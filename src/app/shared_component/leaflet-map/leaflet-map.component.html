@@ -1,0 +1,13 @@
+<div class="map-wrapper">
+  <div #mapContainer class="map-container"></div>
+  
+  <div class="directions-panel" *ngIf="showDirections && directions.length > 0">
+    <h6 class="fw-bold text-primary mb-3">
+      <i class="fa fa-map-signs me-2"></i> Directions
+    </h6>
+    <div class="direction-step" *ngFor="let step of directions">
+      <p class="mb-1 fw-semibold text-capitalize"><i class="fa fa-arrow-circle-right text-muted me-2"></i> {{ step.instruction }}</p>
+      <small class="text-muted ms-4">{{ step.distance }}</small>
+    </div>
+  </div>
+</div>

@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink, } from '@angular/router';
 import { DefultUsageService } from 'src/app/Service/defult-usage.service';
+import { LeafletMapComponent } from '../../../shared_component/leaflet-map/leaflet-map.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, IonicModule, RouterLink],
+  imports: [CommonModule, IonicModule, RouterLink, LeafletMapComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })

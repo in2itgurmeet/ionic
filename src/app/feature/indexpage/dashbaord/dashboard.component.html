@@ -92,12 +92,12 @@
     </ion-row>
     <ion-text class="p-2">
       <ion-text class="Maping_section shadow">
-        <ion-text class="map_continer">
-          <iframe
-            src="https://www.google.com/maps/embedpb=!1m18!1m12!1m3!1d28016.502845213363!2d77.36665289878115!3d28.627878201452216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce55758ca9645%3A0xf89fa8c1f37c1d09!2sDream%20N%20Design%20Interiors!5e0!3m2!1sen!2sin!4v1716189490243!5m2!1sen!2sin"
-            class="full-width-map" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </ion-text>
+        <div class="map-container-wrapper" style="height: 320px; width: 100%;">
+            <app-leaflet-map 
+              [pickupAddress]="dashbaordData.data.latestTransitOrder.pickup.address" 
+              [deliveryAddress]="dashbaordData.data.latestTransitOrder.delivery.address">
+            </app-leaflet-map>
+          </div>
         <ion-text class="Text_mapping_Contnier">
           <ion-text class="Counters_section">
             <ion-text class="g-0">
