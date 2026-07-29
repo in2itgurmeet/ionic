@@ -33,5 +33,4 @@ export class ConsignorThemeComponent implements OnInit {
     console.log(this.showContent);
   }
 
-
 }

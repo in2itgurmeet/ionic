@@ -26,6 +26,8 @@ export class CreateFullorderComponent {
   bookingType: any;
   ordId: any;
   submitted = false;
+  pickupAddress: string = '';
+  deliveryAddress: string = '';
   constructor(
     private fb: FormBuilder,
     private defultService: DefultUsageService,
@@ -38,6 +40,18 @@ export class CreateFullorderComponent {
 
   ngOnInit() {
     this.ordId = localStorage.getItem('ordId');
+
+    if (this.ordId) {
+      this.indexService.getOrderById(this.ordId).subscribe({
+        next: (res: any) => {
+          if (res.body && res.body.data) {
+            this.pickupAddress = res.body.data.pickup?.location || res.body.data.pickup;
+            this.deliveryAddress = res.body.data.delivery?.location || res.body.data.delivery;
+          }
+        },
+        error: (err) => console.error('Error fetching order details', err)
+      });
+    }
 
     this.initCargoForm();
 

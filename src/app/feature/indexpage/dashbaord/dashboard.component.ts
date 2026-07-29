@@ -48,6 +48,7 @@ export class DashboardComponent {
   addModeOfbooking(mode: 'FTL' | 'PTL') {
     this.defultServise.bookingMode.set(mode);
     localStorage.setItem('bookingMode', mode);
+    localStorage.removeItem('ordId'); // Reset order when starting a new booking
     this.route.navigate(['/indexpage/booking']);
   }
   seeAllOrder(event: any) {

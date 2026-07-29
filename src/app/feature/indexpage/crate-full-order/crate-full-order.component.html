@@ -1,8 +1,9 @@
 <ion-row>
   <ion-text class="w-100">
-    <app-leaflet-map 
-      pickupAddress="Delhi" 
-      deliveryAddress="Mumbai">
+    <app-leaflet-map *ngIf="pickupAddress && deliveryAddress"
+      [pickupAddress]="pickupAddress" 
+      [deliveryAddress]="deliveryAddress"
+      [showDirections]="true">
     </app-leaflet-map>
   </ion-text>
   <ion-col>

@@ -47,6 +47,7 @@ a,
 p,
 *:not(i):not(.fa):not(.fab):not(.fas):not(.far):not([class*="fa-"]) {
   font-family: "Lato", sans-serif !important;
+  // margin: 0;
 }
 
 h1 {

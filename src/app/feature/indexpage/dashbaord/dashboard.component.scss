@@ -82,7 +82,7 @@
 }
 
 .ptl_imgsection img {
-  border-radius: calc(10 * var(--px)) calc(10 * var(--px))calc(0 * var(--px));
+  border-radius: calc(10 * var(--px)) calc(10 * var(--px)) calc(0 * var(--px));
   height: calc(100 * var(--px));
 }
 
@@ -91,7 +91,8 @@
   max-width: calc(100%);
   display: flex;
   justify-content: space-between;
-  padding: calc(7 * var(--px)) calc(5 * var(--px)) calc(0 * var(--px)) calc(5 * var(--px));
+  padding: calc(7 * var(--px)) calc(5 * var(--px)) calc(0 * var(--px))
+    calc(5 * var(--px));
   background-color: white;
   // border-radius: 0px 0px 8px 8px;
   border-radius: 0px 0px calc(10 * var(--px)) calc(10 * var(--px));
@@ -104,8 +105,13 @@ ion-text {
 .formatText p,
 span {
   font-size: calc(12 * var(--px));
-  font-weight: 500;
+  font-weight: 700;
   text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
 }
 
 .formatText span {
@@ -127,16 +133,17 @@ span {
 .content_section {
   background-image: url("/assets/icon/Backgorund_counters.png");
   background-size: cover;
-  background-position: calc(20 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px));
+  background-position: calc(20 * var(--px)) calc(10 * var(--px))
+    calc(10 * var(--px)) calc(10 * var(--px));
 }
 
 .Counters_tophedding {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: calc(10 * var(--px)) calc(10 * var(--px)) calc(0 * var(--px)) calc(10 * var(--px));
+  padding: calc(10 * var(--px)) calc(10 * var(--px)) calc(0 * var(--px))
+    calc(10 * var(--px));
   margin: 0px 5px -5px 3px;
-
 }
 
 .Counters_tophedding .Order_view {
@@ -238,7 +245,7 @@ span {
   flex-direction: column;
   justify-content: space-between;
   gap: calc(10 * var(--px));
-  padding: calc(10 * var(--px));
+  padding: calc(10 * var(--px)) !important;
 }
 
 .Text_format_colum {

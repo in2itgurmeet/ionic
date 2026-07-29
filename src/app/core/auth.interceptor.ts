@@ -5,10 +5,11 @@ import {
   HttpInterceptor,
   HttpRequest,
   HttpErrorResponse,
-  HttpContextToken
+  HttpContextToken,
+  HttpResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { catchError, finalize, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { LoaderService } from '../Service/loader.service';
 
@@ -36,7 +37,9 @@ export class AuthInterceptor implements HttpInterceptor {
       this.loaderService.showLoader();
     }
 
-    if (!isPublic && token) {
+    const isThirdPartyAPI = req.url.includes('photon.komoot.io') || req.url.includes('router.project-osrm.org') || req.url.includes('routing.openstreetmap.de') || req.url.includes('nominatim.openstreetmap.org');
+
+    if (!isPublic && token && !isThirdPartyAPI) {
       authReq = req.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`
@@ -45,7 +48,14 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     return next.handle(authReq).pipe(
-
+      tap((event: HttpEvent<any>) => {
+        if (event instanceof HttpResponse) {
+          const newAuthToken = event.headers.get('x-refresh-token');
+          if (newAuthToken) {
+            localStorage.setItem('token', newAuthToken);
+          }
+        }
+      }),
       catchError((error: HttpErrorResponse) => {
 
         if (error.status === 401) {

@@ -14,7 +14,7 @@ export class LeafletMapComponent implements AfterViewInit, OnDestroy, OnChanges 
   @Input() pickupAddress: string = '';
   @Input() deliveryAddress: string = '';
   @Input() showDirections: boolean = false;
-  
+
   @ViewChild('mapContainer', { static: false }) mapContainer!: ElementRef;
 
   private map: L.Map | undefined;
@@ -23,12 +23,10 @@ export class LeafletMapComponent implements AfterViewInit, OnDestroy, OnChanges 
   directions: any[] = [];
 
   constructor(private http: HttpClient) {
-    // Fix default marker icon issues with leaflet in webpack
     const iconRetinaUrl = 'assets/marker-icon-2x.png';
     const iconUrl = 'assets/marker-icon.png';
     const shadowUrl = 'assets/marker-shadow.png';
-    
-    // We will use standard Leaflet default icons loaded from CDN if assets are missing
+
     L.Marker.prototype.options.icon = L.icon({
       iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
       iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -76,64 +74,104 @@ export class LeafletMapComponent implements AfterViewInit, OnDestroy, OnChanges 
       const pickupCoords = await this.geocode(this.pickupAddress);
       const deliveryCoords = await this.geocode(this.deliveryAddress);
 
-      if (!pickupCoords || !deliveryCoords) return;
-
       this.clearMap();
 
-      // Add markers
-      const pMarker = L.marker([pickupCoords.lat, pickupCoords.lon]).addTo(this.map)
-        .bindPopup('Pickup: ' + this.pickupAddress);
-      const dMarker = L.marker([deliveryCoords.lat, deliveryCoords.lon]).addTo(this.map)
-        .bindPopup('Delivery: ' + this.deliveryAddress);
-      
-      this.markers.push(pMarker, dMarker);
+      if (pickupCoords) {
+        const pMarker = L.marker([pickupCoords.lat, pickupCoords.lon]).addTo(this.map)
+          .bindPopup('Pickup: ' + this.pickupAddress);
+        this.markers.push(pMarker);
+      }
 
-      // Fit bounds
-      const bounds = L.latLngBounds([
-        [pickupCoords.lat, pickupCoords.lon],
-        [deliveryCoords.lat, deliveryCoords.lon]
-      ]);
-      this.map.fitBounds(bounds, { padding: [50, 50] });
+      if (deliveryCoords) {
+        const dMarker = L.marker([deliveryCoords.lat, deliveryCoords.lon]).addTo(this.map)
+          .bindPopup('Delivery: ' + this.deliveryAddress);
+        this.markers.push(dMarker);
+      }
 
-      // Fetch route from OSRM
-      const url = `https://router.project-osrm.org/route/v1/driving/${pickupCoords.lon},${pickupCoords.lat};${deliveryCoords.lon},${deliveryCoords.lat}?overview=full&geometries=geojson&steps=true`;
-      this.http.get(url).subscribe((res: any) => {
-        if (res.code === 'Ok' && res.routes.length > 0) {
-          const route = res.routes[0];
-          const coordinates = route.geometry.coordinates.map((coord: any[]) => [coord[1], coord[0]]); // GeoJSON is [lon, lat]
-          
-          this.routingLayer = L.polyline(coordinates, { color: '#3880ff', weight: 5, opacity: 0.7 }).addTo(this.map!);
-          
-          if (this.showDirections && route.legs && route.legs[0].steps) {
-            this.directions = route.legs[0].steps.map((step: any) => ({
-              instruction: step.maneuver?.modifier 
-                ? `${step.maneuver.type} ${step.maneuver.modifier} onto ${step.name || 'unnamed road'}` 
-                : `${step.maneuver?.type} on ${step.name || 'unnamed road'}`,
-              distance: (step.distance / 1000).toFixed(2) + ' km'
-            }));
+      if (pickupCoords && deliveryCoords) {
+        // Fit bounds to both
+        const bounds = L.latLngBounds([
+          [pickupCoords.lat, pickupCoords.lon],
+          [deliveryCoords.lat, deliveryCoords.lon]
+        ]);
+        this.map.fitBounds(bounds, { padding: [50, 50] });
+
+        // Fetch route from OSRM (Using FOSSGIS routing server which has better CORS/Rate limits)
+        const url = `https://routing.openstreetmap.de/routed-car/route/v1/driving/${pickupCoords.lon},${pickupCoords.lat};${deliveryCoords.lon},${deliveryCoords.lat}?overview=full&geometries=geojson&steps=true`;
+        this.http.get(url).subscribe({
+          next: (res: any) => {
+            if (res.code === 'Ok' && res.routes.length > 0) {
+              const route = res.routes[0];
+              const coordinates = route.geometry.coordinates.map((coord: any[]) => [coord[1], coord[0]]); // GeoJSON is [lon, lat]
+
+              this.routingLayer = L.polyline(coordinates, { color: '#3880ff', weight: 5, opacity: 0.7 }).addTo(this.map!);
+
+              if (this.showDirections && route.legs && route.legs[0].steps) {
+                this.directions = route.legs[0].steps.map((step: any) => ({
+                  instruction: step.maneuver?.modifier
+                    ? `${step.maneuver.type} ${step.maneuver.modifier} onto ${step.name || 'unnamed road'}`
+                    : `${step.maneuver?.type} on ${step.name || 'unnamed road'}`,
+                  distance: (step.distance / 1000).toFixed(2) + ' km'
+                }));
+              }
+            } else {
+              console.warn('OSRM returned no routes');
+            }
+          },
+          error: (err) => {
+            console.error('OSRM route fetch failed', err);
           }
-        }
-      });
+        });
+      } else if (pickupCoords) {
+        this.map.setView([pickupCoords.lat, pickupCoords.lon], 13);
+      } else if (deliveryCoords) {
+        this.map.setView([deliveryCoords.lat, deliveryCoords.lon], 13);
+      }
 
     } catch (err) {
       console.error('Error loading route', err);
     }
   }
 
-  private async geocode(address: string): Promise<{lat: number, lon: number} | null> {
-    try {
-      const res: any = await this.http.get(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&limit=1`).toPromise();
-      if (res && res.length > 0) {
-        return {
-          lat: parseFloat(res[0].lat),
-          lon: parseFloat(res[0].lon)
-        };
+  private async geocode(address: string): Promise<{ lat: number, lon: number } | null> {
+    const tryGeocode = async (query: string) => {
+      try {
+        const res: any = await this.http.get(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=1`).toPromise();
+        if (res && res.features && res.features.length > 0) {
+          const coords = res.features[0].geometry.coordinates; // [lon, lat]
+          return {
+            lat: coords[1],
+            lon: coords[0]
+          };
+        }
+        return null;
+      } catch (err) {
+        return null;
       }
-      return null;
-    } catch (err) {
-      console.error('Geocoding error', err);
-      return null;
+    };
+
+    if (!address) return null;
+
+    let result = await tryGeocode(address);
+    if (result) return result;
+
+    console.warn(`Exact geocode failed for "${address}". Trying fallback...`);
+
+    const parts = address.split(',').map(p => p.trim()).filter(p => p.length > 0);
+    if (parts.length > 1) {
+      const fallbackQuery = parts.slice(-2).join(', ');
+      result = await tryGeocode(fallbackQuery);
+      if (result) return result;
     }
+
+    if (parts.length > 0) {
+      const fallbackQuery = parts[parts.length - 1];
+      result = await tryGeocode(fallbackQuery);
+      if (result) return result;
+    }
+
+    console.warn(`All geocoding fallbacks failed for "${address}".`);
+    return null;
   }
 
   private clearMap() {

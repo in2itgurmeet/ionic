@@ -57,6 +57,22 @@ export class CreateBookingTypeComponent {
   }
   ngOnInit() {
     this.formInit();
+    
+    const ordId = localStorage.getItem('ordId');
+    if (ordId) {
+      this.indexService.getOrderById(ordId).subscribe({
+        next: (res: any) => {
+          if (res.body && res.body.data) {
+            const pickup = res.body.data.pickup?.location || res.body.data.pickup;
+            const delivery = res.body.data.delivery?.location || res.body.data.delivery;
+            if (pickup) this.booking.get('pickup')?.setValue(pickup);
+            if (delivery) this.booking.get('delivery')?.setValue(delivery);
+          }
+        },
+        error: (err: any) => console.error('Error fetching order details', err)
+      });
+    }
+
     this.bookingType = this.deultService.bookingMode();
     console.log(this.bookingType);
     const now = new Date();
