@@ -1,13 +1,10 @@
 <ion-row>
   <ion-text class="w-100">
-    <app-leaflet-map 
-      [pickupAddress]="orderData?.pickup?.location" 
-      [deliveryAddress]="orderData?.delivery?.location"
+    <app-leaflet-map [pickupAddress]="orderData?.pickup?.location" [deliveryAddress]="orderData?.delivery?.location"
       [showDirections]="true">
     </app-leaflet-map>
   </ion-text>
   <ion-col>
-
     <ion-text class="ion-padding form_content container-fluid">
       <form>
         <ion-text class="d-flex justify-content-center">
@@ -15,7 +12,9 @@
         </ion-text>
         <ion-text class="heading_cargo">
           <ion-text>
-            <h2 class="fw-bold booked">{{ orderData?.status || 'In Transit' }}</h2>
+            <h2 class="fw-bold booked">
+              {{ orderData?.status || "In Transit" }}
+            </h2>
           </ion-text>
         </ion-text>
 
@@ -24,10 +23,15 @@
           <ion-text class="hide-content">
             <ion-text>
               <p class="top-content">
-                Distance<span class="fw-bold">{{ orderData?.distance || 'N/A' }}</span>
+                Distance<span class="fw-bold">{{
+                  orderData?.distance || "N/A"
+                  }}</span>
               </p>
               <p class="top-content">
-                Expected Travel Time <span class="fw-bold">{{ orderData?.expectedTravelTime || 'N/A' }}</span>
+                Expected Travel Time
+                <span class="fw-bold">{{
+                  orderData?.expectedTravelTime || "N/A"
+                  }}</span>
               </p>
             </ion-text>
             <ion-text class="d-flex justify-content-center px-1 g-0">
@@ -36,28 +40,45 @@
             <ion-text>
               <ion-text class="booked-overview">
                 <ion-text>
-                  <p>Order No: <span class="fw-bold">{{ orderData?.orderId }}</span></p>
+                  <p>
+                    Order No:
+                    <span class="fw-bold">{{ orderData?.orderId }}</span>
+                  </p>
                 </ion-text>
                 <ion-text>
-                  <p>Order Date: <span class="fw-bold">{{ orderData?.createdAt | date: 'dd-MMM-yyyy' }}</span></p>
+                  <p>
+                    Order Date:
+                    <span class="fw-bold">{{
+                      orderData?.createdAt | date: "dd-MMM-yyyy"
+                      }}</span>
+                  </p>
                 </ion-text>
                 <ion-text>
-                  <p>Order type: <span class="fw-bold">{{ orderData?.paymentType }}</span></p>
+                  <p>
+                    Order type:
+                    <span class="fw-bold">{{ orderData?.paymentType }}</span>
+                  </p>
                 </ion-text>
-
               </ion-text>
               <ion-text class="booked-overview">
                 <ion-text>
-                  <p>Booking type: <span class="fw-bold">{{ orderData?.bookingType }}</span></p>
+                  <p>
+                    Booking type:
+                    <span class="fw-bold">{{ orderData?.bookingType }}</span>
+                  </p>
                 </ion-text>
                 <ion-text>
-                  <p>Tracking ID: <span class="fw-bold">{{ orderData?.trackingId }}</span></p>
+                  <p>
+                    Tracking ID:
+                    <span class="fw-bold">{{ orderData?.trackingId }}</span>
+                  </p>
                 </ion-text>
                 <ion-text>
-                  <p>Trip No: <span class="fw-bold">{{ orderData?.tripNo }}</span></p>
+                  <p>
+                    Trip No:
+                    <span class="fw-bold">{{ orderData?.tripNo }}</span>
+                  </p>
                 </ion-text>
-
-
               </ion-text>
             </ion-text>
             <ion-text class="d-flex justify-content-center px-1 g-0 m-0">
@@ -67,8 +88,6 @@
 
           <!----customer Adding---->
 
-
-
           <!----------pikupCard----->
           <ion-text>
             <ion-text class="input_feild_section px-1 mt-2">
@@ -76,15 +95,18 @@
                 <i class="fa fa-map-marker text-success" aria-hidden="true"></i>
               </ion-text>
               <ion-text class="input-content text-start">
-                <p class="text-success fw-bold">Pickup: {{ orderData?.pickup?.date || 'N/A' }} at {{ orderData?.pickup?.time || 'N/A' }}</p>
+                <p class="text-success fw-bold">
+                  Pickup: {{ orderData?.pickup?.date || "N/A" }} at
+                  {{ orderData?.pickup?.time || "N/A" }}
+                </p>
               </ion-text>
             </ion-text>
 
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
-                {{ orderData?.pickup?.person || 'N/A' }}
-                <span class="text_mob"><i class="fa fa-phone"
-                    aria-hidden="true"></i>+91 {{ orderData?.pickup?.phone || 'N/A' }}
+                {{ orderData?.pickup?.person || "N/A" }}
+                <span class="text_mob"><i class="fa fa-phone" aria-hidden="true"></i>+91
+                  {{ orderData?.pickup?.phone || "N/A" }}
                 </span>
               </p>
               <p>{{ orderData?.pickup?.location }}</p>
@@ -95,15 +117,23 @@
                 <i class="fa fa-map-marker text-danger" aria-hidden="true"></i>
               </ion-text>
               <ion-text class="input-content text-start">
-                <p class="text-danger fw-bold">Delivery: {{ orderData?.delivery?.date || orderData?.pickup?.date || 'N/A' }} at {{ orderData?.pickup?.time || 'N/A' }} (Estimated)</p>
+                <p class="text-danger fw-bold">
+                  Delivery:
+                  {{
+                  orderData?.delivery?.date ||
+                  orderData?.pickup?.date ||
+                  "N/A"
+                  }}
+                  at {{ orderData?.pickup?.time || "N/A" }} (Estimated)
+                </p>
               </ion-text>
             </ion-text>
 
             <ion-text class="input_feild_section2 mt_1">
               <p class="fw-bold">
-                {{ orderData?.delivery?.person || 'N/A' }}
-                <span class="text_mob"><i class="fa fa-phone"
-                    aria-hidden="true"></i>+91 {{ orderData?.delivery?.phone || 'N/A' }}
+                {{ orderData?.delivery?.person || "N/A" }}
+                <span class="text_mob"><i class="fa fa-phone" aria-hidden="true"></i>+91
+                  {{ orderData?.delivery?.phone || "N/A" }}
                 </span>
               </p>
               <p>{{ orderData?.delivery?.location }}</p>
@@ -113,29 +143,48 @@
           <ion-text class="d-flex justify-content-center px-1 g-0">
             <hr class="w-100" />
           </ion-text>
-
         </ion-text>
-        <ion-text class="tracking_system" *ngIf="trackingEvents.length > 0">
-          <ion-text class="first_tracking" *ngFor="let event of trackingEvents; let last = last">
+        @if (trackingEvents.length > 0) {
+        <ion-text class="tracking_system">
+          @for (event of trackingEvents; track $index; let last = $last) {
+          <ion-text class="first_tracking">
             <ion-text class="tracking-time-1">
-              <h6 class="fw-bold" *ngIf="event.time">{{ event.time | date: 'shortTime' }}</h6>
-              <p><span *ngIf="event.time">{{ event.time | date: 'dd-MM-yyyy' }}</span></p>
+              @if (event.time) {
+              <h6 class="fw-bold">
+                {{ event.time | date: "shortTime" }}
+              </h6>
+              }
+              <p>
+                @if (event.item) {
+                <span>{{ event.time | date: "dd-MM-yyyy" }}</span>
+                }
+              </p>
             </ion-text>
             <ion-text class="track-svg">
-              <i class="fa" [ngClass]="event.completed ? 'fa-circle text-success' : 'fa-circle-o text-muted'" aria-hidden="true"></i>
-              <span [ngClass]="{'solid text-success': event.completed}" *ngIf="!last"></span>
+              <i class="fa" [ngClass]="
+                      event.completed
+                        ? 'fa-circle text-success'
+                        : 'fa-circle-o text-muted'
+                    " aria-hidden="true"></i>
+                    @if(!last) {
+                      <span [ngClass]="{ 'solid text-success': event.completed }"></span>
+                    }
             </ion-text>
             <ion-text class="tracking-time">
-              <h6 class="fw-bold">Activity: <span [ngClass]="event.completed ? 'text-success' : 'text-muted'">{{ event.activity }}</span></h6>
-              <p>Location: <span>{{ event.location || 'Pending' }}</span></p>
+              <h6 class="fw-bold">
+                Activity:
+                <span [ngClass]="
+                        event.completed ? 'text-success' : 'text-muted'
+                      ">{{ event.activity }}</span>
+              </h6>
+              <p>
+                Location: <span>{{ event.location || "Pending" }}</span>
+              </p>
             </ion-text>
           </ion-text>
+          }
         </ion-text>
-
-
-
-
-
+        }
       </form>
     </ion-text>
   </ion-col>

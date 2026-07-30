@@ -1,10 +1,12 @@
 <ion-row>
   <ion-text class="w-100">
-    <app-leaflet-map *ngIf="pickupAddress && deliveryAddress"
-      [pickupAddress]="pickupAddress" 
-      [deliveryAddress]="deliveryAddress"
-      [showDirections]="true">
-    </app-leaflet-map>
+    @if(pickupAddress && deliveryAddress) {
+      <app-leaflet-map
+        [pickupAddress]="pickupAddress" 
+        [deliveryAddress]="deliveryAddress"
+        [showDirections]="true">
+      </app-leaflet-map>
+    }
   </ion-text>
   <ion-col>
     <ion-text class="form_content">

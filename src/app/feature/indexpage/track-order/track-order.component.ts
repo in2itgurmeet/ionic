@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { IndexService } from '../service/index-service';
+import { LeafletMapComponent } from "src/app/shared_component/leaflet-map/leaflet-map.component";
 import { LeafletMapComponent } from '../../../shared_component/leaflet-map/leaflet-map.component';
 
 @Component({
-  selector: 'app-track-order',
+  imports: [IonicModule, CommonModule, LeafletMapComponent]
   imports: [IonicModule, CommonModule, LeafletMapComponent],
   templateUrl: './track-order.component.html',
   styleUrls: ['./track-order.component.scss'],
