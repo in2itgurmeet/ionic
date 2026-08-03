@@ -124,7 +124,7 @@
 
   p {
     font-size: var(--fs-12) !important;
-    margin:0px;
+    margin:calc(0 * var(--px));
   }
 }
 
@@ -146,10 +146,6 @@
   font-size: smaller;
 }
 
-// .font-size {
-//   font-size: var(--fs-10) !important;
-//   color: rgb(216, 215, 215) !important;
-// }
 
 .font-size2 {
   font-size: calc(14 * var(--px));
@@ -244,14 +240,14 @@
 ion-card {
   box-shadow: none !important;
   border: 1px solid rgb(241, 241, 241);
-  border-radius: 8px !important;
+  border-radius: calc(5 * var(--px)) !important;
 }
 
 .payment_method {
-  padding: 5px 0px;
+  padding: calc(5 * var(--px)) 0px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: calc(2 * var(--px));
 }
 
 .payment-action {

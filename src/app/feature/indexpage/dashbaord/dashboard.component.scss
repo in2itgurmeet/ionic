@@ -95,7 +95,7 @@
     calc(5 * var(--px));
   background-color: white;
   // border-radius: 0px 0px 8px 8px;
-  border-radius: 0px 0px calc(10 * var(--px)) calc(10 * var(--px));
+  border-radius: calc(0 * var(--px)) calc(0 * var(--px)) calc(10 * var(--px)) calc(10 * var(--px));
   border-top: 1px solid rgb(241, 241, 241);
 }
 ion-text {
@@ -110,8 +110,8 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px;
-  padding: 0px;
+  margin: calc(0 * var(--px));
+  padding: calc(0 * var(--px));
 }
 
 .formatText span {
@@ -143,7 +143,8 @@ span {
   align-items: center;
   padding: calc(10 * var(--px)) calc(10 * var(--px)) calc(0 * var(--px))
     calc(10 * var(--px));
-  margin: 0px 5px -5px 3px;
+  margin: calc(0 * var(--px)) calc(5 * var(--px)) calc(-5 * var(--px))
+    calc(3 * var(--px));
 }
 
 .Counters_tophedding .Order_view {
@@ -212,8 +213,7 @@ span {
 .Text_content {
   color: #ff6347;
   font-size: var(--fs-14);
-
-  border-radius: 0px 0px calc(8 * var(--px)) calc(8 * var(--px));
+  border-radius: calc(0 * var(--px)) calc(0 * var(--px))  calc(8 * var(--px)) calc(8 * var(--px));
   border: 1px solid rgb(240, 240, 240);
 }
 
@@ -319,7 +319,7 @@ span {
   justify-content: space-between;
   align-items: last baseline;
   hr {
-    margin: 0px;
+    margin: calc(0 * var(--px)) ;
     width: calc(120 * var(--px));
   }
   span img {

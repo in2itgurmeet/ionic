@@ -218,7 +218,7 @@ span {
 }
 
 .format-text span {
-  margin-top: 2px;
+  margin-top: calc(2 * var(--px));
 }
 
 // .ptl_section:hover{
@@ -233,10 +233,10 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 5px;
+  gap: calc(5 * var(--px));
   background-color: white;
-  padding: 10px;
-  border-radius: 10px;
+  padding: calc(10 * var(--px));
+  border-radius: calc(10 * var(--px));
 }
 
 .content_section {
